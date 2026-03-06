@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Bing Webmaster Tools Verification File -->
+<!-- INSTRUCTIONS:
+     1. Go to https://www.bing.com/webmasters
+     2. Add your site (https://exambuddy.ng)
+     3. Choose "XML file" as verification method
+     4. Download BingSiteAuth.xml from Bing
+     5. Replace this file content with the actual content Bing provides
+     6. Upload to your root directory
+     7. Click "Verify" in Bing Webmaster Tools
+-->
+<users>
+  <user>REPLACE-WITH-YOUR-BING-VERIFICATION-CODE</user>
+</users>
