@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <base target="_blank">
+  <meta charset="UTF-8">
   <meta charset="UTF-8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -8,7 +10,7 @@
   <title>NABTEB Past Questions 2015–2024 – Practice Mode | ExamBuddy Nigeria</title>
   <meta name="description" content="Practice NABTEB past questions online. Technical subjects, 2015–2024. Click to reveal answers with explanations. Free." />
   <link rel="canonical" href="https://exambuddy.ng/pq-nabteb.html" />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="images/favicon image.png" />
   <link rel="stylesheet" href="css/style.css" /><link rel="stylesheet" href="css/responsive.css" />
   <style>
     .quiz-shell{display:grid;grid-template-columns:280px 1fr;gap:32px;align-items:start}
@@ -279,6 +281,7 @@ function ca(btn,sel,cor,idx,exp){const card=document.getElementById(`qc${idx}`);
 function resetScore(){score=0;total=0;document.getElementById('scoreNum').textContent='0/0';window.showToast&&showToast('🔄 Score reset!');}
 buildYearGrid();renderQuestions();document.querySelectorAll('.fb').forEach(btn=>{btn.addEventListener('click',function(){setSubject(this.getAttribute('data-subject'),this);});});
 </script>
+<script src="js/supabase.js"></script>
 <script src="js/shared-layout.js"></script>
 <script src="js/main.js"></script>
 <script src="js/exam-redirect.js"></script>

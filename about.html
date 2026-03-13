@@ -1,28 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <base target="_blank">
+  <meta charset="UTF-8">
   <meta charset="UTF-8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About ExamBuddy Nigeria – Our Mission &amp; Team</title>
-  <meta name="description" content="ExamBuddy Nigeria is a free exam preparation platform built by Nigerian graduates to help students prepare for WAEC, JAMB, NYSC, and NECO." />
+  <meta name="theme-color" content="#0A2463" />
+
+  <title>About ExamBuddy Nigeria – Free Exam Prep for Nigerian Students</title>
+  <meta name="description" content="ExamBuddy Nigeria is a free exam preparation platform built by Nigerian graduates to help students ace WAEC, JAMB, NECO, NYSC and IELTS. Learn about our mission and team." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="ExamBuddy Nigeria" />
   <link rel="canonical" href="https://exambuddy.ng/about.html" />
-  <link rel="icon" href="favicon.ico" />
-  
-  
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="ExamBuddy Nigeria" />
+  <meta property="og:url"         content="https://exambuddy.ng/about.html" />
+  <meta property="og:title"       content="About ExamBuddy Nigeria – Free Exam Prep for Nigerian Students" />
+  <meta property="og:description" content="Built by Nigerian graduates to help students ace WAEC, JAMB, NECO, NYSC and IELTS. 100% free, no paywalls." />
+  <meta property="og:image"       content="https://exambuddy.ng/images/og-cover.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="en_NG" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="About ExamBuddy Nigeria" />
+  <meta name="twitter:description" content="Free WAEC, JAMB, NECO, NYSC exam prep built by Nigerian graduates." />
+  <meta name="twitter:image"       content="https://exambuddy.ng/images/og-cover.png" />
+
+  <!-- JSON-LD: AboutPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About ExamBuddy Nigeria",
+    "url": "https://exambuddy.ng/about.html",
+    "description": "ExamBuddy Nigeria is a free exam preparation platform for Nigerian students covering WAEC, JAMB, NECO, NYSC and IELTS.",
+    "publisher": {
+      "@type": "EducationalOrganization",
+      "name": "ExamBuddy Nigeria",
+      "url": "https://exambuddy.ng",
+      "logo": "https://exambuddy.ng/images/logo.png",
+      "address": { "@type": "PostalAddress", "addressCountry": "NG" }
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Team (Person) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ExamBuddy Nigeria",
+    "url": "https://exambuddy.ng",
+    "member": [
+      { "@type": "Person", "name": "Adaeze Okonkwo", "jobTitle": "Founder & Editor-in-Chief" },
+      { "@type": "Person", "name": "Emeka Nwosu",    "jobTitle": "JAMB Specialist" },
+      { "@type": "Person", "name": "Funke Adeyemi",  "jobTitle": "NYSC Content Writer" },
+      { "@type": "Person", "name": "Chidi Okafor",   "jobTitle": "Tech Lead" }
+    ]
+  }
+  </script>
+
+  <link rel="icon" href="images/favicon image.png" />
+  <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
-  
-  
 </head>
 <body>
 <div id="nav-root"></div>
 
 <div class="breadcrumb">
   <div class="container breadcrumb__inner">
-    <a href="index.html">Home</a><span class="breadcrumb__sep">›</span><span>About</span>
+    <a href="index.html">Home</a><span class="breadcrumb__sep">›</span><span>About Us</span>
   </div>
 </div>
 
@@ -31,6 +87,11 @@
     <span class="label label--white">ℹ️ About Us</span>
     <h1>Built for Nigerian Students, by Nigerian Graduates</h1>
     <p>ExamBuddy started as a simple idea: Nigerian students deserve free, accurate, and honest exam preparation resources. No paywalls. No misleading information. Just clear, useful guidance.</p>
+    <div class="badge-row">
+      <span class="badge">🇳🇬 100% Nigerian</span>
+      <span class="badge">🆓 Always Free</span>
+      <span class="badge">✅ Verified Content</span>
+    </div>
   </div>
 </section>
 
@@ -43,12 +104,17 @@
         <h2 class="section-title">Democratising Exam Success for Every Nigerian Student</h2>
         <p style="margin-bottom:16px;">Nigeria has over 15 million secondary school and university-entrance students every year. Too many of them fail important exams not because they lack intelligence or effort, but because they lack access to good preparation resources.</p>
         <p style="margin-bottom:16px;">Paid tutorial centres, expensive past question booklets, and questionable online "expo" services take advantage of students who just want honest guidance.</p>
-        <p>ExamBuddy exists to change that. Everything on this platform is free, verified by Nigerian educators, and written with the Nigerian student experience in mind.</p>
+        <p style="margin-bottom:16px;">ExamBuddy exists to change that. Everything on this platform is free, verified by Nigerian educators, and written with the Nigerian student experience in mind.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;">
+          <a href="waec.html" class="btn btn--primary btn--sm">📝 WAEC Guide</a>
+          <a href="jamb.html" class="btn btn--green btn--sm">🎯 JAMB Guide</a>
+          <a href="contact.html" class="btn btn--outline btn--sm">📧 Contact Us</a>
+        </div>
       </div>
-      <div style="background:linear-gradient(135deg,var(--navy),#1A3A6B); border-radius:var(--r-xl); padding:var(--space-3xl); color:var(--white); text-align:center;">
-        <div style="font-size:3rem; margin-bottom:var(--space-lg);">🎯</div>
-        <blockquote style="font-family:var(--font-display); font-size:1.3rem; font-weight:700; line-height:1.4; color:var(--white);">"Every Nigerian student deserves the same quality of exam preparation — regardless of where they are or what they can afford."</blockquote>
-        <p style="color:rgba(255,255,255,.65); margin-top:var(--space-md); font-size:.88rem;">— ExamBuddy Mission Statement</p>
+      <div style="background:linear-gradient(135deg,#0A2463,#1A3A6B); border-radius:22px; padding:48px; color:white; text-align:center;">
+        <div style="font-size:3rem; margin-bottom:24px;">🎯</div>
+        <blockquote style="font-family:'Outfit',sans-serif; font-size:1.3rem; font-weight:700; line-height:1.4; color:white;">"Every Nigerian student deserves the same quality of exam preparation — regardless of where they are or what they can afford."</blockquote>
+        <p style="color:rgba(255,255,255,.65); margin-top:16px; font-size:.88rem;">— ExamBuddy Mission Statement</p>
       </div>
     </div>
   </div>
@@ -60,6 +126,7 @@
     <div class="text-center mb-48">
       <span class="label">What We Stand For</span>
       <h2 class="section-title">Our Core Values</h2>
+      <p class="section-sub text-center">Everything we do is guided by these four principles.</p>
     </div>
     <div class="cards-grid cards-grid--4">
       <div class="exam-card reveal" style="text-align:center; align-items:center;">
@@ -70,17 +137,17 @@
       <div class="exam-card reveal" style="text-align:center; align-items:center;">
         <div class="exam-card__icon">✅</div>
         <h3>Accuracy First</h3>
-        <p>Every fact is verified against official sources. We update our guides every exam season to reflect the latest changes.</p>
+        <p>Every fact is verified against official sources. We update our guides every exam season to reflect the latest changes from WAEC, JAMB, NECO and NYSC.</p>
       </div>
       <div class="exam-card reveal" style="text-align:center; align-items:center;">
         <div class="exam-card__icon">🇳🇬</div>
         <h3>Nigerian-Focused</h3>
-        <p>Written by Nigerians, for Nigerians. We understand the unique challenges of the Nigerian exam system from experience.</p>
+        <p>Written by Nigerians, for Nigerians. We understand the unique challenges of the Nigerian exam system from first-hand experience.</p>
       </div>
       <div class="exam-card reveal" style="text-align:center; align-items:center;">
         <div class="exam-card__icon">🔒</div>
         <h3>Privacy &amp; Safety</h3>
-        <p>We never sell user data. We warn students against exam fraud. We only link to verified official portals.</p>
+        <p>We never sell user data. We warn students against exam fraud. We only link to verified official portals. See our <a href="privacy.html" style="color:#1B4FD8;">Privacy Policy</a>.</p>
       </div>
     </div>
   </div>
@@ -94,13 +161,30 @@
       <h2 class="section-title">Numbers That Matter</h2>
     </div>
     <div class="stat-boxes">
-      <div class="stat-box--light reveal"><div class="num" data-target="50" data-suffix="K+">0</div><div class="lbl">Students Helped</div></div>
-      <div class="stat-box--light reveal"><div class="num" data-target="36" data-suffix="">0</div><div class="lbl">States in Nigeria Reached</div></div>
-      <div class="stat-box--light reveal"><div class="num" data-target="500" data-suffix="+">0</div><div class="lbl">Free Resources Available</div></div>
-      <div class="stat-box--light reveal"><div class="num" data-target="98" data-suffix="%">0</div><div class="lbl">Positive Feedback Rate</div></div>
+      <div class="stat-box reveal">
+        <span class="stat-box__num" data-target="50" data-suffix="K+">0</span>
+        <span class="stat-box__label">Students Helped</span>
+      </div>
+      <div class="stat-box reveal">
+        <span class="stat-box__num" data-target="36" data-suffix="">0</span>
+        <span class="stat-box__label">States in Nigeria Reached</span>
+      </div>
+      <div class="stat-box reveal">
+        <span class="stat-box__num" data-target="500" data-suffix="+">0</span>
+        <span class="stat-box__label">Free Resources Available</span>
+      </div>
+      <div class="stat-box reveal">
+        <span class="stat-box__num" data-target="98" data-suffix="%">0</span>
+        <span class="stat-box__label">Positive Feedback Rate</span>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- AD UNIT -->
+<div class="container">
+  <div class="ad-unit ad-banner" aria-label="Advertisement"></div>
+</div>
 
 <!-- TESTIMONIALS -->
 <section class="section section-alt">
@@ -138,32 +222,43 @@
     <div class="text-center mb-48">
       <span class="label">The Team</span>
       <h2 class="section-title">Meet the People Behind ExamBuddy</h2>
+      <p class="section-sub text-center">Nigerian educators and graduates who've been through the same exams you're preparing for.</p>
     </div>
     <div class="cards-grid cards-grid--4">
       <div class="team-card reveal">
-        <div class="team-avatar" style="background:#EFF6FF;">👩🏾‍💼</div>
+        <div class="team-avatar">A</div>
         <h4>Adaeze Okonkwo</h4>
         <div class="role">Founder &amp; Editor-in-Chief</div>
         <p>University of Lagos graduate. Former secondary school teacher. 6 years writing education content for Nigerian students.</p>
       </div>
       <div class="team-card reveal">
-        <div class="team-avatar" style="background:#F0FDF4;">👨🏾‍🏫</div>
+        <div class="team-avatar">E</div>
         <h4>Emeka Nwosu</h4>
         <div class="role">JAMB Specialist</div>
         <p>Scored 324 in JAMB UTME. Has tutored over 200 students for JAMB and tracks all JAMB policy changes in real-time.</p>
       </div>
       <div class="team-card reveal">
-        <div class="team-avatar" style="background:#FFFBEB;">👩🏽‍🎓</div>
+        <div class="team-avatar">F</div>
         <h4>Funke Adeyemi</h4>
         <div class="role">NYSC Content Writer</div>
         <p>Recently completed her NYSC service year and documents everything students need to know about surviving and thriving.</p>
       </div>
       <div class="team-card reveal">
-        <div class="team-avatar" style="background:#F5F3FF;">👨🏿‍💻</div>
-        <h4>Arewa Abisoye</h4>
+        <div class="team-avatar">C</div>
+        <h4>Chidi Okafor</h4>
         <div class="role">Tech Lead</div>
         <p>Software engineer who ensures ExamBuddy is fast, accessible, and works properly on low-end devices and slow connections.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="section section-alt">
+  <div class="container" style="max-width:780px;">
+    <div class="disclaimer">
+      <div class="disclaimer__head">⚠️ Important Disclaimer</div>
+      <p style="font-size:.88rem;color:#92400E;">ExamBuddy Nigeria is an <strong>independent information website</strong>. We are not affiliated with, endorsed by, or connected to WAEC, JAMB, NECO, NYSC, or any Nigerian government body. All exam information is provided for educational guidance only. Always verify critical information directly with the relevant exam body. See our full <a href="disclaimer.html" style="color:#92400E;font-weight:700;">Disclaimer</a>.</p>
     </div>
   </div>
 </section>
@@ -181,8 +276,41 @@
 </section>
 
 <div id="footer-root"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="js/shared-layout.js"></script>
+<script src="js/supabase.js"></script>
 <script src="js/main.js"></script>
 <script src="js/exam-redirect.js"></script>
+
+<!-- Counter animation -->
+<script>
+  function animateCount(el) {
+    const target = +el.dataset.target;
+    const suffix = el.dataset.suffix || '';
+    const dur = 1800, step = 16;
+    const inc = target / (dur / step);
+    let cur = 0;
+    const t = setInterval(() => {
+      cur = Math.min(cur + inc, target);
+      el.textContent = Math.floor(cur) + suffix;
+      if (cur >= target) clearInterval(t);
+    }, step);
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('[data-target]').forEach(animateCount);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.stat-boxes').forEach(el => obs.observe(el));
+
+  /* Reveal animation */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
 </body>
 </html>

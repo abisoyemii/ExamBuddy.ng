@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <base target="_blank">
+  <meta charset="UTF-8">
   <meta charset="UTF-8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -8,7 +10,7 @@
   <title>NECO Past Questions 2015–2024 – Practice Mode | ExamBuddy Nigeria</title>
   <meta name="description" content="Practice NECO SSCE past questions online. All subjects, 2015–2024. Click to reveal answers with explanations. Free." />
   <link rel="canonical" href="https://exambuddy.ng/pq-neco.html" />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="images/favicon image.png" />
   
   
   <link rel="stylesheet" href="css/style.css" /><link rel="stylesheet" href="css/responsive.css" />
@@ -1150,10 +1152,6 @@ function renderQuestions(){const data=NECO_DATA[currentSubject]||[];const filter
 function ca(btn,sel,cor,idx,exp){const card=document.getElementById(`qc${idx}`);const btns=card.querySelectorAll('.ob');btns.forEach(b=>b.disabled=true);if(sel===cor){btn.classList.add('correct');score++;total++;window.showToast&&showToast('✅ Correct!');}else{btn.classList.add('wrong');total++;btns.forEach(b=>{if(b.querySelector('.ol').textContent.trim()===cor)b.classList.add('correct');});window.showToast&&showToast('❌ Incorrect.');}document.getElementById(`ex${idx}`).innerHTML=`<strong>✏️ Explanation:</strong> ${exp}`;document.getElementById(`ex${idx}`).classList.add('show');document.getElementById('scoreNum').textContent=`${score}/${total}`;}
 function resetScore(){score=0;total=0;document.getElementById('scoreNum').textContent='0/0';window.showToast&&showToast('🔄 Score reset!');}
 buildYearGrid();renderQuestions();document.querySelectorAll('.fb').forEach(btn=>{btn.addEventListener('click',function(){setSubject(this.getAttribute('data-subject'),this);});});
-</script>
-<script src="js/shared-layout.js"></script>
-<script src="js/main.js"></script>
-<script src="js/exam-redirect.js">
 
 
 /* ── Save result to dashboard history ── */
@@ -1526,9 +1524,24 @@ function showResults() {
   const total  = qs.length;
   const pct    = Math.round((correct / total) * 100);
   const score  = correct * 2; // JAMB marks: 2 per correct (max 100 for 50 qs, scaled here)
-  // Save to dashboard history
+  // Save to dashboard history (Supabase + localStorage)
   const timeUsed = CBT.DURATION_SECS - CBT.timerSecs;
-  saveToHistory('NECO', total, correct, wrong, skipped, pct, subjectMap, timeUsed);
+  const _mins = Math.floor(timeUsed / 60), _secs = timeUsed % 60;
+  const _resultObj = {
+    pct: pct, correct, wrong, skipped, total,
+    timeTaken: `${_mins}m ${_secs < 10 ? '0'+_secs : _secs}s`,
+    subjects: subjectMap
+  };
+  if (typeof ebSaveResult === 'function') {
+    ebSaveResult('NECO', _resultObj);
+  } else {
+    // fallback: save directly to localStorage
+    try {
+      const _h = JSON.parse(localStorage.getItem('exambuddy_history') || '[]');
+      _h.push({ exam:'NECO', date: new Date().toISOString(), ..._resultObj });
+      localStorage.setItem('exambuddy_history', JSON.stringify(_h));
+    } catch(e) {}
+  }
 
 
   // Score ring colour
@@ -1833,10 +1846,7 @@ function resetScore() {
 })();
 
 </script>
-<script src="js/shared-layout.js"></script>
-<script src="js/main.js"></script>
-<script src="js/exam-redirect.js">
-</script>
+<script src="js/supabase.js"></script>
 <script src="js/shared-layout.js"></script>
 <script src="js/main.js"></script>
 <script src="js/exam-redirect.js"></script>

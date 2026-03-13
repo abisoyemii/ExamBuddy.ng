@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <base target="_blank">
+  <meta charset="UTF-8">
+   <base target="_blank">
+  <meta charset="UTF-8">
   <meta charset="UTF-8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -9,7 +13,7 @@
   <title>My Dashboard – ExamBuddy Nigeria</title>
   <meta name="description" content="Track your JAMB, WAEC, and NECO CBT practice scores, subject performance, and improvement over time." />
   <link rel="canonical" href="https://exambuddy.ng/dashboard.html" />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="images/favicon image.png" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 
@@ -276,6 +280,8 @@
       </div>
       <div class="dash-hero__actions">
         <a href="past-questions.html" class="btn btn--white btn--sm">📝 Practice Now</a>
+        <button id="dashLogoutBtn" class="btn btn--outline btn--sm" onclick="ebSignOut ? ebSignOut() : null" style="display:none;border-color:rgba(255,255,255,.4);color:#fff;">Sign Out</button>
+        <a href="login.html" class="btn btn--white btn--sm" id="dashLoginBtn">👤 Log In</a>
         <button class="btn btn--danger btn--sm" onclick="confirmClear()">🗑️ Clear History</button>
       </div>
     </div>
@@ -420,9 +426,15 @@ function saveHistory(data) {
 /* ── Render everything ── */
 let currentFilter = 'all';
 
-function renderDashboard() {
-  const history = getHistory();
-  const filtered = currentFilter === 'all' ? history : history.filter(r => r.exam.toLowerCase() === currentFilter);
+async function renderDashboard() {
+  let history, filtered;
+  if (typeof ebGetResults === 'function') {
+    history  = await ebGetResults('all');
+    filtered = currentFilter === 'all' ? history : history.filter(r => r.exam.toLowerCase() === currentFilter);
+  } else {
+    history  = getHistory();
+    filtered = currentFilter === 'all' ? history : history.filter(r => r.exam.toLowerCase() === currentFilter);
+  }
 
   renderStats(history);
   renderStreak(history);
@@ -603,11 +615,11 @@ function renderHistory(filtered) {
   `;
 }
 
-function filterExam(exam, btn) {
+async function filterExam(exam, btn) {
   currentFilter = exam;
   document.querySelectorAll('.exam-tab').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  renderDashboard();
+  await renderDashboard();
 }
 
 function scoreClass(pct) {
@@ -625,10 +637,29 @@ function clearAllHistory() {
   window.showToast && showToast('✅ History cleared.');
 }
 
-// Init
-renderDashboard();
-</script>
+// Init — wait for Supabase, then render
+async function initDashboard() {
+  await renderDashboard();
+  // Show logged-in user name in hero if available
+  if (typeof ebGetUser === 'function') {
+    const user = await ebGetUser();
+    if (user) {
+      const name = user.user_metadata?.full_name || user.email.split('@')[0];
+      const h1 = document.querySelector('.dash-hero h1');
+      if (h1) h1.textContent = '📊 ' + name + '\'s Dashboard';
+      // Show logout button
+      const logoutBtn = document.getElementById('dashLogoutBtn');
+      if (logoutBtn) logoutBtn.style.display = 'inline-flex';
+    }
+  }
+}
 
+document.addEventListener('eb:supabase-ready', initDashboard);
+// Also run immediately in case SDK already loaded (cached)
+if (window._sb) initDashboard(); else setTimeout(() => { if (!window._sbReady) renderDashboard(); }, 800);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
 <script src="js/shared-layout.js"></script>
 <script src="js/main.js"></script>
 </body>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <base target="_blank">
+  <meta charset="UTF-8">
   <meta charset="UTF-8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -9,7 +11,7 @@
   <title>WAEC Past Questions 2015–2024 – Practice Mode | ExamBuddy Nigeria</title>
   <meta name="description" content="Practice WAEC past questions online. English, Mathematics, Biology, Chemistry, Physics, Economics, Government, Literature. Click to reveal answers. Free." />
   <link rel="canonical" href="https://exambuddy.ng/pq-waec.html" />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="images/favicon image.png" />
   
   
   <link rel="stylesheet" href="css/style.css" />
@@ -1326,6 +1328,7 @@ function resetScore() {
 })();
 </script>
 
+<script src="js/supabase.js"></script>
 <script src="js/shared-layout.js"></script>
 <script src="js/main.js"></script>
 <script src="js/exam-redirect.js">
@@ -1701,9 +1704,24 @@ function showResults() {
   const total  = qs.length;
   const pct    = Math.round((correct / total) * 100);
   const score  = correct * 2; // JAMB marks: 2 per correct (max 100 for 50 qs, scaled here)
-  // Save to dashboard history
+  // Save to dashboard history (Supabase + localStorage)
   const timeUsed = CBT.DURATION_SECS - CBT.timerSecs;
-  saveToHistory('WAEC', total, correct, wrong, skipped, pct, subjectMap, timeUsed);
+  const _mins = Math.floor(timeUsed / 60), _secs = timeUsed % 60;
+  const _resultObj = {
+    pct: pct, correct, wrong, skipped, total,
+    timeTaken: `${_mins}m ${_secs < 10 ? '0'+_secs : _secs}s`,
+    subjects: subjectMap
+  };
+  if (typeof ebSaveResult === 'function') {
+    ebSaveResult('WAEC', _resultObj);
+  } else {
+    // fallback: save directly to localStorage
+    try {
+      const _h = JSON.parse(localStorage.getItem('exambuddy_history') || '[]');
+      _h.push({ exam:'WAEC', date: new Date().toISOString(), ..._resultObj });
+      localStorage.setItem('exambuddy_history', JSON.stringify(_h));
+    } catch(e) {}
+  }
 
 
   // Score ring colour

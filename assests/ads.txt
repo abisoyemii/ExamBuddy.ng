@@ -1,14 +1,1 @@
-# ExamBuddy Nigeria — ads.txt
-# Required by Google AdSense to authorise ad serving on this domain.
-# Replace XXXXXXXXXXXXXXXX with your actual AdSense publisher ID.
-#
-# Format: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-#
-# INSTRUCTIONS:
-# 1. Log in to your Google AdSense account
-# 2. Go to Account > Account information
-# 3. Copy your Publisher ID (starts with pub-)
-# 4. Replace pub-XXXXXXXXXXXXXXXX below with your actual Publisher ID
-# 5. Remove the # comment character from the line below
-
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-3990291332288915, DIRECT, f08c47fec0942fa0

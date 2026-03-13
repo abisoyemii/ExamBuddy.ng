@@ -1,27 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <base target="_blank">
+  <meta charset="UTF-8">
   <meta charset="UTF-8" />
+
+  <!-- ═══ PERFORMANCE: Preconnect & Preload fonts ═══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <!-- ═══ CORE META ═══ -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ExamBuddy Nigeria – WAEC, JAMB, NYSC &amp; NECO Exam Guides</title>
-  <meta name="description" content="Free exam preparation guides for Nigerian students. WAEC, JAMB, NYSC, NECO study tips, past questions, and direct links to official portals." />
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="ExamBuddy Nigeria">
-  <meta name="keywords" content="WAEC guide Nigeria, JAMB 2025, NYSC portal, NECO past questions, Nigerian exam prep" />
+  <meta name="theme-color" content="#0A2463" />
+
+  <!-- ═══ SEO: Title & Description ═══ -->
+  <title>ExamBuddy Nigeria – Free WAEC, JAMB, NECO & NYSC Exam Guides 2025</title>
+  <meta name="description" content="Free exam preparation for Nigerian students. WAEC 2025 guide, JAMB UTME CBT tips, NECO past questions, NYSC camp survival guide, and direct links to official exam portals." />
+  <meta name="keywords" content="WAEC guide 2025, JAMB UTME 2025, NECO past questions, NYSC portal Nigeria, Nigerian exam preparation, JAMB CBT tips, WAEC past questions" />
+  <meta name="author" content="ExamBuddy Nigeria" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ═══ CANONICAL ═══ -->
   <link rel="canonical" href="https://exambuddy.ng/" />
-  <meta property="og:title" content="ExamBuddy Nigeria – Your Ultimate Exam Companion" />
-  <meta property="og:description" content="Free WAEC, JAMB, NYSC, NECO guides for Nigerian students." />
-  <meta property="og:url" content="https://exambuddy.ng/" />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="manifest" href="manifest.json" />
+
+  <!-- ═══ SITEMAP ═══ -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <!-- ═══ OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ═══ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="ExamBuddy Nigeria" />
+  <meta property="og:url"         content="https://exambuddy.ng/" />
+  <meta property="og:title"       content="ExamBuddy Nigeria – Free WAEC, JAMB, NECO & NYSC Guides 2025" />
+  <meta property="og:description" content="Free exam prep for Nigerian students. WAEC 2025, JAMB CBT tips, NECO past questions, NYSC guide — all in one place." />
+  <meta property="og:image"       content="https://eimages/og-cover.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="en_NG" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="ExamBuddy Nigeria – Free WAEC, JAMB, NECO & NYSC Guides 2025" />
+  <meta name="twitter:description" content="Free exam prep for Nigerian students. WAEC, JAMB CBT, NECO, NYSC — all in one place." />
+  <meta name="twitter:image"       content="https://exambuddy.ng/images/og-cover.png" />
+
+  <!-- ═══ JSON-LD SCHEMA: Organization ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "ExamBuddy Nigeria",
+    "url": "https://exambuddy.ng",
+    "logo": "https://exambuddy.ng/images/logo.png",
+    "description": "Free WAEC, JAMB, NECO and NYSC exam preparation guides for Nigerian students.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "NG"
+    },
+    "sameAs": []
+  }
+  </script>
+
+  <!-- ═══ JSON-LD SCHEMA: WebSite + Sitelinks Search ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ExamBuddy Nigeria",
+    "url": "https://exambuddy.ng",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://exambuddy.ng/blog.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- ═══ GOOGLE SITE VERIFICATION ═══ -->
+  <meta name="google-site-verification" content="googlefe1103ddcf2343f0" />
+
+  <!-- ═══ ICONS & PWA ═══ -->
+  <link rel="icon" href="images/favicon image.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- ═══ STYLESHEETS ═══ -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
-  
 </head>
 <body>
 
@@ -29,24 +95,38 @@
 
 <!-- HERO -->
 <section class="hero">
+
+  <!-- 1. Particle background canvas -->
+  <canvas id="hero-canvas"></canvas>
+
   <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="dot"></span>
-        Trusted by 50,000+ Nigerian Students
+    <div class="hero__inner">
+
+      <!-- 2. LEFT: existing hero text -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Trusted by 50,000+ Nigerian Students
+        </div>
+        <h1>Your Ultimate <span class="highlight">Nigerian<br>Exam</span> Companion</h1>
+        <p>Ace WAEC, JAMB, NECO, NYSC and more with free study guides, expert tips, past questions, and direct access to official exam portals — all in one place.</p>
+        <div class="hero-btns">
+          <a href="exam-portals.html" class="btn btn-gold btn-lg">🔗 Access Exam Portals</a>
+          <a href="resources.html" class="btn btn-outline-white btn-lg">📁 Free Resources</a>
+        </div>
+        <div class="hero-stats">
+          <div><span class="hero-stat-num" data-target="50" data-suffix="K+">0</span><span class="hero-stat-label">Students Helped</span></div>
+          <div><span class="hero-stat-num" data-target="36" data-suffix="">0</span><span class="hero-stat-label">States Covered</span></div>
+          <div><span class="hero-stat-num" data-target="500" data-suffix="+">0</span><span class="hero-stat-label">Free Resources</span></div>
+          <div><span class="hero-stat-num" data-target="98" data-suffix="%">0</span><span class="hero-stat-label">Positive Feedback</span></div>
+        </div>
       </div>
-      <h1>Your Ultimate <span class="highlight">Nigerian<br>Exam</span> Companion</h1>
-      <p>Ace WAEC, JAMB, NECO, NYSC and more with free study guides, expert tips, past questions, and direct access to official exam portals — all in one place.</p>
-      <div class="hero-btns">
-        <a href="exam-portals.html" class="btn btn-gold btn-lg">🔗 Access Exam Portals</a>
-        <a href="past-questions.html" class="btn btn-outline-white btn-lg">📁 Free Resources</a>
+
+      <!-- 3. RIGHT: animated orb -->
+      <div class="hero__orb-wrap">
+        <canvas id="orb-canvas" width="420" height="420"></canvas>
       </div>
-      <div class="hero-stats">
-        <div><span class="hero-stat-num" data-target="50" data-suffix="K+">0</span><span class="hero-stat-label">Students Helped</span></div>
-        <div><span class="hero-stat-num" data-target="36" data-suffix="">0</span><span class="hero-stat-label">States Covered</span></div>
-        <div><span class="hero-stat-num" data-target="500" data-suffix="+">0</span><span class="hero-stat-label">Free Resources</span></div>
-        <div><span class="hero-stat-num" data-target="98" data-suffix="%">0</span><span class="hero-stat-label">Positive Feedback</span></div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -98,7 +178,7 @@
         <h3>Free Resources</h3>
         <p>Download past questions, study timetables, syllabus PDFs, essay templates and formula sheets — all completely free.</p>
         <span class="card-tag">Free PDFs</span>
-        <a href="resources.html" class="btn btn-green btn-sm">Browse Resources →</a>
+        <a href="study-resources.html" class="btn btn-green btn-sm">Browse Resources →</a>
       </div>
       <div class="exam-card animate-fadein delay-3">
         <div class="card-icon icon-teal">✍️</div>
@@ -235,13 +315,27 @@
   </div>
 </section>
 
+
+
+
+<div class="container" style="max-width:780px; margin-bottom:32px;">
+  <div class="disclaimer">
+    <div class="disclaimer__head">⚠️ Disclaimer</div>
+    <p style="font-size:.85rem; color:#92400E;">
+      ExamBuddy Nigeria is an independent information website. We are not affiliated with WAEC, JAMB, NECO, NYSC, or any Nigerian government body. See our full <a href="disclaimer.html" style="color:#92400E; font-weight:700;">Disclaimer</a> and <a href="privacy.html" style="color:#92400E; font-weight:700;">Privacy Policy</a>.
+    </p>
+  </div>
+</div>
+
 <div id="footer-root"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="js/shared-layout.js"></script>
+<script src="js/supabase.js"></script>
 <script src="js/main.js"></script>
 <script src="js/exam-redirect.js"></script>
 
+<!-- Counter animation -->
 <script>
-  /* Counter animation */
   function animateCount(el) {
     const target = +el.dataset.target;
     const suffix = el.dataset.suffix || '';
@@ -264,5 +358,325 @@
   }, { threshold: 0.3 });
   document.querySelectorAll('.hero-stats, .grid-2').forEach(el => obs.observe(el));
 </script>
+
+<!-- ORB animation -->
+<script>
+(function () {
+  const canvas = document.getElementById('orb-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const W  = canvas.width;
+  const H  = canvas.height;
+  const CX = W / 2;
+  const CY = H / 2;
+  const R  = W * 0.46;
+
+  let tick = 0;
+
+  const BLUE_DARK  = { r: 10,  g: 36,  b: 99  };
+  const BLUE_MID   = { r: 27,  g: 79,  b: 216 };
+  const GREEN_MAIN = { r: 5,   g: 150, b: 105 };
+  const GREEN_LT   = { r: 16,  g: 185, b: 129 };
+  const TEAL       = { r: 15,  g: 118, b: 110 };
+
+  function rgba(c, a) { return `rgba(${c.r},${c.g},${c.b},${a})`; }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function lerpC(a, b, t) {
+    return { r: lerp(a.r, b.r, t), g: lerp(a.g, b.g, t), b: lerp(a.b, b.b, t) };
+  }
+
+  function drawSphere() {
+    const t    = (Math.sin(tick * 0.008) + 1) / 2;
+    const glow = lerpC(GREEN_MAIN, BLUE_MID, t);
+    const grad = ctx.createRadialGradient(
+      CX - R * 0.25, CY - R * 0.25, R * 0.05,
+      CX, CY, R
+    );
+    grad.addColorStop(0.0,  rgba(GREEN_LT,  0.95));
+    grad.addColorStop(0.25, rgba(glow,       0.85));
+    grad.addColorStop(0.55, rgba(BLUE_MID,   0.7));
+    grad.addColorStop(0.78, rgba(BLUE_DARK,  0.9));
+    grad.addColorStop(1.0,  rgba(BLUE_DARK,  1.0));
+    ctx.beginPath();
+    ctx.arc(CX, CY, R, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+  }
+
+  function drawPetals() {
+    const numPetals = 4;
+    const rot = tick * 0.004;
+    for (let i = 0; i < numPetals; i++) {
+      const angle     = (i / numPetals) * Math.PI * 2 + rot;
+      const nextAngle = ((i + 1) / numPetals) * Math.PI * 2 + rot;
+      const t         = (Math.sin(tick * 0.006 + i) + 1) / 2;
+      const petalColor = lerpC(GREEN_MAIN, TEAL, t);
+      const alpha      = 0.55 + 0.2 * Math.sin(tick * 0.01 + i * 1.3);
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(CX, CY);
+      ctx.quadraticCurveTo(
+        CX + Math.cos(angle - 0.3) * R * 0.95,
+        CY + Math.sin(angle - 0.3) * R * 0.95,
+        CX + Math.cos(angle + Math.PI / numPetals) * R * 0.88,
+        CY + Math.sin(angle + Math.PI / numPetals) * R * 0.88
+      );
+      ctx.quadraticCurveTo(
+        CX + Math.cos(nextAngle + 0.3) * R * 0.95,
+        CY + Math.sin(nextAngle + 0.3) * R * 0.95,
+        CX, CY
+      );
+      const clip = new Path2D();
+      clip.arc(CX, CY, R - 2, 0, Math.PI * 2);
+      ctx.clip(clip);
+      ctx.fillStyle = rgba(petalColor, alpha);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function drawCore() {
+    const pulse = 0.35 + 0.12 * Math.sin(tick * 0.012);
+    const grad  = ctx.createRadialGradient(CX, CY, 0, CX, CY, R * pulse);
+    grad.addColorStop(0,   rgba(GREEN_LT,   0.9));
+    grad.addColorStop(0.4, rgba(GREEN_MAIN, 0.45));
+    grad.addColorStop(1,   rgba(GREEN_MAIN, 0));
+    ctx.save();
+    const clip = new Path2D();
+    clip.arc(CX, CY, R - 2, 0, Math.PI * 2);
+    ctx.clip(clip);
+    ctx.beginPath();
+    ctx.arc(CX, CY, R * pulse, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawShine() {
+    const shineX = CX - R * 0.28;
+    const shineY = CY - R * 0.28;
+    const grad   = ctx.createRadialGradient(shineX, shineY, 0, shineX, shineY, R * 0.42);
+    grad.addColorStop(0,   'rgba(255,255,255,0.28)');
+    grad.addColorStop(0.5, 'rgba(255,255,255,0.06)');
+    grad.addColorStop(1,   'rgba(255,255,255,0)');
+    ctx.save();
+    const clip = new Path2D();
+    clip.arc(CX, CY, R - 2, 0, Math.PI * 2);
+    ctx.clip(clip);
+    ctx.beginPath();
+    ctx.arc(shineX, shineY, R * 0.42, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawRim() {
+    const grad = ctx.createRadialGradient(CX, CY, R * 0.72, CX, CY, R);
+    grad.addColorStop(0, 'rgba(0,0,0,0)');
+    grad.addColorStop(1, 'rgba(0,0,0,0.55)');
+    ctx.save();
+    const clip = new Path2D();
+    clip.arc(CX, CY, R, 0, Math.PI * 2);
+    ctx.clip(clip);
+    ctx.beginPath();
+    ctx.arc(CX, CY, R, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawGlowRing() {
+    const t     = (Math.sin(tick * 0.007) + 1) / 2;
+    const alpha = 0.08 + 0.06 * t;
+    const grad  = ctx.createRadialGradient(CX, CY, R * 0.9, CX, CY, R * 1.25);
+    grad.addColorStop(0, rgba(GREEN_LT,   alpha));
+    grad.addColorStop(1, rgba(GREEN_MAIN, 0));
+    ctx.beginPath();
+    ctx.arc(CX, CY, R * 1.25, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+  }
+
+  function loop() {
+    tick++;
+    ctx.clearRect(0, 0, W, H);
+    drawGlowRing();
+    drawSphere();
+    drawPetals();
+    drawCore();
+    drawRim();
+    drawShine();
+    requestAnimationFrame(loop);
+  }
+
+  loop();
+})();
+</script>
+
+<!-- PARTICLE background animation -->
+<script>
+(function () {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const CONFIG = {
+    count      : 80,
+    baseSpeed  : 0.5,
+    maxDist    : 150,
+    mouseRadius: 180,
+    mouseForce : 0.012,
+    breatheRate: 0.0008,
+    colors: [
+      { r: 59,  g: 130, b: 246 },
+      { r: 16,  g: 185, b: 129 },
+      { r: 245, g: 158, b: 11  },
+      { r: 99,  g: 102, b: 241 },
+      { r: 255, g: 255, b: 255 },
+    ]
+  };
+
+  let W, H;
+  let mouse = { x: -9999, y: -9999 };
+  let tick  = 0;
+  let dots  = [];
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function cycleColor(offset) {
+    const palette = CONFIG.colors;
+    const t    = (tick * 0.0004 + offset) % 1;
+    const len  = palette.length;
+    const idx  = Math.floor(t * len);
+    const next = (idx + 1) % len;
+    const frac = (t * len) - idx;
+    const c    = palette[idx];
+    const n    = palette[next];
+    return {
+      r: Math.round(lerp(c.r, n.r, frac)),
+      g: Math.round(lerp(c.g, n.g, frac)),
+      b: Math.round(lerp(c.b, n.b, frac))
+    };
+  }
+
+  function makeDot(i) {
+    const angle = Math.random() * Math.PI * 2;
+    const speed = CONFIG.baseSpeed * (0.4 + Math.random() * 1.2);
+    return {
+      x    : Math.random() * (W || 800),
+      y    : Math.random() * (H || 400),
+      vx   : Math.cos(angle) * speed,
+      vy   : Math.sin(angle) * speed,
+      r    : 1.2 + Math.random() * 2.2,
+      phase: Math.random(),
+      idx  : i
+    };
+  }
+
+  function init() {
+    resize();
+    dots = Array.from({ length: CONFIG.count }, (_, i) => makeDot(i));
+  }
+
+  function update() {
+    tick++;
+    const breathe = 1 + 0.6 * Math.sin(tick * CONFIG.breatheRate * Math.PI * 2);
+    dots.forEach(d => {
+      const dx   = mouse.x - d.x;
+      const dy   = mouse.y - d.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < CONFIG.mouseRadius && dist > 1) {
+        const force = (1 - dist / CONFIG.mouseRadius) * CONFIG.mouseForce;
+        d.vx += dx * force;
+        d.vy += dy * force;
+      }
+      const spd = Math.sqrt(d.vx * d.vx + d.vy * d.vy);
+      const max = CONFIG.baseSpeed * 3.5 * breathe;
+      if (spd > max) { d.vx = (d.vx / spd) * max; d.vy = (d.vy / spd) * max; }
+      d.vx *= 0.992;
+      d.vy *= 0.992;
+      d.x += d.vx * breathe;
+      d.y += d.vy * breathe;
+      if (d.x < -10) d.x = W + 10;
+      if (d.x > W + 10) d.x = -10;
+      if (d.y < -10) d.y = H + 10;
+      if (d.y > H + 10) d.y = -10;
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (let i = 0; i < dots.length; i++) {
+      for (let j = i + 1; j < dots.length; j++) {
+        const dx   = dots[i].x - dots[j].x;
+        const dy   = dots[i].y - dots[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < CONFIG.maxDist) {
+          const alpha = (1 - dist / CONFIG.maxDist) * 0.22;
+          const ci = cycleColor(dots[i].phase);
+          ctx.strokeStyle = `rgba(${ci.r},${ci.g},${ci.b},${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(dots[i].x, dots[i].y);
+          ctx.lineTo(dots[j].x, dots[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    dots.forEach(d => {
+      const c     = cycleColor(d.phase);
+      const alpha = 0.5 + 0.3 * Math.sin(tick * 0.015 + d.phase * Math.PI * 2);
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${c.r},${c.g},${c.b},${alpha})`;
+      ctx.fill();
+      if (d.r > 2.5) {
+        const grd = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, d.r * 4);
+        grd.addColorStop(0, `rgba(${c.r},${c.g},${c.b},0.18)`);
+        grd.addColorStop(1, `rgba(${c.r},${c.g},${c.b},0)`);
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r * 4, 0, Math.PI * 2);
+        ctx.fillStyle = grd;
+        ctx.fill();
+      }
+    });
+  }
+
+  function loop() { update(); draw(); requestAnimationFrame(loop); }
+
+  const hero = canvas.closest('.hero') || canvas.parentElement;
+  hero.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  hero.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+  hero.addEventListener('touchmove', e => {
+    const rect  = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    mouse.x = touch.clientX - rect.left;
+    mouse.y = touch.clientY - rect.top;
+    e.preventDefault();
+  }, { passive: false });
+  hero.addEventListener('touchend', () => { mouse.x = -9999; mouse.y = -9999; });
+  window.addEventListener('resize', () => {
+    resize();
+    dots.forEach(d => {
+      if (d.x > W) d.x = Math.random() * W;
+      if (d.y > H) d.y = Math.random() * H;
+    });
+  });
+
+  init();
+  loop();
+})();
+</script>
+
 </body>
 </html>
