@@ -26,15 +26,14 @@
       <a href="nysc.html"           data-page="nysc">NYSC</a>
       <a href="neco.html"           data-page="neco">NECO</a>
       <a href="ielts.html"          data-page="ielts">IELTS</a>
+      <a href="cutoff-marks.html"   data-page="cutoff-marks">Cut-off Marks</a>
       <a href="blog.html"           data-page="blog">Blog</a>
       <a href="exam-portals.html"   data-page="exam-portals">Portals</a>
       <a href="about.html"          data-page="about">About</a>
-      <a href="dashboard.html"      data-page="dashboard">📊 Dashboard</a>
     </div>
 
     <!-- Auth buttons — always rendered, supabase.js controls visibility -->
     <div class="navbar__cta" style="display:flex;align-items:center;gap:10px;">
-      
 
       <!-- Always visible -->
       <a href="exam-portals.html" class="btn btn--outline btn--sm">🔗 Exam Portals</a>
@@ -65,6 +64,7 @@
     <a href="nysc.html">🏕️ NYSC</a>
     <a href="neco.html">📋 NECO</a>
     <a href="ielts.html">🌍 IELTS</a>
+    <a href="cutoff-marks.html">📊 Cut-off Marks 2026</a>
     <a href="blog.html">✍️ Blog</a>
     <a href="exam-portals.html">🌐 Portals</a>
     <a href="about.html">ℹ️ About</a>
@@ -117,6 +117,7 @@
             <li><a href="nysc.html">NYSC Guide</a></li>
             <li><a href="neco.html">NECO Guide</a></li>
             <li><a href="ielts.html">IELTS Guide</a></li>
+            <li><a href="cutoff-marks.html">Cut-off Marks 2026</a></li>
             <li><a href="exam-portals.html">Exam Portals</a></li>
           </ul>
         </div>
@@ -125,6 +126,7 @@
           <ul>
             <li><a href="study-resources.html">Free Downloads</a></li>
             <li><a href="past-questions.html">Past Questions</a></li>
+            <li><a href="cutoff-marks.html">Cut-off Marks</a></li>
             <li><a href="study-resources.html">Study Timetables</a></li>
             <li><a href="blog.html">Blog &amp; Articles</a></li>
           </ul>
@@ -140,7 +142,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <span>© 2025 ExamBuddy Nigeria · Not affiliated with WAEC, JAMB, NYSC, or NECO</span>
+        <span>© 2026 ExamBuddy Nigeria · Not affiliated with WAEC, JAMB, NYSC, or NECO</span>
         <div class="footer__bottom-links">
           <a href="privacy.html">Privacy Policy</a>
           <a href="disclaimer.html">Disclaimer</a>
@@ -222,39 +224,29 @@
       }, { passive: true });
     }
 
-    /* ── Auth UI update ──
-       Called by supabase.js after it resolves the session.
-       Also called immediately here so the button is visible
-       before supabase resolves (shows Log In by default). ── */
+    /* ── Auth UI update ── */
     window.ebUpdateAuthUI = function (user) {
       const loginBtn     = document.getElementById('eb-login-btn');
       const logoutBtn    = document.getElementById('eb-logout-btn');
       const dashBtn      = document.getElementById('eb-dashboard-btn');
-      // const userNameEl   = document.getElementById('eb-user-name');
       const mobLoginBtn  = document.getElementById('mob-login-btn');
       const mobLogoutBtn = document.getElementById('mob-logout-btn');
 
       if (user) {
-        /* Logged IN */
-        const name = user.user_metadata?.full_name || user.email?.split('@')[0] || '';
         if (loginBtn)     loginBtn.style.display     = 'none';
         if (logoutBtn)    logoutBtn.style.display     = 'flex';
         if (dashBtn)      dashBtn.style.display       = 'flex';
-        // if (userNameEl)   { userNameEl.textContent = '👋 ' + name; userNameEl.style.display = 'inline'; }
         if (mobLoginBtn)  mobLoginBtn.style.display   = 'none';
         if (mobLogoutBtn) mobLogoutBtn.style.display  = 'flex';
       } else {
-        /* Logged OUT — default state */
         if (loginBtn)     loginBtn.style.display      = 'flex';
         if (logoutBtn)    logoutBtn.style.display      = 'none';
         if (dashBtn)      dashBtn.style.display        = 'none';
-        // if (userNameEl)   { userNameEl.textContent = ''; userNameEl.style.display = 'none'; }
         if (mobLoginBtn)  mobLoginBtn.style.display    = 'flex';
         if (mobLogoutBtn) mobLogoutBtn.style.display   = 'none';
       }
     };
 
-    /* Show logged-out state immediately (before supabase resolves) */
     window.ebUpdateAuthUI(null);
   }
 
