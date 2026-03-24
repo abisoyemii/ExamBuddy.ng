@@ -161,3 +161,25 @@ function _getLocalHistory(examFilter) {
     return h.reverse();
   } catch(e) { return []; }
 }
+
+/* ════════════════════════════════════════════
+   EDGE FUNCTIONS — Dynamic Questions
+════════════════════════════════════════════ */
+
+async function ebGetSubjects(exam) {
+  if (!_sb) throw new Error('Supabase not initialised');
+  const { data, error } = await _sb.functions.invoke('get-subjects', {
+    body: { exam }
+  });
+  if (error) throw error;
+  return data.subjects || [];
+}
+
+async function ebGetQuestions(exam, subjects, count = 50, year = null, category = null) {
+  if (!_sb) throw new Error('Supabase not initialised');
+  const { data, error } = await _sb.functions.invoke('get-questions', {
+    body: { exam, subjects, count, year, category }
+  });
+  if (error) throw error;
+  return data.questions || [];
+}
