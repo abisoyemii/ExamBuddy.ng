@@ -311,6 +311,11 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  
 </script>
+<div id="footer-root"></div>
+<script src="js/shared-layout.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

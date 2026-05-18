@@ -217,7 +217,12 @@ p { color: var(--gray-700); line-height: 1.75; }
 .navbar__links a.active, .nav-links a.active {
   background: var(--gray-50); color: var(--blue-mid);
 }
-.navbar__cta, .nav-cta { margin-left: 8px; }
+.navbar__cta, .nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 8px;
+}
 /* Hamburger */
 .navbar__hamburger, .hamburger {
   display: none; flex-direction: column; gap: 5px;

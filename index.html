@@ -28,6 +28,10 @@
   <!-- ═══ SITEMAP ═══ -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
+  <!-- ═══ Supabase Configuration ═══ -->
+  <meta name="supabase-url" content="https://dhcxzdfvpsccmescmavd.supabase.co" />
+  <meta name="supabase-anon-key" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoY3h6ZGZ2cHNjY21lc2NtYXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4Mjg3NDUsImV4cCI6MjA4ODQwNDc0NX0.4V-z-bgfxXg_AHq7a_K4XOCjtvucTfkK9g7OWkC8LqY" />
+
   <!-- ═══ OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ═══ -->
   <meta property="og:type"        content="website" />
   <meta property="og:site_name"   content="ExamBuddy Nigeria" />
@@ -159,6 +163,13 @@
         <p>Step-by-step registration guide, CBT strategies, cut-off marks for top universities, and subject combination advice for every course.</p>
         <span class="card-tag">CBT Tips</span>
         <a href="jamb.html" class="btn btn-primary btn-sm">Read JAMB Guide →</a>
+      </div>
+      <div class="exam-card animate-fadein delay-3">
+        <div class="card-icon icon-teal">🧠</div>
+        <h3>SAT</h3>
+        <p>International college admission prep, test format breakdown, scoring strategy, and focused study resources for SAT candidates.</p>
+        <span class="card-tag">SAT Prep</span>
+        <a href="sat.html" class="btn btn-primary btn-sm">Read SAT Guide →</a>
       </div>
       <div class="card">
   📊
@@ -336,8 +347,9 @@
 
 <div id="footer-root"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="js/shared-layout.js"></script>
+<script src="js/supabase-client.js"></script>
 <script src="js/supabase.js"></script>
+<script src="js/shared-layout.js"></script>
 <script src="js/main.js"></script>
 <script src="js/exam-redirect.js"></script>
 
@@ -684,6 +696,15 @@
   loop();
 })();
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+  const supabaseUrl = "https://dhcxzdfvpsccmescmavd.supabase.co";
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoY3h6ZGZ2cHNjY21lc2NtYXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4Mjg3NDUsImV4cCI6MjA4ODQwNDc0NX0.4V-z-bgfxXg_AHq7a_K4XOCjtvucTfkK9g7OWkC8LqY";
+
+  const client = supabase.createClient(supabaseUrl, supabaseKey);
+
+  console.log("Connected to Supabase:", client);
+</script>
 </body>
 </html>

@@ -17,6 +17,10 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 
+  <!-- Supabase Configuration -->
+  <meta name="supabase-url" content="https://dhcxzdfvpsccmescmavd.supabase.co" />
+  <meta name="supabase-anon-key" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoY3h6ZGZ2cHNjY21lc2NtYXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4Mjg3NDUsImV4cCI6MjA4ODQwNDc0NX0.4V-z-bgfxXg_AHq7a_K4XOCjtvucTfkK9g7OWkC8LqY" />
+
   <style>
     /* ── Dashboard Layout ── */
     .dash-hero {
@@ -410,6 +414,15 @@
 ============================================================ */
 
 const HISTORY_KEY = 'exambuddy_history';
+let dashboardLoading = false;
+
+const DASHBOARD_LOADING_HTML = `
+  <div class="empty-state" style="padding:20px;grid-column:1/-1;text-align:center;color:#64748B;">
+    <div class="icon">⏳</div>
+    <h3>Loading your dashboard...</h3>
+    <p>Please wait while we fetch your latest practice results.</p>
+  </div>
+`;
 
 function getHistory() {
   try {
@@ -423,19 +436,62 @@ function saveHistory(data) {
   } catch(e) {}
 }
 
+async function fetchDashboardHistory(filter = 'all') {
+  const user = await ebGetUser();
+  if (!user) {
+    // Not logged in - show empty state
+    return [];
+  }
+
+  if (typeof ebGetResults === 'function') {
+    try {
+      const results = await ebGetResults(filter);
+      return Array.isArray(results) ? results : [];
+    } catch (err) {
+      console.warn('[ExamBuddy] Dashboard fetch failed', err);
+      // Show error state
+      showDashboardError('Failed to load your dashboard data. Please try refreshing the page.');
+      return [];
+    }
+  }
+  
+  // Fallback if service not loaded
+  return [];
+}
+
+function showDashboardLoading() {
+  dashboardLoading = true;
+  document.getElementById('statTotal').textContent = '—';
+  document.getElementById('statBest').textContent = '—';
+  document.getElementById('statAvg').textContent = '—';
+  document.getElementById('statStreak').textContent = '—';
+  document.getElementById('subjectPerf').innerHTML = DASHBOARD_LOADING_HTML;
+  document.getElementById('streakRow').innerHTML = '';
+  document.getElementById('trendChart').innerHTML = '<p style="color:#94A3B8;font-size:.8rem;align-self:center;width:100%;text-align:center;">Loading trend...</p>';
+  document.getElementById('historyContainer').innerHTML = DASHBOARD_LOADING_HTML;
+}
+
+function showDashboardError(message) {
+  dashboardLoading = false;
+  document.getElementById('statTotal').textContent = '—';
+  document.getElementById('statBest').textContent = '—';
+  document.getElementById('statAvg').textContent = '—';
+  document.getElementById('statStreak').textContent = '—';
+  document.getElementById('subjectPerf').innerHTML = `<div class="empty-state" style="padding:20px;grid-column:1/-1;text-align:center;color:#64748B;"><div class="icon">⚠️</div><h3>Error Loading Data</h3><p>${message}</p></div>`;
+  document.getElementById('streakRow').innerHTML = '';
+  document.getElementById('trendChart').innerHTML = '<p style="color:#94A3B8;font-size:.8rem;align-self:center;width:100%;text-align:center;">Unable to load trend data.</p>';
+  document.getElementById('historyContainer').innerHTML = `<div class="empty-state" style="padding:60px 20px;text-align:center;"><div class="icon">⚠️</div><h3>Unable to Load History</h3><p>${message}</p><a href="javascript:location.reload()" class="btn btn--primary btn--sm">Refresh Page</a></div>`;
+}
+
 /* ── Render everything ── */
 let currentFilter = 'all';
 
 async function renderDashboard() {
-  let history, filtered;
-  if (typeof ebGetResults === 'function') {
-    history  = await ebGetResults('all');
-    filtered = currentFilter === 'all' ? history : history.filter(r => r.exam.toLowerCase() === currentFilter);
-  } else {
-    history  = getHistory();
-    filtered = currentFilter === 'all' ? history : history.filter(r => r.exam.toLowerCase() === currentFilter);
-  }
+  showDashboardLoading();
+  const history = await fetchDashboardHistory(currentFilter);
+  const filtered = currentFilter === 'all' ? history : history.filter(r => r.exam.toLowerCase() === currentFilter);
 
+  hideDashboardLoading();
   renderStats(history);
   renderStreak(history);
   renderTrend(filtered);
@@ -639,26 +695,26 @@ function clearAllHistory() {
 
 // Init — wait for Supabase, then render
 async function initDashboard() {
+  const user = await ebRequireAuth('login.html');
+  if (!user) return;
+
   await renderDashboard();
-  // Show logged-in user name in hero if available
-  if (typeof ebGetUser === 'function') {
-    const user = await ebGetUser();
-    if (user) {
-      const name = user.user_metadata?.full_name || user.email.split('@')[0];
-      const h1 = document.querySelector('.dash-hero h1');
-      if (h1) h1.textContent = '📊 ' + name + '\'s Dashboard';
-      // Show logout button
-      const logoutBtn = document.getElementById('dashLogoutBtn');
-      if (logoutBtn) logoutBtn.style.display = 'inline-flex';
-    }
-  }
+  const name = user.user_metadata?.full_name || user.email.split('@')[0];
+  const h1 = document.querySelector('.dash-hero h1');
+  if (h1) h1.textContent = '📊 ' + name + '\'s Dashboard';
+
+  const logoutBtn = document.getElementById('dashLogoutBtn');
+  const loginBtn = document.getElementById('dashLoginBtn');
+  if (logoutBtn) logoutBtn.style.display = 'inline-flex';
+  if (loginBtn) loginBtn.style.display = 'none';
 }
 
 document.addEventListener('eb:supabase-ready', initDashboard);
-// Also run immediately in case SDK already loaded (cached)
-if (window._sb) initDashboard(); else setTimeout(() => { if (!window._sbReady) renderDashboard(); }, 800);
+if (window._sbReady) initDashboard();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/supabase-service.js"></script>
 <script src="js/supabase.js"></script>
 <script src="js/shared-layout.js"></script>
 <script src="js/main.js"></script>

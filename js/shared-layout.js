@@ -8,7 +8,7 @@
   /* ---- Topbar ---- */
   const topbarHTML = `
   <div class="topbar" id="topbar">
-    <span>📣 JAMB 2026 registration is now open! <a href="jamb.html">Get our free preparation guide &rarr;</a></span>
+    <span>📣 WAEC 2026 examinations are coming soon! <a href="waec.html">Get our free preparation guide and stay ahead &rarr;</a></span>
     <button class="topbar__close" id="topbarClose" aria-label="Dismiss announcement">&#10005;</button>
   </div>`;
 
@@ -23,6 +23,7 @@
       <a href="index.html"          data-page="index">Home</a>
       <a href="waec.html"           data-page="waec">WAEC</a>
       <a href="jamb.html"           data-page="jamb">JAMB</a>
+      <a href="sat.html"            data-page="sat">SAT</a>
       <a href="nysc.html"           data-page="nysc">NYSC</a>
       <a href="neco.html"           data-page="neco">NECO</a>
       <a href="ielts.html"          data-page="ielts">IELTS</a>
@@ -33,7 +34,7 @@
     </div>
 
     <!-- Auth buttons — always rendered, supabase.js controls visibility -->
-    <div class="navbar__cta" style="display:flex;align-items:center;gap:10px;">
+    <div class="navbar__cta">
 
       <!-- Always visible -->
       <a href="exam-portals.html" class="btn btn--outline btn--sm">🔗 Exam Portals</a>
@@ -167,8 +168,19 @@
 
     /* ── Active nav link ── */
     const page = location.pathname.split('/').pop().replace('.html', '') || 'index';
+    const pageAlias = {
+      'blog-hub': 'blog',
+      'news-hub': 'blog',
+      'jamb-registration-guide': 'jamb',
+      'utme-tips-300-plus': 'jamb',
+      'post-utme-guide': 'jamb',
+      'common-utme-mistakes': 'jamb',
+      'university-admission-updates': 'cutoff-marks',
+      'campus-gist': 'nysc'
+    };
+    const activePage = pageAlias[page] || page;
     document.querySelectorAll('.navbar__links a[data-page]').forEach(function (a) {
-      if (a.getAttribute('data-page') === page) a.classList.add('active');
+      if (a.getAttribute('data-page') === activePage) a.classList.add('active');
     });
 
     /* ── Topbar dismiss ── */

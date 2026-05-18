@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EXAMBUDDY Blog Hub: Latest admission news, UTME tips, cut-off marks, campus gist, and university updates for Nigerian students 2026.">
+    <meta name="keywords" content="blog, admission news, UTME tips, JAMB updates, university news Nigeria, education blog, student news">
+    <meta name="robots" content="index, follow">
+    <title>EXAMBUDDY Blog Hub - Admission News & UTME Tips | EXAMBUDDY</title>
+    <link rel="canonical" href="https://exambuddy.com/blog-hub.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div id="nav-root"></div>
+    <div class="container">
+        <header class="blog-header">
+            <h1>EXAMBUDDY Blog Hub</h1>
+            <p class="tagline">Your complete resource for UTME, JAMB, admission updates, and Nigerian education news</p>
+        </header>
+
+        <section class="search-section">
+            <div class="search-bar">
+                <input type="text" placeholder="Search blog articles..." id="searchInput">
+                <button onclick="searchBlog()">🔍 Search</button>
+            </div>
+            <div class="filters">
+                <span class="filter-tag active" onclick="filterCategory(event, 'all')">All</span>
+                <span class="filter-tag" onclick="filterCategory(event, 'admission')">Admission</span>
+                <span class="filter-tag" onclick="filterCategory(event, 'utme')">UTME</span>
+                <span class="filter-tag" onclick="filterCategory(event, 'tips')">Tips & Guides</span>
+                <span class="filter-tag" onclick="filterCategory(event, 'news')">News</span>
+            </div>
+        </section>
+
+        <section class="featured-posts">
+            <h2>📌 Featured Articles</h2>
+            
+            <article class="featured-card">
+                <span class="category-badge utme">UTME Tips</span>
+                <h3><a href="utme-tips-300-plus.html">How to Score 300+ in UTME 2026: Expert Tips & Strategies</a></h3>
+                <p class="excerpt">Detailed guide on scoring 300+ in UTME. Includes study strategies, timeline, common mistakes, and exam day tips used by top-scoring students.</p>
+                <div class="post-meta">
+                    <span>📅 May 6, 2026</span>
+                    <span>⏱️ 10 min read</span>
+                    <span>👥 15,234 views</span>
+                </div>
+            </article>
+
+            <article class="featured-card">
+                <span class="category-badge admission">Admission</span>
+                <h3><a href="news-hub.html">Latest Admission News & Campus Updates - Live Feed</a></h3>
+                <p class="excerpt">Real-time admission updates from UNILAG, UI, OAU, UNN, and other major universities. Breaking news, merit lists, and cut-off marks updated daily.</p>
+                <div class="post-meta">
+                    <span>📅 May 6, 2026</span>
+                    <span>🔄 Updated daily</span>
+                    <span>👥 45,123 views</span>
+                </div>
+            </article>
+
+            <article class="featured-card">
+                <span class="category-badge tips">Guides</span>
+                <h3><a href="jamb-registration-guide.html">JAMB Registration Guide 2026: Complete Step-by-Step Instructions</a></h3>
+                <p class="excerpt">Step-by-step JAMB registration guide. Learn how to create account, enter O-level results, select subjects, pay fees, and book exam center.</p>
+                <div class="post-meta">
+                    <span>📅 April 25, 2026</span>
+                    <span>⏱️ 8 min read</span>
+                    <span>👥 28,567 views</span>
+                </div>
+            </article>
+        </section>
+
+        <section class="all-posts">
+            <h2>📚 All Articles</h2>
+            
+            <article class="blog-card" data-category="utme">
+                <h3><a href="utme-tips-300-plus.html">How to Score 300+ in UTME: Expert Tips & Strategies</a></h3>
+                <p class="excerpt">Scoring 300+ in UTME is achievable with the right strategy. Learn the 10 expert tips used by top-scoring students, monthly timeline, and exam day strategies.</p>
+                <div class="post-meta">
+                    <span class="category-badge utme">UTME</span>
+                    <span>📅 May 6, 2026</span>
+                    <span>⏱️ 10 min</span>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="tips">
+                <h3><a href="common-utme-mistakes.html">10 Common UTME Mistakes That Cost Students Admissions</a></h3>
+                <p class="excerpt">Analysis of 50,000 UTME results revealed the top 10 mistakes that prevent admissions. Learn what to avoid and how to fix them.</p>
+                <div class="post-meta">
+                    <span class="category-badge tips">Tips</span>
+                    <span>📅 May 1, 2026</span>
+                    <span>⏱️ 12 min</span>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="tips">
+                <h3><a href="jamb-registration-guide.html">JAMB Registration Guide 2026: Step-by-Step Instructions</a></h3>
+                <p class="excerpt">Complete guide to JAMB registration. From creating your account to booking your exam center - every step explained with pro tips.</p>
+                <div class="post-meta">
+                    <span class="category-badge tips">Guides</span>
+                    <span>📅 April 25, 2026</span>
+                    <span>⏱️ 8 min</span>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="admission">
+                <h3><a href="university-admission-updates.html">2026 Nigerian University Admission Updates: Complete Status</a></h3>
+                <p class="excerpt">Live admission status from all major Nigerian universities. UNILAG, UI, OAU, UNN, UNIBEN - check admission lists, cut-offs, and timelines.</p>
+                <div class="post-meta">
+                    <span class="category-badge admission">Admission</span>
+                    <span>📅 May 6, 2026</span>
+                    <span>🔄 Real-time</span>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="news">
+                <h3><a href="campus-gist.html">Campus Gist & Trending University News 2026</a></h3>
+                <p class="excerpt">Breaking campus news, viral student issues, accommodation crisis, scholarships, and trending school updates. What's happening on Nigerian campuses.</p>
+                <div class="post-meta">
+                    <span class="category-badge news">News</span>
+                    <span>📅 May 5, 2026</span>
+                    <span>🔄 Daily updates</span>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="tips">
+                <h3><a href="post-utme-guide.html">Post-UTME Preparation Guide: How to Pass University Screening</a></h3>
+                <p class="excerpt">Complete post-UTME guide. Learn what's tested, preparation strategies, timeline, common mistakes, and how to score 70%+ in post-UTME exams.</p>
+                <div class="post-meta">
+                    <span class="category-badge tips">Guides</span>
+                    <span>📅 April 28, 2026</span>
+                    <span>⏱️ 12 min</span>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="news">
+                <h3><a href="news-hub.html">Latest Admission News & Campus Updates - Live News Hub</a></h3>
+                <p class="excerpt">Your go-to source for real-time admission news, breaking updates, cut-off marks, campus gist, and trending education stories.</p>
+                <div class="post-meta">
+                    <span class="category-badge news">News</span>
+                    <span>📅 May 6, 2026</span>
+                    <span>🔄 Updated hourly</span>
+                </div>
+            </article>
+        </section>
+
+        <section class="popular-topics">
+            <h2>🔥 Most Popular Topics</h2>
+            <div class="topics-grid">
+                <a href="cutoff-marks.html" class="topic-card">
+                    <h3>📊 Cut-off Marks 2026</h3>
+                    <p>Latest JAMB cut-off marks for all universities and programs</p>
+                </a>
+                <a href="news-hub.html" class="topic-card">
+                    <h3>📰 Admission News</h3>
+                    <p>Breaking news from Nigerian universities</p>
+                </a>
+                <a href="jamb-registration-guide.html" class="topic-card">
+                    <h3>✍️ JAMB Registration</h3>
+                    <p>Step-by-step registration guide</p>
+                </a>
+                <a href="utme-tips-300-plus.html" class="topic-card">
+                    <h3>🎯 UTME Tips</h3>
+                    <p>How to score 300+ and higher</p>
+                </a>
+                <a href="post-utme-guide.html" class="topic-card">
+                    <h3>🎓 Post-UTME</h3>
+                    <p>Preparation guide for university screening</p>
+                </a>
+                <a href="campus-gist.html" class="topic-card">
+                    <h3>🎤 Campus Gist</h3>
+                    <p>Trending stories and viral campus news</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2>📂 Browse by Category</h2>
+            
+            <div class="category-group">
+                <h3>🔴 UTME & JAMB (4 articles)</h3>
+                <ul>
+                    <li><a href="utme-tips-300-plus.html">→ How to Score 300+ in UTME</a></li>
+                    <li><a href="common-utme-mistakes.html">→ 10 Common UTME Mistakes</a></li>
+                    <li><a href="jamb-registration-guide.html">→ JAMB Registration Guide</a></li>
+                    <li><a href="#">→ UTME Syllabus Breakdown by Subject</a></li>
+                </ul>
+            </div>
+
+            <div class="category-group">
+                <h3>🟢 Admission Updates (3 articles)</h3>
+                <ul>
+                    <li><a href="news-hub.html">→ Latest Admission News Hub</a></li>
+                    <li><a href="university-admission-updates.html">→ University Admission Status 2026</a></li>
+                    <li><a href="cutoff-marks.html">→ Cut-off Marks by University</a></li>
+                </ul>
+            </div>
+
+            <div class="category-group">
+                <h3>🔵 Campus & Student Life (2 articles)</h3>
+                <ul>
+                    <li><a href="campus-gist.html">→ Campus Gist & Trending News</a></li>
+                    <li><a href="#">→ Scholarship Opportunities 2026</a></li>
+                </ul>
+            </div>
+
+            <div class="category-group">
+                <h3>🟣 Preparation Guides (1 article)</h3>
+                <ul>
+                    <li><a href="post-utme-guide.html">→ Post-UTME Preparation Guide</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="newsletter-section">
+            <h2>📧 Subscribe for Daily Updates</h2>
+            <p>Get fresh admission news, UTME tips, and campus gist delivered to your inbox every morning.</p>
+            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">📬 Subscribe</button>
+            </form>
+            <p style="margin-top: 15px; color: #fff; font-size: 0.9em;">✓ No spam. Unsubscribe anytime. Join 50,000+ Nigerian students.</p>
+        </section>
+
+        <section class="tips-cta">
+            <h2>Ready to Ace UTME & Get Admission?</h2>
+            <p>Start with these top resources:</p>
+            <div class="cta-buttons">
+                <a href="utme-tips-300-plus.html" class="btn btn-primary">→ UTME Tips Guide</a>
+                <a href="jamb-registration-guide.html" class="btn btn-secondary">→ Registration Guide</a>
+                <a href="cutoff-marks.html" class="btn btn-secondary">→ Cut-off Marks</a>
+            </div>
+        </section>
+    </div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.15em;
+            opacity: 0.95;
+        }
+
+        section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .search-bar button {
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-tag {
+            padding: 8px 16px;
+            background: #f0f0f0;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filter-tag:hover, .filter-tag.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .featured-posts {
+            margin-bottom: 40px;
+        }
+
+        .featured-card {
+            background: linear-gradient(135deg, #f0f4ff 0%, #f5f9ff 100%);
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .featured-card h3 {
+            margin-top: 10px;
+        }
+
+        .featured-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .featured-card a:hover {
+            text-decoration: underline;
+        }
+
+        .excerpt {
+            color: #666;
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .category-badge.utme {
+            background: #ff6348;
+        }
+
+        .category-badge.admission {
+            background: #2ed573;
+        }
+
+        .category-badge.tips {
+            background: #667eea;
+        }
+
+        .category-badge.news {
+            background: #ffa502;
+        }
+
+        .post-meta {
+            font-size: 0.9em;
+            color: #999;
+            display: flex;
+            gap: 15px;
+        }
+
+        .all-posts {
+            background: white;
+        }
+
+        .blog-card {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .blog-card:last-child {
+            border-bottom: none;
+        }
+
+        .blog-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .blog-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .blog-card a:hover {
+            text-decoration: underline;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 0;
+        }
+
+        .topic-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .topic-card h3 {
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .topic-card p {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+
+        .category-group {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .category-group h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+
+        .category-group ul {
+            list-style: none;
+        }
+
+        .category-group li {
+            padding: 8px 0;
+        }
+
+        .category-group a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .category-group a:hover {
+            text-decoration: underline;
+        }
+
+        .newsletter-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter-section h2 {
+            color: white;
+            border-color: white;
+        }
+
+        .newsletter-section p {
+            color: white;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 20px auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .newsletter-form button {
+            padding: 12px 30px;
+            background: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .tips-cta {
+            background: linear-gradient(135deg, #f0f4ff 0%, #f5f9ff 100%);
+            text-align: center;
+            border: 2px solid #667eea;
+        }
+
+        .tips-cta h2 {
+            color: #667eea;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .blog-header h1 {
+                font-size: 2em;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .search-bar {
+                flex-direction: column;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script>
+        function filterCategory(evt, category) {
+            const cards = document.querySelectorAll('.blog-card');
+            const tags = document.querySelectorAll('.filter-tag');
+            
+            tags.forEach(tag => tag.classList.remove('active'));
+            if (evt && evt.target) evt.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchBlog() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.blog-card');
+            
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(searchText)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            alert('Thank you for subscribing! Check your email for confirmation.');
+            event.target.reset();
+        }
+    </script>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="text-center mb-32">
+                <span class="section-label">Explore More</span>
+                <h2 class="section-title">More ExamBuddy Resources</h2>
+                <p>Quick access to essential exam guides, portals, cut-off marks, and study downloads.</p>
+            </div>
+            <div class="grid-3">
+                <a href="cutoff-marks.html" class="blog-card">
+                    <div class="card-body">
+                        <h3>📊 Cut-off Marks 2026</h3>
+                        <p>See the latest JAMB cut-offs for major universities and programs across Nigeria.</p>
+                    </div>
+                </a>
+                <a href="exam-portals.html" class="blog-card">
+                    <div class="card-body">
+                        <h3>🌐 Exam Portals</h3>
+                        <p>Open official JAMB, WAEC, NECO, NYSC, and portal pages from one place.</p>
+                    </div>
+                </a>
+                <a href="study-resources.html" class="blog-card">
+                    <div class="card-body">
+                        <h3>📚 Study Resources</h3>
+                        <p>Download free past questions, revision notes, and study guides for all exams.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-root"></div>
+    <script src="js/shared-layout.js"></script>
+</body>
+</html>

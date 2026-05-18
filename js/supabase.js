@@ -1,29 +1,91 @@
 /* ============================================================
    ExamBuddy Nigeria — supabase.js
+   Auth bootstrap and UI state for Supabase.
    ============================================================ */
 
-const SUPABASE_URL  = 'https://dhcxzdfvpsccmescmavd.supabase.co';
-const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoY3h6ZGZ2cHNjY21lc2NtYXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4Mjg3NDUsImV4cCI6MjA4ODQwNDc0NX0.4V-z-bgfxXg_AHq7a_K4XOCjtvucTfkK9g7OWkC8LqY';
-
 let _sb = null;
+let _authReady = false;
+
+function _normalizeUser(user) {
+  if (!user) return null;
+  return {
+    id: user.id,
+    email: user.email,
+    full_name: user.user_metadata?.full_name || null,
+    raw: user
+  };
+}
+
+window.ebAuth = {
+  user: null,
+  ready: false,
+  loading: false,
+  error: null,
+  subscribers: [],
+  subscribe(fn) {
+    if (typeof fn !== 'function') return function () {};
+    this.subscribers.push(fn);
+    if (this.ready) fn(this.user);
+    return () => { this.subscribers = this.subscribers.filter(sub => sub !== fn); };
+  },
+  notify(user) {
+    this.subscribers.slice().forEach(function (fn) {
+      try { fn(user); } catch (e) { console.error('[ExamBuddy] Auth subscriber failed', e); }
+    });
+  },
+  isAuthenticated() {
+    return !!this.user;
+  }
+};
+
+function _setAuthState(user) {
+  const normalized = _normalizeUser(user);
+  window.ebAuth.user = normalized;
+  window.ebAuth.ready = true;
+  window.ebAuth.loading = false;
+  window.ebAuth.error = null;
+  window.ebAuth.notify(normalized);
+  window.dispatchEvent(new CustomEvent('eb:auth-changed', { detail: { user: normalized } }));
+  if (!_authReady) {
+    _authReady = true;
+    window.dispatchEvent(new Event('eb:supabase-ready'));
+  }
+  _applyAuthUI(user);
+}
+
+function _setAuthError(error) {
+  window.ebAuth.error = error;
+  window.ebAuth.loading = false;
+  window.ebAuth.notify(window.ebAuth.user);
+  window.dispatchEvent(new CustomEvent('eb:auth-error', { detail: { error } }));
+}
 
 /* ── Init ── */
 document.addEventListener('DOMContentLoaded', function () {
-  if (!window.supabase) {
-    console.error('[ExamBuddy] Supabase SDK not loaded. Add the CDN script before supabase.js');
+  if (!window.ebSupabaseClient || typeof window.ebSupabaseClient.getClient !== 'function') {
+    console.error('[ExamBuddy] Supabase client is not available. Make sure supabase-client.js loads before supabase.js');
     return;
   }
 
-  _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+  try {
+    _sb = window.ebSupabaseClient.getClient();
+  } catch (err) {
+    console.error('[ExamBuddy] Failed to create Supabase client', err);
+    return;
+  }
 
-  /* Check existing session on page load */
+  window._sb = _sb;
+  window._sbReady = true;
+
   _sb.auth.getSession().then(function ({ data }) {
-    _applyAuthUI(data.session?.user ?? null);
+    _setAuthState(data.session?.user ?? null);
+  }).catch(function (err) {
+    console.warn('[ExamBuddy] Failed to retrieve existing Supabase session', err);
+    _setAuthState(null);
   });
 
-  /* React to login / logout events */
   _sb.auth.onAuthStateChange(function (_event, session) {
-    _applyAuthUI(session?.user ?? null);
+    _setAuthState(session?.user ?? null);
   });
 });
 
@@ -35,7 +97,6 @@ function _applyAuthUI(user) {
   if (typeof window.ebUpdateAuthUI === 'function') {
     window.ebUpdateAuthUI(user);
   } else {
-    /* shared-layout.js not ready yet — retry once after 100ms */
     setTimeout(function () {
       if (typeof window.ebUpdateAuthUI === 'function') {
         window.ebUpdateAuthUI(user);
@@ -44,96 +105,79 @@ function _applyAuthUI(user) {
   }
 }
 
+async function _waitForAuthReady() {
+  if (window.ebAuth && window.ebAuth.ready) return;
+  await new Promise(function (resolve) {
+    window.addEventListener('eb:supabase-ready', resolve, { once: true });
+    setTimeout(resolve, 5000);
+  });
+}
+
+async function ebRequireAuth(redirectUrl = 'login.html') {
+  await _waitForAuthReady();
+  const user = await ebGetUser();
+  if (!user) {
+    window.location.href = redirectUrl;
+    return null;
+  }
+  return user;
+}
+
 /* ════════════════════════════════════════════
    AUTH HELPERS
 ════════════════════════════════════════════ */
 
 async function ebSignUp(name, email, password) {
   if (!_sb) throw new Error('Supabase not initialised');
+  window.ebAuth.loading = true;
   const { data, error } = await _sb.auth.signUp({
     email,
     password,
     options: { data: { full_name: name } }
   });
-  if (error) throw error;
+  if (error) {
+    _setAuthError(error);
+    throw error;
+  }
+  if (data?.user) _setAuthState(data.user);
   return data;
 }
 
 async function ebSignIn(email, password) {
   if (!_sb) throw new Error('Supabase not initialised');
+  window.ebAuth.loading = true;
   const { data, error } = await _sb.auth.signInWithPassword({ email, password });
-  if (error) throw error;
+  if (error) {
+    _setAuthError(error);
+    throw error;
+  }
+  if (data?.user) _setAuthState(data.user);
   return data;
 }
 
 async function ebSignOut() {
   if (_sb) await _sb.auth.signOut();
+  _setAuthState(null);
   window.location.href = 'index.html';
 }
 
 async function ebGetUser() {
   if (!_sb) return null;
   const { data } = await _sb.auth.getSession();
-  return data?.session?.user ?? null;
+  return _normalizeUser(data?.session?.user ?? null);
 }
+
+window.ebAuth.signUp = ebSignUp;
+window.ebAuth.signIn = ebSignIn;
+window.ebAuth.signOut = ebSignOut;
+window.ebAuth.getUser = ebGetUser;
+window.ebAuth.requireAuth = ebRequireAuth;
 
 /* ════════════════════════════════════════════
    EXAM RESULTS — save & fetch
 ════════════════════════════════════════════ */
 
-async function ebSaveResult(examName, resultObj) {
-  const user = await ebGetUser();
-  if (!user) { _saveLocalHistory(examName, resultObj); return; }
-
-  const { error } = await _sb.from('exam_results').insert({
-    user_id   : user.id,
-    exam      : examName,
-    score_pct : resultObj.pct,
-    correct   : resultObj.correct,
-    wrong     : resultObj.wrong,
-    skipped   : resultObj.skipped,
-    total_qs  : resultObj.total,
-    time_taken: resultObj.timeTaken,
-    subjects  : resultObj.subjects,
-    taken_at  : new Date().toISOString(),
-  });
-
-  if (error) console.warn('[ExamBuddy] Supabase save failed, using localStorage fallback', error);
-  _saveLocalHistory(examName, resultObj);
-}
-
-async function ebGetResults(examFilter) {
-  const user = await ebGetUser();
-  if (!user) return _getLocalHistory(examFilter);
-
-  let query = _sb
-    .from('exam_results')
-    .select('*')
-    .eq('user_id', user.id)
-    .order('taken_at', { ascending: false })
-    .limit(200);
-
-  if (examFilter && examFilter !== 'all') {
-    query = query.ilike('exam', examFilter);
-  }
-
-  const { data, error } = await query;
-  if (error || !data) return _getLocalHistory(examFilter);
-
-  return data.map(function (r) {
-    return {
-      exam     : r.exam,
-      date     : r.taken_at,
-      pct      : r.score_pct,
-      correct  : r.correct,
-      wrong    : r.wrong,
-      skipped  : r.skipped,
-      total    : r.total_qs,
-      timeTaken: r.time_taken,
-      subjects : r.subjects,
-    };
-  });
-}
+// Exam results operations are handled by js/supabase-service.js
 
 /* ════════════════════════════════════════════
    LOCAL STORAGE FALLBACK

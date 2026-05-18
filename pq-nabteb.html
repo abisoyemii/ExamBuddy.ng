@@ -11,6 +11,9 @@
   <meta name="description" content="Practice NABTEB past questions online. Technical subjects, 2015–2024. Click to reveal answers with explanations. Free." />
   <link rel="canonical" href="https://exambuddy.ng/pq-nabteb.html" />
   <link rel="icon" href="images/favicon image.png" />
+  <!-- Supabase Configuration -->
+  <meta name="supabase-url" content="https://dhcxzdfvpsccmescmavd.supabase.co" />
+  <meta name="supabase-anon-key" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoY3h6ZGZ2cHNjY21lc2NtYXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4Mjg3NDUsImV4cCI6MjA4ODQwNDc0NX0.4V-z-bgfxXg_AHq7a_K4XOCjtvucTfkK9g7OWkC8LqY" />
   <link rel="stylesheet" href="css/style.css" /><link rel="stylesheet" href="css/responsive.css" />
   <style>
     .quiz-shell{display:grid;grid-template-columns:280px 1fr;gap:32px;align-items:start}
@@ -281,7 +284,11 @@ function ca(btn,sel,cor,idx,exp){const card=document.getElementById(`qc${idx}`);
 function resetScore(){score=0;total=0;document.getElementById('scoreNum').textContent='0/0';window.showToast&&showToast('🔄 Score reset!');}
 buildYearGrid();renderQuestions();document.querySelectorAll('.fb').forEach(btn=>{btn.addEventListener('click',function(){setSubject(this.getAttribute('data-subject'),this);});});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/supabase-service.js"></script>
 <script src="js/supabase.js"></script>
+<script src="js/cbt-engine.js"></script>
 <script src="js/shared-layout.js"></script>
 <script src="js/main.js"></script>
 <script src="js/exam-redirect.js"></script>

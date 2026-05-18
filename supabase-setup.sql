@@ -35,6 +35,33 @@ CREATE POLICY "Users can view own results"
 CREATE INDEX IF NOT EXISTS idx_results_user_taken
   ON public.exam_results(user_id, taken_at DESC);
 
+-- 4. Optional: save user progress between exam sessions
+CREATE TABLE IF NOT EXISTS public.user_progress (
+  id          uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id     uuid REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,
+  exam        text NOT NULL,
+  progress    jsonb,
+  metadata    jsonb,
+  updated_at  timestamptz DEFAULT now() NOT NULL
+);
+
+ALTER TABLE public.user_progress ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Users can insert or update own progress"
+  ON public.user_progress FOR INSERT
+  WITH CHECK (auth.uid() = user_id);
+
+CREATE POLICY "Users can update own progress"
+  ON public.user_progress FOR UPDATE
+  WITH CHECK (auth.uid() = user_id);
+
+CREATE POLICY "Users can view own progress"
+  ON public.user_progress FOR SELECT
+  USING (auth.uid() = user_id);
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_progress_user_exam
+  ON public.user_progress(user_id, exam);
+
 -- ============================================================
 --  That's it! Your database is ready.
 -- ============================================================
