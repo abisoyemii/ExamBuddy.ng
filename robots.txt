@@ -1,11 +1,10 @@
 # ExamBuddy Nigeria — robots.txt
-# Allow all search engine crawlers
 
 User-agent: *
 Allow: /
 
-# Block any internal assets that don't need indexing
+# Block internal assets if needed
 Disallow: /assets/
 
-# Sitemap location — submit this URL to Google Search Console
-Sitemap: https://exambuddy.ng/sitemap.xml
+# Sitemap
+Sitemap: https://www.exambuddy.com.ng/sitemap.xml
