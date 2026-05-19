@@ -681,8 +681,7 @@
     const touch = e.touches[0];
     mouse.x = touch.clientX - rect.left;
     mouse.y = touch.clientY - rect.top;
-    e.preventDefault();
-  }, { passive: false });
+  });
   hero.addEventListener('touchend', () => { mouse.x = -9999; mouse.y = -9999; });
   window.addEventListener('resize', () => {
     resize();
