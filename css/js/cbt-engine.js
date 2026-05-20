@@ -533,7 +533,7 @@ document.body.insertAdjacentHTML('beforeend', `
     <div class="res-actions">
       <button class="res-btn-p" onclick="document.getElementById('rn-rev').scrollIntoView({behavior:'smooth'})">📖 Review Answers</button>
       <button class="res-btn-o" onclick="cbtRetake()">🔄 Retake Exam</button>
-      <button class="res-btn-g" onclick="location.href='past-questions.html'">🏠 Back to Hub</button>
+      <button class="res-btn-g" onclick="location.href='/past-questions/'">🏠 Back to Hub</button>
     </div>
     <div class="res-block" id="rn-rev">
       <p class="res-block-hd">Full Answer Review</p>

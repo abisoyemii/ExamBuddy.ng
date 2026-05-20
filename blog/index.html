@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – Nigerian Exam Tips, JAMB & WAEC Study Guides 2026 | ExamBuddy</title>
+  <meta name="description" content="Free, in-depth study guides for Nigerian students. How to score 300+ in JAMB, pass WAEC in one sitting, study timetables, NYSC tips and more. Updated 2026." />
+  <meta name="keywords" content="JAMB 2026, WAEC 2026, how to pass JAMB, how to pass WAEC, JAMB study tips, WAEC past questions, Nigerian exam guide, score 300 JAMB, NYSC tips" />
+  <link rel="canonical" href="https://exambuddy.ng/blog/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ExamBuddy Blog – Nigerian Exam Tips & Study Guides 2026" />
+  <meta property="og:description" content="Free expert guides for JAMB, WAEC, NECO, and NYSC. Written by Nigerian educators and top-scoring graduates." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://exambuddy.ng/blog/" />
+  <meta property="og:site_name" content="ExamBuddy Nigeria" />
+
+  <!-- FAQ Schema for Google rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "ExamBuddy Nigeria Blog",
+    "description": "Free study guides, exam tips, and strategies for Nigerian students preparing for JAMB, WAEC, NECO, and NYSC.",
+    "url": "https://exambuddy.ng/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "ExamBuddy Nigeria",
+      "url": "https://exambuddy.ng"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+
+  <style>
+    /* ── Blog Layout ── */
+    .blog-hero { background: linear-gradient(135deg,#1A1A2E,#16213E 50%,#0F3460); padding: 64px 0 48px; }
+    .blog-hero .label { background: rgba(255,255,255,.12); color: #fff; border-radius: 999px; padding: 6px 16px; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; display: inline-block; margin-bottom: 16px; }
+    .blog-hero h1 { color: #fff; font-size: clamp(1.8rem,4vw,2.8rem); line-height: 1.2; margin-bottom: 12px; }
+    .blog-hero p { color: rgba(255,255,255,.75); font-size: 1.05rem; max-width: 560px; }
+
+    /* ── Featured Post ── */
+    .featured-post { background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,.1); margin-bottom: 48px; display: grid; grid-template-columns: 1fr 1fr; }
+    .featured-img { background: linear-gradient(135deg,#059669,#065F46); min-height: 320px; display: flex; align-items: center; justify-content: center; font-size: 6rem; }
+    .featured-body { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+    .featured-tag { font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: #059669; margin-bottom: 10px; }
+    .featured-body h2 { font-size: 1.6rem; color: #0A2463; line-height: 1.3; margin-bottom: 14px; }
+    .featured-body p { color: #475569; font-size: .95rem; line-height: 1.7; margin-bottom: 20px; }
+    .featured-meta { font-size: .78rem; color: #94A3B8; margin-bottom: 20px; }
+    @media(max-width:768px){ .featured-post { grid-template-columns: 1fr; } .featured-img { min-height: 200px; } .featured-body { padding: 24px; } }
+
+    /* ── Blog Grid ── */
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 28px; margin-bottom: 48px; }
+    .blog-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 20px; overflow: hidden; transition: all .2s; cursor: pointer; }
+    .blog-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.1); transform: translateY(-3px); }
+    .card-img { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
+    .card-body { padding: 24px; }
+    .card-tag { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; padding: 3px 10px; border-radius: 999px; display: inline-block; margin-bottom: 10px; }
+    .tag-jamb { background: rgba(37,99,235,.1); color: #2563EB; }
+    .tag-waec { background: rgba(5,150,105,.1); color: #059669; }
+    .tag-nysc { background: rgba(245,158,11,.1); color: #92400E; }
+    .tag-study { background: rgba(124,58,237,.1); color: #7C3AED; }
+    .tag-anxiety { background: rgba(239,68,68,.1); color: #DC2626; }
+    .tag-after { background: rgba(15,118,110,.1); color: #0F766E; }
+    .card-body h3 { font-size: 1.05rem; color: #0A2463; line-height: 1.4; margin-bottom: 10px; font-weight: 700; }
+    .card-body p { font-size: .87rem; color: #64748B; line-height: 1.6; margin-bottom: 14px; }
+    .card-meta { font-size: .75rem; color: #94A3B8; display: flex; align-items: center; gap: 12px; }
+    .read-more { font-size: .82rem; font-weight: 700; color: #0A2463; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+    .read-more:hover { color: #059669; }
+
+    /* ── Article Modal / Full Content ── */
+    .article-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 2000; overflow-y: auto; padding: 40px 20px; }
+    .article-overlay.open { display: flex; justify-content: center; align-items: flex-start; }
+    .article-modal { background: #fff; border-radius: 24px; max-width: 800px; width: 100%; padding: 48px 52px; position: relative; margin: auto; }
+    @media(max-width:640px){ .article-modal { padding: 28px 20px; } }
+    .close-article { position: absolute; top: 20px; right: 24px; background: #F1F5F9; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #475569; transition: all .18s; }
+    .close-article:hover { background: #EF4444; color: #fff; }
+    .article-modal .art-tag { font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px; display: inline-block; padding: 4px 12px; border-radius: 999px; }
+    .article-modal h1 { font-size: clamp(1.4rem,3vw,2rem); color: #0A2463; line-height: 1.3; margin-bottom: 12px; font-family: 'Lora', serif; }
+    .article-modal .art-meta { font-size: .8rem; color: #94A3B8; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #E2E8F0; }
+    .article-modal .art-intro { font-size: 1.05rem; color: #334155; line-height: 1.75; font-family: 'Lora', serif; font-style: italic; margin-bottom: 28px; padding: 20px 24px; background: #F8FAFC; border-left: 4px solid #059669; border-radius: 0 12px 12px 0; }
+    .article-modal h2 { font-size: 1.2rem; color: #0A2463; margin: 32px 0 12px; font-weight: 800; border-bottom: 2px solid #F1F5F9; padding-bottom: 8px; }
+    .article-modal h3 { font-size: 1rem; color: #1E293B; margin: 20px 0 8px; font-weight: 700; }
+    .article-modal p { font-size: .95rem; color: #475569; line-height: 1.75; margin-bottom: 16px; }
+    .article-modal ul, .article-modal ol { margin: 0 0 16px 20px; }
+    .article-modal li { font-size: .95rem; color: #475569; line-height: 1.7; margin-bottom: 6px; }
+    .article-modal .tip-box { background: linear-gradient(135deg, rgba(5,150,105,.07), rgba(5,150,105,.03)); border: 1px solid rgba(5,150,105,.2); border-radius: 14px; padding: 20px 24px; margin: 20px 0; }
+    .article-modal .tip-box strong { color: #065F46; display: block; margin-bottom: 8px; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; }
+    .article-modal .warning-box { background: rgba(245,158,11,.07); border: 1px solid rgba(245,158,11,.25); border-radius: 14px; padding: 20px 24px; margin: 20px 0; }
+    .article-modal .warning-box strong { color: #92400E; display: block; margin-bottom: 8px; font-size: .85rem; }
+    .article-modal .num-list { counter-reset: num; list-style: none; margin: 0 0 20px; padding: 0; }
+    .article-modal .num-list li { counter-increment: num; display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+    .article-modal .num-list li::before { content: counter(num); background: #0A2463; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .78rem; flex-shrink: 0; margin-top: 2px; }
+    .article-modal table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: .88rem; }
+    .article-modal th { background: #0A2463; color: #fff; padding: 10px 14px; text-align: left; font-size: .8rem; }
+    .article-modal td { padding: 10px 14px; border-bottom: 1px solid #E2E8F0; color: #334155; }
+    .article-modal tr:nth-child(even) td { background: #F8FAFC; }
+    .art-cta { background: linear-gradient(135deg,#0A2463,#1A3A6B); border-radius: 16px; padding: 28px; text-align: center; margin-top: 36px; color: #fff; }
+    .art-cta h3 { color: #fff; margin-bottom: 8px; }
+    .art-cta p { color: rgba(255,255,255,.75); font-size: .9rem; margin-bottom: 16px; }
+    .art-cta .btn-cta { background: #059669; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 700; font-size: .92rem; text-decoration: none; display: inline-block; }
+    .art-cta .btn-cta:hover { background: #047857; }
+
+    /* ── Categories ── */
+    .categories-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+    .cat-chip { padding: 8px 18px; border-radius: 999px; font-size: .83rem; font-weight: 700; border: 2px solid #E2E8F0; background: #fff; cursor: pointer; transition: all .18s; color: #475569; }
+    .cat-chip:hover, .cat-chip.active { background: #0A2463; border-color: #0A2463; color: #fff; }
+
+    /* ── Newsletter ── */
+    .newsletter-box { background: linear-gradient(135deg,#059669,#047857); border-radius: 20px; padding: 40px; text-align: center; color: #fff; margin-top: 48px; }
+    .newsletter-box h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .newsletter-box p { opacity: .85; margin-bottom: 24px; font-size: .95rem; }
+    .nl-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .nl-input { flex: 1; min-width: 200px; padding: 12px 16px; border-radius: 10px; border: none; font-family: inherit; font-size: .9rem; outline: none; }
+    .nl-btn { background: #0A2463; color: #fff; border: none; border-radius: 10px; padding: 12px 24px; font-weight: 700; font-size: .9rem; cursor: pointer; font-family: inherit; white-space: nowrap; }
+    .nl-btn:hover { background: #1E3A8A; }
+  </style>
+</head>
+<body>
+<div id="nav-root"></div>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container breadcrumb__inner">
+    <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+    <span>Blog</span>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="blog-hero">
+  <div class="container">
+    <span class="label">✍️ ExamBuddy Blog</span>
+    <h1>Study Smarter,<br>Not Harder</h1>
+    <p>Real, practical guides for Nigerian students — JAMB, WAEC, NECO, NYSC and beyond. Written by educators and graduates who've been through it.</p>
+  </div>
+</section>
+
+<!-- Main Content -->
+<section class="section">
+  <div class="container">
+
+    <!-- Category Filter -->
+    <div class="categories-row" id="catRow">
+      <button class="cat-chip active" onclick="filterCat('all',this)">All Articles</button>
+      <button class="cat-chip" onclick="filterCat('jamb',this)">🎯 JAMB</button>
+      <button class="cat-chip" onclick="filterCat('waec',this)">📝 WAEC</button>
+      <button class="cat-chip" onclick="filterCat('nysc',this)">🏕️ NYSC</button>
+      <button class="cat-chip" onclick="filterCat('study',this)">⏰ Study Skills</button>
+      <button class="cat-chip" onclick="filterCat('anxiety',this)">😰 Exam Anxiety</button>
+      <button class="cat-chip" onclick="filterCat('after',this)">🎓 After School</button>
+    </div>
+
+    <!-- Featured Article -->
+    <div class="featured-post" onclick="openArticle('a1')" style="cursor:pointer;">
+      <div class="featured-img">🎯</div>
+      <div class="featured-body">
+        <div class="featured-tag">⭐ Featured · JAMB</div>
+        <h2>How to Score 300+ in JAMB UTME 2026 — A Realistic, Step-by-Step Guide</h2>
+        <p>No magic, no shortcuts. This guide breaks down exactly how top-scoring candidates prepare — from 6 months out to exam day. Includes subject-by-subject strategy.</p>
+        <div class="featured-meta">By ExamBuddy Editors &nbsp;·&nbsp; 12 min read &nbsp;·&nbsp; Updated March 2026</div>
+        <a class="read-more" href="javascript:void(0)" onclick="openArticle('a1')">Read Full Article →</a>
+      </div>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="blog-grid" id="blogGrid">
+
+      <!-- Card 2 -->
+      <div class="blog-card" data-cat="waec" onclick="openArticle('a2')">
+        <div class="card-img" style="background:linear-gradient(135deg,#D1FAE5,#A7F3D0);">📝</div>
+        <div class="card-body">
+          <span class="card-tag tag-waec">WAEC</span>
+          <h3>10 Proven Strategies to Score A1 in WAEC English Language</h3>
+          <p>Most students fail WAEC English not from lack of knowledge but from poor technique. Here's what top scorers do differently in the essay, summary, and comprehension papers.</p>
+          <div class="card-meta">📅 March 2026 &nbsp;·&nbsp; 10 min read</div>
+          <br/><a class="read-more" href="javascript:void(0)">Read Article →</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="blog-card" data-cat="study" onclick="openArticle('a3')">
+        <div class="card-img" style="background:linear-gradient(135deg,#EDE9FE,#DDD6FE);">⏰</div>
+        <div class="card-body">
+          <span class="card-tag tag-study">Study Skills</span>
+          <h3>How to Create a Study Timetable That You Will Actually Follow</h3>
+          <p>Most timetables fail within 3 days. This guide shows you how to design a realistic, flexible schedule that works for Nigerian students — even with power cuts and distractions.</p>
+          <div class="card-meta">📅 February 2026 &nbsp;·&nbsp; 7 min read</div>
+          <br/><a class="read-more" href="javascript:void(0)">Read Article →</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="blog-card" data-cat="nysc" onclick="openArticle('a4')">
+        <div class="card-img" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);">🏕️</div>
+        <div class="card-body">
+          <span class="card-tag tag-nysc">NYSC</span>
+          <h3>NYSC Camp Survival Guide: What Nobody Actually Tells You</h3>
+          <p>From what to pack to how to handle military drills, platoon selection, and the redeployment process — an honest, no-fluff guide from corps members who've been there.</p>
+          <div class="card-meta">📅 January 2026 &nbsp;·&nbsp; 9 min read</div>
+          <br/><a class="read-more" href="javascript:void(0)">Read Article →</a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="blog-card" data-cat="anxiety" onclick="openArticle('a5')">
+        <div class="card-img" style="background:linear-gradient(135deg,#FEE2E2,#FECACA);">😰</div>
+        <div class="card-body">
+          <span class="card-tag tag-anxiety">Exam Anxiety</span>
+          <h3>Managing Exam Anxiety: Practical Techniques That Actually Work</h3>
+          <p>Anxiety kills more exam scores than lack of preparation. Learn science-backed techniques used by students and athletes to stay calm and perform under pressure.</p>
+          <div class="card-meta">📅 February 2026 &nbsp;·&nbsp; 8 min read</div>
+          <br/><a class="read-more" href="javascript:void(0)">Read Article →</a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="blog-card" data-cat="waec" onclick="openArticle('a6')">
+        <div class="card-img" style="background:linear-gradient(135deg,#D1FAE5,#6EE7B7);">⚗️</div>
+        <div class="card-body">
+          <span class="card-tag tag-waec">WAEC</span>
+          <h3>Pass WAEC Chemistry in 8 Weeks: A Focused Study Plan</h3>
+          <p>Chemistry is one of the most failed WAEC subjects. This 8-week plan covers the highest-tested topics, with daily tasks and past question practice built in.</p>
+          <div class="card-meta">📅 March 2026 &nbsp;·&nbsp; 8 min read</div>
+          <br/><a class="read-more" href="javascript:void(0)">Read Article →</a>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="blog-card" data-cat="after" onclick="openArticle('a7')">
+        <div class="card-img" style="background:linear-gradient(135deg,#CCFBF1,#99F6E4);">🎓</div>
+        <div class="card-body">
+          <span class="card-tag tag-after">After School</span>
+          <h3>What to Do While Waiting for Your WAEC Results</h3>
+          <p>The waiting period is 6–10 weeks. Most students waste it. Here's exactly how to use that time to get ahead — whether you're preparing for JAMB, learning a skill, or exploring options.</p>
+          <div class="card-meta">📅 January 2026 &nbsp;·&nbsp; 6 min read</div>
+          <br/><a class="read-more" href="javascript:void(0)">Read Article →</a>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="blog-card" data-cat="jamb" onclick="openArticle('a8')">
+        <div class="card-img" style="background:linear-gradient(135deg,#DBEAFE,#BFDBFE);">📱</div>
+        <div class="card-body">
+          <span class="card-tag tag-jamb">JAMB</span>
+          <h3>JAMB Subject Combinations for Every Course in Nigeria (2026)</h3>
+          <p>The complete, updated list of JAMB subject combinations for all courses — Medicine, Engineering, Law, Business, Mass Comm, Computer Science, and 40+ more.</p>
+          <div class="card-meta">📅 March 2026 &nbsp;·&nbsp; 5 min read</div>
+          <br/><a class="read-more" href="javascript:void(0)">Read Article →</a>
+        </div>
+      </div>
+
+    </div><!-- /blog-grid -->
+
+    <!-- Newsletter -->
+    <div class="newsletter-box">
+      <h3>📬 Get New Articles In Your Inbox</h3>
+      <p>Join 12,000+ Nigerian students who get free study tips, exam updates and guides every week.</p>
+      <div class="nl-form">
+        <input class="nl-input" type="email" placeholder="Your email address" />
+        <button class="nl-btn">Subscribe Free</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ARTICLE OVERLAYS — Full Articles
+═══════════════════════════════════════ -->
+
+<!-- ARTICLE 1: Score 300+ in JAMB -->
+<div class="article-overlay" id="art-a1">
+  <div class="article-modal">
+    <button class="close-article" onclick="closeArticle('a1')">✕</button>
+    <span class="art-tag tag-jamb">🎯 JAMB</span>
+    <h1>How to Score 300+ in JAMB UTME 2026 — A Realistic, Step-by-Step Guide</h1>
+    <div class="art-meta">By ExamBuddy Editors &nbsp;·&nbsp; Updated March 2026 &nbsp;·&nbsp; 12 min read</div>
+
+    <div class="art-intro">
+      Scoring 300 and above in JAMB is not about luck or magic. Every year, thousands of Nigerian students cross that mark — and every one of them followed a deliberate, structured preparation strategy. This guide shows you exactly what that strategy looks like.
+    </div>
+
+    <h2>1. Understand What 300 Actually Requires</h2>
+    <p>JAMB UTME has 4 subjects (including Use of English), with 45 questions each = 180 questions total. A score of 300 out of 400 means you need to score an average of 75% — that is, getting about 34 out of 45 questions right per subject.</p>
+    <p>That sounds hard but it is very achievable. Here's what makes the difference: students who score 300+ don't know more than you. They are simply more familiar with how JAMB sets its questions. That familiarity comes from consistent past question practice.</p>
+
+    <div class="tip-box">
+      <strong>✅ Key Insight</strong>
+      JAMB repeats question patterns, concepts, and sometimes even exact questions across years. Students who have solved 5–10 years of past questions for each subject will recognise familiar patterns on exam day — and that recognition is worth 50+ marks.
+    </div>
+
+    <h2>2. Start At Least 4 Months Before Your Exam</h2>
+    <p>The biggest mistake candidates make is starting 3–4 weeks before the exam. That leaves almost no time for the deep familiarity that comes from repeated practice. Here is a realistic timeline:</p>
+    <table>
+      <tr><th>Period</th><th>Focus</th></tr>
+      <tr><td>4–3 months before</td><td>Cover the JAMB syllabus for each subject. Know what topics are testable. Read recommended textbooks.</td></tr>
+      <tr><td>3–2 months before</td><td>Start topic-by-topic past question practice. Identify your weak areas per subject.</td></tr>
+      <tr><td>2–1 month before</td><td>Full past paper practice under timed conditions. Aim for at least 1 full paper per week per subject.</td></tr>
+      <tr><td>Final 2 weeks</td><td>Daily CBT simulations. Review your most-missed question types. No new topics.</td></tr>
+    </table>
+
+    <h2>3. Subject-by-Subject Strategy</h2>
+
+    <h3>Use of English (100 marks — most important)</h3>
+    <p>Use of English is the one subject every JAMB candidate must take, and it is where most marks are won or lost. Focus heavily on:</p>
+    <ul>
+      <li><strong>Lexis and Structure:</strong> antonyms, synonyms, word relationships, appropriate use of words. JAMB tests vocabulary heavily — study a word-a-day habit starting immediately.</li>
+      <li><strong>Comprehension passages:</strong> Read carefully and find answers from the text, not from your head. Never add your own ideas.</li>
+      <li><strong>The JAMB prescribed novel:</strong> Every year, JAMB sets 5–10 questions on the current year's novel. Read it fully and know the characters, plot, themes, and setting.</li>
+      <li><strong>Oral English:</strong> Stress patterns, rhyme, vowel sounds. These 10 questions are often overlooked — master them for free marks.</li>
+    </ul>
+
+    <h3>Mathematics</h3>
+    <p>Mathematics rewards consistent practice above everything else. Key high-yield topics for JAMB include: Number and Numeration (indices, surds, logarithms), Algebra (quadratic equations, simultaneous equations, inequalities), Geometry and Trigonometry, Statistics and Probability, and Calculus (differentiation and integration — yes, they test this).</p>
+    <div class="tip-box">
+      <strong>💡 Mathematics Tip</strong>
+      Do NOT skip any topic. JAMB often picks questions from areas candidates assume won't come. Cover the full syllabus, then focus extra practice time on your 3 weakest topics.
+    </div>
+
+    <h3>Science Subjects (Biology, Chemistry, Physics)</h3>
+    <p>For science students, these three subjects follow a predictable pattern. JAMB tends to test fundamental concepts more than complex calculations. Study the definitions and principles thoroughly — many marks are won simply by knowing key terms and their meanings.</p>
+    <ul>
+      <li><strong>Biology:</strong> Cell biology, genetics, ecology, photosynthesis, and respiration come up almost every year. Learn diagrams and their labels — JAMB sometimes asks you to identify parts.</li>
+      <li><strong>Chemistry:</strong> Focus on periodic table trends, chemical bonding, organic chemistry basics (naming, reactions), and electrolysis. Calculation questions often come from moles and concentration.</li>
+      <li><strong>Physics:</strong> Mechanics (motion, force, energy) carries the most marks. Also focus on electricity, waves, and optics. Know all your formulas.</li>
+    </ul>
+
+    <h2>4. Use CBT Practice, Not Just Reading</h2>
+    <p>JAMB is a computer-based test. Reading notes alone will NOT prepare you for the format. You must practice on a screen, under time pressure. Research consistently shows that CBT-specific practice improves scores by 20–40 marks compared to textbook-only study.</p>
+    <p>Use ExamBuddy's free JAMB CBT practice tool to simulate real exam conditions. Aim for the 40-second-per-question rule. If you finish a question in under 40 seconds, you are on track for 300+.</p>
+
+    <h2>5. Eliminate Common Time-Wasting Mistakes</h2>
+    <ol class="num-list">
+      <li><strong>Don't get stuck on hard questions.</strong> Flag them and move on. Return at the end. One hard question is not worth 5 minutes that should go to 7 easier ones.</li>
+      <li><strong>Don't second-guess your first answer too often.</strong> Studies show the first instinct is right more often than the revised answer. Only change if you are certain.</li>
+      <li><strong>Read every option before selecting.</strong> JAMB frequently uses "trick" answers — options that look almost right but have a subtle error.</li>
+      <li><strong>Manage exam anxiety with breathing.</strong> If you feel panicked, take 3 slow deep breaths. Your brain works better when you're calm.</li>
+      <li><strong>Never leave any question blank.</strong> There is no negative marking in JAMB. A guess gives you a 25% chance of being right. A blank gives you 0%.</li>
+    </ol>
+
+    <h2>6. The Final Week</h2>
+    <p>In the 7 days before your exam, do not introduce any new material. Your brain needs time to consolidate what it has learned. Instead: take one full practice test daily, review only the question types you consistently get wrong, sleep 7–8 hours every night (sleep is when memory consolidates), and visit your exam centre beforehand so you know the location and won't be rushed on exam day.</p>
+
+    <div class="warning-box">
+      <strong>⚠️ Avoid These Traps in the Final Week</strong>
+      Do not stay up all night studying the day before. Do not compare yourself with other candidates online — social media exam anxiety is real. Do not try to cram new topics. Do not forget to eat breakfast on exam day — your brain needs fuel.
+    </div>
+
+    <div class="art-cta">
+      <h3>Ready to Practice?</h3>
+      <p>Use ExamBuddy's free JAMB CBT simulator — full past questions from 2014–2026, instant scoring, and detailed explanations.</p>
+      <a href="/pq-jamb/" class="btn-cta">🎯 Start JAMB Practice Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE 2: WAEC English A1 -->
+<div class="article-overlay" id="art-a2">
+  <div class="article-modal">
+    <button class="close-article" onclick="closeArticle('a2')">✕</button>
+    <span class="art-tag tag-waec">📝 WAEC</span>
+    <h1>10 Proven Strategies to Score A1 in WAEC English Language</h1>
+    <div class="art-meta">By ExamBuddy Editors &nbsp;·&nbsp; Updated March 2026 &nbsp;·&nbsp; 10 min read</div>
+    <div class="art-intro">
+      WAEC English Language is failed by more students than almost any other subject — not because they don't know English, but because they don't know how WAEC examines English. These 10 strategies come directly from candidates who have scored A1 consistently.
+    </div>
+
+    <h2>Why Students Fail WAEC English</h2>
+    <p>The most common reasons WAEC English candidates fail include: not knowing the essay format WAEC expects, rushing through comprehension without reading carefully, ignoring summary writing techniques, spending too long on one section and running out of time, and not practising with the marking scheme in mind.</p>
+    <p>The good news: all of these are fixable with deliberate practice.</p>
+
+    <h2>Strategy 1: Know the Paper Structure Cold</h2>
+    <p>WAEC English Language has three papers. Paper 1 (Objective) has 80 questions covering lexis and structure, oral English, and comprehension — answer in 1 hour 15 minutes. Paper 2 (Essay and Summary) requires you to write one essay and answer a summary question — 2 hours. Paper 3 (Oral) is tested separately. Understanding this structure means you can allocate your time correctly before the exam starts.</p>
+
+    <h2>Strategy 2: Master the Essay Formula</h2>
+    <p>WAEC essay questions almost always fall into predictable types: Narrative (tell a story), Descriptive (describe a person/place/event), Expository (explain something), Argumentative (argue for/against), and Letter (formal or informal). For each type, there is an expected format. Practise writing one of each format every week for 6 weeks before the exam. WAEC examiners mark against a template — give them exactly what the template expects.</p>
+    <div class="tip-box">
+      <strong>📝 Essay Structure That Always Works</strong>
+      Introduction (3–4 sentences setting up your answer) → 3–4 body paragraphs (each making one clear point with evidence or example) → Conclusion (3–4 sentences summarising and giving a final thought). Never write less than 450 words. Never go over 600 words — you lose time for other questions.
+    </div>
+
+    <h2>Strategy 3: The Summary Writing Formula</h2>
+    <p>Summary writing is where many A-grade students drop marks. WAEC expects you to: identify the required number of points from the passage, rewrite each point in your own words, use numbered points (not continuous prose unless asked), and not exceed the word limit. Before your exam, practice identifying the "answer points" in a passage. They are usually signaled by words like: "firstly", "moreover", "also", "in addition", "however", "consequently".</p>
+
+    <h2>Strategy 4: Read Comprehension Questions First</h2>
+    <p>Before reading the comprehension passage, read all the questions. This tells your brain exactly what information to look for. When you then read the passage, you will automatically notice the relevant sections. Students who read the passage first, then go to the questions, often have to re-read sections — wasting 10–15 minutes.</p>
+
+    <h2>Strategy 5: Answer Comprehension from the Text Only</h2>
+    <p>One of the most punished mistakes in WAEC English comprehension is adding information not found in the passage — even if your addition is correct. WAEC markers are instructed to only award marks for information that comes directly from the text. If the passage does not say it, do not write it.</p>
+
+    <h2>Strategy 6: Master Oral English — Free Marks Most Students Ignore</h2>
+    <p>Oral English questions in the objective paper cover word stress, rhyme, and vowel/consonant sounds. Many candidates simply guess on these questions. But these 10–15 questions are completely learnable with 2 weeks of focused practice. Buy a phonetics workbook or use a reliable online resource. Learn the stress patterns for common two-syllable and three-syllable words. Learn the 20 vowel sounds of English and how they appear in common words.</p>
+
+    <h2>Strategy 7: Build Your Vocabulary Daily</h2>
+    <p>Lexis and structure questions (antonyms, synonyms, fill-in-the-blank, word usage) account for a large portion of the objective paper. The best way to prepare is to learn 5 new words every day for 3 months before the exam. For each word, learn: its meaning, its part of speech, one example sentence, and its antonym/synonym. This gives you 450 new words — a massive advantage.</p>
+
+    <h2>Strategy 8: Practise With the Marking Scheme</h2>
+    <p>WAEC releases marking schemes (chief examiner's reports) for past years. These are gold. They show exactly what answers examiners accepted and rejected, the common mistakes that cost candidates marks, and the format examiners expected for each question type. Find at least 3 years of marking schemes and study them carefully before your exam.</p>
+
+    <h2>Strategy 9: Time Management — The Hidden Skill</h2>
+    <p>Many candidates who know the material still score below their potential because of poor time management. For Paper 2: spend 55 minutes on the essay (10 minutes planning + 40 minutes writing + 5 minutes proofreading), 30 minutes on summary, and 35 minutes on comprehension and other questions. Set a watch or use the exam room clock to stick to these times strictly.</p>
+
+    <h2>Strategy 10: Proofread Every Answer</h2>
+    <p>WAEC deducts marks for mechanical errors — spelling mistakes, punctuation errors, and grammar slips — even when the content of your answer is correct. In the last 5 minutes of each section, scan your written answers for errors. A clean, error-free essay on a basic topic will score higher than a brilliant but error-filled one.</p>
+
+    <div class="art-cta">
+      <h3>Practice WAEC English Past Questions</h3>
+      <p>Test yourself with real WAEC English past questions from 2014–2026. Instant answers and explanations included.</p>
+      <a href="/pq-waec/" class="btn-cta">📝 Start WAEC Practice</a>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE 3: Study Timetable -->
+<div class="article-overlay" id="art-a3">
+  <div class="article-modal">
+    <button class="close-article" onclick="closeArticle('a3')">✕</button>
+    <span class="art-tag tag-study">⏰ Study Skills</span>
+    <h1>How to Create a Study Timetable That You Will Actually Follow</h1>
+    <div class="art-meta">By ExamBuddy Editors &nbsp;·&nbsp; Updated February 2026 &nbsp;·&nbsp; 7 min read</div>
+    <div class="art-intro">
+      Most study timetables fail within three days. The reason is almost never laziness — it's that the timetable was built wrong from the start. This guide shows you how to design a schedule that fits your real life as a Nigerian student.
+    </div>
+
+    <h2>Why Most Timetables Fail</h2>
+    <p>The classic mistake: sitting down on a Sunday, planning a perfect 8-hour-a-day schedule, and then breaking it on Monday when there's no light, visitors arrive, or you're simply too tired from school. A timetable built for ideal conditions will collapse at the first real-world obstacle.</p>
+    <p>A good timetable is built for your real conditions — power cuts, household chores, fatigue, and social pressure — not for imaginary perfect days.</p>
+
+    <h2>Step 1: Audit Your Real Available Time</h2>
+    <p>Before you write a single subject on your schedule, spend 2 days tracking how you actually spend your time. When do you wake up? When is there power? When do you have school, tutorials, or chores? When is your brain sharpest? This gives you a realistic picture of your true available study windows — which for most Nigerian students is 3–5 focused hours per day, not 8–10.</p>
+
+    <h2>Step 2: Work With Time Blocks, Not Subjects</h2>
+    <p>Instead of saying "Monday: 4 hours of Mathematics", say "Monday: 2 focused blocks of 90 minutes each". Each block has one subject and one specific goal — for example: "Practice 20 JAMB Mathematics questions on indices and logarithms". Specific goals are far more motivating than vague time allocations.</p>
+
+    <div class="tip-box">
+      <strong>⏱ The 90-Minute Block Method</strong>
+      Research on learning consistently shows that 90-minute focused sessions with 15–20 minute breaks outperform longer, unfocused marathon sessions. After 90 minutes, your brain's ability to retain new information drops sharply. Take a real break — walk around, eat something, rest your eyes — then return for the next block.
+    </div>
+
+    <h2>Step 3: Prioritise Your Weakest Subjects</h2>
+    <p>Schedule your hardest or weakest subject during your peak energy time — usually mid-morning for most people. Reserve easier revision or reading for lower-energy times like evenings. Many students do the opposite — they do easy work first and arrive at the hard work when they're already tired. This is why their weak subjects stay weak.</p>
+
+    <h2>Step 4: Build In Buffer Days</h2>
+    <p>Do NOT schedule study for all 7 days of the week. Build at least one full rest day (Sunday works well for most students) and keep Friday or Saturday as a catch-up day. This way, when life disrupts your Monday–Thursday schedule — which it always will — you have the weekend to recover without falling behind.</p>
+
+    <h2>Step 5: The Weekly Review (15 Minutes Every Sunday)</h2>
+    <p>Every Sunday, spend 15 minutes reviewing your week. How many blocks did you complete? Which subjects did you neglect? What specific topics do you need to revisit next week? Adjust next week's plan based on what actually happened. A timetable that is never reviewed is never improved.</p>
+
+    <h2>A Sample 8-Week JAMB Timetable Template</h2>
+    <table>
+      <tr><th>Day</th><th>Morning Block (90 min)</th><th>Evening Block (90 min)</th></tr>
+      <tr><td>Monday</td><td>Mathematics (weakest topics)</td><td>Use of English (vocabulary)</td></tr>
+      <tr><td>Tuesday</td><td>Chemistry / Biology / Physics</td><td>Past questions review</td></tr>
+      <tr><td>Wednesday</td><td>Use of English (comprehension)</td><td>Mathematics (practice tests)</td></tr>
+      <tr><td>Thursday</td><td>Science subject (alternating)</td><td>JAMB Novel reading</td></tr>
+      <tr><td>Friday</td><td>Full past paper (timed)</td><td>Review wrong answers</td></tr>
+      <tr><td>Saturday</td><td>Catch-up day</td><td>Light reading / revision</td></tr>
+      <tr><td>Sunday</td><td>Rest day</td><td>15-min weekly review</td></tr>
+    </table>
+
+    <div class="art-cta">
+      <h3>Test Your Progress With CBT Practice</h3>
+      <p>After each study block, test what you've learned. ExamBuddy's CBT tool lets you practice by subject, year, and topic.</p>
+      <a href="/pq-jamb/" class="btn-cta">🎯 Practice Past Questions Free</a>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE 4: NYSC Camp -->
+<div class="article-overlay" id="art-a4">
+  <div class="article-modal">
+    <button class="close-article" onclick="closeArticle('a4')">✕</button>
+    <span class="art-tag tag-nysc">🏕️ NYSC</span>
+    <h1>NYSC Camp Survival Guide: What Nobody Actually Tells You</h1>
+    <div class="art-meta">By ExamBuddy Editors &nbsp;·&nbsp; Updated January 2026 &nbsp;·&nbsp; 9 min read</div>
+    <div class="art-intro">
+      NYSC orientation camp is 3 weeks long and can be genuinely overwhelming if you're not prepared. This guide covers the real experience — not the official brochure version — based on feedback from thousands of corps members.
+    </div>
+
+    <h2>Before You Arrive at Camp</h2>
+    <p>The most stressful part of camp begins before you even arrive — the preparation and travel. Here is what you must do before leaving home:</p>
+    <ul>
+      <li>Print your call-up letter and make at least 3 photocopies.</li>
+      <li>Make 30 passport photographs — you will need more than you expect.</li>
+      <li>Carry your degree certificate and transcript originals plus 5 certified copies each.</li>
+      <li>Carry your NYSC online registration printout, your NIN slip, and your bank details (for allawee payment setup).</li>
+      <li>Open or activate a bank account with one of the NYSC-approved banks before camp if you haven't already.</li>
+    </ul>
+
+    <h2>What to Pack — The Real List</h2>
+    <p>The official NYSC packing list is not always practical. Here is what corps members consistently say you actually need:</p>
+    <table>
+      <tr><th>Item</th><th>Quantity</th><th>Why</th></tr>
+      <tr><td>Khaki trousers</td><td>2–3 pairs</td><td>You'll sweat — you need clean ones daily</td></tr>
+      <tr><td>Plain white T-shirts</td><td>5+</td><td>Required for some activities</td></tr>
+      <tr><td>Comfortable trainers/sneakers</td><td>1 pair</td><td>Drills are intense — flip flops will destroy your feet</td></tr>
+      <tr><td>Padlock</td><td>1–2</td><td>To lock your box/locker at night — essential</td></tr>
+      <tr><td>Power bank (large capacity)</td><td>1</td><td>Electricity is unreliable at most camps</td></tr>
+      <tr><td>Mosquito net</td><td>1</td><td>The hostels have mosquitoes — ask anyone who went without one</td></tr>
+      <tr><td>Personal medications</td><td>2 weeks supply</td><td>Camp clinic can be overwhelmed. Carry your own basics.</td></tr>
+      <tr><td>Dry food snacks</td><td>Enough for 3 weeks</td><td>Camp food is famously unpleasant — snacks save your sanity</td></tr>
+    </table>
+
+    <h2>The First Three Days Are the Hardest</h2>
+    <p>The first 72 hours at camp involve clearance queues, document checks, medical screening, platoon allocation, and accommodation sorting. It is chaotic, loud, and exhausting. Keep your documents in a neat folder and remain calm. The queues move eventually. Do not argue with officials — it never ends well.</p>
+
+    <div class="tip-box">
+      <strong>💡 Platoon Selection Tip</strong>
+      During platoon selection (bugling), try to get selected for platoons that interest you. Be present and visible when bugling is happening. Corps members who score well in early activities or display skills often get chosen for leadership positions, which come with some privileges at camp.
+    </div>
+
+    <h2>Morning Drills — Surviving Parade Ground</h2>
+    <p>Morning drills run from approximately 5am to 7am and involve marching, physical exercise, and military drills. They are mandatory. Missing them attracts penalties (extra drills or even extension of camp). Here is the key: drills are not actually that difficult once you are past the first week. The military officers are strict but fair. Follow instructions, keep your uniform clean, and stay in your ranks.</p>
+
+    <h2>Skill Acquisition — Take It Seriously</h2>
+    <p>The skill acquisition programme (offered by SAED — Skills Acquisition and Entrepreneurship Department) is one of the most genuinely useful parts of NYSC, yet most corps members skip it. Skills offered include: catering, fashion design, ICT, photography, soap making, and more. Many corps members who took these seriously have started businesses with the knowledge gained. It is 3 weeks of free training — take advantage of it.</p>
+
+    <h2>Community Development Service (CDS)</h2>
+    <p>After camp, you will be posted to a CDS group. This is a weekly community service commitment. Turn up consistently — your log book needs to be signed weekly, and NYSC has cracked down on corps members who skip CDS meetings. Your discharge certificate can be withheld for poor CDS attendance.</p>
+
+    <h2>The Redeployment Process</h2>
+    <p>If you are posted to a state where you cannot serve (for health, security, or personal reasons), you can apply for redeployment. Do this through the NYSC portal. Medical redeployment requires a certified medical report. State-of-residence redeployment is allowed for married corps members and those with documented hardship. Apply early — the process takes time and redeployment slots are limited.</p>
+
+    <div class="art-cta">
+      <h3>Read Our Full NYSC Guide</h3>
+      <p>Registration, camp, PPA, allawee, CDS, and passing out — everything in one complete guide.</p>
+      <a href="/nysc/" class="btn-cta">🏕️ Read Full NYSC Guide</a>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE 5: Exam Anxiety -->
+<div class="article-overlay" id="art-a5">
+  <div class="article-modal">
+    <button class="close-article" onclick="closeArticle('a5')">✕</button>
+    <span class="art-tag tag-anxiety">😰 Exam Anxiety</span>
+    <h1>Managing Exam Anxiety: Practical Techniques That Actually Work</h1>
+    <div class="art-meta">By ExamBuddy Editors &nbsp;·&nbsp; Updated February 2026 &nbsp;·&nbsp; 8 min read</div>
+    <div class="art-intro">
+      Research consistently shows that exam anxiety reduces performance — often by more than actual lack of preparation. You can study for months and still underperform if anxiety is not managed. These are the techniques that work — backed by psychology, not just motivation slogans.
+    </div>
+
+    <h2>Understanding What Exam Anxiety Actually Is</h2>
+    <p>Exam anxiety is a specific type of performance anxiety. Your brain perceives the exam as a threat and activates the "fight or flight" response — releasing adrenaline and cortisol. Your heart races, your palms sweat, your mind goes blank. In small doses this arousal improves focus. In large doses it shuts down the prefrontal cortex — the part of the brain you need to retrieve and process information. The goal is not to eliminate anxiety completely but to keep it at a manageable level.</p>
+
+    <h2>Technique 1: The 4-7-8 Breathing Method</h2>
+    <p>This technique, developed by Dr. Andrew Weil, activates the parasympathetic nervous system — the body's "rest" response — within minutes. Inhale through your nose for 4 counts. Hold for 7 counts. Exhale through your mouth for 8 counts. Repeat 4 times. Use this in the minutes before entering the exam hall and whenever you feel panic rising during the exam. It works.</p>
+
+    <h2>Technique 2: Reframe the Anxiety as Excitement</h2>
+    <p>Research from Harvard Business School found that telling yourself "I am excited" rather than trying to calm down actually improved performance. Anxiety and excitement have very similar physiological signatures — the difference is how you interpret the arousal. Instead of thinking "I'm terrified," try "I'm ready and excited to show what I know." This is not a trick — it genuinely changes how your brain processes the state.</p>
+
+    <div class="tip-box">
+      <strong>🧠 The Science Behind This</strong>
+      A 2014 study by Alison Wood Brooks found that participants who said "I am excited" before a performance task outperformed those who tried to calm down. The act of reframing converts anxious energy into productive energy rather than trying to suppress it.
+    </div>
+
+    <h2>Technique 3: Preparation Is the Best Anxiety Cure</h2>
+    <p>The deepest cause of exam anxiety is the feeling of being unprepared. No breathing technique will fully compensate for genuinely not knowing the material. The most powerful anxiety reducer is structured, consistent preparation that starts months before the exam. When you walk into the exam hall having done 200+ practice questions per subject, your brain has evidence that you are ready — and that evidence is calming.</p>
+
+    <h2>Technique 4: The Night Before Protocol</h2>
+    <p>What you do the night before your exam matters enormously. Stop studying at 9pm. Pack your bag. Do something relaxing — watch something light, talk to someone you trust, or listen to music. Eat a proper dinner. Aim for 7–8 hours of sleep. Sleep is when your brain consolidates memories — one good night of sleep is worth more than 3 more hours of studying at midnight.</p>
+
+    <h2>Technique 5: First-Question Strategy</h2>
+    <p>If you sit down in the exam and the first question is hard, panic can set in immediately. Have a rule: if question 1 is hard, skip it and answer the next 5 questions first. Getting early questions right builds momentum and confidence that carries you through the harder ones. This simple strategy prevents the "snowball panic" that happens when one hard question leads to another.</p>
+
+    <h2>Technique 6: The "Brain Dump" Before You Start</h2>
+    <p>As soon as you receive your question paper and before you start answering, take 2 minutes to write down on scrap paper every formula, key fact, or concept you are afraid of forgetting. This "brain dump" relieves the mental pressure of keeping those facts in active memory and frees your working memory for the actual questions.</p>
+
+    <h2>When to Seek Extra Help</h2>
+    <p>If exam anxiety is so severe that it is causing physical symptoms (vomiting, fainting, inability to sleep for days), causing you to avoid studying entirely, or significantly disrupting your daily life — it may be beyond normal pre-exam nerves. Speak to a trusted teacher, parent, counsellor, or doctor. Severe anxiety is treatable and getting help is a sign of intelligence, not weakness.</p>
+
+    <div class="art-cta">
+      <h3>Build Confidence Through Practice</h3>
+      <p>The single best way to reduce exam anxiety is thorough preparation. Start practising with real past questions today.</p>
+      <a href="/pq-jamb/" class="btn-cta">🎯 Start Free CBT Practice</a>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE 6: WAEC Chemistry -->
+<div class="article-overlay" id="art-a6">
+  <div class="article-modal">
+    <button class="close-article" onclick="closeArticle('a6')">✕</button>
+    <span class="art-tag tag-waec">📝 WAEC</span>
+    <h1>Pass WAEC Chemistry in 8 Weeks: A Focused Study Plan</h1>
+    <div class="art-meta">By ExamBuddy Editors &nbsp;·&nbsp; Updated March 2026 &nbsp;·&nbsp; 8 min read</div>
+    <div class="art-intro">
+      Chemistry is consistently among the most failed WAEC subjects — not because it is too hard, but because most students study it the wrong way. This 8-week plan focuses entirely on what WAEC actually tests, eliminating wasted study time.
+    </div>
+
+    <h2>Why Chemistry Is Difficult for Most Students</h2>
+    <p>Three reasons dominate: students try to memorise without understanding (chemistry needs both), they skip the calculation topics (moles, concentration, gas laws) because they seem hard, and they don't practise enough past questions. WAEC Chemistry rewards students who understand the underlying patterns — not those who cram definitions the night before.</p>
+
+    <h2>The 8 Highest-Yield Topics in WAEC Chemistry</h2>
+    <p>WAEC tests many topics, but these 8 appear in almost every paper and carry the most marks:</p>
+    <ol class="num-list">
+      <li><strong>Periodic Table & Periodicity:</strong> Electronic configurations, trends in atomic radius, ionisation energy, and electronegativity. Questions from this area appear in every WAEC paper.</li>
+      <li><strong>Chemical Bonding:</strong> Ionic, covalent, metallic, and hydrogen bonding. Know how to draw dot-and-cross diagrams. Know the properties associated with each bond type.</li>
+      <li><strong>Acids, Bases, and Salts:</strong> Definitions, pH scale, neutralisation reactions, salt preparation methods. Titration calculations appear almost every year.</li>
+      <li><strong>Organic Chemistry:</strong> Homologous series (alkanes, alkenes, alkynes, alcohols), IUPAC naming, functional groups, and reactions. This section is large but very predictable.</li>
+      <li><strong>Mole Concept & Calculations:</strong> n = m/M, concentration, Avogadro's number, gas volumes. Many students avoid this — don't. It is calculable and marks are guaranteed if you practice.</li>
+      <li><strong>Electrolysis:</strong> Electrolytic cells, electrodes, products at cathode/anode, Faraday's laws. Very predictable questions.</li>
+      <li><strong>Metals & Non-metals:</strong> Properties, extraction (Haber process, Contact process, blast furnace), reactivity series. Know the common industrial processes.</li>
+      <li><strong>Chemical Kinetics & Equilibrium:</strong> Factors affecting reaction rate (concentration, temperature, surface area, catalyst), Le Chatelier's principle. These are essay-friendly topics.</li>
+    </ol>
+
+    <h2>The 8-Week Study Plan</h2>
+    <table>
+      <tr><th>Week</th><th>Focus Topics</th><th>Practice Goal</th></tr>
+      <tr><td>Week 1</td><td>Periodic Table & Bonding</td><td>30 past questions on these topics</td></tr>
+      <tr><td>Week 2</td><td>Acids, Bases & Salts</td><td>20 objective + 2 theory questions</td></tr>
+      <tr><td>Week 3</td><td>Mole Concept & Calculations</td><td>25 calculation questions, check all workings</td></tr>
+      <tr><td>Week 4</td><td>Organic Chemistry (Part 1: Naming & Properties)</td><td>30 past questions on alkanes/alkenes</td></tr>
+      <tr><td>Week 5</td><td>Organic Chemistry (Part 2: Reactions)</td><td>20 past questions + draw reaction mechanisms</td></tr>
+      <tr><td>Week 6</td><td>Electrolysis & Metals</td><td>25 past questions on electrolysis</td></tr>
+      <tr><td>Week 7</td><td>Kinetics, Equilibrium & Remaining Topics</td><td>20 past questions + 2 essay answers</td></tr>
+      <tr><td>Week 8</td><td>Full paper practice (timed) + Revision</td><td>2 complete past papers under exam conditions</td></tr>
+    </table>
+
+    <div class="tip-box">
+      <strong>🔬 Chemistry Practical Tips</strong>
+      WAEC Chemistry practical (Paper 3) covers titration, qualitative analysis, and simple chemistry experiments. Practise writing out full procedure, observation, and conclusion sections — even if you cannot do lab work at home. The format is fixed and learnable from past practical papers.
+    </div>
+
+    <h2>How to Answer WAEC Chemistry Essay Questions</h2>
+    <p>For theory questions, structure your answer clearly. Use point form where allowed. Define key terms at the start. Use chemical equations — they earn extra marks and show understanding. Show all steps in calculations even if you make an arithmetic error — WAEC gives method marks. Label all diagrams fully.</p>
+
+    <div class="art-cta">
+      <h3>Practice WAEC Chemistry Past Questions</h3>
+      <p>Test your knowledge with real WAEC Chemistry questions and instant explanations.</p>
+      <a href="/pq-waec/" class="btn-cta">⚗️ Practice Chemistry Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE 7: After WAEC -->
+<div class="article-overlay" id="art-a7">
+  <div class="article-modal">
+    <button class="close-article" onclick="closeArticle('a7')">✕</button>
+    <span class="art-tag tag-after">🎓 After School</span>
+    <h1>What to Do While Waiting for Your WAEC Results</h1>
+    <div class="art-meta">By ExamBuddy Editors &nbsp;·&nbsp; Updated January 2026 &nbsp;·&nbsp; 6 min read</div>
+    <div class="art-intro">
+      WAEC results take 45–90 days to release. That is 6–12 weeks of your life — and most students waste every single day of it. Here is how to use this period to get ahead of everyone who isn't.
+    </div>
+
+    <h2>The Opportunity Most Students Miss</h2>
+    <p>While you are waiting for results, your classmates are sleeping in, browsing social media, and doing nothing. The students who use this period wisely emerge months ahead — with better JAMB scores, new skills, and clearer goals. The waiting period is not a holiday. It is a head start that most people refuse to take.</p>
+
+    <h2>Option 1: Start JAMB Preparation Immediately</h2>
+    <p>If you are planning to write JAMB (which most SS3 graduates are), starting JAMB preparation the day after your last WAEC paper is the single most powerful thing you can do for your score. JAMB typically takes place within 3–6 months of WAEC results. Students who use the waiting period for JAMB preparation arrive at the exam with 4–6 extra months of practice — a massive advantage.</p>
+    <p>Start with: downloading the JAMB syllabus for your 4 subjects, beginning past question practice on ExamBuddy's free CBT platform, and identifying your weakest topics per subject while you still have time to fix them.</p>
+
+    <h2>Option 2: Learn a Skill</h2>
+    <p>This is the period to invest in a skill you might not have time for later. Skills that Nigerian students are successfully monetising in 2026 include: graphic design (Canva, Adobe), video editing, social media management, coding (web development), digital marketing, photography, tailoring/fashion design, and catering. Many free or cheap online courses exist — Coursera, Udemy, and YouTube have enough material to take you from zero to capable in 6–8 weeks.</p>
+
+    <div class="tip-box">
+      <strong>💡 Skill Tip</strong>
+      Choose one skill and commit to it for the entire waiting period. 8 weeks of focused skill-building beats 8 weeks of dabbling in 5 different things. By the time your results come out, you could have a portfolio, a service to offer, and a side income.
+    </div>
+
+    <h2>Option 3: Read More Than You Have In Years</h2>
+    <p>University admissions, scholarship applications, and personal statements all require you to have informed, articulate views on various topics. Use the waiting period to read: Nigerian literature (Chinua Achebe, Wole Soyinka, Chimamanda Ngozi Adichie), newspapers and current affairs, non-fiction books on topics related to your intended course. This investment pays dividends for years.</p>
+
+    <h2>Option 4: Explore Your Intended Course/Career</h2>
+    <p>Many students arrive at university having almost no real understanding of what their chosen course involves. Use the waiting period to: watch YouTube videos about your intended career, speak to people working in that field, read about the course content at your target university, and genuinely question whether it is the right path. Changing direction before university is far easier than after 2 years of a wrong course.</p>
+
+    <h2>What to Do If You're Worried About Your Results</h2>
+    <p>If you are genuinely worried about specific subjects — perhaps you know a paper went badly — use this period to plan for the resit scenario. Research private candidate registration for WAEC. Understand that most courses accept combined WAEC sittings. Do not wait for bad news to arrive before making a plan. Having a backup plan ready removes most of the anxiety.</p>
+
+    <div class="art-cta">
+      <h3>Start JAMB Preparation Today</h3>
+      <p>Don't waste the waiting period. Begin JAMB practice now — free, online, no registration required.</p>
+      <a href="/pq-jamb/" class="btn-cta">🎯 Start JAMB Prep Free</a>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE 8: JAMB Subject Combos -->
+<div class="article-overlay" id="art-a8">
+  <div class="article-modal">
+    <button class="close-article" onclick="closeArticle('a8')">✕</button>
+    <span class="art-tag tag-jamb">🎯 JAMB</span>
+    <h1>JAMB Subject Combinations for Every Course in Nigeria (2026)</h1>
+    <div class="art-meta">By ExamBuddy Editors &nbsp;·&nbsp; Updated March 2026 &nbsp;·&nbsp; 5 min read</div>
+    <div class="art-intro">
+      Use of English is compulsory for all JAMB candidates. The other 3 subjects depend entirely on your intended course. Choosing the wrong combination can invalidate your result — even with a high score. Here is the complete, updated list for 2026.
+    </div>
+
+    <div class="warning-box">
+      <strong>⚠️ Important Warning</strong>
+      Always verify your subject combination with your specific university, as individual institutions occasionally have requirements that differ from the general JAMB standard. Check the JAMB brochure at jamb.org.ng for the official list.
+    </div>
+
+    <h2>Science Courses</h2>
+    <table>
+      <tr><th>Course</th><th>Subjects (+ Use of English)</th></tr>
+      <tr><td>Medicine & Surgery</td><td>Biology, Chemistry, Physics or Mathematics</td></tr>
+      <tr><td>Pharmacy</td><td>Biology, Chemistry, Physics or Mathematics</td></tr>
+      <tr><td>Nursing</td><td>Biology, Chemistry, Physics or Mathematics</td></tr>
+      <tr><td>Dentistry</td><td>Biology, Chemistry, Physics or Mathematics</td></tr>
+      <tr><td>Medical Laboratory Science</td><td>Biology, Chemistry, Physics or Mathematics</td></tr>
+      <tr><td>Biochemistry</td><td>Biology, Chemistry, Physics or Mathematics</td></tr>
+      <tr><td>Microbiology</td><td>Biology, Chemistry, Physics or Mathematics</td></tr>
+      <tr><td>Physiology</td><td>Biology, Chemistry, Physics</td></tr>
+      <tr><td>Anatomy</td><td>Biology, Chemistry, Physics</td></tr>
+      <tr><td>Agriculture</td><td>Biology, Chemistry, Physics or Mathematics</td></tr>
+      <tr><td>Veterinary Medicine</td><td>Biology, Chemistry, Physics or Mathematics</td></tr>
+      <tr><td>Animal Science</td><td>Biology, Chemistry, Physics or Mathematics</td></tr>
+      <tr><td>Food Science & Technology</td><td>Biology, Chemistry, Physics or Mathematics</td></tr>
+    </table>
+
+    <h2>Engineering & Technology Courses</h2>
+    <table>
+      <tr><th>Course</th><th>Subjects (+ Use of English)</th></tr>
+      <tr><td>All Engineering (Civil, Electrical, Mechanical, Chemical, etc.)</td><td>Mathematics, Physics, Chemistry</td></tr>
+      <tr><td>Computer Science</td><td>Mathematics, Physics, Chemistry or Biology</td></tr>
+      <tr><td>Computer Engineering</td><td>Mathematics, Physics, Chemistry</td></tr>
+      <tr><td>Information Technology</td><td>Mathematics, Physics, Chemistry or Biology</td></tr>
+      <tr><td>Architecture</td><td>Mathematics, Physics, any one Arts or Social Science</td></tr>
+      <tr><td>Estate Management</td><td>Mathematics, Economics, Geography or Physics</td></tr>
+      <tr><td>Quantity Surveying</td><td>Mathematics, Physics, Economics</td></tr>
+      <tr><td>Statistics</td><td>Mathematics, Economics, any Science or Social Science</td></tr>
+    </table>
+
+    <h2>Management & Social Science Courses</h2>
+    <table>
+      <tr><th>Course</th><th>Subjects (+ Use of English)</th></tr>
+      <tr><td>Accounting</td><td>Mathematics, Economics, Government or Commerce</td></tr>
+      <tr><td>Business Administration</td><td>Mathematics, Economics, Government or Commerce</td></tr>
+      <tr><td>Banking & Finance</td><td>Mathematics, Economics, Government or Commerce</td></tr>
+      <tr><td>Economics</td><td>Mathematics, Economics, Government or Geography</td></tr>
+      <tr><td>Marketing</td><td>Mathematics, Economics, Government or Commerce</td></tr>
+      <tr><td>Public Administration</td><td>Mathematics, Economics, Government or any Social Science</td></tr>
+      <tr><td>Political Science</td><td>Government, Economics, History or any Social Science</td></tr>
+      <tr><td>Sociology</td><td>Government, Economics, any two Social Science subjects</td></tr>
+      <tr><td>Psychology</td><td>Biology, Economics, any two Science or Social Science subjects</td></tr>
+    </table>
+
+    <h2>Arts & Humanities Courses</h2>
+    <table>
+      <tr><th>Course</th><th>Subjects (+ Use of English)</th></tr>
+      <tr><td>Law</td><td>Government or History, Literature, CRK/IRK or any Arts/Social Science</td></tr>
+      <tr><td>Mass Communication</td><td>Literature, Government, Economics or any Arts subject</td></tr>
+      <tr><td>English Language</td><td>Literature, Government or History, any one Arts subject</td></tr>
+      <tr><td>History & International Studies</td><td>Government, History, any one Arts or Social Science</td></tr>
+      <tr><td>Philosophy</td><td>Literature, Government, any one Arts subject</td></tr>
+      <tr><td>Religion Studies / Theology</td><td>CRK/IRK, Government, Literature or any Arts</td></tr>
+      <tr><td>Fine & Applied Arts</td><td>Government or History, any two Arts subjects</td></tr>
+      <tr><td>Music</td><td>Government or Literature, any two Arts subjects</td></tr>
+      <tr><td>Theatre & Performing Arts</td><td>Literature, Government, any one Arts subject</td></tr>
+    </table>
+
+    <h2>Education Courses</h2>
+    <p>Education courses generally combine the subject requirements of the teaching subject with Education. For example, Education/Mathematics requires Mathematics, Physics/Chemistry/Economics. Always check with your specific university as Education course combinations vary more widely than other faculties.</p>
+
+    <div class="art-cta">
+      <h3>Now Practice for JAMB</h3>
+      <p>You have your subject combination — now practice with real past questions from 2014–2026.</p>
+      <a href="/pq-jamb/" class="btn-cta">🎯 Start JAMB CBT Practice</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div id="footer-root"></div>
+
+<script>
+// ── Article Open/Close ──
+function openArticle(id) {
+  document.getElementById('art-' + id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeArticle(id) {
+  document.getElementById('art-' + id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on overlay click
+document.querySelectorAll('.article-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+// Escape key to close
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.article-overlay.open').forEach(o => {
+      o.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
+
+// ── Category Filter ──
+function filterCat(cat, el) {
+  document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  const cards = document.querySelectorAll('.blog-card');
+  cards.forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+
+<script src="/js/shared-layout.js"></script>
+<script src="/js/supabase.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

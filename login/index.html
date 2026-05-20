@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A2463" />
+  <title>Log In / Sign Up – ExamBuddy Nigeria</title>
+  <meta name="description" content="Log in or create a free ExamBuddy account to track your exam scores and access your dashboard." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://exambuddy.ng/login/" />
+  <link rel="icon" href="/images/favicon image.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <!-- Supabase Configuration -->
+  <meta name="supabase-url" content="https://dhcxzdfvpsccmescmavd.supabase.co" />
+  <meta name="supabase-anon-key" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoY3h6ZGZ2cHNjY21lc2NtYXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4Mjg3NDUsImV4cCI6MjA4ODQwNDc0NX0.4V-z-bgfxXg_AHq7a_K4XOCjtvucTfkK9g7OWkC8LqY" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0A2463 0%, #163580 50%, #0E4D8A 100%);
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 16px;
+      position: relative; overflow: hidden;
+    }
+    .auth-page::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .auth-card {
+      background: white;
+      border-radius: 24px;
+      padding: 48px 44px;
+      width: 100%; max-width: 460px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+      position: relative; z-index: 1;
+    }
+    .auth-logo {
+      display: flex; align-items: center; gap: 10px;
+      justify-content: center; margin-bottom: 32px;
+      text-decoration: none;
+    }
+    .auth-logo-mark {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #1B4FD8, #059669);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.3rem; font-weight: 900;
+    }
+    .auth-logo-text {
+      font-size: 1.3rem; font-weight: 900; color: #0A2463;
+    }
+    /* Tabs */
+    .auth-tabs {
+      display: flex; background: #F1F5F9;
+      border-radius: 12px; padding: 4px;
+      margin-bottom: 32px; gap: 4px;
+    }
+    .auth-tab {
+      flex: 1; padding: 10px;
+      border: none; border-radius: 9px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s ease;
+      background: transparent; color: #64748B;
+    }
+    .auth-tab.active {
+      background: white; color: #0A2463;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    /* Forms */
+    .auth-form { display: none; }
+    .auth-form.active { display: block; }
+    .auth-form h2 {
+      font-size: 1.4rem; color: #0A2463;
+      margin-bottom: 6px; text-align: center;
+    }
+    .auth-form .subtitle {
+      text-align: center; color: #64748B;
+      font-size: 0.88rem; margin-bottom: 28px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block; font-weight: 600;
+      font-size: 0.88rem; color: #334155;
+      margin-bottom: 6px;
+    }
+    .form-group input {
+      width: 100%; padding: 13px 16px;
+      border: 2px solid #E2E8F0; border-radius: 10px;
+      font-size: 0.95rem; font-family: 'Outfit', sans-serif;
+      outline: none; transition: border-color 0.2s;
+      color: #0F172A;
+    }
+    .form-group input:focus { border-color: #1B4FD8; box-shadow: 0 0 0 3px rgba(27,79,216,0.1); }
+    .form-group input.error { border-color: #EF4444; }
+    .field-error {
+      font-size: 0.78rem; color: #EF4444;
+      margin-top: 4px; display: none;
+    }
+    .field-error.show { display: block; }
+    .password-wrap { position: relative; }
+    .password-wrap input { padding-right: 48px; }
+    .toggle-pw {
+      position: absolute; right: 14px; top: 50%;
+      transform: translateY(-50%);
+      background: none; border: none; cursor: pointer;
+      font-size: 1.1rem; padding: 4px; color: #64748B;
+    }
+    /* Alert box */
+    .auth-alert {
+      padding: 12px 16px; border-radius: 10px;
+      font-size: 0.88rem; font-weight: 600;
+      margin-bottom: 20px; display: none;
+      align-items: center; gap: 10px;
+    }
+    .auth-alert.show { display: flex; }
+    .auth-alert.success { background: #D1FAE5; color: #065F46; border: 1px solid #6EE7B7; }
+    .auth-alert.error   { background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; }
+    .auth-alert.info    { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; }
+    /* Submit btn */
+    .btn-auth {
+      width: 100%; padding: 14px;
+      background: linear-gradient(135deg, #1B4FD8, #0A2463);
+      color: white; border: none; border-radius: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 8px;
+    }
+    .btn-auth:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,79,216,0.35); }
+    .btn-auth:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-auth .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white; border-radius: 50%;
+      animation: spin 0.7s linear infinite; display: none;
+    }
+    .btn-auth.loading .spinner { display: block; }
+    .btn-auth.loading .btn-text { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    /* Divider */
+    .auth-divider {
+      text-align: center; color: #94A3B8;
+      font-size: 0.82rem; margin: 20px 0;
+      position: relative;
+    }
+    .auth-divider::before, .auth-divider::after {
+      content: ''; position: absolute; top: 50%;
+      width: 42%; height: 1px; background: #E2E8F0;
+    }
+    .auth-divider::before { left: 0; }
+    .auth-divider::after  { right: 0; }
+    /* Forgot password */
+    .auth-forgot {
+      text-align: right; margin-top: -10px; margin-bottom: 18px;
+    }
+    .auth-forgot a {
+      font-size: 0.82rem; color: #1B4FD8; font-weight: 600;
+      text-decoration: none;
+    }
+    .auth-forgot a:hover { text-decoration: underline; }
+    /* Switch link */
+    .auth-switch {
+      text-align: center; margin-top: 24px;
+      font-size: 0.88rem; color: #64748B;
+    }
+    .auth-switch a {
+      color: #1B4FD8; font-weight: 700;
+      text-decoration: none; cursor: pointer;
+    }
+    .auth-switch a:hover { text-decoration: underline; }
+    /* Benefits */
+    .auth-benefits {
+      background: #F8FAFC; border-radius: 12px;
+      padding: 16px 20px; margin-bottom: 24px;
+    }
+    .auth-benefits p {
+      font-size: 0.8rem; font-weight: 700;
+      color: #475569; text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 10px;
+    }
+    .auth-benefit-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.85rem; color: #334155; margin-bottom: 6px;
+    }
+    .auth-benefit-item span:first-child { color: #059669; font-weight: 900; }
+    /* Password strength */
+    .pw-strength { margin-top: 6px; }
+    .pw-strength-bar {
+      height: 4px; border-radius: 2px;
+      background: #E2E8F0; overflow: hidden; margin-bottom: 4px;
+    }
+    .pw-strength-fill {
+      height: 100%; border-radius: 2px;
+      transition: width 0.3s, background 0.3s;
+      width: 0%;
+    }
+    .pw-strength-label { font-size: 0.75rem; color: #64748B; }
+    /* Back to home */
+    .auth-back {
+      text-align: center; margin-top: 20px;
+    }
+    .auth-back a {
+      font-size: 0.85rem; color: rgba(255,255,255,0.7);
+      text-decoration: none; display: inline-flex;
+      align-items: center; gap: 6px;
+    }
+    .auth-back a:hover { color: white; }
+    @media (max-width: 480px) {
+      .auth-card { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-page">
+  <div style="width:100%;max-width:460px;">
+    <div class="auth-card">
+
+      <!-- Logo -->
+      <a href="/" class="auth-logo">
+        <div class="auth-logo-mark">E</div>
+        <span class="auth-logo-text">ExamBuddy Nigeria</span>
+      </a>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-signin" onclick="switchTab('signin')">Log In</button>
+        <button class="auth-tab" id="tab-signup" onclick="switchTab('signup')">Create Account</button>
+      </div>
+
+      <!-- ═══ SIGN IN FORM ═══ -->
+      <div class="auth-form active" id="form-signin">
+        <h2>Welcome back 👋</h2>
+        <p class="subtitle">Log in to track your scores and access your dashboard</p>
+
+        <div class="auth-alert" id="signin-alert"></div>
+
+        <div class="form-group">
+          <label for="signin-email">Email Address</label>
+          <input type="email" id="signin-email" placeholder="you@example.com" autocomplete="email" />
+          <div class="field-error" id="signin-email-err">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="signin-password">Password</label>
+          <div class="password-wrap">
+            <input type="password" id="signin-password" placeholder="Enter your password" autocomplete="current-password" />
+            <button class="toggle-pw" type="button" onclick="togglePw('signin-password', this)" tabindex="-1">👁️</button>
+          </div>
+          <div class="field-error" id="signin-pw-err">Please enter your password.</div>
+        </div>
+
+        <div class="auth-forgot"><a href="/reset-password/">Forgot password?</a></div>
+
+        <button class="btn-auth" id="signin-btn" onclick="handleSignIn()">
+          <div class="spinner"></div>
+          <span class="btn-text">🔐 Log In</span>
+        </button>
+
+        <div class="auth-switch">
+          Don't have an account? <a onclick="switchTab('signup')">Create one free →</a>
+        </div>
+      </div>
+
+      <!-- ═══ SIGN UP FORM ═══ -->
+      <div class="auth-form" id="form-signup">
+        <h2>Join ExamBuddy Free 🎓</h2>
+        <p class="subtitle">Track your progress, save exam scores, and prepare smarter</p>
+
+        <div class="auth-benefits">
+          <p>✨ What you get free</p>
+          <div class="auth-benefit-item"><span>✓</span><span>Save & track all your CBT exam scores</span></div>
+          <div class="auth-benefit-item"><span>✓</span><span>Personal dashboard with performance charts</span></div>
+          <div class="auth-benefit-item"><span>✓</span><span>Access exam history across devices</span></div>
+        </div>
+
+        <div class="auth-alert" id="signup-alert"></div>
+
+        <div class="form-group">
+          <label for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" placeholder="e.g. Chidi Okeke" autocomplete="name" />
+          <div class="field-error" id="signup-name-err">Please enter your full name.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-email">Email Address</label>
+          <input type="email" id="signup-email" placeholder="you@example.com" autocomplete="email" />
+          <div class="field-error" id="signup-email-err">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <div class="password-wrap">
+            <input type="password" id="signup-password" placeholder="At least 8 characters" autocomplete="new-password" oninput="checkPwStrength(this.value)" />
+            <button class="toggle-pw" type="button" onclick="togglePw('signup-password', this)" tabindex="-1">👁️</button>
+          </div>
+          <div class="pw-strength">
+            <div class="pw-strength-bar"><div class="pw-strength-fill" id="pw-fill"></div></div>
+            <div class="pw-strength-label" id="pw-label"></div>
+          </div>
+          <div class="field-error" id="signup-pw-err">Password must be at least 8 characters.</div>
+        </div>
+
+        <button class="btn-auth" id="signup-btn" onclick="handleSignUp()">
+          <div class="spinner"></div>
+          <span class="btn-text">🚀 Create Free Account</span>
+        </button>
+
+        <p style="font-size:0.75rem;color:#94A3B8;text-align:center;margin-top:14px;">
+          By signing up you agree to our <a href="/privacy/" style="color:#1B4FD8;">Privacy Policy</a>.
+          No spam, ever.
+        </p>
+
+        <div class="auth-switch">
+          Already have an account? <a onclick="switchTab('signin')">Log in →</a>
+        </div>
+      </div>
+
+      <!-- ═══ SUCCESS STATE (shown after signup) ═══ -->
+      <div class="auth-form" id="form-success">
+        <div style="text-align:center;padding:20px 0;">
+          <div style="font-size:4rem;margin-bottom:16px;">📬</div>
+          <h2 style="margin-bottom:12px;">Check your email!</h2>
+          <p style="color:#64748B;font-size:0.95rem;margin-bottom:24px;">
+            We sent a confirmation link to <strong id="success-email"></strong>.
+            Click it to activate your account, then come back to log in.
+          </p>
+          <button class="btn-auth" onclick="switchTab('signin')" style="max-width:200px;margin:0 auto;">
+            <span class="btn-text">Go to Log In</span>
+          </button>
+          <p style="font-size:0.8rem;color:#94A3B8;margin-top:16px;">
+            Didn't get the email? Check your spam folder or
+            <a href="#" onclick="resendEmail()" style="color:#1B4FD8;">resend it</a>.
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /auth-card -->
+
+    <div class="auth-back">
+      <a href="/">← Back to ExamBuddy</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/supabase.js"></script>
+<script>
+
+  /* ── Tab switching ── */
+  function switchTab(tab) {
+    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.getElementById('form-' + tab).classList.add('active');
+  }
+
+  /* ── Toggle password visibility ── */
+  function togglePw(inputId, btn) {
+    const input = document.getElementById(inputId);
+    if (input.type === 'password') {
+      input.type = 'text';
+      btn.textContent = '🙈';
+    } else {
+      input.type = 'password';
+      btn.textContent = '👁️';
+    }
+  }
+
+  /* ── Password strength ── */
+  function checkPwStrength(pw) {
+    const fill  = document.getElementById('pw-fill');
+    const label = document.getElementById('pw-label');
+    let score = 0;
+    if (pw.length >= 8)  score++;
+    if (pw.length >= 12) score++;
+    if (/[A-Z]/.test(pw)) score++;
+    if (/[0-9]/.test(pw)) score++;
+    if (/[^A-Za-z0-9]/.test(pw)) score++;
+    const levels = [
+      { w: '0%',   c: '#E2E8F0', t: '' },
+      { w: '25%',  c: '#EF4444', t: 'Weak' },
+      { w: '50%',  c: '#F59E0B', t: 'Fair' },
+      { w: '75%',  c: '#3B82F6', t: 'Good' },
+      { w: '100%', c: '#059669', t: 'Strong 💪' },
+    ];
+    const lvl = levels[Math.min(score, 4)];
+    fill.style.width      = lvl.w;
+    fill.style.background = lvl.c;
+    label.textContent     = lvl.t;
+    label.style.color     = lvl.c;
+  }
+
+  /* ── Show alert ── */
+  function showAlert(id, type, msg) {
+    const el = document.getElementById(id);
+    el.className = 'auth-alert show ' + type;
+    el.innerHTML = (type === 'success' ? '✅ ' : type === 'error' ? '❌ ' : 'ℹ️ ') + msg;
+  }
+  function hideAlert(id) {
+    document.getElementById(id).className = 'auth-alert';
+  }
+
+  /* ── Field error ── */
+  function showFieldErr(id, show) {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('show', show);
+  }
+
+  /* ── Set button loading state ── */
+  function setLoading(btnId, loading) {
+    const btn = document.getElementById(btnId);
+    if (btn) {
+      btn.classList.toggle('loading', loading);
+      btn.disabled = loading;
+    }
+  }
+
+  async function initLoginPage() {
+    if (typeof ebGetUser === 'function') {
+      try {
+        const user = await ebGetUser();
+        if (user) {
+          window.location.href = '/dashboard/';
+          return;
+        }
+      } catch (err) {
+        console.warn('[ExamBuddy] Login page auth check failed', err);
+      }
+    }
+  }
+
+  document.addEventListener('eb:supabase-ready', initLoginPage);
+  if (window._sbReady) initLoginPage();
+
+  /* ── SIGN IN ── */
+  async function handleSignIn() {
+    const email = document.getElementById('signin-email').value.trim();
+    const pw    = document.getElementById('signin-password').value;
+
+    hideAlert('signin-alert');
+    let valid = true;
+    if (!email || !/\S+@\S+\.\S+/.test(email)) { showFieldErr('signin-email-err', true); valid = false; } else { showFieldErr('signin-email-err', false); }
+    if (!pw) { showFieldErr('signin-pw-err', true); valid = false; } else { showFieldErr('signin-pw-err', false); }
+    if (!valid) return;
+
+    setLoading('signin-btn', true);
+    try {
+      await ebSignIn(email, pw);
+      showAlert('signin-alert', 'success', 'Logged in! Redirecting to your dashboard...');
+      setTimeout(() => { window.location.href = '/dashboard/'; }, 1200);
+    } catch (err) {
+      const msg = err.message?.includes('Invalid login') ? 'Incorrect email or password. Please try again.' : (err.message || 'Login failed. Please try again.');
+      showAlert('signin-alert', 'error', msg);
+      setLoading('signin-btn', false);
+    }
+  }
+
+  /* ── SIGN UP ── */
+  async function handleSignUp() {
+    const name  = document.getElementById('signup-name').value.trim();
+    const email = document.getElementById('signup-email').value.trim();
+    const pw    = document.getElementById('signup-password').value;
+
+    hideAlert('signup-alert');
+    let valid = true;
+    if (!name) { showFieldErr('signup-name-err', true); valid = false; } else { showFieldErr('signup-name-err', false); }
+    if (!email || !/\S+@\S+\.\S+/.test(email)) { showFieldErr('signup-email-err', true); valid = false; } else { showFieldErr('signup-email-err', false); }
+    if (!pw || pw.length < 8) { showFieldErr('signup-pw-err', true); valid = false; } else { showFieldErr('signup-pw-err', false); }
+    if (!valid) return;
+
+    setLoading('signup-btn', true);
+    try {
+      await ebSignUp(name, email, pw);
+      document.getElementById('success-email').textContent = email;
+      document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+      document.getElementById('form-success').classList.add('active');
+    } catch (err) {
+      const msg = err.message?.includes('already registered') ? 'This email is already registered. Try logging in instead.' : (err.message || 'Sign up failed. Please try again.');
+      showAlert('signup-alert', 'error', msg);
+      setLoading('signup-btn', false);
+    }
+  }
+
+  /* ── Resend verification email ── */
+  async function resendEmail() {
+    const email = document.getElementById('success-email').textContent;
+    if (!email || !window._sb) return;
+    try {
+      await window._sb.auth.resend({ type: 'signup', email });
+      alert('Verification email resent to ' + email);
+    } catch(e) {
+      alert('Could not resend. Please try again later.');
+    }
+  }
+
+  /* ── Enter key support ── */
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    const signinActive = document.getElementById('form-signin').classList.contains('active');
+    const signupActive = document.getElementById('form-signup').classList.contains('active');
+    if (signinActive) handleSignIn();
+    if (signupActive) handleSignUp();
+  });
+
+  /* ── If already logged in, redirect to dashboard ── */
+  document.addEventListener('DOMContentLoaded', async function() {
+    const user = await ebGetUser();
+    if (user) window.location.href = '/dashboard/';
+  });
+
+</script>
+</body>
+</html>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <base target="_blank">
   <meta charset="UTF-8">
   <meta charset="UTF-8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -10,12 +9,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WAEC Past Questions 2015–2024 – Practice Mode | ExamBuddy Nigeria</title>
   <meta name="description" content="Practice WAEC past questions online. English, Mathematics, Biology, Chemistry, Physics, Economics, Government, Literature. Click to reveal answers. Free." />
-  <link rel="canonical" href="https://exambuddy.ng/pq-waec.html" />
-  <link rel="icon" href="images/favicon image.png" />
+  <link rel="canonical" href="https://exambuddy.ng/pq-waec/" />
+  <link rel="icon" href="/images/favicon image.png" />
   
   
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
   
   
 
@@ -66,8 +65,8 @@
 
 <div class="breadcrumb">
   <div class="container breadcrumb__inner">
-    <a href="index.html">Home</a><span class="breadcrumb__sep">›</span>
-    <a href="past-questions.html">Past Questions</a><span class="breadcrumb__sep">›</span>
+    <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+    <a href="/past-questions/">Past Questions</a><span class="breadcrumb__sep">›</span>
     <span>WAEC</span>
   </div>
 </div>
@@ -78,7 +77,7 @@
     <h1>WAEC Past Questions 2015–2024</h1>
     <p>Click any option to check your answer. Green = correct. Red = wrong. Explanation shown after each answer.</p>
     <div class="badge-row">
-      <span class="badge">8 Subjects</span>
+      <span class="badge">15 Subjects</span>
       <span class="badge">10 Years</span>
       <span class="badge">💡 Instant Feedback</span>
     </div>
@@ -101,6 +100,13 @@
           <button class="filter-btn" data-subject="economics">Economics</button>
           <button class="filter-btn" data-subject="government">Government</button>
           <button class="filter-btn" data-subject="literature">Literature in English</button>
+          <button class="filter-btn" data-subject="crs">CRS</button>
+          <button class="filter-btn" data-subject="agric">Agricultural Science</button>
+          <button class="filter-btn" data-subject="financialAccounting">Financial Accounting</button>
+          <button class="filter-btn" data-subject="yoruba">Yoruba</button>
+          <button class="filter-btn" data-subject="commerce">Commerce</button>
+          <button class="filter-btn" data-subject="history">History</button>
+          <button class="filter-btn" data-subject="computer">Computer</button>
         </div>
         <div class="sidebar-section">
           <h4>Year</h4>
@@ -577,6 +583,13 @@ body.cbt-result .breadcrumb { display: none; }
           <button class="filter-btn" data-subject="economics">Economics</button>
           <button class="filter-btn" data-subject="government">Government</button>
           <button class="filter-btn" data-subject="literature">Literature</button>
+          <button class="filter-btn" data-subject="crs">CRS</button>
+          <button class="filter-btn" data-subject="agric">Agricultural Science</button>
+          <button class="filter-btn" data-subject="financialAccounting">Financial Accounting</button>
+          <button class="filter-btn" data-subject="yoruba">Yoruba</button>
+          <button class="filter-btn" data-subject="commerce">Commerce</button>
+          <button class="filter-btn" data-subject="history">History</button>
+          <button class="filter-btn" data-subject="computer">Computer</button>
         </div>
         <div class="sidebar-section">
           <h4>Year</h4>
@@ -715,7 +728,7 @@ body.cbt-result .breadcrumb { display: none; }
       <div class="cbt-result-actions">
         <button class="btn btn--outline" onclick="cbtRetake()">🔁 Retake Exam</button>
         <button class="btn btn--primary" onclick="cbtNewExam()">🎯 New Exam</button>
-        <a href="pq-waec.html" class="btn btn--gold">Try WAEC Practice</a>
+        <a href="/pq-waec/" class="btn btn--gold">Try WAEC Practice</a>
       </div>
     </div>
   </div>
@@ -1212,6 +1225,27 @@ const WAEC_DATA = {
     { year:2015, q:"'Stream of consciousness' shows a character's:", opts:["A. River adventure","B. Continuous flow of thoughts","C. Type of poem","D. Environmental views"], ans:"B", exp:"Stream of consciousness: narrative technique capturing natural thought flow. Associated with Joyce and Woolf." }
 
   ],
+  crs: [
+    { year:2024, q:"What does CRS stand for in WAEC?", opts:["A. Civic Religious Studies","B. Christian Religious Studies","C. Cultural Religious Studies","D. Civil Rights Studies"], ans:"B", exp:"CRS stands for Christian Religious Studies." }
+  ],
+  agric: [
+    { year:2024, q:"Which branch of Agricultural Science focuses on crop production?", opts:["A. Animal husbandry","B. Crop science","C. Soil mechanics","D. Agricultural law"], ans:"B", exp:"Crop science studies the cultivation and improvement of crops." }
+  ],
+  financialAccounting: [
+    { year:2024, q:"Which document shows assets, liabilities and equity at a point in time?", opts:["A. Income statement","B. Balance sheet","C. Cash flow statement","D. Statement of changes in equity"], ans:"B", exp:"A balance sheet reports assets, liabilities, and equity at a specific date." }
+  ],
+  yoruba: [
+    { year:2024, q:"Which Yoruba proverb means 'unity is strength'?", opts:["A. Tá wahala bá kan ará, a fi wa sílẹ̀","B. Ìtẹ́niṣọ̀kan ní ń mú adùn","C. Ọwọ́ kan kì í gba ọgbọn","D. Bí a kò bá ṣi ẹnu, a ò mọ oyin"], ans:"B", exp:"The proverb means that togetherness brings goodness and strength." }
+  ],
+  commerce: [
+    { year:2024, q:"Which activity is part of commerce?", opts:["A. Farming crops","B. Writing poems","C. Buying and selling goods","D. Solving math problems"], ans:"C", exp:"Commerce involves trade — buying and selling goods or services." }
+  ],
+  history: [
+    { year:2024, q:"Which West African empire included the city of Kano?", opts:["A. Oyo Empire","B. Mali Empire","C. Kanem-Bornu Empire","D. Sokoto Caliphate"], ans:"C", exp:"The Kanem-Bornu Empire ruled Kano and surrounding regions." }
+  ],
+  computer: [
+    { year:2024, q:"What does CPU stand for?", opts:["A. Central Processing Unit","B. Computer Personal Unit","C. Central Program Utility","D. Control Processing Unit"], ans:"A", exp:"CPU stands for Central Processing Unit, the main processor of a computer." }
+  ],
 };
 
 
@@ -1328,9 +1362,9 @@ function resetScore() {
 })();
 </script>
 
-<script src="js/shared-layout.js"></script>
-<script src="js/main.js"></script>
-<script src="js/exam-redirect.js">
+<script src="/js/shared-layout.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/exam-redirect.js">
 
 /* ================================================================
    WAEC CBT ENGINE — ExamBuddy Nigeria
@@ -1368,6 +1402,13 @@ const CBT = {
     economics  : 'Economics',
     government : 'Government',
     literature : 'Literature',
+    crs              : 'CRS',
+    agric            : 'Agricultural Science',
+    financialAccounting: 'Financial Accounting',
+    yoruba           : 'Yoruba',
+    commerce         : 'Commerce',
+    history          : 'History',
+    computer         : 'Computer',
   }
 };
 

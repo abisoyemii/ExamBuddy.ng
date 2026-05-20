@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A2463" />
+  <title>Reset Password – ExamBuddy Nigeria</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/images/favicon image.png" />
+  <!-- Supabase Configuration -->
+  <meta name="supabase-url" content="https://dhcxzdfvpsccmescmavd.supabase.co" />
+  <meta name="supabase-anon-key" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoY3h6ZGZ2cHNjY21lc2NtYXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4Mjg3NDUsImV4cCI6MjA4ODQwNDc0NX0.4V-z-bgfxXg_AHq7a_K4XOCjtvucTfkK9g7OWkC8LqY" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0A2463 0%, #163580 50%, #0E4D8A 100%);
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 16px; position: relative; overflow: hidden;
+    }
+    .auth-page::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .auth-card {
+      background: white; border-radius: 24px;
+      padding: 48px 44px; width: 100%; max-width: 440px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+      position: relative; z-index: 1;
+    }
+    .auth-logo {
+      display: flex; align-items: center; gap: 10px;
+      justify-content: center; margin-bottom: 32px;
+      text-decoration: none;
+    }
+    .auth-logo-mark {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #1B4FD8, #059669);
+      border-radius: 12px; display: flex; align-items: center;
+      justify-content: center; color: white;
+      font-size: 1.3rem; font-weight: 900;
+    }
+    .auth-logo-text { font-size: 1.3rem; font-weight: 900; color: #0A2463; }
+    .auth-icon { font-size: 3rem; text-align: center; margin-bottom: 16px; }
+    .auth-title { font-size: 1.4rem; font-weight: 800; color: #0A2463; text-align: center; margin-bottom: 6px; }
+    .auth-sub   { font-size: 0.88rem; color: #64748B; text-align: center; margin-bottom: 28px; line-height: 1.6; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-weight: 600; font-size: 0.88rem; color: #334155; margin-bottom: 6px; }
+    .form-group input {
+      width: 100%; padding: 13px 16px;
+      border: 2px solid #E2E8F0; border-radius: 10px;
+      font-size: 0.95rem; font-family: 'Outfit', sans-serif;
+      outline: none; transition: border-color 0.2s; color: #0F172A;
+    }
+    .form-group input:focus { border-color: #1B4FD8; box-shadow: 0 0 0 3px rgba(27,79,216,0.1); }
+    .password-wrap { position: relative; }
+    .password-wrap input { padding-right: 48px; }
+    .toggle-pw {
+      position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer;
+      font-size: 1.1rem; padding: 4px; color: #64748B;
+    }
+    .pw-strength { margin-top: 6px; }
+    .pw-strength-bar { height: 4px; border-radius: 2px; background: #E2E8F0; overflow: hidden; margin-bottom: 4px; }
+    .pw-strength-fill { height: 100%; border-radius: 2px; transition: width 0.3s, background 0.3s; width: 0%; }
+    .pw-strength-label { font-size: 0.75rem; color: #64748B; }
+    .field-error { font-size: 0.78rem; color: #EF4444; margin-top: 4px; display: none; }
+    .field-error.show { display: block; }
+    .auth-alert {
+      padding: 12px 16px; border-radius: 10px;
+      font-size: 0.88rem; font-weight: 600;
+      margin-bottom: 20px; display: none; align-items: center; gap: 10px;
+    }
+    .auth-alert.show   { display: flex; }
+    .auth-alert.success{ background: #D1FAE5; color: #065F46; border: 1px solid #6EE7B7; }
+    .auth-alert.error  { background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; }
+    .auth-alert.info   { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; }
+    .btn-auth {
+      width: 100%; padding: 14px;
+      background: linear-gradient(135deg, #1B4FD8, #0A2463);
+      color: white; border: none; border-radius: 10px;
+      font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 8px;
+    }
+    .btn-auth:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,79,216,0.35); }
+    .btn-auth:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-auth .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white; border-radius: 50%;
+      animation: spin 0.7s linear infinite; display: none;
+    }
+    .btn-auth.loading .spinner  { display: block; }
+    .btn-auth.loading .btn-text { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .auth-back { text-align: center; margin-top: 20px; }
+    .auth-back a {
+      font-size: 0.85rem; color: rgba(255,255,255,0.7);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .auth-back a:hover { color: white; }
+    .auth-link { text-align: center; margin-top: 20px; font-size: 0.88rem; color: #64748B; }
+    .auth-link a { color: #1B4FD8; font-weight: 700; text-decoration: none; }
+    .auth-link a:hover { text-decoration: underline; }
+    /* Panel switcher */
+    .panel { display: none; }
+    .panel.active { display: block; }
+    @media (max-width: 480px) { .auth-card { padding: 32px 24px; } }
+  </style>
+</head>
+<body>
+
+<div class="auth-page">
+  <div style="width:100%;max-width:440px;">
+    <div class="auth-card">
+
+      <a href="/" class="auth-logo">
+        <div class="auth-logo-mark">E</div>
+        <span class="auth-logo-text">ExamBuddy Nigeria</span>
+      </a>
+
+      <!-- ═══ PANEL 1: Request reset email ═══ -->
+      <div class="panel active" id="panel-request">
+        <div class="auth-icon">🔑</div>
+        <div class="auth-title">Forgot your password?</div>
+        <div class="auth-sub">Enter your email address and we'll send you a link to reset your password.</div>
+
+        <div class="auth-alert" id="request-alert"></div>
+
+        <div class="form-group">
+          <label for="reset-email">Email Address</label>
+          <input type="email" id="reset-email" placeholder="you@example.com" autocomplete="email" />
+          <div class="field-error" id="reset-email-err">Please enter a valid email address.</div>
+        </div>
+
+        <button class="btn-auth" id="request-btn" onclick="handleRequestReset()">
+          <div class="spinner"></div>
+          <span class="btn-text">📬 Send Reset Link</span>
+        </button>
+
+        <div class="auth-link">
+          Remembered it? <a href="/login/">Back to Log In</a>
+        </div>
+      </div>
+
+      <!-- ═══ PANEL 2: Email sent confirmation ═══ -->
+      <div class="panel" id="panel-sent">
+        <div style="text-align:center;padding:10px 0;">
+          <div class="auth-icon">📬</div>
+          <div class="auth-title">Check your inbox!</div>
+          <div class="auth-sub">
+            We sent a password reset link to <strong id="sent-email"></strong>.
+            The link expires in <strong>1 hour</strong>.
+          </div>
+          <div class="auth-alert show info" style="justify-content:center;">
+            ℹ️ Check your spam folder if you don't see it within 2 minutes.
+          </div>
+          <button class="btn-auth" onclick="showPanel('panel-request')" style="max-width:220px;margin:0 auto 16px;">
+            <span class="btn-text">← Try a different email</span>
+          </button>
+          <p style="font-size:0.8rem;color:#94A3B8;">
+            Didn't get it? <a href="#" onclick="resendReset()" style="color:#1B4FD8;font-weight:700;">Resend link</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- ═══ PANEL 3: New password form (after clicking email link) ═══ -->
+      <div class="panel" id="panel-newpw">
+        <div class="auth-icon">🔒</div>
+        <div class="auth-title">Set new password</div>
+        <div class="auth-sub">Choose a strong new password for your account.</div>
+
+        <div class="auth-alert" id="newpw-alert"></div>
+
+        <div class="form-group">
+          <label for="new-password">New Password</label>
+          <div class="password-wrap">
+            <input type="password" id="new-password" placeholder="At least 8 characters"
+              autocomplete="new-password" oninput="checkPwStrength(this.value)" />
+            <button class="toggle-pw" type="button" onclick="togglePw('new-password', this)" tabindex="-1">👁️</button>
+          </div>
+          <div class="pw-strength">
+            <div class="pw-strength-bar"><div class="pw-strength-fill" id="pw-fill"></div></div>
+            <div class="pw-strength-label" id="pw-label"></div>
+          </div>
+          <div class="field-error" id="new-pw-err">Password must be at least 8 characters.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <div class="password-wrap">
+            <input type="password" id="confirm-password" placeholder="Repeat your new password"
+              autocomplete="new-password" />
+            <button class="toggle-pw" type="button" onclick="togglePw('confirm-password', this)" tabindex="-1">👁️</button>
+          </div>
+          <div class="field-error" id="confirm-pw-err">Passwords do not match.</div>
+        </div>
+
+        <button class="btn-auth" id="newpw-btn" onclick="handleSetNewPassword()">
+          <div class="spinner"></div>
+          <span class="btn-text">🔐 Update Password</span>
+        </button>
+      </div>
+
+      <!-- ═══ PANEL 4: Success ═══ -->
+      <div class="panel" id="panel-success">
+        <div style="text-align:center;padding:10px 0;">
+          <div class="auth-icon">✅</div>
+          <div class="auth-title">Password updated!</div>
+          <div class="auth-sub">Your password has been changed successfully. You can now log in with your new password.</div>
+          <a href="/login/" class="btn-auth" style="max-width:200px;margin:0 auto;text-decoration:none;">
+            <span class="btn-text">Go to Log In →</span>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /auth-card -->
+
+    <div class="auth-back">
+      <a href="/">← Back to ExamBuddy</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/supabase.js"></script>
+<script>
+
+  let _resetEmail = '';
+
+  /* ── Panel switcher ── */
+  function showPanel(id) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  /* ── Toggle password visibility ── */
+  function togglePw(inputId, btn) {
+    const input = document.getElementById(inputId);
+    input.type  = input.type === 'password' ? 'text' : 'password';
+    btn.textContent = input.type === 'password' ? '👁️' : '🙈';
+  }
+
+  /* ── Password strength ── */
+  function checkPwStrength(pw) {
+    const fill = document.getElementById('pw-fill');
+    const label = document.getElementById('pw-label');
+    if (!fill) return;
+    let score = 0;
+    if (pw.length >= 8)  score++;
+    if (pw.length >= 12) score++;
+    if (/[A-Z]/.test(pw)) score++;
+    if (/[0-9]/.test(pw)) score++;
+    if (/[^A-Za-z0-9]/.test(pw)) score++;
+    const levels = [
+      { w:'0%',   c:'#E2E8F0', t:'' },
+      { w:'25%',  c:'#EF4444', t:'Weak' },
+      { w:'50%',  c:'#F59E0B', t:'Fair' },
+      { w:'75%',  c:'#3B82F6', t:'Good' },
+      { w:'100%', c:'#059669', t:'Strong 💪' },
+    ];
+    const lvl = levels[Math.min(score, 4)];
+    fill.style.width = lvl.w;
+    fill.style.background = lvl.c;
+    label.textContent = lvl.t;
+    label.style.color = lvl.c;
+  }
+
+  /* ── Alert helpers ── */
+  function showAlert(id, type, msg) {
+    const el = document.getElementById(id);
+    el.className = 'auth-alert show ' + type;
+    el.innerHTML = (type === 'success' ? '✅ ' : type === 'error' ? '❌ ' : 'ℹ️ ') + msg;
+  }
+  function setLoading(btnId, loading) {
+    const btn = document.getElementById(btnId);
+    btn.classList.toggle('loading', loading);
+    btn.disabled = loading;
+  }
+  function showFieldErr(id, show) {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('show', show);
+  }
+
+  /* ── Step 1: Request reset email ── */
+  async function handleRequestReset() {
+    const email = document.getElementById('reset-email').value.trim();
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      showFieldErr('reset-email-err', true); return;
+    }
+    showFieldErr('reset-email-err', false);
+    setLoading('request-btn', true);
+
+    try {
+      const { error } = await _sb.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + '//reset-password/'
+      });
+      if (error) throw error;
+      _resetEmail = email;
+      document.getElementById('sent-email').textContent = email;
+      showPanel('panel-sent');
+    } catch(err) {
+      showAlert('request-alert', 'error', err.message || 'Could not send reset email. Please try again.');
+      setLoading('request-btn', false);
+    }
+  }
+
+  /* ── Resend reset email ── */
+  async function resendReset() {
+    if (!_resetEmail) return;
+    try {
+      await _sb.auth.resetPasswordForEmail(_resetEmail, {
+        redirectTo: window.location.origin + '//reset-password/'
+      });
+      alert('Reset link resent to ' + _resetEmail);
+    } catch(e) {
+      alert('Could not resend. Please try again.');
+    }
+  }
+
+  /* ── Step 2: Set new password (after clicking email link) ── */
+  async function handleSetNewPassword() {
+    const pw      = document.getElementById('new-password').value;
+    const confirm = document.getElementById('confirm-password').value;
+    let valid = true;
+
+    if (!pw || pw.length < 8) { showFieldErr('new-pw-err', true);  valid = false; } else { showFieldErr('new-pw-err', false); }
+    if (pw !== confirm)        { showFieldErr('confirm-pw-err', true); valid = false; } else { showFieldErr('confirm-pw-err', false); }
+    if (!valid) return;
+
+    setLoading('newpw-btn', true);
+    try {
+      const { error } = await _sb.auth.updateUser({ password: pw });
+      if (error) throw error;
+      showPanel('panel-success');
+    } catch(err) {
+      showAlert('newpw-alert', 'error', err.message || 'Could not update password. Please try again.');
+      setLoading('newpw-btn', false);
+    }
+  }
+
+  /* ── Detect if arriving from reset email link ──
+     Supabase adds #access_token & type=recovery to the URL ── */
+  document.addEventListener('DOMContentLoaded', function () {
+    const hash   = window.location.hash;
+    const params = new URLSearchParams(hash.replace('#', '?'));
+    const type   = params.get('type');
+
+    if (type === 'recovery') {
+      // Supabase will auto-set the session from the URL token
+      // Just show the new password panel
+      showPanel('panel-newpw');
+    }
+  });
+
+  /* ── Enter key support ── */
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    if (document.getElementById('panel-request').classList.contains('active')) handleRequestReset();
+    if (document.getElementById('panel-newpw').classList.contains('active'))   handleSetNewPassword();
+  });
+
+</script>
+</body>
+</html>

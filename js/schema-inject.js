@@ -1,12 +1,12 @@
 /* ============================================================
    ExamBuddy Nigeria — schema-inject.js
    Auto-injects correct JSON-LD structured data per page.
-   Add <script src="js/schema-inject.js"></script> to every page
+   Add <script src="/js/schema-inject.js"></script> to every page
    BEFORE </body>. Works alongside any existing schema in <head>.
    ============================================================ */
 
 (function () {
-  const page = location.pathname.split('/').pop().replace('.html', '') || 'index';
+  const rawPath = location.pathname.replace(/\/$/, ''); const pageName = rawPath.split('/').pop(); const page = pageName === '' ? 'index' : pageName.replace('.html', '');
   const BASE = 'https://exambuddy.ng';
 
   /* ── Helper: inject a schema block ── */
@@ -75,7 +75,7 @@
         'name': 'ExamBuddy Nigeria',
         'logo': { '@type': 'ImageObject', 'url': BASE + '/images/logo.png' }
       },
-      'mainEntityOfPage': { '@type': 'WebPage', '@id': BASE + '/blog.html' }
+      'mainEntityOfPage': { '@type': 'WebPage', '@id': BASE + '//blog/' }
     });
   }
 
@@ -92,7 +92,7 @@
   if (page === 'jamb') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'JAMB Guide', url: 'jamb.html' }
+      { name: 'JAMB Guide', url: '/jamb/' }
     ]);
     faq([
       { q: 'How do I register for JAMB 2026?', a: 'To register for JAMB 2026, you need a National Identification Number (NIN). Send your NIN to 55019 via SMS to get a profile code, then purchase a JAMB e-PIN from approved banks and complete your registration at an accredited CBT centre.' },
@@ -117,7 +117,7 @@
   if (page === 'waec') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'WAEC Guide', url: 'waec.html' }
+      { name: 'WAEC Guide', url: '/waec/' }
     ]);
     faq([
       { q: 'What is the WAEC grading system in Nigeria?', a: 'WAEC uses grades A1 (75–100%, Excellent) through F9 (0–39%, Fail). Grades A1 to C6 (50–100%) are credit passes accepted for university admission. You need at least 5 credits including English Language and Mathematics for most university programmes.' },
@@ -142,7 +142,7 @@
   if (page === 'nysc') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'NYSC Guide', url: 'nysc.html' }
+      { name: 'NYSC Guide', url: '/nysc/' }
     ]);
     faq([
       { q: 'What documents do I need for NYSC registration?', a: 'You need your degree certificate and transcript (originals and certified copies), NYSC online registration printout, call-up letter, NIN slip, passport photographs (bring at least 30), and your bank account details for allawee setup.' },
@@ -157,7 +157,7 @@
   if (page === 'neco') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'NECO Guide', url: 'neco.html' }
+      { name: 'NECO Guide', url: '/neco/' }
     ]);
     faq([
       { q: 'Is NECO accepted for university admission in Nigeria?', a: 'Yes. NECO results are fully accepted by all Nigerian universities for admission purposes, on the same basis as WAEC results. You can also combine NECO and WAEC results to meet the required 5 credits.' },
@@ -171,14 +171,14 @@
   if (page === 'cutoff-marks') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'JAMB Cut-off Marks 2026', url: 'cutoff-marks.html' }
+      { name: 'JAMB Cut-off Marks 2026', url: '/cutoff-marks/' }
     ]);
     inject({
       '@context': 'https://schema.org',
       '@type': 'Dataset',
       'name': 'JAMB Cut-off Marks 2026 — All Nigerian Universities',
       'description': 'Complete dataset of JAMB UTME minimum cut-off marks for all federal universities, state universities, polytechnics and colleges of education in Nigeria for 2026.',
-      'url': BASE + '/cutoff-marks.html',
+      'url': BASE + '//cutoff-marks/',
       'keywords': ['JAMB cut off marks', 'Nigerian universities', 'UTME minimum score', '2026'],
       'creator': { '@type': 'Organization', 'name': 'ExamBuddy Nigeria', 'url': BASE },
       'temporalCoverage': '2026'
@@ -189,8 +189,8 @@
   if (page === 'unilag-cutoff') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'Cut-off Marks', url: 'cutoff-marks.html' },
-      { name: 'UNILAG Cut-off 2026', url: 'unilag-cutoff.html' }
+      { name: 'Cut-off Marks', url: '/cutoff-marks/' },
+      { name: 'UNILAG Cut-off 2026', url: '/unilag-cutoff/' }
     ]);
   }
 
@@ -198,8 +198,8 @@
   if (page === 'ui-cutoff') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'Cut-off Marks', url: 'cutoff-marks.html' },
-      { name: 'UI Cut-off 2026', url: 'ui-cutoff.html' }
+      { name: 'Cut-off Marks', url: '/cutoff-marks/' },
+      { name: 'UI Cut-off 2026', url: '/ui-cutoff/' }
     ]);
   }
 
@@ -207,7 +207,7 @@
   if (page === 'oau-cutoff') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'Cut-off Marks', url: 'cutoff-marks.html' },
+      { name: 'Cut-off Marks', url: '/cutoff-marks/' },
       { name: 'OAU Cut-off 2026', url: 'oau-cutoff.html' }
     ]);
   }
@@ -216,8 +216,8 @@
   if (page === 'abu-cutoff') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'Cut-off Marks', url: 'cutoff-marks.html' },
-      { name: 'ABU Cut-off 2026', url: 'abu-cutoff.html' }
+      { name: 'Cut-off Marks', url: '/cutoff-marks/' },
+      { name: 'ABU Cut-off 2026', url: '/abu-cutoff/' }
     ]);
   }
 
@@ -225,8 +225,8 @@
   if (page === 'uniben-cutoff') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'Cut-off Marks', url: 'cutoff-marks.html' },
-      { name: 'UNIBEN Cut-off 2026', url: 'uniben-cutoff.html' }
+      { name: 'Cut-off Marks', url: '/cutoff-marks/' },
+      { name: 'UNIBEN Cut-off 2026', url: '/uniben-cutoff/' }
     ]);
   }
 
@@ -234,7 +234,7 @@
   if (page === 'blog') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'Blog', url: 'blog.html' }
+      { name: 'Blog', url: '/blog/' }
     ]);
     // BlogPosting schema for the 3 featured articles
     const articles = [
@@ -261,14 +261,14 @@
   if (page === 'pq-jamb') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'JAMB Past Questions', url: 'pq-jamb.html' }
+      { name: 'JAMB Past Questions', url: '/pq-jamb/' }
     ]);
     inject({
       '@context': 'https://schema.org',
       '@type': 'LearningResource',
       'name': 'JAMB UTME Past Questions 2014–2026 — Free CBT Practice',
       'description': 'Practice JAMB UTME past questions from 2014 to 2026 across 12 subjects. Free CBT simulator with instant scoring and detailed answer explanations.',
-      'url': BASE + '/pq-jamb.html',
+      'url': BASE + '//pq-jamb/',
       'educationalLevel': 'Secondary Education',
       'learningResourceType': 'Practice Problem',
       'teaches': 'JAMB UTME preparation',
@@ -286,14 +286,14 @@
   if (page === 'pq-waec') {
     breadcrumb([
       { name: 'Home', url: '' },
-      { name: 'WAEC Past Questions', url: 'pq-waec.html' }
+      { name: 'WAEC Past Questions', url: '/pq-waec/' }
     ]);
     inject({
       '@context': 'https://schema.org',
       '@type': 'LearningResource',
       'name': 'WAEC Past Questions 2014–2026 — Free CBT Practice',
       'description': 'Practice WAEC SSCE past questions across 8 subjects. Free CBT simulator with instant scoring and detailed explanations.',
-      'url': BASE + '/pq-waec.html',
+      'url': BASE + '//pq-waec/',
       'educationalLevel': 'Secondary Education',
       'learningResourceType': 'Practice Problem',
       'teaches': 'WAEC SSCE preparation',

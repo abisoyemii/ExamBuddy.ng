@@ -8,7 +8,7 @@
   /* ---- Topbar ---- */
   const topbarHTML = `
   <div class="topbar" id="topbar">
-    <span>📣 WAEC 2026 examinations are coming soon! <a href="waec.html">Get our free preparation guide and stay ahead e&rarr;</a></span>
+    <span>📣 WAEC 2026 examinations are coming soon! <a href="/waec/">Get our free preparation guide and stay ahead e&rarr;</a></span>
     <button class="topbar__close" id="topbarClose" aria-label="Dismiss announcement">&#10005;</button>
   </div>`;
 
@@ -16,35 +16,35 @@
   const navHTML = `
 <nav class="navbar" id="navbar">
   <div class="navbar__inner">
-    <a href="index.html" class="navbar__logo">
-      <img src="images/logo.png" alt="ExamBuddy Nigeria" style="height:42px;width:auto;display:block;">
+    <a href="/" class="navbar__logo">
+      <img src="/images/logo.png" alt="ExamBuddy Nigeria" style="height:42px;width:auto;display:block;">
     </a>
     <div class="navbar__links">
-      <a href="index.html"          data-page="index">Home</a>
-      <a href="waec.html"           data-page="waec">WAEC</a>
-      <a href="jamb.html"           data-page="jamb">JAMB</a>
-      <a href="nysc.html"           data-page="nysc">NYSC</a>
-      <a href="neco.html"           data-page="neco">NECO</a>
-      <a href="ielts.html"          data-page="ielts">IELTS</a>
-      <a href="cutoff-marks.html"   data-page="cutoff-marks">Cut-off Marks</a>
-      <a href="blog.html"           data-page="blog">Blog</a>
-      <a href="exam-portals.html"   data-page="exam-portals">Portals</a>
-      <a href="about.html"          data-page="about">About</a>
+      <a href="/"          data-page="index">Home</a>
+      <a href="/waec/"           data-page="waec">WAEC</a>
+      <a href="/jamb/"           data-page="jamb">JAMB</a>
+      <a href="/nysc/"           data-page="nysc">NYSC</a>
+      <a href="/neco/"           data-page="neco">NECO</a>
+      <a href="/ielts/"          data-page="ielts">IELTS</a>
+      <a href="/cutoff-marks/"   data-page="cutoff-marks">Cut-off Marks</a>
+      <a href="/blog/"           data-page="blog">Blog</a>
+      <a href="/exam-portals/"   data-page="exam-portals">Portals</a>
+      <a href="/about/"          data-page="about">About</a>
     </div>
 
     <!-- Auth buttons — always rendered, supabase.js controls visibility -->
     <div class="navbar__cta" style="display:flex;align-items:center;gap:10px;">
 
       <!-- Always visible -->
-      <a href="exam-portals.html" class="btn btn--outline btn--sm">🔗 Exam Portals</a>
+      <a href="/exam-portals/" class="btn btn--outline btn--sm">🔗 Exam Portals</a>
 
       <!-- Logged OUT state -->
-      <a href="login.html" id="eb-login-btn" class="btn btn--blue btn--sm" style="display:flex;align-items:center;gap:6px;">
+      <a href="/login/" id="eb-login-btn" class="btn btn--blue btn--sm" style="display:flex;align-items:center;gap:6px;">
         👤 Log In
       </a>
 
       <!-- Logged IN state (hidden until auth resolves) -->
-      <a href="dashboard.html" id="eb-dashboard-btn" class="btn btn--blue btn--sm" style="display:none;align-items:center;gap:6px;">
+      <a href="/dashboard/" id="eb-dashboard-btn" class="btn btn--blue btn--sm" style="display:none;align-items:center;gap:6px;">
         📊 Dashboard
       </a>
       <button onclick="ebSignOut()" id="eb-logout-btn" class="btn btn--sm" style="display:none;align-items:center;gap:6px;background:#F1F5F9;color:#0A2463;border:1px solid #E2E8F0;">
@@ -58,20 +58,20 @@
   </div>
 
   <div class="mobile-nav" id="mobileNav">
-    <a href="index.html">🏠 Home</a>
-    <a href="waec.html">📝 WAEC</a>
-    <a href="jamb.html">🎯 JAMB</a>
-    <a href="nysc.html">🏕️ NYSC</a>
-    <a href="neco.html">📋 NECO</a>
-    <a href="ielts.html">🌍 IELTS</a>
-    <a href="cutoff-marks.html">📊 Cut-off Marks 2026</a>
-    <a href="blog.html">✍️ Blog</a>
-    <a href="exam-portals.html">🌐 Portals</a>
-    <a href="about.html">ℹ️ About</a>
-    <a href="dashboard.html">📊 My Dashboard</a>
-    <a href="contact.html">📧 Contact</a>
+    <a href="/">🏠 Home</a>
+    <a href="/waec/">📝 WAEC</a>
+    <a href="/jamb/">🎯 JAMB</a>
+    <a href="/nysc/">🏕️ NYSC</a>
+    <a href="/neco/">📋 NECO</a>
+    <a href="/ielts/">🌍 IELTS</a>
+    <a href="/cutoff-marks/">📊 Cut-off Marks 2026</a>
+    <a href="/blog/">✍️ Blog</a>
+    <a href="/exam-portals/">🌐 Portals</a>
+    <a href="/about/">ℹ️ About</a>
+    <a href="/dashboard/">📊 My Dashboard</a>
+    <a href="/contact/">📧 Contact</a>
     <div style="border-top:1px solid #E2E8F0;margin:8px 0;"></div>
-    <a href="login.html" id="mob-login-btn" class="btn btn--primary">👤 Log In / Sign Up</a>
+    <a href="/login/" id="mob-login-btn" class="btn btn--primary">👤 Log In / Sign Up</a>
     <button onclick="ebSignOut()" id="mob-logout-btn" class="btn btn--primary" style="display:none;">🚪 Log Out</button>
   </div>
 </nav>`;
@@ -112,41 +112,41 @@
         <div class="footer__col">
           <h5>Exam Guides</h5>
           <ul>
-            <li><a href="waec.html">WAEC Guide</a></li>
-            <li><a href="jamb.html">JAMB Guide</a></li>
-            <li><a href="nysc.html">NYSC Guide</a></li>
-            <li><a href="neco.html">NECO Guide</a></li>
-            <li><a href="ielts.html">IELTS Guide</a></li>
-            <li><a href="cutoff-marks.html">Cut-off Marks 2026</a></li>
-            <li><a href="exam-portals.html">Exam Portals</a></li>
+            <li><a href="/waec/">WAEC Guide</a></li>
+            <li><a href="/jamb/">JAMB Guide</a></li>
+            <li><a href="/nysc/">NYSC Guide</a></li>
+            <li><a href="/neco/">NECO Guide</a></li>
+            <li><a href="/ielts/">IELTS Guide</a></li>
+            <li><a href="/cutoff-marks/">Cut-off Marks 2026</a></li>
+            <li><a href="/exam-portals/">Exam Portals</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h5>Resources</h5>
           <ul>
-            <li><a href="study-resources.html">Free Downloads</a></li>
-            <li><a href="past-questions.html">Past Questions</a></li>
-            <li><a href="cutoff-marks.html">Cut-off Marks</a></li>
-            <li><a href="study-resources.html">Study Timetables</a></li>
-            <li><a href="blog.html">Blog &amp; Articles</a></li>
+            <li><a href="/study-resources/">Free Downloads</a></li>
+            <li><a href="/past-questions/">Past Questions</a></li>
+            <li><a href="/cutoff-marks/">Cut-off Marks</a></li>
+            <li><a href="/study-resources/">Study Timetables</a></li>
+            <li><a href="/blog/">Blog &amp; Articles</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h5>Company</h5>
           <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/disclaimer/">Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="footer__bottom">
         <span>© 2026 ExamBuddy Nigeria · Not affiliated with WAEC, JAMB, NYSC, or NECO</span>
         <div class="footer__bottom-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="disclaimer.html">Disclaimer</a>
-          <a href="contact.html">Contact</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/disclaimer/">Disclaimer</a>
+          <a href="/contact/">Contact</a>
         </div>
       </div>
     </div>
@@ -166,7 +166,7 @@
     if (footerRoot) footerRoot.innerHTML = newsletterHTML + footerHTML + toastHTML;
 
     /* ── Active nav link ── */
-    const page = location.pathname.split('/').pop().replace('.html', '') || 'index';
+    const rawPath = location.pathname.replace(/\/$/, ''); const pageName = rawPath.split('/').pop(); const page = pageName === '' ? 'index' : pageName.replace('.html', '');
     document.querySelectorAll('.navbar__links a[data-page]').forEach(function (a) {
       if (a.getAttribute('data-page') === page) a.classList.add('active');
     });
@@ -261,7 +261,7 @@
    based on the current page filename
 ============================================================ */
 function injectSchema() {
-  const page = location.pathname.split('/').pop().replace('.html', '') || 'index';
+  const rawPath = location.pathname.replace(/\/$/, ''); const pageName = rawPath.split('/').pop(); const page = pageName === '' ? 'index' : pageName.replace('.html', '');
 
   const schemas = {
 
@@ -282,7 +282,7 @@ function injectSchema() {
         "url": "https://exambuddy.ng",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://exambuddy.ng/blog.html?q={search_term_string}",
+          "target": "https://exambuddy.ng/blog/?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       }
@@ -406,7 +406,7 @@ function injectSchema() {
       "@type": "Blog",
       "name": "ExamBuddy Nigeria Blog",
       "description": "Free study guides, exam tips and strategies for Nigerian students preparing for JAMB, WAEC, NECO and NYSC.",
-      "url": "https://exambuddy.ng/blog.html",
+      "url": "https://exambuddy.ng/blog/",
       "publisher": {
         "@type": "Organization",
         "name": "ExamBuddy Nigeria",
@@ -510,7 +510,7 @@ function injectSchema() {
       "@context": "https://schema.org",
       "@type": "AboutPage",
       "name": "About ExamBuddy Nigeria",
-      "url": "https://exambuddy.ng/about.html",
+      "url": "https://exambuddy.ng/about/",
       "description": "ExamBuddy Nigeria is a free exam preparation platform built by Nigerian graduates to help students ace WAEC, JAMB, NECO and NYSC.",
       "publisher": { "@type": "Organization", "name": "ExamBuddy Nigeria", "url": "https://exambuddy.ng" }
     },
@@ -519,7 +519,7 @@ function injectSchema() {
       "@context": "https://schema.org",
       "@type": "ContactPage",
       "name": "Contact ExamBuddy Nigeria",
-      "url": "https://exambuddy.ng/contact.html"
+      "url": "https://exambuddy.ng/contact/"
     },
 
     'study-resources': {
@@ -527,7 +527,7 @@ function injectSchema() {
       "@type": "CollectionPage",
       "name": "Free Study Resources – ExamBuddy Nigeria",
       "description": "Free downloadable JAMB and WAEC past questions, study timetables, syllabus PDFs and formula sheets for Nigerian students.",
-      "url": "https://exambuddy.ng/study-resources.html"
+      "url": "https://exambuddy.ng/study-resources/"
     },
 
     'exam-portals': {
@@ -535,7 +535,7 @@ function injectSchema() {
       "@type": "WebPage",
       "name": "Nigerian Exam Portals – WAEC, JAMB, NYSC, NECO | ExamBuddy",
       "description": "Direct links to official Nigerian exam portals: WAEC, JAMB, NYSC and NECO.",
-      "url": "https://exambuddy.ng/exam-portals.html"
+      "url": "https://exambuddy.ng/exam-portals/"
     },
 
     'past-questions': {
@@ -543,7 +543,7 @@ function injectSchema() {
       "@type": "WebPage",
       "name": "JAMB & WAEC Past Questions – Free CBT Practice | ExamBuddy Nigeria",
       "description": "Practice JAMB and WAEC past questions free. CBT mode with instant scoring and explanations.",
-      "url": "https://exambuddy.ng/past-questions.html"
+      "url": "https://exambuddy.ng/past-questions/"
     },
 
     'pq-jamb': {
@@ -551,7 +551,7 @@ function injectSchema() {
       "@type": "WebPage",
       "name": "JAMB Past Questions 2014–2026 – Free CBT Practice | ExamBuddy Nigeria",
       "description": "Practice JAMB UTME past questions from 2014 to 2026 in CBT mode. 12 subjects, instant scoring, detailed explanations.",
-      "url": "https://exambuddy.ng/pq-jamb.html"
+      "url": "https://exambuddy.ng/pq-jamb/"
     },
 
     'pq-waec': {
@@ -559,7 +559,7 @@ function injectSchema() {
       "@type": "WebPage",
       "name": "WAEC Past Questions 2015–2026 – Free CBT Practice | ExamBuddy Nigeria",
       "description": "Practice WAEC past questions in CBT mode. 8 subjects, instant feedback, detailed answer explanations.",
-      "url": "https://exambuddy.ng/pq-waec.html"
+      "url": "https://exambuddy.ng/pq-waec/"
     },
 
     'ielts': {

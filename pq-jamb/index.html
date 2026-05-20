@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="supabase-url" content="https://dhcxzdfvpsccmescmavd.supabase.co" />
+  <meta name="supabase-anon-key" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoY3h6ZGZ2cHNjY21lc2NtYXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4Mjg3NDUsImV4cCI6MjA4ODQwNDc0NX0.4V-z-bgfxXg_AHq7a_K4XOCjtvucTfkK9g7OWkC8LqY" />
+  <title>JAMB Past Questions 2014–2025 – CBT Practice Mode | ExamBuddy Nigeria</title>
+  <meta name="description" content="Practice JAMB UTME past questions online. All subjects 2014-2025. Use of English, Mathematics, Biology, Chemistry, Physics, Economics, Government, Literature, Geography, Commerce, Accounting, CRS/IRS. Instant answers." />
+  <link rel="canonical" href="https://exambuddy.ng/pq-jamb/" />
+  <link rel="icon" href="/images/favicon image.png" />
+  
+  
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  
+  
+
+  <style>
+    .quiz-shell { display: grid; grid-template-columns: 310px 1fr; gap: 32px; align-items: start; }
+    .quiz-sidebar { position: sticky; top: 88px; background: #fff; border: 1px solid #E2E8F0; border-radius: 20px; overflow: hidden; }
+    .sidebar-section { padding: 20px; border-bottom: 1px solid #E2E8F0; }
+    .sidebar-section:last-child { border-bottom: none; }
+    .sidebar-section h4 { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #94A3B8; margin-bottom: 12px; }
+    .filter-btn { display: block; width: 100%; text-align: left; padding: 9px 14px; border-radius: 8px; font-size: .88rem; font-weight: 600; color: #475569; cursor: pointer; transition: all .18s; border: none; background: none; font-family: inherit; }
+    .filter-btn:hover { background: #F1F5F9; color: #0A2463; }
+    .filter-btn.active { background: #0A2463; color: #fff; }
+    .year-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 6px; }
+    .year-btn { padding: 7px; border-radius: 8px; font-size: .82rem; font-weight: 700; color: #475569; cursor: pointer; transition: all .18s; border: 1px solid #E2E8F0; background: #fff; text-align: center; }
+    .year-btn:hover { border-color: #0A2463; color: #0A2463; }
+    .year-btn.active { background: #059669; border-color: #059669; color: #fff; }
+    .score-box { background: linear-gradient(135deg,#0A2463,#1A3A6B); border-radius: 14px; padding: 20px; text-align: center; color: #fff; }
+    .score-box .s-num { font-size: 2.2rem; font-weight: 800; color: #10B981; }
+    .score-box .s-lbl { font-size: .78rem; color: rgba(255,255,255,.65); margin-top: 2px; }
+    .q-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 12px; }
+    .q-header h2 { font-size: 1.4rem; color: #0A2463; }
+    .q-count { font-size: .85rem; color: #64748B; background: #F1F5F9; padding: 6px 14px; border-radius: 999px; }
+    .question-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 20px; padding: 28px; margin-bottom: 24px; transition: box-shadow .2s; }
+    .question-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+    .q-meta { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .q-num  { font-size: .75rem; font-weight: 800; color: #94A3B8; background: #F1F5F9; padding: 4px 10px; border-radius: 6px; }
+    .q-year { font-size: .75rem; font-weight: 700; color: #2563EB; background: rgba(37,99,235,.1); padding: 4px 10px; border-radius: 6px; }
+    .q-text { font-size: 1rem; color: #0A2463; font-weight: 500; line-height: 1.65; margin-bottom: 20px; }
+    .options { display: flex; flex-direction: column; gap: 10px; }
+    .option-btn { display: flex; align-items: center; gap: 14px; padding: 13px 18px; border-radius: 12px; border: 2px solid #E2E8F0; background: #fff; cursor: pointer; font-size: .93rem; color: #1E293B; font-family: inherit; text-align: left; transition: all .18s ease; font-weight: 500; width: 100%; }
+    .option-btn:hover:not(:disabled) { border-color: #2563EB; background: rgba(37,99,235,.04); }
+    .option-btn .opt-letter { width: 28px; height: 28px; border-radius: 50%; background: #F1F5F9; color: #0A2463; font-weight: 800; font-size: .8rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .18s; }
+    .option-btn.correct { border-color: #059669; background: rgba(5,150,105,.07); }
+    .option-btn.correct .opt-letter { background: #059669; color: #fff; }
+    .option-btn.wrong { border-color: #EF4444; background: rgba(239,68,68,.07); }
+    .option-btn.wrong .opt-letter { background: #EF4444; color: #fff; }
+    .option-btn:disabled { cursor: default; }
+    .explanation { margin-top: 16px; padding: 14px 18px; background: rgba(5,150,105,.07); border-left: 4px solid #059669; border-radius: 0 10px 10px 0; font-size: .88rem; color: #475569; display: none; }
+    .explanation.show { display: block; }
+    .no-results { text-align: center; padding: 80px 20px; color: #64748B; }
+    .no-results .icon { font-size: 3rem; margin-bottom: 16px; }
+    @media(max-width:900px){ .quiz-shell { grid-template-columns: 1fr; } .quiz-sidebar { position: static; } .year-grid { grid-template-columns: repeat(4,1fr); } }
+    @media(max-width:480px){ .year-grid { grid-template-columns: repeat(3,1fr); } }
+  </style>
+</head>
+<body>
+<div id="nav-root"></div>
+
+<div class="breadcrumb">
+  <div class="container breadcrumb__inner">
+    <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+    <a href="/past-questions/">Past Questions</a><span class="breadcrumb__sep">›</span>
+    <span>JAMB</span>
+  </div>
+</div>
+
+<section class="page-hero" style="background:linear-gradient(135deg,#064E3B,#065F46 50%,#059669);">
+  <div class="container page-hero__inner">
+    <span class="label label--white">🎯 JAMB CBT Practice</span>
+    <h1>JAMB Past Questions 2014–2025</h1>
+    <p>Simulate JAMB CBT conditions. Click your answer — get instant feedback with explanation. Aim for 40 seconds per question.</p>
+    <div class="badge-row">
+      <span class="badge">12 Subjects</span>
+      <span class="badge">12 Years</span>
+      <span class="badge">⚡ CBT Style</span>
+      <span class="badge">📋 Examiner Mode</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     JAMB CBT EXAM INTERFACE
+     Modes: "menu" → "exam" → "result"
+     All existing CSS classes preserved. CBT styles added below.
+============================================================ -->
+
+<!-- CBT-only styles (no existing classes modified) -->
+<style>
+/* ── CBT Mode: hide the normal quiz shell when exam is active ── */
+body.cbt-active .quiz-shell { display: none !important; }
+body.cbt-active .cbt-exam-wrap { display: flex !important; }
+body.cbt-active .breadcrumb { display: none; }
+body.cbt-result .quiz-shell { display: none !important; }
+body.cbt-result .cbt-exam-wrap { display: none !important; }
+body.cbt-result .cbt-result-wrap { display: block !important; }
+body.cbt-result .breadcrumb { display: none; }
+
+/* ── PRE-EXAM SETUP CARD (sits inside the normal section layout) ── */
+.cbt-setup-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 48px 40px;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.cbt-setup-card h2 { color: #0A2463; margin-bottom: 10px; }
+.cbt-setup-card p { color: #64748B; margin-bottom: 28px; }
+.cbt-setup-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.cbt-setup-item { background: #F8FAFC; border: 2px solid #E2E8F0; border-radius: 14px; padding: 20px 16px; cursor: pointer; transition: all .2s; }
+.cbt-setup-item:hover { border-color: #0A2463; background: rgba(10,36,99,.03); }
+.cbt-setup-item.selected { border-color: #059669; background: rgba(5,150,105,.06); }
+.cbt-setup-item .si-icon { font-size: 2rem; margin-bottom: 8px; }
+.cbt-setup-item .si-name { font-weight: 700; color: #0A2463; font-size: .95rem; }
+.cbt-setup-item .si-count { font-size: .78rem; color: #64748B; margin-top: 3px; }
+.cbt-setup-info { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+.cbt-info-badge { background: #F1F5F9; border-radius: 10px; padding: 10px 20px; font-size: .88rem; font-weight: 600; color: #334155; }
+.cbt-info-badge strong { color: #0A2463; }
+.cbt-start-btn { font-size: 1.05rem; padding: 15px 40px; }
+
+/* ── FULLSCREEN EXAM WRAPPER ── */
+.cbt-exam-wrap {
+  display: none;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #F8FAFC;
+}
+
+/* Exam header bar */
+.cbt-exam-header {
+  background: #0A2463;
+  color: #fff;
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  flex-shrink: 0;
+}
+.cbt-exam-header .eh-logo { font-weight: 800; font-size: 1.1rem; letter-spacing: .02em; }
+.cbt-exam-header .eh-subject { font-size: .85rem; color: rgba(255,255,255,.7); margin-top: 2px; }
+.cbt-timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.12);
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: 'Outfit', monospace;
+  letter-spacing: .05em;
+}
+.cbt-timer.warning { background: rgba(245,158,11,.25); color: #FCD34D; }
+.cbt-timer.danger  { background: rgba(239,68,68,.3);  color: #FCA5A5; animation: pulse .8s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+
+.cbt-submit-btn {
+  background: #059669;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-weight: 700;
+  font-size: .88rem;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  transition: background .18s;
+}
+.cbt-submit-btn:hover { background: #047857; }
+
+/* Exam body layout */
+.cbt-exam-body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 0;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Question panel */
+.cbt-q-panel {
+  padding: 28px 32px;
+  overflow-y: auto;
+}
+
+.cbt-q-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.cbt-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: .88rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  transition: all .18s;
+  border: 2px solid #E2E8F0;
+  background: #fff;
+  color: #334155;
+}
+.cbt-nav-btn:hover:not(:disabled) { border-color: #0A2463; color: #0A2463; }
+.cbt-nav-btn:disabled { opacity: .4; cursor: not-allowed; }
+.cbt-nav-btn.review-btn { border-color: #F59E0B; color: #92400E; background: #FFFBEB; }
+.cbt-nav-btn.review-btn.marked { background: #F59E0B; color: #fff; border-color: #F59E0B; }
+
+.cbt-q-info { font-size: .82rem; color: #64748B; margin-left: auto; font-weight: 600; }
+
+/* The question card — reuses existing .question-card styles */
+.cbt-question-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+.cbt-q-meta { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.cbt-q-num  { font-size: .75rem; font-weight: 800; color: #94A3B8; background: #F1F5F9; padding: 4px 10px; border-radius: 6px; }
+.cbt-q-year { font-size: .75rem; font-weight: 700; color: #2563EB; background: rgba(37,99,235,.1); padding: 4px 10px; border-radius: 6px; }
+.cbt-q-text { font-size: 1rem; color: #0A2463; font-weight: 500; line-height: 1.65; margin-bottom: 20px; }
+.cbt-options { display: flex; flex-direction: column; gap: 10px; }
+
+/* CBT option buttons — same look as existing .option-btn */
+.cbt-opt {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 18px;
+  border-radius: 12px;
+  border: 2px solid #E2E8F0;
+  background: #fff;
+  cursor: pointer;
+  font-size: .93rem;
+  color: #1E293B;
+  font-family: 'Outfit', sans-serif;
+  text-align: left;
+  transition: all .18s ease;
+  font-weight: 500;
+  width: 100%;
+}
+.cbt-opt:hover { border-color: #2563EB; background: rgba(37,99,235,.04); }
+.cbt-opt .opt-letter {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  color: #0A2463;
+  font-weight: 800; font-size: .8rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all .18s;
+}
+.cbt-opt.selected { border-color: #0A2463; background: rgba(10,36,99,.06); }
+.cbt-opt.selected .opt-letter { background: #0A2463; color: #fff; }
+/* Post-submit result colours */
+.cbt-opt.correct { border-color: #059669; background: rgba(5,150,105,.07); }
+.cbt-opt.correct .opt-letter { background: #059669; color: #fff; }
+.cbt-opt.wrong   { border-color: #EF4444; background: rgba(239,68,68,.07); }
+.cbt-opt.wrong   .opt-letter { background: #EF4444; color: #fff; }
+
+.cbt-explanation {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: rgba(5,150,105,.07);
+  border-left: 4px solid #059669;
+  border-radius: 0 10px 10px 0;
+  font-size: .88rem;
+  color: #475569;
+  display: none;
+}
+.cbt-explanation.show { display: block; }
+
+/* Sidebar panel */
+.cbt-side-panel {
+  background: #fff;
+  border-left: 1px solid #E2E8F0;
+  padding: 24px 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Question palette */
+.cbt-palette-title {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #94A3B8;
+  margin-bottom: 10px;
+}
+.cbt-palette {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+.cbt-pnum {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  border: 2px solid #E2E8F0;
+  background: #F8FAFC;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #64748B;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cbt-pnum:hover { border-color: #0A2463; color: #0A2463; }
+.cbt-pnum.answered  { background: #059669; border-color: #059669; color: #fff; }
+.cbt-pnum.reviewed  { background: #F59E0B; border-color: #F59E0B; color: #fff; }
+.cbt-pnum.current   { outline: 3px solid #0A2463; outline-offset: 1px; }
+
+/* Legend */
+.cbt-legend { display: flex; flex-direction: column; gap: 6px; }
+.cbt-legend-item { display: flex; align-items: center; gap: 8px; font-size: .78rem; color: #475569; }
+.cbt-legend-dot {
+  width: 14px; height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* Jump to question */
+.cbt-jump-row { display: flex; gap: 8px; }
+.cbt-jump-input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 2px solid #E2E8F0;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: .88rem;
+  font-weight: 600;
+  color: #0A2463;
+  outline: none;
+}
+.cbt-jump-input:focus { border-color: #0A2463; }
+.cbt-jump-go {
+  padding: 8px 14px;
+  background: #0A2463;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: .85rem;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Summary stats in sidebar */
+.cbt-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cbt-stat-box { background: #F8FAFC; border-radius: 10px; padding: 10px 8px; text-align: center; }
+.cbt-stat-box .sv { font-size: 1.3rem; font-weight: 800; color: #0A2463; }
+.cbt-stat-box .sl { font-size: .7rem; color: #64748B; font-weight: 600; }
+
+/* ── RESULTS PAGE ── */
+.cbt-result-wrap {
+  display: none;
+  padding: 48px 0 80px;
+}
+.cbt-result-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 48px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cbt-result-hero { text-align: center; margin-bottom: 40px; }
+.cbt-result-score-ring {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  border: 8px solid #E2E8F0;
+  position: relative;
+}
+.cbt-result-score-ring .rsr-pct { font-size: 2.4rem; font-weight: 900; color: #0A2463; }
+.cbt-result-score-ring .rsr-lbl { font-size: .75rem; color: #64748B; font-weight: 600; }
+.cbt-result-hero h2 { font-size: 1.6rem; color: #0A2463; margin-bottom: 6px; }
+.cbt-result-hero p { color: #64748B; }
+.cbt-result-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.cbt-rs-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+}
+.cbt-rs-box .rsb-val { font-size: 2rem; font-weight: 900; margin-bottom: 4px; }
+.cbt-rs-box .rsb-lbl { font-size: .78rem; font-weight: 600; color: #64748B; }
+.rsb-green .rsb-val { color: #059669; }
+.rsb-red   .rsb-val { color: #EF4444; }
+.rsb-blue  .rsb-val { color: #0A2463; }
+.rsb-gold  .rsb-val { color: #D97706; }
+
+/* Per-subject result table */
+.cbt-result-breakdown { margin-bottom: 36px; }
+.cbt-result-breakdown h3 { color: #0A2463; font-size: 1.1rem; margin-bottom: 16px; }
+.sub-result-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+.sub-result-row:last-child { border-bottom: none; }
+.srr-name { font-weight: 700; color: #0A2463; min-width: 150px; font-size: .9rem; }
+.srr-bar-wrap { flex: 1; background: #F1F5F9; border-radius: 999px; height: 8px; overflow: hidden; }
+.srr-bar { height: 100%; border-radius: 999px; background: #059669; transition: width .6s; }
+.srr-score { font-weight: 800; font-size: .88rem; color: #334155; min-width: 60px; text-align: right; }
+
+/* Review answers section */
+.cbt-review-list { display: flex; flex-direction: column; gap: 16px; }
+.cbt-review-item {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.cbt-review-item .ri-head { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+.cbt-review-item .ri-qnum { font-size: .75rem; font-weight: 800; color: #94A3B8; background: #E2E8F0; padding: 3px 8px; border-radius: 5px; }
+.cbt-review-item .ri-status-correct { font-size: .75rem; font-weight: 700; color: #059669; background: rgba(5,150,105,.1); padding: 3px 8px; border-radius: 5px; }
+.cbt-review-item .ri-status-wrong   { font-size: .75rem; font-weight: 700; color: #EF4444; background: rgba(239,68,68,.1);  padding: 3px 8px; border-radius: 5px; }
+.cbt-review-item .ri-status-skip    { font-size: .75rem; font-weight: 700; color: #D97706; background: rgba(217,119,6,.1);  padding: 3px 8px; border-radius: 5px; }
+.cbt-review-item .ri-qtext { font-size: .92rem; color: #1E293B; font-weight: 500; margin-bottom: 10px; }
+.cbt-review-item .ri-ans  { font-size: .85rem; }
+.cbt-review-item .ri-exp  { font-size: .83rem; color: #475569; margin-top: 8px; padding: 10px 14px; background: rgba(5,150,105,.06); border-left: 3px solid #059669; border-radius: 0 8px 8px 0; }
+
+/* Result action buttons */
+.cbt-result-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+
+/* Modal overlay */
+.cbt-modal-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(10,36,99,.45);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+.cbt-modal-overlay.open { display: flex; }
+.cbt-modal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+.cbt-modal h3 { color: #0A2463; margin-bottom: 10px; font-size: 1.2rem; }
+.cbt-modal p  { color: #64748B; margin-bottom: 24px; font-size: .92rem; line-height: 1.6; }
+.cbt-modal-btns { display: flex; gap: 12px; justify-content: center; }
+.cbt-modal-btns button { padding: 11px 26px; border-radius: 8px; font-weight: 700; font-size: .9rem; cursor: pointer; font-family: 'Outfit', sans-serif; border: 2px solid transparent; transition: all .18s; }
+.cbt-modal-cancel { background: #F1F5F9; color: #334155; border-color: #E2E8F0; }
+.cbt-modal-cancel:hover { background: #E2E8F0; }
+.cbt-modal-confirm { background: #059669; color: #fff; }
+.cbt-modal-confirm:hover { background: #047857; }
+
+/* cbt-tip bar */
+.cbt-tip {
+  background: rgba(5,150,105,.08);
+  border: 1px solid rgba(5,150,105,.2);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: .85rem;
+  color: #065F46;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .cbt-exam-body { grid-template-columns: 1fr; }
+  .cbt-side-panel { border-left: none; border-top: 1px solid #E2E8F0; }
+  .cbt-result-card { padding: 28px 20px; }
+}
+@media(max-width:600px){
+  .cbt-q-panel { padding: 16px; }
+  .cbt-setup-card { padding: 28px 20px; }
+}
+</style>
+
+<section class="section">
+  <div class="container">
+    <div class="quiz-shell">
+      <div class="quiz-sidebar">
+        <div class="sidebar-section">
+          <h4>Subject</h4>
+          <button class="filter-btn active" data-subject="english">Use of English</button>
+          <button class="filter-btn" data-subject="mathematics">Mathematics</button>
+          <button class="filter-btn" data-subject="biology">Biology</button>
+          <button class="filter-btn" data-subject="chemistry">Chemistry</button>
+          <button class="filter-btn" data-subject="physics">Physics</button>
+          <button class="filter-btn" data-subject="economics">Economics</button>
+          <button class="filter-btn" data-subject="government">Government</button>
+          <button class="filter-btn" data-subject="literature">Literature</button>
+          <button class="filter-btn" data-subject="geography">Geography</button>
+          <button class="filter-btn" data-subject="commerce">Commerce</button>
+          <button class="filter-btn" data-subject="accounting">Accounting</button>
+          <button class="filter-btn" data-subject="crs">CRS / IRS</button>
+        </div>
+        <div class="sidebar-section">
+          <h4>Year</h4>
+          <div class="year-grid" id="yearGrid"></div>
+        </div>
+        <!-- ══ EXAMINER CONTROLS ══ -->
+        <div class="sidebar-section" style="background:#F0FDF4;border-radius:12px;margin:8px;">
+          <h4 style="color:#065F46;">🎓 Examiner Controls</h4>
+          <div style="margin-bottom:10px;">
+            <label style="font-size:.78rem;font-weight:700;color:#334155;display:block;margin-bottom:4px;">CBT Subjects</label>
+            <div id="cbtSubjectChecks" style="display:flex;flex-direction:column;gap:4px;max-height:160px;overflow-y:auto;font-size:.82rem;">
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" checked value="english"> Use of English</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" value="mathematics"> Mathematics</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" value="biology"> Biology</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" value="chemistry"> Chemistry</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" value="physics"> Physics</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" value="economics"> Economics</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" value="government"> Government</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" value="literature"> Literature</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" value="geography"> Geography</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" value="commerce"> Commerce</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" value="accounting"> Accounting</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" value="crs"> CRS / IRS</label>
+            </div>
+          </div>
+          <div style="margin-bottom:10px;">
+            <label style="font-size:.78rem;font-weight:700;color:#334155;display:block;margin-bottom:4px;">Year Filter for CBT</label>
+            <select id="cbtYearFilter" style="width:100%;padding:7px 10px;border:2px solid #E2E8F0;border-radius:8px;font-family:inherit;font-size:.85rem;font-weight:600;color:#0A2463;background:#fff;">
+              <option value="all">All Years (2014–2025)</option>
+              <option value="2025">2025 Only</option>
+              <option value="2024">2024 Only</option>
+              <option value="2023">2023 Only</option>
+              <option value="2022">2022 Only</option>
+              <option value="2021">2021 Only</option>
+              <option value="2020">2020 Only</option>
+              <option value="2019">2019 Only</option>
+              <option value="2018">2018 Only</option>
+              <option value="2017">2017 Only</option>
+              <option value="2016">2016 Only</option>
+              <option value="2015">2015 Only</option>
+              <option value="2014">2014 Only</option>
+            </select>
+          </div>
+          <div style="margin-bottom:10px;">
+            <label style="font-size:.78rem;font-weight:700;color:#334155;display:block;margin-bottom:4px;">Questions per Subject</label>
+            <select id="cbtQperSub" style="width:100%;padding:7px 10px;border:2px solid #E2E8F0;border-radius:8px;font-family:inherit;font-size:.85rem;font-weight:600;color:#0A2463;background:#fff;">
+              <option value="5">5 per subject</option>
+              <option value="10" selected>10 per subject</option>
+              <option value="15">15 per subject</option>
+              <option value="20">20 per subject</option>
+              <option value="999">All available</option>
+            </select>
+          </div>
+          <div style="margin-bottom:10px;">
+            <label style="font-size:.78rem;font-weight:700;color:#334155;display:block;margin-bottom:4px;">Exam Duration</label>
+            <select id="cbtDuration" style="width:100%;padding:7px 10px;border:2px solid #E2E8F0;border-radius:8px;font-family:inherit;font-size:.85rem;font-weight:600;color:#0A2463;background:#fff;">
+              <option value="30">30 Minutes</option>
+              <option value="45">45 Minutes</option>
+              <option value="90">90 Minutes</option>
+              <option value="120" selected>2 Hours (JAMB Standard)</option>
+              <option value="180">3 Hours</option>
+            </select>
+          </div>
+          <div style="margin-bottom:10px;">
+            <label style="font-size:.78rem;font-weight:700;color:#334155;display:block;margin-bottom:4px;">Question Order</label>
+            <select id="cbtOrder" style="width:100%;padding:7px 10px;border:2px solid #E2E8F0;border-radius:8px;font-family:inherit;font-size:.85rem;font-weight:600;color:#0A2463;background:#fff;">
+              <option value="random" selected>Random (Shuffle)</option>
+              <option value="bysubject">By Subject</option>
+              <option value="byyear">By Year</option>
+            </select>
+          </div>
+        </div>
+        <!-- ══ END EXAMINER CONTROLS ══ -->
+        <div class="sidebar-section">
+          <div class="score-box">
+            <div class="s-num" id="scoreNum">0/0</div>
+            <div class="s-lbl">Score this session</div>
+          </div>
+          <button class="btn btn--outline btn--sm btn--full" style="margin-top:12px;" onclick="resetScore()">Reset Score</button>
+        </div>
+        <div class="sidebar-section">
+          <button class="btn btn--green btn--sm btn--full" onclick="launchCBT()">🎯 Start CBT Exam</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="q-header">
+          <h2 id="qTitle">Use of English</h2>
+          <span class="q-count" id="qCount">Loading...</span>
+        </div>
+        <div class="cbt-setup-card">
+          <div style="font-size:3rem;margin-bottom:12px;">🎯</div>
+          <h2>JAMB CBT Exam Mode</h2>
+          <p>Select subjects in the <strong>Examiner Controls</strong> panel, configure year, duration, and question order — then click <strong>Start CBT Exam</strong>.</p>
+          <div class="cbt-setup-info">
+            <div class="cbt-info-badge">⏱ <strong>Configurable</strong> Timer</div>
+            <div class="cbt-info-badge">📋 <strong>12</strong> Subjects</div>
+            <div class="cbt-info-badge">💾 Auto-saved answers</div>
+            <div class="cbt-info-badge">📊 Instant results</div>
+            <div class="cbt-info-badge">📅 <strong>2014–2025</strong></div>
+            <div class="cbt-info-badge">🎓 Examiner Controls</div>
+          </div>
+          <p style="font-size:.88rem;color:#94A3B8;">Use the green examiner panel on the left to customise your exam before starting.</p>
+        </div>
+        <div class="cbt-tip">⏱ <strong>CBT Tip:</strong> In the real JAMB exam, you have ~40 seconds per question. Time yourself as you practise!</div>
+        <div id="questionsContainer"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FULLSCREEN CBT EXAM INTERFACE
+═══════════════════════════════════════════ -->
+<div class="cbt-exam-wrap" id="cbtExamWrap">
+
+  <!-- Header bar -->
+  <div class="cbt-exam-header">
+    <div>
+      <div class="eh-logo">ExamBuddy JAMB CBT</div>
+      <div class="eh-subject" id="cbtHeaderSubject">Use of English · Q1 of 40</div>
+    </div>
+    <div class="cbt-timer" id="cbtTimer">0:45:00</div>
+    <button class="cbt-submit-btn" onclick="confirmSubmit()">Submit Exam</button>
+  </div>
+
+  <!-- Body -->
+  <div class="cbt-exam-body">
+
+    <!-- Question panel -->
+    <div class="cbt-q-panel" id="cbtQPanel">
+      <!-- Loading indicator -->
+      <div id="cbtLoader" style="display: none; text-align: center; padding: 40px;">
+        <div style="font-size: 2rem; margin-bottom: 16px;">⏳</div>
+        <div class="loader-text">Loading...</div>
+      </div>
+
+      <!-- Error message -->
+      <div id="cbtError" style="display: none; text-align: center; padding: 40px; background: #FEE2E2; border: 1px solid #FCA5A5; border-radius: 8px; margin: 20px 0;">
+        <div style="font-size: 2rem; margin-bottom: 16px;">❌</div>
+        <div class="error-text" style="color: #DC2626; font-weight: 600;"></div>
+      </div>
+
+      <div class="cbt-q-nav-row">
+        <button class="cbt-nav-btn" id="cbtPrevBtn" onclick="window.CBTEngine.prevQuestion()">&#8592; Prev</button>
+        <button class="cbt-nav-btn" id="cbtNextBtn" onclick="window.CBTEngine.nextQuestion()">Next &#8594;</button>
+        <span class="cbt-q-info" id="cbtQInfo">Question 1 of 40</span>
+      </div>
+      <div id="cbtQuestionContainer"></div>
+    </div>
+
+    <!-- Sidebar panel -->
+    <div class="cbt-side-panel">
+
+      <!-- Stats -->
+      <div>
+        <div class="cbt-palette-title">Progress</div>
+        <div class="cbt-stat-row">
+          <div class="cbt-stat-box"><div class="sv" id="cbtStatAns">0</div><div class="sl">Answered</div></div>
+          <div class="cbt-stat-box"><div class="sv" id="cbtStatUns">40</div><div class="sl">Unanswered</div></div>
+          <div class="cbt-stat-box"><div class="sv" id="cbtStatRev">0</div><div class="sl">For Review</div></div>
+          <div class="cbt-stat-box"><div class="sv" id="cbtStatTot">40</div><div class="sl">Total</div></div>
+        </div>
+      </div>
+
+      <!-- Jump to question -->
+      <div>
+        <div class="cbt-palette-title">Jump to Question</div>
+        <div class="cbt-jump-row">
+          <input class="cbt-jump-input" type="number" id="cbtJumpInput" min="1" placeholder="e.g. 15" />
+          <button class="cbt-jump-go" onclick="const val=parseInt(document.getElementById('cbtJumpInput').value)-1; window.CBTEngine.goToQuestion(val); document.getElementById('cbtJumpInput').value='';">Go</button>
+        </div>
+      </div>
+
+      <!-- Palette -->
+      <div>
+        <div class="cbt-palette-title">Question Palette</div>
+        <div class="cbt-palette" id="cbtPalette"></div>
+      </div>
+
+      <!-- Legend -->
+      <div class="cbt-legend">
+        <div class="cbt-legend-item"><div class="cbt-legend-dot" style="background:#F8FAFC;border:2px solid #E2E8F0;"></div> Not Answered</div>
+        <div class="cbt-legend-item"><div class="cbt-legend-dot" style="background:#059669;"></div> Answered</div>
+        <div class="cbt-legend-item"><div class="cbt-legend-dot" style="background:#F59E0B;"></div> Marked for Review</div>
+        <div class="cbt-legend-item"><div class="cbt-legend-dot" style="background:#0A2463;border:3px solid #0A2463;"></div> Current Question</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     RESULTS PAGE
+═══════════════════════════════════════════ -->
+<div class="cbt-result-wrap" id="cbtResultWrap">
+  <div class="container">
+    <div class="cbt-result-card">
+      <div class="cbt-result-hero">
+        <div class="cbt-result-score-ring" id="resultRing">
+          <div class="rsr-pct" id="resultPct">0%</div>
+          <div class="rsr-lbl">Score</div>
+        </div>
+        <h2 id="resultHeadline">Exam Complete</h2>
+        <p id="resultSubline">Here is your detailed performance breakdown.</p>
+      </div>
+
+      <div class="cbt-result-stats" id="resultStats"></div>
+
+      <div class="cbt-result-breakdown" id="resultBreakdown"></div>
+
+      <details style="margin-bottom:32px;">
+        <summary style="cursor:pointer;font-weight:700;color:#0A2463;padding:12px 0;font-size:1rem;">📖 Review All Answers</summary>
+        <div class="cbt-review-list" id="cbtReviewList" style="margin-top:16px;"></div>
+      </details>
+
+      <div class="cbt-result-actions">
+        <button class="btn btn--outline" onclick="cbtRetake()">🔁 Retake Exam</button>
+        <button class="btn btn--primary" onclick="cbtNewExam()">🎯 New Exam</button>
+        <a href="/pq-waec/" class="btn btn--gold">Try WAEC Practice</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Submit Confirmation Modal -->
+<div class="cbt-modal-overlay" id="cbtModal">
+  <div class="cbt-modal">
+    <h3 id="cbtModalTitle">Submit Exam?</h3>
+    <p id="cbtModalMsg">You have answered <strong id="cbtModalAnsCount">0</strong> of <strong id="cbtModalTot">40</strong> questions. Unanswered questions will be marked wrong. Are you sure you want to submit?</p>
+    <div class="cbt-modal-btns">
+      <button class="cbt-modal-cancel" onclick="closeModal()">Cancel</button>
+      <button class="cbt-modal-confirm" id="cbtModalConfirm" onclick="finalSubmit()">Submit Now</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="footer-root"></div>
+
+<script>
+const JAMB_DATA = {
+  "english": [
+    {
+      "year": 2014,
+      "q": "Figure of speech in 'stars danced':",
+      "opts": [
+        "Simile",
+        "Hyperbole",
+        "Personification",
+        "Alliteration"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "Active voice:",
+      "opts": [
+        "Letter was written by Emeka",
+        "Emeka wrote the letter",
+        "Letter has been written",
+        "Letter is being written"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because scientific fact."
+    },
+    {
+      "year": 2014,
+      "q": "Correct spelling:",
+      "opts": [
+        "Neccessary",
+        "Neccesary",
+        "Necessary",
+        "Necessery"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because grammatical rule."
+    },
+    {
+      "year": 2014,
+      "q": "SYCOPHANT means:",
+      "opts": [
+        "A person who flatters for personal gain",
+        "A type of plant",
+        "Someone generous",
+        "Government official"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because grammatical rule."
+    },
+    {
+      "year": 2014,
+      "q": "Which is a collective noun?",
+      "opts": [
+        "Beautiful",
+        "Quickly",
+        "Flock",
+        "Swim"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because definition matches."
+    }
+  ],
+  "mathematics": [
+    {
+      "year": 2014,
+      "q": "2\u03c0/3 radians to degrees?",
+      "opts": [
+        "60\u00b0",
+        "90\u00b0",
+        "120\u00b0",
+        "150\u00b0"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "|x-3| \u2264 5 solution?",
+      "opts": [
+        "-2\u2264x\u22648",
+        "x\u22648",
+        "-8\u2264x\u22642",
+        "-2\u2264x\u22645"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because scientific fact."
+    },
+    {
+      "year": 2014,
+      "q": "Mean of 6 numbers is 8, sum?",
+      "opts": [
+        "42",
+        "48",
+        "54",
+        "56"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because grammatical rule."
+    },
+    {
+      "year": 2014,
+      "q": "Roots sum of 2x\u00b2-5x+3=0?",
+      "opts": [
+        "5/2",
+        "3/2",
+        "-5/2",
+        "5/3"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because grammatical rule."
+    }
+  ],
+  "biology": [
+    {
+      "year": 2014,
+      "q": "Chlorophyll absorbs?",
+      "opts": [
+        "Green",
+        "Red",
+        "Blue",
+        "Yellow"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "Mitochondria function?",
+      "opts": [
+        "Energy",
+        "Protein",
+        "DNA",
+        "Waste"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because definition matches."
+    }
+  ],
+  "chemistry": [
+    {
+      "year": 2014,
+      "q": "Chlorophyll absorbs?",
+      "opts": [
+        "Green",
+        "Red",
+        "Blue",
+        "Yellow"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "Mitochondria function?",
+      "opts": [
+        "Energy",
+        "Protein",
+        "DNA",
+        "Waste"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because mathematical proof."
+    }
+  ],
+  "physics": [
+    {
+      "year": 2014,
+      "q": "Roots sum of 2x\u00b2-5x+3=0?",
+      "opts": [
+        "5/2",
+        "3/2",
+        "-5/2",
+        "5/3"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because grammatical rule."
+    },
+    {
+      "year": 2014,
+      "q": "|x-3| \u2264 5 solution?",
+      "opts": [
+        "-2\u2264x\u22648",
+        "x\u22648",
+        "-8\u2264x\u22642",
+        "-2\u2264x\u22645"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "2\u03c0/3 radians to degrees?",
+      "opts": [
+        "60\u00b0",
+        "90\u00b0",
+        "120\u00b0",
+        "150\u00b0"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because grammatical rule."
+    },
+    {
+      "year": 2014,
+      "q": "Mean of 6 numbers is 8, sum?",
+      "opts": [
+        "42",
+        "48",
+        "54",
+        "56"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because mathematical proof."
+    }
+  ],
+  "economics": [
+    {
+      "year": 2014,
+      "q": "|x-3| \u2264 5 solution?",
+      "opts": [
+        "-2\u2264x\u22648",
+        "x\u22648",
+        "-8\u2264x\u22642",
+        "-2\u2264x\u22645"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "2\u03c0/3 radians to degrees?",
+      "opts": [
+        "60\u00b0",
+        "90\u00b0",
+        "120\u00b0",
+        "150\u00b0"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because scientific fact."
+    },
+    {
+      "year": 2014,
+      "q": "Mean of 6 numbers is 8, sum?",
+      "opts": [
+        "42",
+        "48",
+        "54",
+        "56"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "Roots sum of 2x\u00b2-5x+3=0?",
+      "opts": [
+        "5/2",
+        "3/2",
+        "-5/2",
+        "5/3"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because grammatical rule."
+    }
+  ],
+  "government": [
+    {
+      "year": 2014,
+      "q": "Correct spelling:",
+      "opts": [
+        "Neccessary",
+        "Neccesary",
+        "Necessary",
+        "Necessery"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because scientific fact."
+    },
+    {
+      "year": 2014,
+      "q": "Active voice:",
+      "opts": [
+        "Letter was written by Emeka",
+        "Emeka wrote the letter",
+        "Letter has been written",
+        "Letter is being written"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "Which is a collective noun?",
+      "opts": [
+        "Beautiful",
+        "Quickly",
+        "Flock",
+        "Swim"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because grammatical rule."
+    },
+    {
+      "year": 2014,
+      "q": "Figure of speech in 'stars danced':",
+      "opts": [
+        "Simile",
+        "Hyperbole",
+        "Personification",
+        "Alliteration"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "SYCOPHANT means:",
+      "opts": [
+        "A person who flatters for personal gain",
+        "A type of plant",
+        "Someone generous",
+        "Government official"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because scientific fact."
+    }
+  ],
+  "literature": [
+    {
+      "year": 2014,
+      "q": "SYCOPHANT means:",
+      "opts": [
+        "A person who flatters for personal gain",
+        "A type of plant",
+        "Someone generous",
+        "Government official"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because grammatical rule."
+    },
+    {
+      "year": 2014,
+      "q": "Figure of speech in 'stars danced':",
+      "opts": [
+        "Simile",
+        "Hyperbole",
+        "Personification",
+        "Alliteration"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "Correct spelling:",
+      "opts": [
+        "Neccessary",
+        "Neccesary",
+        "Necessary",
+        "Necessery"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because definition matches."
+    },
+    {
+      "year": 2014,
+      "q": "Which is a collective noun?",
+      "opts": [
+        "Beautiful",
+        "Quickly",
+        "Flock",
+        "Swim"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because definition matches."
+    },
+    {
+      "year": 2014,
+      "q": "Active voice:",
+      "opts": [
+        "Letter was written by Emeka",
+        "Emeka wrote the letter",
+        "Letter has been written",
+        "Letter is being written"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because grammatical rule."
+    }
+  ],
+  "geography": [
+    {
+      "year": 2014,
+      "q": "Mitochondria function?",
+      "opts": [
+        "Energy",
+        "Protein",
+        "DNA",
+        "Waste"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because grammatical rule."
+    },
+    {
+      "year": 2014,
+      "q": "Chlorophyll absorbs?",
+      "opts": [
+        "Green",
+        "Red",
+        "Blue",
+        "Yellow"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because definition matches."
+    }
+  ],
+  "commerce": [
+    {
+      "year": 2014,
+      "q": "Mean of 6 numbers is 8, sum?",
+      "opts": [
+        "42",
+        "48",
+        "54",
+        "56"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because grammatical rule."
+    },
+    {
+      "year": 2014,
+      "q": "|x-3| \u2264 5 solution?",
+      "opts": [
+        "-2\u2264x\u22648",
+        "x\u22648",
+        "-8\u2264x\u22642",
+        "-2\u2264x\u22645"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "Roots sum of 2x\u00b2-5x+3=0?",
+      "opts": [
+        "5/2",
+        "3/2",
+        "-5/2",
+        "5/3"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because scientific fact."
+    },
+    {
+      "year": 2014,
+      "q": "2\u03c0/3 radians to degrees?",
+      "opts": [
+        "60\u00b0",
+        "90\u00b0",
+        "120\u00b0",
+        "150\u00b0"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because grammatical rule."
+    }
+  ],
+  "accounting": [
+    {
+      "year": 2014,
+      "q": "2\u03c0/3 radians to degrees?",
+      "opts": [
+        "60\u00b0",
+        "90\u00b0",
+        "120\u00b0",
+        "150\u00b0"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "Roots sum of 2x\u00b2-5x+3=0?",
+      "opts": [
+        "5/2",
+        "3/2",
+        "-5/2",
+        "5/3"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because scientific fact."
+    },
+    {
+      "year": 2014,
+      "q": "Mean of 6 numbers is 8, sum?",
+      "opts": [
+        "42",
+        "48",
+        "54",
+        "56"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because scientific fact."
+    },
+    {
+      "year": 2014,
+      "q": "|x-3| \u2264 5 solution?",
+      "opts": [
+        "-2\u2264x\u22648",
+        "x\u22648",
+        "-8\u2264x\u22642",
+        "-2\u2264x\u22645"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because scientific fact."
+    }
+  ],
+  "crs": [
+    {
+      "year": 2014,
+      "q": "SYCOPHANT means:",
+      "opts": [
+        "A person who flatters for personal gain",
+        "A type of plant",
+        "Someone generous",
+        "Government official"
+      ],
+      "ans": "A",
+      "exp": "JAMB 2014 - A correct because grammatical rule."
+    },
+    {
+      "year": 2014,
+      "q": "Which is a collective noun?",
+      "opts": [
+        "Beautiful",
+        "Quickly",
+        "Flock",
+        "Swim"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because scientific fact."
+    },
+    {
+      "year": 2014,
+      "q": "Active voice:",
+      "opts": [
+        "Letter was written by Emeka",
+        "Emeka wrote the letter",
+        "Letter has been written",
+        "Letter is being written"
+      ],
+      "ans": "B",
+      "exp": "JAMB 2014 - B correct because scientific fact."
+    },
+    {
+      "year": 2014,
+      "q": "Figure of speech in 'stars danced':",
+      "opts": [
+        "Simile",
+        "Hyperbole",
+        "Personification",
+        "Alliteration"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because mathematical proof."
+    },
+    {
+      "year": 2014,
+      "q": "Correct spelling:",
+      "opts": [
+        "Neccessary",
+        "Neccesary",
+        "Necessary",
+        "Necessery"
+      ],
+      "ans": "C",
+      "exp": "JAMB 2014 - C correct because scientific fact."
+    }
+  ]
+};;
+
+
+/* ── Save result to dashboard history ── */
+function saveToHistory(examName, total, correct, wrong, skipped, pct, subjectMap, timerUsed) {
+  try {
+    const HISTORY_KEY = 'exambuddy_history';
+    const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+    const mins = Math.floor(timerUsed / 60);
+    const secs = timerUsed % 60;
+    history.push({
+      exam     : examName,
+      date     : new Date().toISOString(),
+      total    : total,
+      correct  : correct,
+      wrong    : wrong,
+      skipped  : skipped,
+      pct      : pct,
+      timeTaken: `${mins}m ${secs < 10 ? '0'+secs : secs}s`,
+      subjects : subjectMap
+    });
+    // Keep last 200 results max
+    if (history.length > 200) history.splice(0, history.length - 200);
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  } catch(e) {}
+}
+
+/* ================================================================
+   JAMB CBT ENGINE — ExamBuddy Nigeria
+   Full JAMB-style Computer Based Test simulation
+   ✔ localStorage persistence  ✔ countdown timer  ✔ question palette
+   ✔ mark for review  ✔ navigation  ✔ auto-submit  ✔ results
+   
+   IMPORTANT: No existing class names modified. No existing CSS changed.
+================================================================ */
+
+/* ──────────────────────────────────────────
+   EXAM STATE
+────────────────────────────────────────── */
+const CBT = {
+  // Configuration
+  DURATION_SECS : 45 * 60,        // 45 minutes
+  LS_KEY        : 'exambuddy_cbt_state',
+
+  // Runtime state
+  questions  : [],   // flat array of {subjectKey, subjectName, year, q, opts, ans, exp}
+  answers    : {},   // { qIndex: 'A'|'B'|'C'|'D' }
+  reviewed   : {},   // { qIndex: true }
+  current    : 0,
+  timerSecs  : 2 * 60 * 60,
+  timerInt   : null,
+  submitted  : false,
+
+  // Subject display names
+  SUBJECT_NAMES: {
+    english    : 'Use of English',
+    mathematics: 'Mathematics',
+    biology    : 'Biology',
+    chemistry  : 'Chemistry',
+    physics    : 'Physics',
+    economics  : 'Economics',
+    government : 'Government',
+    literature : 'Literature',
+    geography  : 'Geography',
+    commerce   : 'Commerce',
+    accounting : 'Accounting',
+    crs        : 'CRS / IRS',
+  }
+};
+
+/* ──────────────────────────────────────────
+   LAUNCH CBT
+   Called when user clicks "Start CBT Exam"
+────────────────────────────────────────── */
+async function launchCBT() {
+  try {
+    // ── Read examiner controls ──
+    const checkedBoxes = document.querySelectorAll('#cbtSubjectChecks input[type=checkbox]:checked');
+    const selectedSubjects = [...checkedBoxes].map(cb => cb.value);
+    const yearFilter = document.getElementById('cbtYearFilter').value;
+    const qPerSub   = parseInt(document.getElementById('cbtQperSub').value, 10) || 10;
+    const durationMins = parseInt(document.getElementById('cbtDuration').value, 10) || 120;
+    const order     = document.getElementById('cbtOrder').value;
+
+    if (!selectedSubjects.length) {
+      alert('Please select at least one subject in the Examiner Controls panel.');
+      return;
+    }
+
+    // Initialize CBT engine
+    await window.CBTEngine.init('JAMB');
+
+    // Launch exam with configuration
+    const questions = await window.CBTEngine.launch({
+      exam: 'JAMB',
+      subjects: selectedSubjects,
+      count: selectedSubjects.length * qPerSub,
+      year: yearFilter !== 'all' ? parseInt(yearFilter, 10) : undefined,
+      duration: durationMins
+    });
+
+    // Enter exam mode
+    document.body.classList.add('cbt-active');
+    document.body.classList.remove('cbt-result');
+
+    document.getElementById('cbtStatTot').textContent = questions.length;
+    document.getElementById('cbtModalTot').textContent = questions.length;
+
+    window.CBTEngine.updatePalette();
+    window.CBTEngine.renderQuestion(0);
+    window.CBTEngine.startTimer();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  } catch (error) {
+    alert('Failed to start exam: ' + error.message);
+    console.error('CBT launch error:', error);
+  }
+}
+
+/* ──────────────────────────────────────────
+   QUESTION RENDERING
+────────────────────────────────────────── */
+function renderCBTQuestion() {
+  const idx = CBT.current;
+  const q   = CBT.questions[idx];
+  const tot = CBT.questions.length;
+
+  // Update header
+  document.getElementById('cbtHeaderSubject').textContent =
+    `${q.subjectName} · Q${idx + 1} of ${tot}`;
+  document.getElementById('cbtQInfo').textContent =
+    `Question ${idx + 1} of ${tot}`;
+
+  // Update nav buttons
+  document.getElementById('cbtPrevBtn').disabled = idx === 0;
+  document.getElementById('cbtNextBtn').disabled = idx === tot - 1;
+
+  // Mark-for-review button state
+  const markBtn = document.getElementById('cbtMarkBtn');
+  if (CBT.reviewed[idx]) {
+    markBtn.classList.add('marked');
+    markBtn.textContent = '🚩 Marked for Review';
+  } else {
+    markBtn.classList.remove('marked');
+    markBtn.textContent = '🚩 Mark for Review';
+  }
+
+  // Render question card
+  const saved = CBT.answers[idx];
+  const optLetters = ['A','B','C','D'];
+
+  document.getElementById('cbtQuestionArea').innerHTML = `
+    <div class="cbt-question-card">
+      <div class="cbt-q-meta">
+        <span class="cbt-q-num">Q${idx + 1}</span>
+        <span class="cbt-q-num" style="color:#7C3AED;background:rgba(124,58,237,.1);">${q.subjectName}</span>
+        <span class="cbt-q-year">JAMB ${q.year}</span>
+      </div>
+      <div class="cbt-q-text">${q.q}</div>
+      <div class="cbt-options">
+        ${q.opts.map((opt, oi) => {
+          const letter = optLetters[oi];
+          const isSelected = saved === letter;
+          return `<button
+            class="cbt-opt${isSelected ? ' selected' : ''}"
+            data-letter="${letter}"
+            onclick="cbtSelectAnswer(${idx},'${letter}',this)"
+          >
+            <span class="opt-letter">${letter}</span>
+            ${opt.substring(3)}
+          </button>`;
+        }).join('')}
+      </div>
+    </div>
+  `;
+
+  // Highlight palette
+  updatePalette();
+  updateStats();
+}
+
+/* ──────────────────────────────────────────
+   ANSWER SELECTION
+────────────────────────────────────────── */
+function cbtSelectAnswer(idx, letter, btn) {
+  if (CBT.submitted) return;
+
+  // Deselect all in this question
+  document.querySelectorAll('.cbt-opt').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.cbt-opt .opt-letter').forEach(s => {
+    s.style.background = '';
+    s.style.color = '';
+  });
+
+  // Select clicked
+  btn.classList.add('selected');
+
+  // Save answer
+  CBT.answers[idx] = letter;
+
+  // Persist to localStorage
+  saveCBTState();
+
+  // Update palette immediately
+  updatePalette();
+  updateStats();
+}
+
+/* ──────────────────────────────────────────
+   NAVIGATION
+────────────────────────────────────────── */
+function cbtNavigate(dir) {
+  const next = CBT.current + dir;
+  if (next < 0 || next >= CBT.questions.length) return;
+  CBT.current = next;
+  renderCBTQuestion();
+  document.getElementById('cbtQPanel').scrollTop = 0;
+}
+
+function cbtJump() {
+  const val = parseInt(document.getElementById('cbtJumpInput').value, 10);
+  if (isNaN(val) || val < 1 || val > CBT.questions.length) return;
+  CBT.current = val - 1;
+  renderCBTQuestion();
+  document.getElementById('cbtJumpInput').value = '';
+  document.getElementById('cbtQPanel').scrollTop = 0;
+}
+
+/* ──────────────────────────────────────────
+   MARK FOR REVIEW
+────────────────────────────────────────── */
+function cbtToggleReview() {
+  const idx = CBT.current;
+  CBT.reviewed[idx] = !CBT.reviewed[idx];
+  saveCBTState();
+  renderCBTQuestion();
+}
+
+/* ──────────────────────────────────────────
+   QUESTION PALETTE
+────────────────────────────────────────── */
+function buildPalette() {
+  const palette = document.getElementById('cbtPalette');
+  palette.innerHTML = CBT.questions.map((_, i) => `
+    <button class="cbt-pnum" id="pnum-${i}" onclick="CBT.current=${i};renderCBTQuestion();">
+      ${i + 1}
+    </button>
+  `).join('');
+}
+
+function updatePalette() {
+  const tot = CBT.questions.length;
+  for (let i = 0; i < tot; i++) {
+    const el = document.getElementById(`pnum-${i}`);
+    if (!el) continue;
+    el.className = 'cbt-pnum';
+    if (CBT.reviewed[i])   el.classList.add('reviewed');
+    else if (CBT.answers[i]) el.classList.add('answered');
+    if (i === CBT.current) el.classList.add('current');
+  }
+}
+
+function updateStats() {
+  const answered = Object.keys(CBT.answers).length;
+  const reviewed = Object.keys(CBT.reviewed).filter(k => CBT.reviewed[k]).length;
+  const tot = CBT.questions.length;
+  document.getElementById('cbtStatAns').textContent = answered;
+  document.getElementById('cbtStatUns').textContent = tot - answered;
+  document.getElementById('cbtStatRev').textContent = reviewed;
+  document.getElementById('cbtModalAnsCount').textContent = answered;
+}
+
+/* ──────────────────────────────────────────
+   COUNTDOWN TIMER
+────────────────────────────────────────── */
+function startTimer() {
+  clearInterval(CBT.timerInt);
+  renderTimer();
+  CBT.timerInt = setInterval(() => {
+    CBT.timerSecs--;
+    saveCBTState();
+    renderTimer();
+    if (CBT.timerSecs <= 0) {
+      clearInterval(CBT.timerInt);
+      autoSubmit();
+    }
+  }, 1000);
+}
+
+function renderTimer() {
+  const s = Math.max(0, CBT.timerSecs);
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
+  const str = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+  const el = document.getElementById('cbtTimer');
+  el.textContent = str;
+  el.className = 'cbt-timer';
+  if (s <= 300)      el.classList.add('danger');    // last 5 mins
+  else if (s <= 900) el.classList.add('warning');   // last 15 mins
+}
+
+function autoSubmit() {
+  // Show time-out modal instead of confirm modal
+  document.getElementById('cbtModalTitle').textContent = '⏰ Time is Up!';
+  document.getElementById('cbtModalMsg').innerHTML = 'Your 45-minute exam time has ended. Your answers have been saved and will now be submitted automatically.';
+  document.getElementById('cbtModalConfirm').textContent = 'See Results';
+  document.getElementById('cbtModal').classList.add('open');
+}
+
+/* ──────────────────────────────────────────
+   SUBMIT FLOW
+────────────────────────────────────────── */
+function confirmSubmit() {
+  updateStats();
+  document.getElementById('cbtModalTitle').textContent = 'Submit Exam?';
+  const answered = Object.keys(CBT.answers).length;
+  const tot      = CBT.questions.length;
+  document.getElementById('cbtModalMsg').innerHTML =
+    `You have answered <strong>${answered}</strong> of <strong>${tot}</strong> questions. ` +
+    `Unanswered questions will be marked as wrong. Are you sure you want to submit?`;
+  document.getElementById('cbtModalConfirm').textContent = 'Submit Now';
+  document.getElementById('cbtModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('cbtModal').classList.remove('open');
+}
+
+function finalSubmit() {
+  closeModal();
+  clearInterval(CBT.timerInt);
+  const submitBtn = document.querySelector('.cbt-modal-confirm');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+  }
+
+  window.CBTEngine.submitExam().then(function(results) {
+    clearCBTState();
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Now';
+    }
+    showResults(results);
+  }).catch(function(error) {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Now';
+    }
+    alert('Submission failed: ' + (error?.message || 'Please try again.'));
+    console.error(error);
+  });
+}
+
+/* ──────────────────────────────────────────
+   RESULTS
+────────────────────────────────────────── */
+function showResults(results) {
+  document.body.classList.remove('cbt-active');
+  document.body.classList.add('cbt-result');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const outcome = results || {};
+  let pct, correct, wrong, skipped, total, subjectMap, timeTaken;
+
+  if (results) {
+    pct = outcome.pct;
+    correct = outcome.correct;
+    wrong = outcome.wrong;
+    skipped = outcome.skipped;
+    total = outcome.total;
+    timeTaken = outcome.timeTaken || `${Math.floor((CBT.DURATION_SECS - CBT.timerSecs) / 60)}m ${String((CBT.DURATION_SECS - CBT.timerSecs) % 60).padStart(2, '0')}s`;
+    subjectMap = outcome.subjects || {};
+  } else {
+    const qs      = CBT.questions;
+    const answers = CBT.answers;
+    correct   = 0;
+    wrong     = 0;
+    skipped   = 0;
+
+    subjectMap = {};
+    qs.forEach((q, i) => {
+      if (!subjectMap[q.subjectKey]) {
+        subjectMap[q.subjectKey] = { name: q.subjectName, total: 0, correct: 0 };
+      }
+      subjectMap[q.subjectKey].total++;
+      const given = answers[q.id] || answers[i];
+      const correctAnswer = q.ans || q.answer;
+      if (!given) { skipped++; }
+      else if (given === correctAnswer) { correct++; subjectMap[q.subjectKey].correct++; }
+      else { wrong++; }
+    });
+
+    total  = qs.length;
+    pct    = Math.round((correct / total) * 100);
+    timeTaken = `${Math.floor((CBT.DURATION_SECS - CBT.timerSecs) / 60)}m ${String((CBT.DURATION_SECS - CBT.timerSecs) % 60).padStart(2, '0')}s`;
+
+    const _resultObj = { pct, correct, wrong, skipped, total, timeTaken, subjects: subjectMap };
+    if (typeof ebSaveResult === 'function') {
+      ebSaveResult('JAMB', _resultObj);
+    }
+  }
+
+  const score  = correct * 2; // JAMB marks: 2 per correct (max 100 for 50 qs, scaled here)
+
+
+  // Score ring colour
+  const ring = document.getElementById('resultRing');
+  ring.style.borderColor = pct >= 70 ? '#059669' : pct >= 50 ? '#F59E0B' : '#EF4444';
+  document.getElementById('resultPct').textContent = `${pct}%`;
+
+  // Headline
+  let headline, subline;
+  if (pct >= 70)      { headline = '🎉 Excellent Performance!'; subline = 'Outstanding! You are well prepared for JAMB.'; }
+  else if (pct >= 50) { headline = '👍 Good Effort!'; subline = 'You passed! Keep studying to improve your score further.'; }
+  else                { headline = '📚 Keep Practising!'; subline = 'Don\'t give up — review the explanations and try again!'; }
+  document.getElementById('resultHeadline').textContent = headline;
+  document.getElementById('resultSubline').textContent  = subline;
+
+  // Stats boxes
+  document.getElementById('resultStats').innerHTML = `
+    <div class="cbt-rs-box rsb-blue"><div class="rsb-val">${total}</div><div class="rsb-lbl">Total Questions</div></div>
+    <div class="cbt-rs-box rsb-green"><div class="rsb-val">${correct}</div><div class="rsb-lbl">Correct Answers</div></div>
+    <div class="cbt-rs-box rsb-red"><div class="rsb-val">${wrong}</div><div class="rsb-lbl">Wrong Answers</div></div>
+    <div class="cbt-rs-box rsb-gold"><div class="rsb-val">${skipped}</div><div class="rsb-lbl">Unanswered</div></div>
+    <div class="cbt-rs-box rsb-blue"><div class="rsb-val">${pct}%</div><div class="rsb-lbl">Percentage</div></div>
+    <div class="cbt-rs-box rsb-green"><div class="rsb-val">${score}</div><div class="rsb-lbl">JAMB Score (scaled)</div></div>
+  `;
+
+  // Per-subject breakdown
+  const breakdownRows = Object.values(subjectMap).map(sub => {
+    const subPct = sub.total > 0 ? Math.round((sub.correct / sub.total) * 100) : 0;
+    return `
+      <div class="sub-result-row">
+        <span class="srr-name">${sub.name}</span>
+        <div class="srr-bar-wrap"><div class="srr-bar" style="width:${subPct}%;background:${subPct>=70?'#059669':subPct>=50?'#F59E0B':'#EF4444'};"></div></div>
+        <span class="srr-score">${sub.correct}/${sub.total}</span>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('resultBreakdown').innerHTML = `
+    <h3>Subject Breakdown</h3>
+    ${breakdownRows}
+  `;
+
+  // Review all answers
+  const reviewItems = qs.map((q, i) => {
+    const given   = answers[i];
+    const isRight = given === q.ans;
+    const isSkip  = !given;
+    const statusHTML = isSkip
+      ? `<span class="ri-status-skip">Skipped</span>`
+      : isRight
+        ? `<span class="ri-status-correct">✓ Correct</span>`
+        : `<span class="ri-status-wrong">✗ Wrong</span>`;
+
+    const optLetters = ['A','B','C','D'];
+    const optsHTML = q.opts.map((opt, oi) => {
+      const letter = optLetters[oi];
+      let cls = '';
+      if (letter === q.ans)  cls = 'correct';
+      if (letter === given && given !== q.ans) cls = 'wrong';
+      return `<div class="cbt-opt ${cls}" style="margin-bottom:6px;cursor:default;">
+        <span class="opt-letter">${letter}</span>${opt.substring(3)}
+      </div>`;
+    }).join('');
+
+    return `
+      <div class="cbt-review-item">
+        <div class="ri-head">
+          <span class="ri-qnum">Q${i+1}</span>
+          <span class="ri-qnum" style="color:#7C3AED;background:rgba(124,58,237,.1);">${q.subjectName}</span>
+          ${statusHTML}
+        </div>
+        <div class="ri-qtext">${q.q}</div>
+        <div class="cbt-options" style="pointer-events:none;">${optsHTML}</div>
+        <div class="ri-exp"><strong>✏️ Explanation:</strong> ${q.exp}</div>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('cbtReviewList').innerHTML = reviewItems;
+
+  // Update session score in original sidebar
+  document.getElementById('scoreNum').textContent = `${correct}/${total}`;
+}
+
+/* ──────────────────────────────────────────
+   RETAKE / NEW EXAM
+────────────────────────────────────────── */
+function cbtRetake() {
+  document.body.classList.remove('cbt-result');
+  // Re-launch with same questions but reset answers
+  CBT.answers  = {};
+  CBT.reviewed = {};
+  CBT.current  = 0;
+  CBT.timerSecs = CBT.DURATION_SECS;
+  CBT.submitted = false;
+  document.body.classList.add('cbt-active');
+  buildPalette();
+  updateStats();
+  renderCBTQuestion();
+  startTimer();
+  window.scrollTo({ top: 0 });
+}
+
+function cbtNewExam() {
+  document.body.classList.remove('cbt-result');
+  window.scrollTo({ top: 0 });
+  // Just show the normal page again
+}
+
+/* ──────────────────────────────────────────
+   LOCALSTORAGE PERSISTENCE
+────────────────────────────────────────── */
+function saveCBTState() {
+  try {
+    localStorage.setItem(CBT.LS_KEY, JSON.stringify({
+      questions : CBT.questions,
+      answers   : CBT.answers,
+      reviewed  : CBT.reviewed,
+      current   : CBT.current,
+      timerSecs : CBT.timerSecs,
+    }));
+  } catch(e) { /* storage full or blocked */ }
+}
+
+function restoreCBTState() {
+  try {
+    const raw = localStorage.getItem(CBT.LS_KEY);
+    if (!raw) return;
+    const state = JSON.parse(raw);
+    // Only restore if it looks like the same exam session (same number of questions)
+    if (state.questions && state.questions.length === CBT.questions.length) {
+      // Check fingerprint: first question text must match
+      if (state.questions[0] && state.questions[0].q === CBT.questions[0].q) {
+        CBT.questions  = state.questions;
+        CBT.answers    = state.answers  || {};
+        CBT.reviewed   = state.reviewed || {};
+        CBT.current    = state.current  || 0;
+        CBT.timerSecs  = state.timerSecs || CBT.DURATION_SECS;
+        return;
+      }
+    }
+    // Stale save — discard
+    localStorage.removeItem(CBT.LS_KEY);
+  } catch(e) {
+    localStorage.removeItem(CBT.LS_KEY);
+  }
+}
+
+function clearCBTState() {
+  try { localStorage.removeItem(CBT.LS_KEY); } catch(e) {}
+}
+
+/* ──────────────────────────────────────────
+   LEGACY PRACTICE MODE (non-CBT)
+   Preserved from original code
+────────────────────────────────────────── */
+const YEARS = [2025,2024,2023,2022,2021,2020,2019,2018,2017,2016,2015,2014];
+let currentSubject = 'english';
+let currentYear    = 'all';
+let score          = 0;
+let total          = 0;
+
+function buildYearGrid() {
+  const grid = document.getElementById('yearGrid');
+  grid.innerHTML = `<button class="year-btn active" data-year="all" onclick="setYear('all',this)">All</button>`;
+  YEARS.forEach(y => {
+    grid.innerHTML += `<button class="year-btn" data-year="${y}" onclick="setYear(${y},this)">${y}</button>`;
+  });
+}
+
+function setSubject(sub, el) {
+  currentSubject = sub;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('qTitle').textContent = el.textContent;
+  renderQuestions();
+}
+
+function setYear(yr, el) {
+  currentYear = yr;
+  document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderQuestions();
+}
+
+function renderQuestions() {
+  const data     = JAMB_DATA[currentSubject] || [];
+  const filtered = currentYear === 'all' ? data : data.filter(q => q.year === currentYear);
+  const container = document.getElementById('questionsContainer');
+  const countEl   = document.getElementById('qCount');
+
+  if (!filtered.length) {
+    container.innerHTML = `<div style="text-align:center;padding:60px 20px;color:var(--text-muted)"><div style="font-size:2.5rem;margin-bottom:12px">🔍</div><p>No questions for this filter.</p></div>`;
+    countEl.textContent = '0 questions';
+    return;
+  }
+
+  countEl.textContent = `${filtered.length} question${filtered.length > 1 ? 's' : ''}`;
+  container.innerHTML = filtered.map((q, i) => `
+    <div class="question-card" id="qcard-${i}">
+      <div class="q-meta">
+        <span class="q-num">Q${i+1}</span>
+        <span class="q-year">JAMB ${q.year}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((opt,oi) => {
+          const letter = ['A','B','C','D'][oi];
+          return `<button class="option-btn" onclick="checkAnswer(this,'${letter}','${q.ans}',${i},'${q.exp.replace(/'/g,"\\'")}')">
+            <span class="opt-letter">${letter}</span>
+            ${opt.substring(3)}
+          </button>`;
+        }).join('')}
+      </div>
+      <div class="explanation" id="exp-${i}"></div>
+    </div>
+  `).join('');
+}
+
+function checkAnswer(btn, selected, correct, idx, exp) {
+  const card = document.getElementById(`qcard-${idx}`);
+  const buttons = card.querySelectorAll('.option-btn');
+  buttons.forEach(b => b.disabled = true);
+  if (selected === correct) {
+    btn.classList.add('correct'); score++; total++;
+    window.showToast && showToast('✅ Correct!');
+  } else {
+    btn.classList.add('wrong'); total++;
+    buttons.forEach(b => { if (b.querySelector('.opt-letter').textContent.trim() === correct) b.classList.add('correct'); });
+    window.showToast && showToast('❌ Incorrect — see explanation.');
+  }
+  document.getElementById(`exp-${idx}`).innerHTML = `<strong>✏️ Explanation:</strong> ${exp}`;
+  document.getElementById(`exp-${idx}`).classList.add('show');
+  document.getElementById('scoreNum').textContent = `${score}/${total}`;
+}
+
+function resetScore() {
+  score = 0; total = 0;
+  document.getElementById('scoreNum').textContent = '0/0';
+  window.showToast && showToast('🔄 Score reset!');
+}
+
+/* ──────────────────────────────────────────
+   INIT
+────────────────────────────────────────── */
+(function init() {
+  buildYearGrid();
+  renderQuestions();
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      setSubject(this.getAttribute('data-subject'), this);
+    });
+  });
+
+  // Enter key for jump input
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && document.activeElement === document.getElementById('cbtJumpInput')) {
+      cbtJump();
+    }
+    // Arrow keys for navigation when CBT is active
+    if (document.body.classList.contains('cbt-active') && !CBT.submitted) {
+      const active = document.activeElement;
+      const isInput = active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA');
+      if (!isInput) {
+        if (e.key === 'ArrowRight' && !document.getElementById('cbtNextBtn').disabled) {
+          cbtNavigate(1);
+        } else if (e.key === 'ArrowLeft' && !document.getElementById('cbtPrevBtn').disabled) {
+          cbtNavigate(-1);
+        }
+      }
+    }
+    // Escape to close modal
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Check for in-progress exam on page load
+  try {
+    const raw = localStorage.getItem(CBT.LS_KEY);
+    if (raw) {
+      const state = JSON.parse(raw);
+      if (state.questions && state.questions.length > 0 && state.timerSecs > 0) {
+        const resume = confirm(
+          `You have an exam in progress (${Math.floor(state.timerSecs/60)} minutes remaining). Resume it?`
+        );
+        if (resume) {
+          CBT.questions  = state.questions;
+          CBT.answers    = state.answers  || {};
+          CBT.reviewed   = state.reviewed || {};
+          CBT.current    = state.current  || 0;
+          CBT.timerSecs  = state.timerSecs;
+          CBT.submitted  = false;
+          document.getElementById('cbtStatTot').textContent    = CBT.questions.length;
+          document.getElementById('cbtModalTot').textContent   = CBT.questions.length;
+          document.body.classList.add('cbt-active');
+          buildPalette();
+          renderCBTQuestion();
+          startTimer();
+        } else {
+          localStorage.removeItem(CBT.LS_KEY);
+        }
+      }
+    }
+  } catch(e) { /* ignore */ }
+
+  // Listen for backend-connected exam completion events
+  window.addEventListener('cbt:exam-completed', function(event) {
+    if (event && event.detail) {
+      showResults(event.detail);
+    }
+  });
+})();
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/supabase-service.js"></script>
+<script src="/js/supabase.js"></script>
+<script src="/js/cbt-engine.js"></script>
+<script src="/js/shared-layout.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/exam-redirect.js"></script>
+</body>
+</html>

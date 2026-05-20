@@ -68,7 +68,7 @@ async function ebSignIn(email, password) {
 
 async function ebSignOut() {
   if (_sb) await _sb.auth.signOut();
-  window.location.href = 'index.html';
+  window.location.href = '/';
 }
 
 async function ebGetUser() {

@@ -9,7 +9,7 @@
   const topbarHTML = `
   <div class="topbar" id="topbar">
     <span>🎯 JAMB 2026 Registration is open! Check cut-off marks and requirements &rarr;
-      <a href="jamb.html">Read our JAMB Guide</a>
+      <a href="/jamb/">Read our JAMB Guide</a>
     </span>
     <button class="topbar__close" id="topbarClose" aria-label="Dismiss announcement">&#10005;</button>
   </div>`;
@@ -18,40 +18,40 @@
   const navHTML = `
   <nav class="navbar" id="navbar">
     <div class="navbar__inner">
-      <a href="index.html" class="navbar__logo">
-        <img src="images/logo.png">
+      <a href="/" class="navbar__logo">
+        <img src="/images/logo.png">
       </a>
       <div class="navbar__links">
-        <a href="index.html" data-page="index">Home</a>
-        <a href="waec.html" data-page="waec">WAEC</a>
-        <a href="jamb.html" data-page="jamb">JAMB</a>
-        <a href="nysc.html" data-page="nysc">NYSC</a>
-        <a href="neco.html" data-page="neco">NECO</a>
-         <a href="ielts.html" data-page="ielts">IELTS</a>
+        <a href="/" data-page="index">Home</a>
+        <a href="/waec/" data-page="waec">WAEC</a>
+        <a href="/jamb/" data-page="jamb">JAMB</a>
+        <a href="/nysc/" data-page="nysc">NYSC</a>
+        <a href="/neco/" data-page="neco">NECO</a>
+         <a href="/ielts/" data-page="ielts">IELTS</a>
 
-        <a href="study-resources.html" data-page="study-resources">Resources</a>
-        <a href="blog.html" data-page="blog">Blog</a>
-        <a href="exam-portals.html" data-page="exam-portals">Portals</a>
-        <a href="about.html" data-page="about">About</a>
+        <a href="/study-resources/" data-page="study-resources">Resources</a>
+        <a href="/blog/" data-page="blog">Blog</a>
+        <a href="/exam-portals/" data-page="exam-portals">Portals</a>
+        <a href="/about/" data-page="about">About</a>
       </div>
       <div class="navbar__cta">
-        <a href="exam-portals.html" class="btn btn--primary btn--sm">Exam Portals &rarr;</a>
+        <a href="/exam-portals/" class="btn btn--primary btn--sm">Exam Portals &rarr;</a>
       </div>
       <button class="navbar__hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="mobile-nav" id="mobileNav">
-      <a href="index.html">🏠 Home</a>
-      <a href="waec.html">📝 WAEC</a>
-      <a href="jamb.html">🎯 JAMB</a>
-      <a href="nysc.html">🏕️ NYSC</a>
-      <a href="neco.html">📋 NECO</a>
-      <a href="blog.html">✍️ Blog</a>
-      <a href="exam-portals.html">🌐 Portals</a>
-      <a href="about.html">ℹ️ About</a>
-      <a href="contact.html">📧 Contact</a>
-      <a href="exam-portals.html" class="btn btn--primary">Exam Portals &rarr;</a>
+      <a href="/">🏠 Home</a>
+      <a href="/waec/">📝 WAEC</a>
+      <a href="/jamb/">🎯 JAMB</a>
+      <a href="/nysc/">🏕️ NYSC</a>
+      <a href="/neco/">📋 NECO</a>
+      <a href="/blog/">✍️ Blog</a>
+      <a href="/exam-portals/">🌐 Portals</a>
+      <a href="/about/">ℹ️ About</a>
+      <a href="/contact/">📧 Contact</a>
+      <a href="/exam-portals/" class="btn btn--primary">Exam Portals &rarr;</a>
     </div>
   </nav>`;
 
@@ -91,38 +91,38 @@
         <div class="footer__col">
           <h5>Exam Guides</h5>
           <ul>
-            <li><a href="waec.html">WAEC Guide</a></li>
-            <li><a href="jamb.html">JAMB Guide</a></li>
-            <li><a href="nysc.html">NYSC Guide</a></li>
-            <li><a href="neco.html">NECO Guide</a></li>
-             <li><a href="ielts.html">IELTS Guide</a></li>
+            <li><a href="/waec/">WAEC Guide</a></li>
+            <li><a href="/jamb/">JAMB Guide</a></li>
+            <li><a href="/nysc/">NYSC Guide</a></li>
+            <li><a href="/neco/">NECO Guide</a></li>
+             <li><a href="/ielts/">IELTS Guide</a></li>
 
-            <li><a href="exam-portals.html">Exam Portals</a></li>
+            <li><a href="/exam-portals/">Exam Portals</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h5>Resources</h5>
           <ul>
-            <li><a href="study-resources.html">Free Downloads</a></li>
-            <li><a href="study-resources.html">Past Questions</a></li>
-            <li><a href="study-resources.html">Study Timetables</a></li>
-            <li><a href="blog.html">Blog & Articles</a></li>
+            <li><a href="/study-resources/">Free Downloads</a></li>
+            <li><a href="/study-resources/">Past Questions</a></li>
+            <li><a href="/study-resources/">Study Timetables</a></li>
+            <li><a href="/blog/">Blog & Articles</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h5>Company</h5>
           <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
           </ul>
         </div>
       </div>
       <div class="footer__bottom">
         <span>© 2025 ExamBuddy Nigeria · Not affiliated with WAEC, JAMB, NYSC, or NECO</span>
         <div class="footer__bottom-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="contact.html">Contact</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/contact/">Contact</a>
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@
     }
 
     /* Active nav link */
-    const page = location.pathname.split('/').pop().replace('.html', '') || 'index';
+    const rawPath = location.pathname.replace(/\/$/, ''); const pageName = rawPath.split('/').pop(); const page = pageName === '' ? 'index' : pageName.replace('.html', '');
     document.querySelectorAll('.navbar__links a[data-page]').forEach(function (a) {
       if (a.getAttribute('data-page') === page) a.classList.add('active');
     });

@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="supabase-url" content="https://dhcxzdfvpsccmescmavd.supabase.co" />
+  <meta name="supabase-anon-key" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoY3h6ZGZ2cHNjY21lc2NtYXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4Mjg3NDUsImV4cCI6MjA4ODQwNDc0NX0.4V-z-bgfxXg_AHq7a_K4XOCjtvucTfkK9g7OWkC8LqY" />
+  <title>WAEC Past Questions 2015–2024 – Practice Mode | ExamBuddy Nigeria</title>
+  <meta name="description" content="Practice WAEC past questions online. English, Mathematics, Biology, Chemistry, Physics, Economics, Government, Literature. Click to reveal answers. Free." />
+  <link rel="canonical" href="https://exambuddy.ng/pq-waec/" />
+  <link rel="icon" href="/images/favicon image.png" />
+  
+  
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  
+  
+
+  <style>
+    .quiz-shell { display: grid; grid-template-columns: 280px 1fr; gap: 32px; align-items: start; }
+    .quiz-sidebar { position: sticky; top: 88px; background: #fff; border: 1px solid #E2E8F0; border-radius: 20px; overflow: hidden; }
+    .sidebar-section { padding: 20px; border-bottom: 1px solid #E2E8F0; }
+    .sidebar-section:last-child { border-bottom: none; }
+    .sidebar-section h4 { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #94A3B8; margin-bottom: 12px; }
+    .filter-btn { display: block; width: 100%; text-align: left; padding: 9px 14px; border-radius: 8px; font-size: .88rem; font-weight: 600; color: #475569; cursor: pointer; transition: all .18s; border: none; background: none; font-family: inherit; }
+    .filter-btn:hover { background: #F1F5F9; color: #0A2463; }
+    .filter-btn.active { background: #0A2463; color: #fff; }
+    .year-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 6px; }
+    .year-btn { padding: 7px; border-radius: 8px; font-size: .82rem; font-weight: 700; color: #475569; cursor: pointer; transition: all .18s; border: 1px solid #E2E8F0; background: #fff; text-align: center; }
+    .year-btn:hover { border-color: #0A2463; color: #0A2463; }
+    .year-btn.active { background: #059669; border-color: #059669; color: #fff; }
+    .score-box { background: linear-gradient(135deg,#0A2463,#1A3A6B); border-radius: 14px; padding: 20px; text-align: center; color: #fff; }
+    .score-box .s-num { font-size: 2.2rem; font-weight: 800; color: #10B981; }
+    .score-box .s-lbl { font-size: .78rem; color: rgba(255,255,255,.65); margin-top: 2px; }
+    .q-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 12px; }
+    .q-header h2 { font-size: 1.4rem; color: #0A2463; }
+    .q-count { font-size: .85rem; color: #64748B; background: #F1F5F9; padding: 6px 14px; border-radius: 999px; }
+    .question-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 20px; padding: 28px; margin-bottom: 24px; transition: box-shadow .2s; }
+    .question-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+    .q-meta { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .q-num  { font-size: .75rem; font-weight: 800; color: #94A3B8; background: #F1F5F9; padding: 4px 10px; border-radius: 6px; }
+    .q-year { font-size: .75rem; font-weight: 700; color: #2563EB; background: rgba(37,99,235,.1); padding: 4px 10px; border-radius: 6px; }
+    .q-text { font-size: 1rem; color: #0A2463; font-weight: 500; line-height: 1.65; margin-bottom: 20px; }
+    .options { display: flex; flex-direction: column; gap: 10px; }
+    .option-btn { display: flex; align-items: center; gap: 14px; padding: 13px 18px; border-radius: 12px; border: 2px solid #E2E8F0; background: #fff; cursor: pointer; font-size: .93rem; color: #1E293B; font-family: inherit; text-align: left; transition: all .18s ease; font-weight: 500; width: 100%; }
+    .option-btn:hover:not(:disabled) { border-color: #2563EB; background: rgba(37,99,235,.04); }
+    .option-btn .opt-letter { width: 28px; height: 28px; border-radius: 50%; background: #F1F5F9; color: #0A2463; font-weight: 800; font-size: .8rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .18s; }
+    .option-btn.correct { border-color: #059669; background: rgba(5,150,105,.07); }
+    .option-btn.correct .opt-letter { background: #059669; color: #fff; }
+    .option-btn.wrong { border-color: #EF4444; background: rgba(239,68,68,.07); }
+    .option-btn.wrong .opt-letter { background: #EF4444; color: #fff; }
+    .option-btn:disabled { cursor: default; }
+    .explanation { margin-top: 16px; padding: 14px 18px; background: rgba(5,150,105,.07); border-left: 4px solid #059669; border-radius: 0 10px 10px 0; font-size: .88rem; color: #475569; display: none; }
+    .explanation.show { display: block; }
+    .no-results { text-align: center; padding: 80px 20px; color: #64748B; }
+    .no-results .icon { font-size: 3rem; margin-bottom: 16px; }
+    @media(max-width:900px){ .quiz-shell { grid-template-columns: 1fr; } .quiz-sidebar { position: static; } .year-grid { grid-template-columns: repeat(4,1fr); } }
+    @media(max-width:480px){ .year-grid { grid-template-columns: repeat(3,1fr); } }
+  </style>
+</head>
+<body>
+<div id="nav-root"></div>
+
+<div class="breadcrumb">
+  <div class="container breadcrumb__inner">
+    <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+    <a href="/past-questions/">Past Questions</a><span class="breadcrumb__sep">›</span>
+    <span>WAEC</span>
+  </div>
+</div>
+
+<section class="page-hero" style="background:linear-gradient(135deg,#0B1D3A,#1E40AF);">
+  <div class="container page-hero__inner">
+    <span class="label label--white">📝 WAEC Practice Mode</span>
+    <h1>WAEC Past Questions 2015–2024</h1>
+    <p>Click any option to check your answer. Green = correct. Red = wrong. Explanation shown after each answer.</p>
+    <div class="badge-row">
+      <span class="badge">15 Subjects</span>
+      <span class="badge">10 Years</span>
+      <span class="badge">💡 Instant Feedback</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="quiz-shell">
+
+      <!-- SIDEBAR -->
+      <div class="quiz-sidebar">
+        <div class="sidebar-section">
+          <h4>Subject</h4>
+          <button class="filter-btn active" data-subject="english">English Language</button>
+          <button class="filter-btn" data-subject="mathematics">Mathematics</button>
+          <button class="filter-btn" data-subject="biology">Biology</button>
+          <button class="filter-btn" data-subject="chemistry">Chemistry</button>
+          <button class="filter-btn" data-subject="physics">Physics</button>
+          <button class="filter-btn" data-subject="economics">Economics</button>
+          <button class="filter-btn" data-subject="government">Government</button>
+          <button class="filter-btn" data-subject="literature">Literature in English</button>
+          <button class="filter-btn" data-subject="crs">CRS</button>
+          <button class="filter-btn" data-subject="agric">Agricultural Science</button>
+          <button class="filter-btn" data-subject="financialAccounting">Financial Accounting</button>
+          <button class="filter-btn" data-subject="yoruba">Yoruba</button>
+          <button class="filter-btn" data-subject="commerce">Commerce</button>
+          <button class="filter-btn" data-subject="history">History</button>
+          <button class="filter-btn" data-subject="computer">Computer</button>
+        </div>
+        <div class="sidebar-section">
+          <h4>Year</h4>
+          <div class="year-grid" id="yearGrid"></div>
+        </div>
+        <div class="sidebar-section">
+          <div class="score-box">
+            <div class="s-num" id="scoreNum">0/0</div>
+            <div class="s-lbl">Score this session</div>
+          </div>
+          <button class="btn btn--green btn--sm btn--full" onclick="launchCBT()" style="margin-top:8px;">🎯 Start CBT Exam</button>
+          <button class="btn btn--outline btn--sm btn--full" style="margin-top:12px;" onclick="resetScore()">Reset Score</button>
+        </div>
+      </div>
+
+      <!-- QUESTIONS AREA -->
+      <div>
+        <div class="q-header">
+          <h2 id="qTitle">English Language</h2>
+          <span class="q-count" id="qCount">Loading...</span>
+        </div>
+        <div class="cbt-setup-card">
+          <div style="font-size:3rem;margin-bottom:12px;">📝</div>
+          <h2>WAEC CBT Exam Mode</h2>
+          <p>Select a subject on the left sidebar, then click <strong>Start CBT Exam</strong> to begin.</p>
+          <div class="cbt-setup-info">
+            <div class="cbt-info-badge">⏱ <strong>45 Min</strong> Timer</div>
+            <div class="cbt-info-badge">📋 <strong>40</strong> Questions</div>
+            <div class="cbt-info-badge">💾 Auto-saved</div>
+            <div class="cbt-info-badge">📊 Instant results</div>
+          </div>
+        </div>
+        <div id="questionsContainer"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WAEC CBT EXAM INTERFACE
+     Modes: "menu" → "exam" → "result"
+     All existing CSS classes preserved. CBT styles added below.
+============================================================ -->
+
+<!-- CBT-only styles (no existing classes modified) -->
+<style>
+/* ── CBT Mode: hide the normal quiz shell when exam is active ── */
+body.cbt-active .quiz-shell { display: none !important; }
+body.cbt-active .cbt-exam-wrap { display: flex !important; }
+body.cbt-active .breadcrumb { display: none; }
+body.cbt-result .quiz-shell { display: none !important; }
+body.cbt-result .cbt-exam-wrap { display: none !important; }
+body.cbt-result .cbt-result-wrap { display: block !important; }
+body.cbt-result .breadcrumb { display: none; }
+
+/* ── PRE-EXAM SETUP CARD (sits inside the normal section layout) ── */
+.cbt-setup-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 48px 40px;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.cbt-setup-card h2 { color: #0A2463; margin-bottom: 10px; }
+.cbt-setup-card p { color: #64748B; margin-bottom: 28px; }
+.cbt-setup-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.cbt-setup-item { background: #F8FAFC; border: 2px solid #E2E8F0; border-radius: 14px; padding: 20px 16px; cursor: pointer; transition: all .2s; }
+.cbt-setup-item:hover { border-color: #0A2463; background: rgba(10,36,99,.03); }
+.cbt-setup-item.selected { border-color: #059669; background: rgba(5,150,105,.06); }
+.cbt-setup-item .si-icon { font-size: 2rem; margin-bottom: 8px; }
+.cbt-setup-item .si-name { font-weight: 700; color: #0A2463; font-size: .95rem; }
+.cbt-setup-item .si-count { font-size: .78rem; color: #64748B; margin-top: 3px; }
+.cbt-setup-info { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+.cbt-info-badge { background: #F1F5F9; border-radius: 10px; padding: 10px 20px; font-size: .88rem; font-weight: 600; color: #334155; }
+.cbt-info-badge strong { color: #0A2463; }
+.cbt-start-btn { font-size: 1.05rem; padding: 15px 40px; }
+
+/* ── FULLSCREEN EXAM WRAPPER ── */
+.cbt-exam-wrap {
+  display: none;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #F8FAFC;
+}
+
+/* Exam header bar */
+.cbt-exam-header {
+  background: #0A2463;
+  color: #fff;
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  flex-shrink: 0;
+}
+.cbt-exam-header .eh-logo { font-weight: 800; font-size: 1.1rem; letter-spacing: .02em; }
+.cbt-exam-header .eh-subject { font-size: .85rem; color: rgba(255,255,255,.7); margin-top: 2px; }
+.cbt-timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.12);
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: 'Outfit', monospace;
+  letter-spacing: .05em;
+}
+.cbt-timer.warning { background: rgba(245,158,11,.25); color: #FCD34D; }
+.cbt-timer.danger  { background: rgba(239,68,68,.3);  color: #FCA5A5; animation: pulse .8s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+
+.cbt-submit-btn {
+  background: #059669;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-weight: 700;
+  font-size: .88rem;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  transition: background .18s;
+}
+.cbt-submit-btn:hover { background: #047857; }
+
+/* Exam body layout */
+.cbt-exam-body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 0;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Question panel */
+.cbt-q-panel {
+  padding: 28px 32px;
+  overflow-y: auto;
+}
+
+.cbt-q-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.cbt-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: .88rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  transition: all .18s;
+  border: 2px solid #E2E8F0;
+  background: #fff;
+  color: #334155;
+}
+.cbt-nav-btn:hover:not(:disabled) { border-color: #0A2463; color: #0A2463; }
+.cbt-nav-btn:disabled { opacity: .4; cursor: not-allowed; }
+.cbt-nav-btn.review-btn { border-color: #F59E0B; color: #92400E; background: #FFFBEB; }
+.cbt-nav-btn.review-btn.marked { background: #F59E0B; color: #fff; border-color: #F59E0B; }
+
+.cbt-q-info { font-size: .82rem; color: #64748B; margin-left: auto; font-weight: 600; }
+
+/* The question card — reuses existing .question-card styles */
+.cbt-question-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+.cbt-q-meta { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.cbt-q-num  { font-size: .75rem; font-weight: 800; color: #94A3B8; background: #F1F5F9; padding: 4px 10px; border-radius: 6px; }
+.cbt-q-year { font-size: .75rem; font-weight: 700; color: #2563EB; background: rgba(37,99,235,.1); padding: 4px 10px; border-radius: 6px; }
+.cbt-q-text { font-size: 1rem; color: #0A2463; font-weight: 500; line-height: 1.65; margin-bottom: 20px; }
+.cbt-options { display: flex; flex-direction: column; gap: 10px; }
+
+/* CBT option buttons — same look as existing .option-btn */
+.cbt-opt {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 18px;
+  border-radius: 12px;
+  border: 2px solid #E2E8F0;
+  background: #fff;
+  cursor: pointer;
+  font-size: .93rem;
+  color: #1E293B;
+  font-family: 'Outfit', sans-serif;
+  text-align: left;
+  transition: all .18s ease;
+  font-weight: 500;
+  width: 100%;
+}
+.cbt-opt:hover { border-color: #2563EB; background: rgba(37,99,235,.04); }
+.cbt-opt .opt-letter {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  color: #0A2463;
+  font-weight: 800; font-size: .8rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all .18s;
+}
+.cbt-opt.selected { border-color: #0A2463; background: rgba(10,36,99,.06); }
+.cbt-opt.selected .opt-letter { background: #0A2463; color: #fff; }
+/* Post-submit result colours */
+.cbt-opt.correct { border-color: #059669; background: rgba(5,150,105,.07); }
+.cbt-opt.correct .opt-letter { background: #059669; color: #fff; }
+.cbt-opt.wrong   { border-color: #EF4444; background: rgba(239,68,68,.07); }
+.cbt-opt.wrong   .opt-letter { background: #EF4444; color: #fff; }
+
+.cbt-explanation {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: rgba(5,150,105,.07);
+  border-left: 4px solid #059669;
+  border-radius: 0 10px 10px 0;
+  font-size: .88rem;
+  color: #475569;
+  display: none;
+}
+.cbt-explanation.show { display: block; }
+
+/* Sidebar panel */
+.cbt-side-panel {
+  background: #fff;
+  border-left: 1px solid #E2E8F0;
+  padding: 24px 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Question palette */
+.cbt-palette-title {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #94A3B8;
+  margin-bottom: 10px;
+}
+.cbt-palette {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+.cbt-pnum {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  border: 2px solid #E2E8F0;
+  background: #F8FAFC;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #64748B;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cbt-pnum:hover { border-color: #0A2463; color: #0A2463; }
+.cbt-pnum.answered  { background: #059669; border-color: #059669; color: #fff; }
+.cbt-pnum.reviewed  { background: #F59E0B; border-color: #F59E0B; color: #fff; }
+.cbt-pnum.current   { outline: 3px solid #0A2463; outline-offset: 1px; }
+
+/* Legend */
+.cbt-legend { display: flex; flex-direction: column; gap: 6px; }
+.cbt-legend-item { display: flex; align-items: center; gap: 8px; font-size: .78rem; color: #475569; }
+.cbt-legend-dot {
+  width: 14px; height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* Jump to question */
+.cbt-jump-row { display: flex; gap: 8px; }
+.cbt-jump-input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 2px solid #E2E8F0;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: .88rem;
+  font-weight: 600;
+  color: #0A2463;
+  outline: none;
+}
+.cbt-jump-input:focus { border-color: #0A2463; }
+.cbt-jump-go {
+  padding: 8px 14px;
+  background: #0A2463;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: .85rem;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Summary stats in sidebar */
+.cbt-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cbt-stat-box { background: #F8FAFC; border-radius: 10px; padding: 10px 8px; text-align: center; }
+.cbt-stat-box .sv { font-size: 1.3rem; font-weight: 800; color: #0A2463; }
+.cbt-stat-box .sl { font-size: .7rem; color: #64748B; font-weight: 600; }
+
+/* ── RESULTS PAGE ── */
+.cbt-result-wrap {
+  display: none;
+  padding: 48px 0 80px;
+}
+.cbt-result-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 48px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cbt-result-hero { text-align: center; margin-bottom: 40px; }
+.cbt-result-score-ring {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  border: 8px solid #E2E8F0;
+  position: relative;
+}
+.cbt-result-score-ring .rsr-pct { font-size: 2.4rem; font-weight: 900; color: #0A2463; }
+.cbt-result-score-ring .rsr-lbl { font-size: .75rem; color: #64748B; font-weight: 600; }
+.cbt-result-hero h2 { font-size: 1.6rem; color: #0A2463; margin-bottom: 6px; }
+.cbt-result-hero p { color: #64748B; }
+.cbt-result-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.cbt-rs-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+}
+.cbt-rs-box .rsb-val { font-size: 2rem; font-weight: 900; margin-bottom: 4px; }
+.cbt-rs-box .rsb-lbl { font-size: .78rem; font-weight: 600; color: #64748B; }
+.rsb-green .rsb-val { color: #059669; }
+.rsb-red   .rsb-val { color: #EF4444; }
+.rsb-blue  .rsb-val { color: #0A2463; }
+.rsb-gold  .rsb-val { color: #D97706; }
+
+/* Per-subject result table */
+.cbt-result-breakdown { margin-bottom: 36px; }
+.cbt-result-breakdown h3 { color: #0A2463; font-size: 1.1rem; margin-bottom: 16px; }
+.sub-result-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+.sub-result-row:last-child { border-bottom: none; }
+.srr-name { font-weight: 700; color: #0A2463; min-width: 150px; font-size: .9rem; }
+.srr-bar-wrap { flex: 1; background: #F1F5F9; border-radius: 999px; height: 8px; overflow: hidden; }
+.srr-bar { height: 100%; border-radius: 999px; background: #059669; transition: width .6s; }
+.srr-score { font-weight: 800; font-size: .88rem; color: #334155; min-width: 60px; text-align: right; }
+
+/* Review answers section */
+.cbt-review-list { display: flex; flex-direction: column; gap: 16px; }
+.cbt-review-item {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.cbt-review-item .ri-head { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+.cbt-review-item .ri-qnum { font-size: .75rem; font-weight: 800; color: #94A3B8; background: #E2E8F0; padding: 3px 8px; border-radius: 5px; }
+.cbt-review-item .ri-status-correct { font-size: .75rem; font-weight: 700; color: #059669; background: rgba(5,150,105,.1); padding: 3px 8px; border-radius: 5px; }
+.cbt-review-item .ri-status-wrong   { font-size: .75rem; font-weight: 700; color: #EF4444; background: rgba(239,68,68,.1);  padding: 3px 8px; border-radius: 5px; }
+.cbt-review-item .ri-status-skip    { font-size: .75rem; font-weight: 700; color: #D97706; background: rgba(217,119,6,.1);  padding: 3px 8px; border-radius: 5px; }
+.cbt-review-item .ri-qtext { font-size: .92rem; color: #1E293B; font-weight: 500; margin-bottom: 10px; }
+.cbt-review-item .ri-ans  { font-size: .85rem; }
+.cbt-review-item .ri-exp  { font-size: .83rem; color: #475569; margin-top: 8px; padding: 10px 14px; background: rgba(5,150,105,.06); border-left: 3px solid #059669; border-radius: 0 8px 8px 0; }
+
+/* Result action buttons */
+.cbt-result-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+
+/* Modal overlay */
+.cbt-modal-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(10,36,99,.45);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+.cbt-modal-overlay.open { display: flex; }
+.cbt-modal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+.cbt-modal h3 { color: #0A2463; margin-bottom: 10px; font-size: 1.2rem; }
+.cbt-modal p  { color: #64748B; margin-bottom: 24px; font-size: .92rem; line-height: 1.6; }
+.cbt-modal-btns { display: flex; gap: 12px; justify-content: center; }
+.cbt-modal-btns button { padding: 11px 26px; border-radius: 8px; font-weight: 700; font-size: .9rem; cursor: pointer; font-family: 'Outfit', sans-serif; border: 2px solid transparent; transition: all .18s; }
+.cbt-modal-cancel { background: #F1F5F9; color: #334155; border-color: #E2E8F0; }
+.cbt-modal-cancel:hover { background: #E2E8F0; }
+.cbt-modal-confirm { background: #059669; color: #fff; }
+.cbt-modal-confirm:hover { background: #047857; }
+
+/* cbt-tip bar */
+.cbt-tip {
+  background: rgba(5,150,105,.08);
+  border: 1px solid rgba(5,150,105,.2);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: .85rem;
+  color: #065F46;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .cbt-exam-body { grid-template-columns: 1fr; }
+  .cbt-side-panel { border-left: none; border-top: 1px solid #E2E8F0; }
+  .cbt-result-card { padding: 28px 20px; }
+}
+@media(max-width:600px){
+  .cbt-q-panel { padding: 16px; }
+  .cbt-setup-card { padding: 28px 20px; }
+}
+</style>
+
+<section class="section">
+  <div class="container">
+    <div class="quiz-shell">
+      <div class="quiz-sidebar">
+        <div class="sidebar-section">
+          <h4>Subject</h4>
+          <button class="filter-btn active" data-subject="english">Use of English</button>
+          <button class="filter-btn" data-subject="mathematics">Mathematics</button>
+          <button class="filter-btn" data-subject="biology">Biology</button>
+          <button class="filter-btn" data-subject="chemistry">Chemistry</button>
+          <button class="filter-btn" data-subject="physics">Physics</button>
+          <button class="filter-btn" data-subject="economics">Economics</button>
+          <button class="filter-btn" data-subject="government">Government</button>
+          <button class="filter-btn" data-subject="literature">Literature</button>
+          <button class="filter-btn" data-subject="crs">CRS</button>
+          <button class="filter-btn" data-subject="agric">Agricultural Science</button>
+          <button class="filter-btn" data-subject="financialAccounting">Financial Accounting</button>
+          <button class="filter-btn" data-subject="yoruba">Yoruba</button>
+          <button class="filter-btn" data-subject="commerce">Commerce</button>
+          <button class="filter-btn" data-subject="history">History</button>
+          <button class="filter-btn" data-subject="computer">Computer</button>
+        </div>
+        <div class="sidebar-section">
+          <h4>Year</h4>
+          <div class="year-grid" id="yearGrid"></div>
+        </div>
+        <div class="sidebar-section">
+          <div class="score-box">
+            <div class="s-num" id="scoreNum">0/0</div>
+            <div class="s-lbl">Score this session</div>
+          </div>
+          <button class="btn btn--outline btn--sm btn--full" style="margin-top:12px;" onclick="resetScore()">Reset Score</button>
+        </div>
+        <div class="sidebar-section">
+          <button class="btn btn--green btn--sm btn--full" onclick="launchCBT()">🎯 Start CBT Exam</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="q-header">
+          <h2 id="qTitle">Use of English</h2>
+          <span class="q-count" id="qCount">Loading...</span>
+        </div>
+        <div class="cbt-setup-card">
+          <div style="font-size:3rem;margin-bottom:12px;">🎯</div>
+          <h2>WAEC CBT Exam Mode</h2>
+          <p>Choose your subjects below, then click <strong>Start CBT Exam</strong> to begin a real timed JAMB exam simulation.</p>
+          <div class="cbt-setup-info">
+            <div class="cbt-info-badge">⏱ <strong>45 Min</strong> Timer</div>
+            <div class="cbt-info-badge">📋 <strong>40</strong> Questions</div>
+            <div class="cbt-info-badge">💾 Auto-saved answers</div>
+            <div class="cbt-info-badge">📊 Instant results</div>
+          </div>
+          <p style="font-size:.88rem;color:#94A3B8;">Select subjects on the left sidebar, then click the green <strong>Start CBT Exam</strong> button.</p>
+        </div>
+        <div class="cbt-tip">⏱ <strong>CBT Tip:</strong> In the real JAMB exam, you have ~40 seconds per question. Time yourself as you practise!</div>
+        <div id="questionsContainer"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FULLSCREEN CBT EXAM INTERFACE
+═══════════════════════════════════════════ -->
+<div class="cbt-exam-wrap" id="cbtExamWrap">
+
+  <!-- Header bar -->
+  <div class="cbt-exam-header">
+    <div>
+      <div class="eh-logo">ExamBuddy JAMB CBT</div>
+      <div class="eh-subject" id="cbtHeaderSubject">Use of English · Q1 of 40</div>
+    </div>
+    <div class="cbt-timer" id="cbtTimer">0:45:00</div>
+    <button class="cbt-submit-btn" onclick="confirmSubmit()">Submit Exam</button>
+  </div>
+
+  <!-- Body -->
+  <div class="cbt-exam-body">
+
+    <!-- Question panel -->
+    <div class="cbt-q-panel" id="cbtQPanel">
+      <div class="cbt-q-nav-row">
+        <button class="cbt-nav-btn" id="cbtPrevBtn" onclick="cbtNavigate(-1)">&#8592; Prev</button>
+        <button class="cbt-nav-btn" id="cbtNextBtn" onclick="cbtNavigate(1)">Next &#8594;</button>
+        <button class="cbt-nav-btn review-btn" id="cbtMarkBtn" onclick="cbtToggleReview()">🚩 Mark for Review</button>
+        <span class="cbt-q-info" id="cbtQInfo">Question 1 of 40</span>
+      </div>
+      <div id="cbtQuestionArea"></div>
+    </div>
+
+    <!-- Sidebar panel -->
+    <div class="cbt-side-panel">
+
+      <!-- Stats -->
+      <div>
+        <div class="cbt-palette-title">Progress</div>
+        <div class="cbt-stat-row">
+          <div class="cbt-stat-box"><div class="sv" id="cbtStatAns">0</div><div class="sl">Answered</div></div>
+          <div class="cbt-stat-box"><div class="sv" id="cbtStatUns">40</div><div class="sl">Unanswered</div></div>
+          <div class="cbt-stat-box"><div class="sv" id="cbtStatRev">0</div><div class="sl">For Review</div></div>
+          <div class="cbt-stat-box"><div class="sv" id="cbtStatTot">40</div><div class="sl">Total</div></div>
+        </div>
+      </div>
+
+      <!-- Jump to question -->
+      <div>
+        <div class="cbt-palette-title">Jump to Question</div>
+        <div class="cbt-jump-row">
+          <input class="cbt-jump-input" type="number" id="cbtJumpInput" min="1" placeholder="e.g. 15" />
+          <button class="cbt-jump-go" onclick="cbtJump()">Go</button>
+        </div>
+      </div>
+
+      <!-- Palette -->
+      <div>
+        <div class="cbt-palette-title">Question Palette</div>
+        <div class="cbt-palette" id="cbtPalette"></div>
+      </div>
+
+      <!-- Legend -->
+      <div class="cbt-legend">
+        <div class="cbt-legend-item"><div class="cbt-legend-dot" style="background:#F8FAFC;border:2px solid #E2E8F0;"></div> Not Answered</div>
+        <div class="cbt-legend-item"><div class="cbt-legend-dot" style="background:#059669;"></div> Answered</div>
+        <div class="cbt-legend-item"><div class="cbt-legend-dot" style="background:#F59E0B;"></div> Marked for Review</div>
+        <div class="cbt-legend-item"><div class="cbt-legend-dot" style="background:#0A2463;border:3px solid #0A2463;"></div> Current Question</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     RESULTS PAGE
+═══════════════════════════════════════════ -->
+<div class="cbt-result-wrap" id="cbtResultWrap">
+  <div class="container">
+    <div class="cbt-result-card">
+      <div class="cbt-result-hero">
+        <div class="cbt-result-score-ring" id="resultRing">
+          <div class="rsr-pct" id="resultPct">0%</div>
+          <div class="rsr-lbl">Score</div>
+        </div>
+        <h2 id="resultHeadline">Exam Complete</h2>
+        <p id="resultSubline">Here is your detailed performance breakdown.</p>
+      </div>
+
+      <div class="cbt-result-stats" id="resultStats"></div>
+
+      <div class="cbt-result-breakdown" id="resultBreakdown"></div>
+
+      <details style="margin-bottom:32px;">
+        <summary style="cursor:pointer;font-weight:700;color:#0A2463;padding:12px 0;font-size:1rem;">📖 Review All Answers</summary>
+        <div class="cbt-review-list" id="cbtReviewList" style="margin-top:16px;"></div>
+      </details>
+
+      <div class="cbt-result-actions">
+        <button class="btn btn--outline" onclick="cbtRetake()">🔁 Retake Exam</button>
+        <button class="btn btn--primary" onclick="cbtNewExam()">🎯 New Exam</button>
+        <a href="/pq-waec/" class="btn btn--gold">Try WAEC Practice</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Submit Confirmation Modal -->
+<div class="cbt-modal-overlay" id="cbtModal">
+  <div class="cbt-modal">
+    <h3 id="cbtModalTitle">Submit Exam?</h3>
+    <p id="cbtModalMsg">You have answered <strong id="cbtModalAnsCount">0</strong> of <strong id="cbtModalTot">40</strong> questions. Unanswered questions will be marked wrong. Are you sure you want to submit?</p>
+    <div class="cbt-modal-btns">
+      <button class="cbt-modal-cancel" onclick="closeModal()">Cancel</button>
+      <button class="cbt-modal-confirm" id="cbtModalConfirm" onclick="finalSubmit()">Submit Now</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<script>
+const WAEC_DATA = {
+
+  english: [
+    // 2024
+    { year:2024, q:"Choose the word that is nearest in meaning to the word BELLIGERENT.", opts:["A. Peaceful","B. Aggressive","C. Shy","D. Generous"], ans:"B", exp:"BELLIGERENT means hostile or aggressive in manner. The correct answer is B." },
+    { year:2024, q:"In the sentence 'She has been working here since 2010', what tense is used?", opts:["A. Simple past","B. Past continuous","C. Present perfect continuous","D. Future perfect"], ans:"C", exp:"'Has been working' is the present perfect continuous tense — showing an action that started in the past and continues to the present." },
+    { year:2024, q:"Select the option that best completes the sentence: 'Neither the students nor the teacher ___ present.'", opts:["A. were","B. are","C. was","D. have been"], ans:"C", exp:"When 'neither...nor' joins subjects, the verb agrees with the subject closest to it. 'Teacher' is singular, so 'was' is correct." },
+    { year:2024, q:"Which figure of speech is used in: 'The wind howled through the empty streets'?", opts:["A. Simile","B. Personification","C. Metaphor","D. Hyperbole"], ans:"B", exp:"Personification gives human qualities to non-human things. Wind cannot 'howl' — this is a human action attributed to wind." },
+    { year:2024, q:"Choose the option with the correct spelling.", opts:["A. Accomodate","B. Accommodate","C. Acommodate","D. Acomodate"], ans:"B", exp:"The correct spelling is ACCOMMODATE — double 'c' and double 'm'." },
+
+    // 2023
+    { year:2023, q:"Choose the word opposite in meaning to VERBOSE.", opts:["A. Talkative","B. Concise","C. Lengthy","D. Eloquent"], ans:"B", exp:"VERBOSE means using too many words. Its antonym is CONCISE — brief and to the point." },
+    { year:2023, q:"Identify the type of clause in: 'The man who came yesterday is my uncle.'", opts:["A. Adverbial clause","B. Noun clause","C. Relative clause","D. Conditional clause"], ans:"C", exp:"'Who came yesterday' is a relative clause — it modifies the noun 'man' using the relative pronoun 'who'." },
+    { year:2023, q:"Select the correctly punctuated sentence.", opts:["A. The teacher said, the exam is tomorrow.","B. The teacher said 'the exam is tomorrow.'","C. The teacher said, \"The exam is tomorrow.\"","D. The teacher said: the exam is tomorrow."], ans:"C", exp:"Direct speech requires a comma after the reporting verb, opening quotation marks, capital letter to start the quote, and closing quotation marks." },
+    { year:2023, q:"Choose the word that has the same vowel sound as 'BEAT'.", opts:["A. Bread","B. Head","C. Seat","D. Dead"], ans:"C", exp:"'SEAT' /siːt/ has the same long /iː/ vowel sound as 'BEAT' /biːt/." },
+    { year:2023, q:"Which of the following sentences is in the passive voice?", opts:["A. The cat ate the fish.","B. The fish was eaten by the cat.","C. The cat is eating the fish.","D. The cat had eaten the fish."], ans:"B", exp:"'The fish was eaten by the cat' is passive — the subject (fish) receives the action rather than performing it." },
+
+    // 2022
+    { year:2022, q:"The word LOQUACIOUS means:", opts:["A. Very quiet","B. Very talkative","C. Very rude","D. Very intelligent"], ans:"B", exp:"LOQUACIOUS means talking a great deal; talkative. From Latin 'loqui' (to talk)." },
+    { year:2022, q:"In the sentence 'If I were rich, I would travel the world', what type of conditional is this?", opts:["A. Zero conditional","B. First conditional","C. Second conditional","D. Third conditional"], ans:"C", exp:"The second conditional uses 'if + past simple + would + infinitive'. It describes unreal or hypothetical present/future situations." },
+    { year:2022, q:"Choose the option that correctly fills the gap: 'The jury ___ not reached a verdict yet.'", opts:["A. have","B. has","C. had","D. having"], ans:"A", exp:"'Jury' is a collective noun that can take plural agreement in British English when acting as individuals. 'Have not reached' is standard here." },
+    { year:2022, q:"A word formed by combining two words, e.g. 'football', is called:", opts:["A. A suffix","B. A compound word","C. A prefix","D. An acronym"], ans:"B", exp:"A compound word is formed by joining two or more words: football, blackboard, sunshine are all compound words." },
+    { year:2022, q:"Identify the literary device in: 'Life is a journey.'", opts:["A. Simile","B. Personification","C. Metaphor","D. Irony"], ans:"C", exp:"A metaphor makes a direct comparison without 'like' or 'as'. 'Life IS a journey' — not 'life is LIKE a journey' (which would be a simile)." },
+
+    // 2021
+    { year:2021, q:"Choose the word closest in meaning to ERUDITE.", opts:["A. Ignorant","B. Scholarly","C. Curious","D. Diligent"], ans:"B", exp:"ERUDITE means having or showing great knowledge or learning. Scholarly is the closest synonym." },
+    { year:2021, q:"Which sentence contains a dangling modifier?", opts:["A. Running down the hill, John tripped.","B. Running down the hill, a stone tripped John.","C. John ran down the hill and tripped.","D. While running, John tripped on a stone."], ans:"B", exp:"In option B, 'running down the hill' modifies 'a stone' — but stones don't run. This is a dangling modifier." },
+    { year:2021, q:"The plural of 'phenomenon' is:", opts:["A. Phenomenons","B. Phenomenas","C. Phenomena","D. Phenomenes"], ans:"C", exp:"'Phenomenon' comes from Greek and forms its plural as 'phenomena'. Many Greek-origin words follow this pattern." },
+    { year:2021, q:"Choose the sentence that uses the apostrophe correctly.", opts:["A. The dog's bone is missing.","B. The dogs bone is missing.","C. The dogs' bone is missing.","D. The dog is bone's missing."], ans:"A", exp:"'The dog's bone' shows singular possessive — the bone belongs to one dog. Apostrophe + s is correct here." },
+    { year:2021, q:"Which of the following is a synonym for EPHEMERAL?", opts:["A. Permanent","B. Fleeting","C. Eternal","D. Lasting"], ans:"B", exp:"EPHEMERAL means lasting for a very short time. FLEETING is the correct synonym. Antonyms include permanent, eternal, lasting." },
+
+    // 2020
+    { year:2020, q:"The word that best fits: 'The politician gave an ___ speech that moved the crowd to tears' is:", opts:["A. incoherent","B. eloquent","C. boring","D. brief"], ans:"B", exp:"ELOQUENT means fluent or persuasive in speaking or writing. It fits the context of a speech that moved the crowd." },
+    { year:2020, q:"In the sentence 'He is the man whom I told you about', 'whom' is a:", opts:["A. Relative pronoun","B. Personal pronoun","C. Reflexive pronoun","D. Demonstrative pronoun"], ans:"A", exp:"'Whom' is a relative pronoun here — it introduces the relative clause 'whom I told you about' and refers back to 'man'." },
+    { year:2020, q:"Choose the option that is NOT a conjunction.", opts:["A. Although","B. Because","C. However","D. Since"], ans:"C", exp:"'However' is a conjunctive adverb, not a conjunction. Although, Because, and Since are all subordinating conjunctions." },
+    { year:2020, q:"What grammatical name is given to the underlined word in: 'She speaks softly'?", opts:["A. Adjective","B. Noun","C. Adverb","D. Verb"], ans:"C", exp:"'Softly' modifies the verb 'speaks' — it tells us HOW she speaks. Words that modify verbs are adverbs." },
+    { year:2020, q:"The literary term for words that imitate sounds is:", opts:["A. Alliteration","B. Assonance","C. Onomatopoeia","D. Consonance"], ans:"C", exp:"ONOMATOPOEIA refers to words that imitate the sounds they describe: buzz, splash, sizzle, bark, meow." },
+
+    // 2019
+    { year:2019, q:"Choose the word nearest in meaning to PENURY.", opts:["A. Wealth","B. Poverty","C. Sickness","D. Laziness"], ans:"B", exp:"PENURY means extreme poverty. The correct answer is B." },
+    { year:2019, q:"Identify the rhetorical device: 'Ask not what your country can do for you — ask what you can do for your country.'", opts:["A. Metaphor","B. Chiasmus","C. Simile","D. Alliteration"], ans:"B", exp:"CHIASMUS involves reversing grammatical structures in successive phrases. The two halves mirror each other in reversed order." },
+    { year:2019, q:"Which option correctly uses a semi-colon?", opts:["A. I like tea; and coffee.","B. She studied hard; she passed the exam.","C. He ran; quickly.","D. The cat; sat on the mat."], ans:"B", exp:"Semi-colons join two independent clauses that are closely related. Both 'She studied hard' and 'she passed the exam' are complete thoughts." },
+    { year:2019, q:"The sentence 'He has gone to the market' is in the:", opts:["A. Simple present tense","B. Present perfect tense","C. Past continuous tense","D. Simple past tense"], ans:"B", exp:"'Has gone' is the present perfect tense — formed with have/has + past participle. It shows a recently completed action." },
+    { year:2019, q:"A word derived from a proper noun is called a:", opts:["A. Gerund","B. Derivative","C. Demonym","D. Eponym"], ans:"D", exp:"An EPONYM is a word derived from or associated with a person's name. Example: 'Sandwich' from the Earl of Sandwich." },
+
+    // 2018
+    { year:2018, q:"Choose the correctly spelled word.", opts:["A. Conscientous","B. Conscientious","C. Consientious","D. Concientious"], ans:"B", exp:"The correct spelling is CONSCIENTIOUS — con-sci-en-tious. A common exam word worth memorising." },
+    { year:2018, q:"In the sentence 'The book on the tables belongs to me', the subject is:", opts:["A. tables","B. book","C. me","D. on"], ans:"B", exp:"The subject of a sentence is what the sentence is about. Despite the phrase 'on the tables', the subject is 'book' — what belongs to me." },
+    { year:2018, q:"Which word is a homophone of 'FLOUR'?", opts:["A. Floor","B. Flower","C. Flow","D. Flaw"], ans:"B", exp:"FLOUR (baking ingredient) and FLOWER (plant blossom) are homophones — they sound the same but have different spellings and meanings." },
+    { year:2018, q:"The grammatical term for a verb used as a noun (e.g. 'Swimming is fun') is:", opts:["A. Infinitive","B. Participle","C. Gerund","D. Gerundive"], ans:"C", exp:"A GERUND is a verb ending in '-ing' used as a noun. In 'Swimming is fun', 'swimming' is the subject of the sentence — a gerund." },
+    { year:2018, q:"Choose the option that best explains the idiom 'TO TURN A BLIND EYE'.", opts:["A. To have poor eyesight","B. To deliberately ignore something","C. To look the other way","D. To blink rapidly"], ans:"B", exp:"'To turn a blind eye' means to deliberately ignore something you know is wrong or happening. It originates from Admiral Nelson." },
+
+    // 2017
+    { year:2017, q:"Which sentence is grammatically correct?", opts:["A. Between you and I, this is wrong.","B. Between you and me, this is wrong.","C. Between you and myself, this is wrong.","D. Between I and you, this is wrong."], ans:"B", exp:"'Between' is a preposition and must be followed by object pronouns. 'Me' is the correct object pronoun, not 'I' (subject pronoun)." },
+    { year:2017, q:"INDIGENOUS means:", opts:["A. Foreign","B. Native to a place","C. Rare","D. Modern"], ans:"B", exp:"INDIGENOUS means originating or occurring naturally in a particular place; native. Example: indigenous languages of Nigeria." },
+    { year:2017, q:"Identify the type of sentence: 'Although he was tired, he continued working.'", opts:["A. Simple sentence","B. Compound sentence","C. Complex sentence","D. Compound-complex sentence"], ans:"C", exp:"A complex sentence has one independent clause and at least one dependent clause. 'Although he was tired' is the dependent (subordinate) clause." },
+    { year:2017, q:"The word GARRULOUS is closest in meaning to:", opts:["A. Silent","B. Timid","C. Chatty","D. Stubborn"], ans:"C", exp:"GARRULOUS means excessively talkative, especially on trivial matters. Chatty is the closest in meaning." },
+    { year:2017, q:"In phonetics, consonants produced by completely stopping airflow are called:", opts:["A. Fricatives","B. Nasals","C. Plosives","D. Approximants"], ans:"C", exp:"PLOSIVES (or stops) are consonants formed by completely blocking the airflow. Examples: /p/, /b/, /t/, /d/, /k/, /g/." },
+
+    // 2016
+    { year:2016, q:"Choose the word that is opposite in meaning to MAGNANIMOUS.", opts:["A. Generous","B. Kind","C. Petty","D. Noble"], ans:"C", exp:"MAGNANIMOUS means generous or forgiving. Its opposite is PETTY — small-minded or mean." },
+    { year:2016, q:"Which of the following is a complex sentence?", opts:["A. She sings and dances.","B. She sang a song.","C. She sang because she was happy.","D. She sang; he danced."], ans:"C", exp:"Option C has an independent clause ('She sang') and a dependent clause ('because she was happy') — this is a complex sentence." },
+    { year:2016, q:"The literary device where contradictory terms appear in conjunction is:", opts:["A. Paradox","B. Oxymoron","C. Irony","D. Hyperbole"], ans:"B", exp:"An OXYMORON places contradictory terms together in a phrase: 'deafening silence', 'bittersweet', 'living death'." },
+    { year:2016, q:"In the word 'INCOMPREHENSIBLE', the prefix 'IN-' means:", opts:["A. Inside","B. Not","C. Into","D. Together"], ans:"B", exp:"The prefix 'IN-' in this context means 'not' — incomprehensible = not comprehensible. Other examples: incredible, invisible, incomplete." },
+    { year:2016, q:"Choose the sentence with the correct subject-verb agreement.", opts:["A. The news are shocking.","B. The news is shocking.","C. The news were shocking.","D. The news have been shocking."], ans:"B", exp:"'News' is an uncountable noun and always takes a singular verb. 'The news IS shocking' is correct." },
+
+    // 2015
+    { year:2015, q:"The word UBIQUITOUS means:", opts:["A. Rare and unusual","B. Present everywhere","C. Very large","D. Ancient"], ans:"B", exp:"UBIQUITOUS means present, appearing, or found everywhere. Example: 'Mobile phones are now ubiquitous in Nigeria.'" },
+    { year:2015, q:"Choose the correct form: 'I wish I ___ taller.'", opts:["A. am","B. was","C. were","D. will be"], ans:"C", exp:"After 'wish', we use the subjunctive mood. 'Were' is used for all persons in the subjunctive: 'I wish I were', 'He wishes he were'." },
+    { year:2015, q:"Which figure of speech involves repetition of consonant sounds at the beginning of words?", opts:["A. Assonance","B. Onomatopoeia","C. Alliteration","D. Rhyme"], ans:"C", exp:"ALLITERATION is the repetition of the same consonant sound at the beginning of consecutive words: 'Peter Piper picked a peck of pickled peppers.'" },
+    { year:2015, q:"The word AMBIGUOUS means:", opts:["A. Clear and definite","B. Able to be understood in more than one way","C. Very complicated","D. False"], ans:"B", exp:"AMBIGUOUS means open to more than one interpretation; not having one obvious meaning. Example: 'The notice was ambiguous.'" },
+    { year:2015, q:"Choose the sentence that uses reported speech correctly for: She said, 'I am tired.'", opts:["A. She said that she is tired.","B. She said that she was tired.","C. She said that she am tired.","D. She said that I was tired."], ans:"B", exp:"In reported speech, present tense ('am') backshifts to past tense ('was'). The pronoun also changes from 'I' to 'she'." },
+  ],
+
+  mathematics: [
+    // 2024
+    { year:2024, q:"Simplify: 2⁵ × 2³ ÷ 2⁴", opts:["A. 2⁴","B. 2⁶","C. 2²","D. 2⁸"], ans:"A", exp:"Using index laws: 2⁵ × 2³ = 2⁸, then 2⁸ ÷ 2⁴ = 2⁴. Answer is 2⁴ = 16." },
+    { year:2024, q:"Find the value of x in: 3x + 7 = 22", opts:["A. x = 3","B. x = 5","C. x = 4","D. x = 6"], ans:"B", exp:"3x + 7 = 22 → 3x = 22 - 7 = 15 → x = 15 ÷ 3 = 5." },
+    { year:2024, q:"What is the simple interest on ₦50,000 at 8% per annum for 3 years?", opts:["A. ₦10,000","B. ₦12,000","C. ₦14,000","D. ₦16,000"], ans:"B", exp:"SI = (P × R × T) ÷ 100 = (50,000 × 8 × 3) ÷ 100 = 1,200,000 ÷ 100 = ₦12,000." },
+    { year:2024, q:"The mean of 5, 8, 3, 10, and x is 7. Find x.", opts:["A. 8","B. 9","C. 7","D. 6"], ans:"B", exp:"Mean = sum ÷ count → 7 = (5+8+3+10+x) ÷ 5 → 35 = 26 + x → x = 9." },
+    { year:2024, q:"Convert 110₂ to base 10.", opts:["A. 4","B. 5","C. 6","D. 7"], ans:"C", exp:"110₂ = (1×2²) + (1×2¹) + (0×2⁰) = 4 + 2 + 0 = 6₁₀." },
+
+    // 2023
+    { year:2023, q:"Factorise completely: x² - 5x + 6", opts:["A. (x-2)(x-3)","B. (x+2)(x+3)","C. (x-1)(x-6)","D. (x-2)(x+3)"], ans:"A", exp:"Find two numbers that multiply to +6 and add to -5: those are -2 and -3. So: (x-2)(x-3)." },
+    { year:2023, q:"If a die is thrown once, what is the probability of getting a prime number?", opts:["A. 1/6","B. 1/3","C. 1/2","D. 2/3"], ans:"C", exp:"Prime numbers on a die: 2, 3, 5 → 3 outcomes. Total outcomes = 6. Probability = 3/6 = 1/2." },
+    { year:2023, q:"A rectangle has length 12cm and width 5cm. Find its diagonal.", opts:["A. 13cm","B. 11cm","C. 15cm","D. 17cm"], ans:"A", exp:"Using Pythagoras: d² = 12² + 5² = 144 + 25 = 169 → d = √169 = 13cm." },
+    { year:2023, q:"Evaluate: log₁₀ 1000", opts:["A. 2","B. 3","C. 4","D. 10"], ans:"B", exp:"log₁₀ 1000 = log₁₀ 10³ = 3. (Since 10³ = 1000)." },
+    { year:2023, q:"Solve: 2(3x - 1) = 4x + 6", opts:["A. x = 2","B. x = 4","C. x = 3","D. x = 8"], ans:"B", exp:"6x - 2 = 4x + 6 → 6x - 4x = 6 + 2 → 2x = 8 → x = 4." },
+
+    // 2022
+    { year:2022, q:"The sum of interior angles of a hexagon is:", opts:["A. 540°","B. 720°","C. 900°","D. 1080°"], ans:"B", exp:"Sum of interior angles = (n-2) × 180°. For a hexagon: (6-2) × 180° = 4 × 180° = 720°." },
+    { year:2022, q:"Find the gradient of the line passing through (2,3) and (4,9).", opts:["A. 2","B. 3","C. 4","D. 6"], ans:"B", exp:"Gradient = (y₂-y₁)/(x₂-x₁) = (9-3)/(4-2) = 6/2 = 3." },
+    { year:2022, q:"If 15% of a number is 45, what is the number?", opts:["A. 200","B. 250","C. 300","D. 350"], ans:"C", exp:"15% × n = 45 → n = 45 ÷ 0.15 = 300." },
+    { year:2022, q:"What is the area of a circle with radius 7cm? (π = 22/7)", opts:["A. 44cm²","B. 77cm²","C. 154cm²","D. 176cm²"], ans:"C", exp:"Area = πr² = (22/7) × 7² = (22/7) × 49 = 22 × 7 = 154cm²." },
+    { year:2022, q:"Simplify: (3a²b)(2ab³)", opts:["A. 5a³b⁴","B. 6a³b⁴","C. 6a²b⁴","D. 5a²b³"], ans:"B", exp:"Multiply coefficients: 3×2=6. Add indices: a²×a=a³, b×b³=b⁴. Answer: 6a³b⁴." },
+
+    // 2021
+    { year:2021, q:"The LCM of 12, 18, and 24 is:", opts:["A. 36","B. 48","C. 60","D. 72"], ans:"D", exp:"12 = 2²×3, 18 = 2×3², 24 = 2³×3. LCM = 2³×3² = 8×9 = 72." },
+    { year:2021, q:"A man bought an article for ₦6,000 and sold it for ₦7,500. Find the percentage profit.", opts:["A. 20%","B. 25%","C. 30%","D. 15%"], ans:"B", exp:"Profit = ₦7,500 - ₦6,000 = ₦1,500. % Profit = (1500/6000) × 100 = 25%." },
+    { year:2021, q:"Which of the following is irrational?", opts:["A. √4","B. √9","C. √16","D. √5"], ans:"D", exp:"√5 ≈ 2.2360679... which is non-terminating and non-repeating — an irrational number. √4=2, √9=3, √16=4 are all rational." },
+    { year:2021, q:"Find the value of x if: x/4 = 3/12", opts:["A. x=1","B. x=3","C. x=4","D. x=9"], ans:"A", exp:"Cross-multiply: 12x = 12 → x = 1." },
+    { year:2021, q:"What is the mode of: 3, 5, 7, 5, 2, 5, 8, 3?", opts:["A. 3","B. 5","C. 7","D. 8"], ans:"B", exp:"The mode is the most frequently occurring value. 5 appears 3 times, 3 appears 2 times — so mode = 5." },
+
+    // 2020
+    { year:2020, q:"Solve: 4x² - 36 = 0", opts:["A. x = ±2","B. x = ±3","C. x = ±4","D. x = ±6"], ans:"B", exp:"4x² = 36 → x² = 9 → x = ±3." },
+    { year:2020, q:"A triangle has a base of 10cm and height of 8cm. Find its area.", opts:["A. 40cm²","B. 80cm²","C. 20cm²","D. 60cm²"], ans:"A", exp:"Area of triangle = ½ × base × height = ½ × 10 × 8 = 40cm²." },
+    { year:2020, q:"Express 0.000385 in standard form.", opts:["A. 3.85 × 10⁻⁴","B. 38.5 × 10⁻⁵","C. 3.85 × 10⁻³","D. 0.385 × 10⁻³"], ans:"A", exp:"Move decimal 4 places right: 3.85 × 10⁻⁴. Standard form requires one digit before the decimal point." },
+    { year:2020, q:"If P = {1,2,3,4,5} and Q = {3,4,5,6,7}, find P∩Q.", opts:["A. {1,2,6,7}","B. {3,4,5}","C. {1,2,3,4,5,6,7}","D. {3,5}"], ans:"B", exp:"P∩Q (intersection) contains elements in BOTH sets. Elements in both P and Q: 3, 4, 5." },
+    { year:2020, q:"The bearing of B from A is 060°. What is the bearing of A from B?", opts:["A. 120°","B. 240°","C. 300°","D. 180°"], ans:"B", exp:"The back bearing = 060° + 180° = 240°." },
+
+    // 2019
+    { year:2019, q:"Evaluate: ³√216", opts:["A. 4","B. 6","C. 8","D. 12"], ans:"B", exp:"³√216 = 6 because 6³ = 6×6×6 = 216." },
+    { year:2019, q:"The angles of a triangle are in the ratio 1:2:3. Find the largest angle.", opts:["A. 30°","B. 60°","C. 90°","D. 120°"], ans:"C", exp:"Ratio sum = 1+2+3 = 6. Total angles = 180°. Largest = (3/6)×180° = 90°." },
+    { year:2019, q:"Simplify: (2/3 + 1/4) ÷ 5/6", opts:["A. 11/10","B. 11/18","C. 11/15","D. 11/9"], ans:"A", exp:"2/3 + 1/4 = 8/12 + 3/12 = 11/12. Then (11/12) ÷ (5/6) = (11/12) × (6/5) = 66/60 = 11/10." },
+    { year:2019, q:"A car travels 240km in 3 hours. Find its average speed.", opts:["A. 60km/h","B. 70km/h","C. 80km/h","D. 90km/h"], ans:"C", exp:"Speed = Distance ÷ Time = 240 ÷ 3 = 80km/h." },
+    { year:2019, q:"Find the circumference of a circle with diameter 14cm. (π = 22/7)", opts:["A. 44cm","B. 88cm","C. 22cm","D. 154cm"], ans:"A", exp:"Circumference = πd = (22/7) × 14 = 22 × 2 = 44cm." },
+
+    // 2018
+    { year:2018, q:"If 2^x = 32, find x.", opts:["A. 4","B. 5","C. 6","D. 3"], ans:"B", exp:"2^5 = 32. So x = 5." },
+    { year:2018, q:"The HCF of 24, 36, and 48 is:", opts:["A. 6","B. 12","C. 24","D. 4"], ans:"B", exp:"Factors of 24: 1,2,3,4,6,8,12,24. Factors of 36: 1,2,3,4,6,9,12,18,36. Factors of 48: 1,2,3,4,6,8,12,16,24,48. Highest common factor = 12." },
+    { year:2018, q:"Expand: (x+3)(x-2)", opts:["A. x²+x-6","B. x²-x+6","C. x²+x+6","D. x²-x-6"], ans:"A", exp:"(x+3)(x-2) = x²-2x+3x-6 = x²+x-6." },
+    { year:2018, q:"The volume of a cube with side 4cm is:", opts:["A. 16cm³","B. 48cm³","C. 64cm³","D. 96cm³"], ans:"C", exp:"Volume of cube = s³ = 4³ = 4×4×4 = 64cm³." },
+    { year:2018, q:"What is 40% of 250?", opts:["A. 80","B. 90","C. 100","D. 110"], ans:"C", exp:"40% × 250 = 0.40 × 250 = 100." },
+
+    // 2017
+    { year:2017, q:"Find the value of y in: 2y - 5 = y + 3", opts:["A. y = 6","B. y = 8","C. y = 3","D. y = 4"], ans:"B", exp:"2y - y = 3 + 5 → y = 8." },
+    { year:2017, q:"Express 5/8 as a percentage.", opts:["A. 60%","B. 62.5%","C. 65%","D. 58%"], ans:"B", exp:"(5/8) × 100 = 500/8 = 62.5%." },
+    { year:2017, q:"The median of: 4, 7, 2, 9, 1, 6, 3 is:", opts:["A. 4","B. 5","C. 6","D. 3"], ans:"A", exp:"Arrange in order: 1,2,3,4,6,7,9. Middle value (4th of 7) = 4." },
+    { year:2017, q:"Solve: |2x - 3| = 7", opts:["A. x=5 only","B. x=-2 only","C. x=5 or x=-2","D. x=3 or x=5"], ans:"C", exp:"2x-3=7 → x=5. OR 2x-3=-7 → 2x=-4 → x=-2. Both solutions: x=5 or x=-2." },
+    { year:2017, q:"Find the next term in the sequence: 2, 6, 18, 54, ___", opts:["A. 108","B. 162","C. 216","D. 270"], ans:"B", exp:"Each term is multiplied by 3: 2→6→18→54→162." },
+
+    // 2016
+    { year:2016, q:"Simplify: 15a⁴b³ ÷ 3a²b", opts:["A. 5a²b","B. 5a²b²","C. 12a²b","D. 5ab²"], ans:"B", exp:"15÷3=5. a⁴÷a²=a². b³÷b=b². Answer: 5a²b²." },
+    { year:2016, q:"The reciprocal of 2/5 is:", opts:["A. 5/2","B. 2/5","C. -5/2","D. -2/5"], ans:"A", exp:"The reciprocal of a fraction is obtained by swapping numerator and denominator. Reciprocal of 2/5 = 5/2." },
+    { year:2016, q:"A rectangle has perimeter 36cm. If its length is 10cm, find its width.", opts:["A. 6cm","B. 7cm","C. 8cm","D. 9cm"], ans:"C", exp:"Perimeter = 2(l+w) → 36 = 2(10+w) → 18 = 10+w → w = 8cm." },
+    { year:2016, q:"Express 75% as a fraction in its lowest terms.", opts:["A. 3/5","B. 3/4","C. 7/10","D. 4/5"], ans:"B", exp:"75% = 75/100 = 3/4 (dividing by 25)." },
+    { year:2016, q:"If the range of 5, 8, k, 12 is 9, find k.", opts:["A. 3","B. 4","C. 14","D. 5"], ans:"A", exp:"Range = max - min. If k is the minimum: 12-k=9 → k=3. Check: 3 is less than 5, so range = 12-3 = 9. ✓" },
+
+    // 2015
+    { year:2015, q:"Evaluate: 0.5² + 0.25", opts:["A. 0.5","B. 0.75","C. 1.0","D. 0.25"], ans:"A", exp:"0.5² = 0.25. Then 0.25 + 0.25 = 0.5." },
+    { year:2015, q:"The exterior angle of a regular polygon is 30°. How many sides does it have?", opts:["A. 10","B. 12","C. 15","D. 8"], ans:"B", exp:"Number of sides = 360° ÷ exterior angle = 360° ÷ 30° = 12 sides." },
+    { year:2015, q:"Find the equation of a line with gradient 2 passing through (1, 3).", opts:["A. y = 2x+1","B. y = 2x-1","C. y = x+2","D. y = 2x+3"], ans:"A", exp:"Using y-y₁=m(x-x₁): y-3=2(x-1) → y-3=2x-2 → y=2x+1." },
+    { year:2015, q:"Convert 47₁₀ to binary.", opts:["A. 101111₂","B. 110100₂","C. 100111₂","D. 101011₂"], ans:"A", exp:"47÷2=23r1, 23÷2=11r1, 11÷2=5r1, 5÷2=2r1, 2÷2=1r0, 1÷2=0r1. Reading remainders upward: 101111₂." },
+    { year:2015, q:"A bag contains 4 red, 5 blue, and 6 green balls. What is the probability of picking a blue ball?", opts:["A. 1/3","B. 4/15","C. 1/5","D. 2/5"], ans:"A", exp:"Total balls = 4+5+6 = 15. P(blue) = 5/15 = 1/3." },
+  ],
+
+  biology: [
+    { year:2024, q:"The organelle responsible for producing energy in a cell is the:", opts:["A. Nucleus","B. Ribosome","C. Mitochondria","D. Golgi apparatus"], ans:"C", exp:"The mitochondria is called the 'powerhouse of the cell'. It produces ATP (energy) through cellular respiration." },
+    { year:2024, q:"Which blood group is known as the universal donor?", opts:["A. AB","B. B","C. A","D. O"], ans:"D", exp:"Blood group O (specifically O negative) is the universal donor because it lacks A and B antigens that could trigger immune reactions." },
+    { year:2023, q:"The process by which plants make food using sunlight is called:", opts:["A. Respiration","B. Transpiration","C. Photosynthesis","D. Osmosis"], ans:"C", exp:"Photosynthesis is the process by which plants use sunlight, water, and CO₂ to produce glucose and oxygen." },
+    { year:2023, q:"Which part of the brain controls balance and coordination?", opts:["A. Cerebrum","B. Medulla oblongata","C. Cerebellum","D. Hypothalamus"], ans:"C", exp:"The cerebellum controls coordination, balance, and fine motor movements." },
+    { year:2022, q:"The movement of water from a region of high water potential to low water potential through a semi-permeable membrane is called:", opts:["A. Diffusion","B. Active transport","C. Osmosis","D. Plasmolysis"], ans:"C", exp:"Osmosis is the specific movement of water molecules through a semi-permeable membrane from high to low water potential." },
+    { year:2022, q:"Which of the following is NOT a function of the liver?", opts:["A. Detoxification","B. Bile production","C. Insulin production","D. Glycogen storage"], ans:"C", exp:"Insulin is produced by the pancreas (beta cells of Islets of Langerhans), not the liver. The liver performs detoxification, bile production, and glycogen storage." },
+    { year:2021, q:"DNA replication occurs during which phase of the cell cycle?", opts:["A. G1 phase","B. S phase","C. G2 phase","D. M phase"], ans:"B", exp:"DNA replication occurs during the S (Synthesis) phase of interphase in the cell cycle." },
+    { year:2021, q:"The basic unit of classification in taxonomy is the:", opts:["A. Family","B. Genus","C. Order","D. Species"], ans:"D", exp:"Species is the basic/lowest unit of biological classification. Organisms of the same species can interbreed to produce fertile offspring." },
+    { year:2020, q:"Which of the following carries oxygen from the lungs to body tissues?", opts:["A. White blood cells","B. Platelets","C. Plasma","D. Red blood cells"], ans:"D", exp:"Red blood cells (erythrocytes) contain haemoglobin which binds oxygen and transports it from the lungs to body tissues." },
+    { year:2020, q:"The hormone responsible for regulating blood sugar levels is:", opts:["A. Adrenaline","B. Oestrogen","C. Insulin","D. Thyroxine"], ans:"C", exp:"Insulin (produced by the pancreas) lowers blood glucose levels by stimulating cells to absorb glucose." },
+    { year:2019, q:"Which of the following is a vestigial organ in humans?", opts:["A. Appendix","B. Kidney","C. Spleen","D. Pancreas"], ans:"A", exp:"The appendix is a vestigial organ — it had a function in our ancestors but has reduced or lost its original function in modern humans." },
+    { year:2019, q:"The process of breaking down glucose to release energy without oxygen is called:", opts:["A. Aerobic respiration","B. Anaerobic respiration","C. Photosynthesis","D. Transpiration"], ans:"B", exp:"Anaerobic respiration breaks down glucose without oxygen, producing lactic acid (in animals) or ethanol and CO₂ (in yeast)." },
+    { year:2018, q:"Chlorophyll is found in:", opts:["A. Mitochondria","B. Chloroplasts","C. Vacuoles","D. Nucleus"], ans:"B", exp:"Chlorophyll is the green pigment found in chloroplasts of plant cells. It absorbs light energy for photosynthesis." },
+    { year:2018, q:"The genetic material in a cell is stored in the:", opts:["A. Cell membrane","B. Cytoplasm","C. Nucleus","D. Ribosome"], ans:"C", exp:"The nucleus contains DNA (deoxyribonucleic acid) — the genetic material that controls cell activities and is passed to offspring." },
+    { year:2017, q:"Which part of a flower produces pollen grains?", opts:["A. Pistil","B. Sepal","C. Anther","D. Stigma"], ans:"C", exp:"The anther (part of the stamen — the male reproductive organ) produces pollen grains." },
+    { year:2017, q:"Evolution by natural selection was proposed by:", opts:["A. Gregor Mendel","B. Louis Pasteur","C. Charles Darwin","D. Robert Hooke"], ans:"C", exp:"Charles Darwin proposed the theory of evolution by natural selection in his 1859 book 'On the Origin of Species'." },
+    { year:2016, q:"Which type of nutrition do fungi use?", opts:["A. Autotrophic","B. Holozoic","C. Saprophytic","D. Parasitic"], ans:"C", exp:"Fungi are saprophytes — they absorb nutrients from dead and decaying organic matter by secreting enzymes externally." },
+    { year:2016, q:"The liquid part of blood is called:", opts:["A. Serum","B. Plasma","C. Lymph","D. Haemoglobin"], ans:"B", exp:"Plasma is the yellow liquid component of blood (about 55% of blood volume). It transports blood cells, nutrients, hormones, and waste." },
+    { year:2015, q:"Which organelle is called the 'control centre' of the cell?", opts:["A. Mitochondria","B. Ribosome","C. Nucleus","D. Golgi body"], ans:"C", exp:"The nucleus is the control centre of the cell — it contains DNA and directs all cellular activities including growth and reproduction." },
+    { year:2015, q:"The study of heredity and variation in living organisms is called:", opts:["A. Ecology","B. Genetics","C. Taxonomy","D. Physiology"], ans:"B", exp:"Genetics is the branch of biology concerned with heredity (how traits are passed from parents to offspring) and variation." },
+    { year:2024, q:"Which of these is a characteristic of living organisms?", opts:["A. Movement","B. Combustion","C. Rusting","D. Crystallisation"], ans:"A", exp:"Movement is one of the seven characteristics of living organisms (MRS GREN: Movement, Respiration, Sensitivity, Growth, Reproduction, Excretion, Nutrition)." },
+    { year:2024, q:"The process by which cells engulf large particles is called:", opts:["A. Pinocytosis","B. Phagocytosis","C. Osmosis","D. Exocytosis"], ans:"B", exp:"Phagocytosis ('cell eating') is when a cell engulfs large particles or microorganisms. White blood cells use this to destroy pathogens." },
+    { year:2024, q:"The human immune system produces ___ to fight infections.", opts:["A. Antigens","B. Antibodies","C. Hormones","D. Enzymes"], ans:"B", exp:"Antibodies are proteins produced by B-lymphocytes in response to antigens. They neutralise pathogens." },
+    { year:2023, q:"Transpiration in plants occurs mainly through the:", opts:["A. Roots","B. Stem","C. Stomata","D. Flowers"], ans:"C", exp:"Transpiration occurs mainly through the stomata — tiny pores on the underside of leaves." },
+    { year:2023, q:"What is the role of ribosomes in a cell?", opts:["A. Energy production","B. Protein synthesis","C. DNA storage","D. Waste removal"], ans:"B", exp:"Ribosomes are the sites of protein synthesis — they translate mRNA into polypeptide chains." },
+    { year:2022, q:"Vitamins are needed by the body in:", opts:["A. Large amounts","B. Small amounts","C. Equal amounts to carbohydrates","D. The same amounts as proteins"], ans:"B", exp:"Vitamins are micronutrients needed only in small (trace) amounts for metabolic functions." },
+    { year:2022, q:"In a food chain, plants are always:", opts:["A. Primary consumers","B. Secondary consumers","C. Decomposers","D. Producers"], ans:"D", exp:"Plants (autotrophs) are producers — they make their own food through photosynthesis and form the base of all food chains." },
+    { year:2022, q:"The process by which mRNA is made from DNA is called:", opts:["A. Replication","B. Translation","C. Transcription","D. Transduction"], ans:"C", exp:"Transcription produces mRNA from a DNA template. The mRNA then travels to ribosomes for translation (protein synthesis)." },
+    { year:2021, q:"The kidneys perform the function of:", opts:["A. Digestion","B. Excretion","C. Circulation","D. Reproduction"], ans:"B", exp:"The kidneys are the main excretory organs — they filter blood, remove urea and excess salts, and produce urine." },
+    { year:2021, q:"Which vitamin is produced when skin is exposed to sunlight?", opts:["A. Vitamin A","B. Vitamin B","C. Vitamin C","D. Vitamin D"], ans:"D", exp:"Vitamin D is synthesised in the skin when exposed to UV rays from sunlight. Essential for calcium absorption and bone health." },
+    { year:2021, q:"The large intestine in humans is mainly responsible for:", opts:["A. Digesting proteins","B. Absorbing water","C. Producing bile","D. Secreting enzymes"], ans:"B", exp:"The large intestine (colon) absorbs water and electrolytes from undigested food, forming faeces." },
+    { year:2020, q:"Malaria is transmitted by the bite of the:", opts:["A. Housefly","B. Female Anopheles mosquito","C. Male Anopheles mosquito","D. Tsetse fly"], ans:"B", exp:"Malaria is transmitted by the female Anopheles mosquito which carries the Plasmodium parasite. The male feeds only on nectar." },
+    { year:2020, q:"In which organ does fertilisation normally take place in humans?", opts:["A. Uterus","B. Ovary","C. Fallopian tube","D. Vagina"], ans:"C", exp:"Fertilisation normally occurs in the fallopian tube (oviduct). The fertilised egg then travels to the uterus for implantation." },
+    { year:2020, q:"Asexual reproduction involves:", opts:["A. Two parents","B. Fusion of gametes","C. Only one parent","D. Fertilisation"], ans:"C", exp:"Asexual reproduction involves only one parent and produces genetically identical offspring. Examples: budding, binary fission, vegetative propagation." },
+    { year:2019, q:"Aerobic respiration requires:", opts:["A. No oxygen","B. Oxygen","C. Carbon dioxide","D. Water only"], ans:"B", exp:"Aerobic respiration: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP. It requires oxygen and produces more ATP than anaerobic respiration." },
+    { year:2019, q:"Which gland is called the 'master gland'?", opts:["A. Thyroid","B. Adrenal","C. Pituitary","D. Pancreas"], ans:"C", exp:"The pituitary gland controls other endocrine glands by secreting tropic hormones (TSH, FSH, LH, ACTH)." },
+    { year:2018, q:"The function of the diaphragm in humans is:", opts:["A. Filtering blood","B. Assisting in breathing","C. Digesting food","D. Producing hormones"], ans:"B", exp:"The diaphragm contracts during inhalation to increase thoracic volume, allowing air to rush into the lungs." },
+    { year:2018, q:"Absorption of nutrients occurs mainly in the:", opts:["A. Stomach","B. Large intestine","C. Small intestine","D. Liver"], ans:"C", exp:"The small intestine (especially the jejunum and ileum) is the main site of nutrient absorption. Villi and microvilli increase surface area for absorption." },
+    { year:2018, q:"Which of the following is a non-renewable energy source?", opts:["A. Solar","B. Wind","C. Petroleum","D. Hydropower"], ans:"C", exp:"Petroleum is a fossil fuel formed over millions of years — non-renewable. Solar, wind, and hydropower are renewable sources." },
+    { year:2017, q:"The iris of the eye:", opts:["A. Focuses light","B. Detects colour","C. Controls pupil size","D. Produces tears"], ans:"C", exp:"The iris (coloured part of eye) controls pupil size — dilating in dim light, constricting in bright light to regulate the amount of light entering." },
+    { year:2017, q:"Which mineral is essential for haemoglobin formation?", opts:["A. Calcium","B. Iron","C. Sodium","D. Potassium"], ans:"B", exp:"Iron is an essential component of haemoglobin. Iron deficiency causes anaemia (reduced oxygen-carrying capacity of blood)." },
+    { year:2017, q:"Mutualism is a relationship where:", opts:["A. One organism benefits, one is harmed","B. One benefits, the other is unaffected","C. Both organisms benefit","D. Both organisms are harmed"], ans:"C", exp:"Mutualism: both organisms benefit. Example: nitrogen-fixing bacteria in legume root nodules benefit both the bacteria (shelter/carbon) and the plant (usable nitrogen)." },
+    { year:2016, q:"Scientific names use which two classification levels?", opts:["A. Kingdom and Phylum","B. Genus and Species","C. Family and Order","D. Class and Order"], ans:"B", exp:"Binomial nomenclature (Linnaeus) gives each organism two names: Genus + Species. Example: Homo sapiens." },
+    { year:2016, q:"Reflex actions differ from voluntary actions because they:", opts:["A. Are slower","B. Require conscious thought","C. Are automatic and do not require conscious thought","D. Only occur in the brain"], ans:"C", exp:"Reflex actions are automatic, rapid responses to stimuli controlled by the spinal cord, bypassing the brain. They protect the body from harm." },
+    { year:2015, q:"The structural unit of the kidney is the:", opts:["A. Neuron","B. Nephron","C. Alveolus","D. Villus"], ans:"B", exp:"The nephron is the functional unit of the kidney. Each kidney contains about 1 million nephrons that filter blood and form urine." },
+    { year:2015, q:"Diffusion moves molecules from:", opts:["A. Low to high concentration","B. High to low concentration","C. Equal concentrations","D. Inside to outside only"], ans:"B", exp:"Diffusion is passive movement from high concentration to low concentration (down a concentration gradient). No energy required." },
+    { year:2015, q:"Bone marrow produces:", opts:["A. Hormones","B. Blood cells","C. Digestive enzymes","D. Sweat"], ans:"B", exp:"Red bone marrow produces all blood cells (red blood cells, white blood cells, platelets) through haematopoiesis." },
+    { year:2014, q:"The process by which green plants manufacture food is:", opts:["A. Digestion","B. Respiration","C. Photosynthesis","D. Excretion"], ans:"C", exp:"Photosynthesis: 6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂. Occurs in chloroplasts. Only autotrophs can do this." },
+    { year:2014, q:"The part of the nervous system that controls involuntary actions is the:", opts:["A. Somatic nervous system","B. Autonomic nervous system","C. Central nervous system","D. Peripheral nervous system"], ans:"B", exp:"The autonomic nervous system controls involuntary body functions: heart rate, digestion, breathing. It has sympathetic (fight-or-flight) and parasympathetic (rest-digest) divisions." },
+    { year:2014, q:"An organism that lives on or in another organism and harms it is called a:", opts:["A. Mutualist","B. Commensal","C. Parasite","D. Predator"], ans:"C", exp:"A parasite lives on/in a host, deriving benefit while harming the host. Examples: tapeworm (intestinal parasite), Plasmodium (malaria parasite), lice." },
+
+
+  ],
+
+  chemistry: [
+    { year:2024, q:"Which of the following is a noble gas?", opts:["A. Nitrogen","B. Oxygen","C. Argon","D. Chlorine"], ans:"C", exp:"Noble gases (Group 18) are Helium, Neon, Argon, Krypton, Xenon, Radon. They are unreactive due to full outer electron shells." },
+    { year:2024, q:"The atomic number of an element represents the number of:", opts:["A. Neutrons","B. Protons","C. Electrons and Neutrons","D. Nucleons"], ans:"B", exp:"Atomic number = number of protons in the nucleus. For a neutral atom, it also equals the number of electrons." },
+    { year:2023, q:"What type of bond is formed between Na and Cl in NaCl?", opts:["A. Covalent bond","B. Ionic bond","C. Metallic bond","D. Hydrogen bond"], ans:"B", exp:"NaCl is formed when Na (metal) transfers an electron to Cl (non-metal). The electrostatic attraction between Na⁺ and Cl⁻ is an ionic bond." },
+    { year:2023, q:"Which of the following is an indicator that a chemical reaction has occurred?", opts:["A. Change in shape","B. Change in colour","C. Change in size","D. Change in position"], ans:"B", exp:"Signs of chemical reactions include: colour change, gas production, precipitate formation, temperature change, and light emission." },
+    { year:2022, q:"The pH of a neutral solution is:", opts:["A. 0","B. 7","C. 14","D. 1"], ans:"B", exp:"pH 7 is neutral (pure water). pH < 7 is acidic; pH > 7 is basic/alkaline. pH scale runs from 0 (most acidic) to 14 (most basic)." },
+    { year:2022, q:"Rusting of iron is an example of:", opts:["A. Physical change","B. Chemical change","C. Nuclear change","D. Reversible change"], ans:"B", exp:"Rusting is oxidation — iron reacts with oxygen and water to form iron oxide (rust). New substances are formed, making it a chemical change." },
+    { year:2021, q:"Which gas is produced when an acid reacts with a carbonate?", opts:["A. Hydrogen","B. Oxygen","C. Carbon dioxide","D. Nitrogen"], ans:"C", exp:"Acid + Carbonate → Salt + Water + Carbon dioxide. E.g. HCl + CaCO₃ → CaCl₂ + H₂O + CO₂." },
+    { year:2021, q:"The IUPAC name for CH₃CH₂OH is:", opts:["A. Methanol","B. Ethanol","C. Propanol","D. Butanol"], ans:"B", exp:"CH₃CH₂OH has 2 carbon atoms in its chain. The IUPAC name is ethanol (eth- for 2 carbons, -ol for hydroxyl group)." },
+    { year:2020, q:"Avogadro's number is approximately:", opts:["A. 6.02 × 10²⁰","B. 6.02 × 10²²","C. 6.02 × 10²³","D. 6.02 × 10²⁴"], ans:"C", exp:"Avogadro's number (Nₐ) = 6.02 × 10²³. It represents the number of particles (atoms, molecules) in one mole of a substance." },
+    { year:2020, q:"Which of the following is the most reactive metal?", opts:["A. Gold","B. Iron","C. Sodium","D. Copper"], ans:"C", exp:"In the reactivity series, sodium is much more reactive than iron, copper, and gold. Sodium reacts vigorously with water." },
+    { year:2019, q:"Electrolysis of dilute sulphuric acid produces which gas at the cathode?", opts:["A. Oxygen","B. Sulphur dioxide","C. Hydrogen","D. Carbon dioxide"], ans:"C", exp:"At the cathode (negative electrode): H⁺ ions gain electrons to form hydrogen gas (H₂). At the anode: OH⁻ ions form oxygen." },
+    { year:2019, q:"Which of the following is a mixture?", opts:["A. Water","B. Salt","C. Air","D. Carbon dioxide"], ans:"C", exp:"Air is a mixture of gases (mainly nitrogen ~78%, oxygen ~21%, argon ~0.9%, CO₂ ~0.04%). Mixtures are not chemically combined." },
+    { year:2018, q:"The process of converting a liquid to gas by heating is called:", opts:["A. Condensation","B. Sublimation","C. Evaporation","D. Solidification"], ans:"C", exp:"Evaporation is the conversion of liquid to gas (vapour) at the liquid's surface, at any temperature below boiling point." },
+    { year:2018, q:"Carbon has the atomic number 6. How many electrons are in its outermost shell?", opts:["A. 2","B. 4","C. 6","D. 3"], ans:"B", exp:"Carbon's electron configuration: 2,4. It has 2 electrons in shell 1 and 4 electrons in shell 2 (outermost)." },
+    { year:2017, q:"Which of the following metals is liquid at room temperature?", opts:["A. Sodium","B. Aluminium","C. Mercury","D. Lead"], ans:"C", exp:"Mercury (Hg) is the only metal that is liquid at room temperature (melting point -38.8°C). It is used in thermometers." },
+    { year:2017, q:"What is the chemical formula of water?", opts:["A. H₂O₂","B. HO","C. H₂O","D. H₃O"], ans:"C", exp:"Water is H₂O — two hydrogen atoms bonded to one oxygen atom through covalent bonds." },
+    { year:2016, q:"Alkanes are hydrocarbons with the general formula:", opts:["A. CₙH₂ₙ","B. CₙH₂ₙ₊₂","C. CₙH₂ₙ₋₂","D. CₙHₙ"], ans:"B", exp:"Alkanes (saturated hydrocarbons) have the general formula CₙH₂ₙ₊₂. E.g. methane CH₄ (n=1), ethane C₂H₆ (n=2)." },
+    { year:2016, q:"Which of the following is an example of a physical change?", opts:["A. Burning wood","B. Rusting iron","C. Melting ice","D. Cooking food"], ans:"C", exp:"Melting ice is a physical change — water changes state from solid to liquid but its chemical composition (H₂O) remains unchanged." },
+    { year:2015, q:"The process by which a solid changes directly to gas without passing through the liquid state is:", opts:["A. Evaporation","B. Sublimation","C. Condensation","D. Deposition"], ans:"B", exp:"Sublimation is the direct solid-to-gas transition. Examples: dry ice (CO₂), iodine crystals, and naphthalene (mothballs)." },
+    { year:2015, q:"How many atoms are in one molecule of glucose (C₆H₁₂O₆)?", opts:["A. 18","B. 24","C. 20","D. 12"], ans:"B", exp:"C₆H₁₂O₆: 6 carbon + 12 hydrogen + 6 oxygen = 24 atoms total in one glucose molecule." },,
+    { year:2024, q:"The chemical symbol for gold is:", opts:["A. Go","B. Gd","C. Au","D. Ag"], ans:"C", exp:"Gold symbol is Au from Latin 'Aurum'. Other Latin-derived symbols: Fe (iron), Cu (copper), Pb (lead)." },
+    { year:2024, q:"Which bond involves sharing of electrons?", opts:["A. Ionic","B. Covalent","C. Metallic","D. Hydrogen"], ans:"B", exp:"Covalent bonds form when atoms share electrons, typically between non-metals." },
+    { year:2024, q:"Acid + Base produces:", opts:["A. Only acid","B. Only base","C. Salt and water","D. An oxide"], ans:"C", exp:"Neutralisation: Acid + Base → Salt + Water. e.g. HCl + NaOH → NaCl + H₂O." },
+    { year:2023, q:"The lightest element is:", opts:["A. Helium","B. Hydrogen","C. Lithium","D. Carbon"], ans:"B", exp:"Hydrogen (H) has atomic number 1 — lightest and most abundant element in the universe." },
+    { year:2023, q:"Zinc + HCl produces which gas?", opts:["A. Oxygen","B. Carbon dioxide","C. Nitrogen","D. Hydrogen"], ans:"D", exp:"Zn + 2HCl → ZnCl₂ + H₂↑. Metal + Acid → Salt + Hydrogen gas." },
+    { year:2023, q:"Mass number = protons +", opts:["A. Electrons","B. Neutrons","C. Ions","D. Quarks"], ans:"B", exp:"Mass number = protons + neutrons (nucleons). Atomic number = protons only." },
+    { year:2022, q:"Which is a strong acid?", opts:["A. Acetic acid","B. Citric acid","C. Hydrochloric acid","D. Carbonic acid"], ans:"C", exp:"HCl fully ionises in water — it is a strong acid. Acetic and citric are weak acids." },
+    { year:2022, q:"Obtaining pure solid from solution by cooling is:", opts:["A. Evaporation","B. Distillation","C. Crystallisation","D. Filtration"], ans:"C", exp:"Crystallisation: dissolve, then cool slowly to form pure crystals." },
+    { year:2022, q:"An atom that has gained or lost electrons is a(n):", opts:["A. Isotope","B. Ion","C. Molecule","D. Neutron"], ans:"B", exp:"Ion: charged atom. Cation (+) = lost electrons. Anion (−) = gained electrons." },
+    { year:2021, q:"Universal indicator in acidic solution turns:", opts:["A. Blue","B. Green","C. Red/Orange","D. Purple"], ans:"C", exp:"Universal indicator: red/orange = acidic, green = neutral, blue/purple = alkaline." },
+    { year:2021, q:"Bakelite is an example of a:", opts:["A. Thermoplastic","B. Thermosetting plastic","C. Natural polymer","D. Ceramic"], ans:"B", exp:"Bakelite is thermosetting — once set, cannot be remoulded by heating." },
+    { year:2021, q:"Catalysts increase reaction rate by:", opts:["A. Increasing activation energy","B. Lowering activation energy","C. Adding heat","D. Reducing pressure"], ans:"B", exp:"Catalysts lower activation energy, providing an alternative pathway for the reaction." },
+    { year:2020, q:"Soap is made by reacting fat with:", opts:["A. Strong acid","B. Strong alkali (NaOH)","C. Water","D. Salt"], ans:"B", exp:"Saponification: fat + NaOH → soap + glycerol." },
+    { year:2020, q:"The chemical formula for carbon dioxide is:", opts:["A. CO","B. CO₂","C. C₂O","D. CO₃"], ans:"B", exp:"CO₂ = one carbon bonded to two oxygen atoms." },
+    { year:2020, q:"Bronze is an alloy of:", opts:["A. Iron and carbon","B. Copper and tin","C. Copper and zinc","D. Iron and nickel"], ans:"B", exp:"Bronze = copper + tin. Brass = copper + zinc. Steel = iron + carbon." },
+    { year:2019, q:"A strongly basic solution has pH:", opts:["A. 2","B. 7","C. 9","D. 13"], ans:"D", exp:"pH 13 = strongly basic. pH 7 = neutral. pH 2 = strongly acidic." },
+    { year:2019, q:"Combustion is rapid:", opts:["A. Reduction","B. Oxidation","C. Neutralisation","D. Precipitation"], ans:"B", exp:"Combustion is rapid oxidation: fuel + O₂ → CO₂ + H₂O + heat/light." },
+    { year:2019, q:"Fractional distillation separates by:", opts:["A. Particle size","B. Colour","C. Boiling point","D. Density"], ans:"C", exp:"Fractional distillation separates miscible liquids with different boiling points." },
+    { year:2018, q:"Rusting is an example of:", opts:["A. Decomposition","B. Neutralisation","C. Oxidation","D. Reduction"], ans:"C", exp:"Rusting: Fe + O₂ + H₂O → Fe₂O₃. Requires oxygen AND water." },
+    { year:2018, q:"Ammonia (NH₃) is a:", opts:["A. Strong acid","B. Weak acid","C. Strong base","D. Weak base"], ans:"D", exp:"NH₃ is a weak base — partially ionises: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻." },
+    { year:2018, q:"Which method does NOT prevent rusting?", opts:["A. Galvanising","B. Painting","C. Oiling","D. Heating"], ans:"D", exp:"Heating accelerates oxidation. Painting, oiling, galvanising exclude oxygen/water, preventing rust." },
+    { year:2017, q:"Gas → liquid change is called:", opts:["A. Evaporation","B. Condensation","C. Sublimation","D. Distillation"], ans:"B", exp:"Condensation: gas cools and becomes liquid. Reverse of evaporation." },
+    { year:2017, q:"Isotopes have same ___ but different ___.", opts:["A. Neutrons; protons","B. Protons; neutrons","C. Mass numbers; protons","D. Electrons; neutrons"], ans:"B", exp:"Isotopes: same proton (atomic) number, different neutron/mass numbers. e.g. C-12 and C-14." },
+    { year:2017, q:"CO₂ fire extinguishers work by:", opts:["A. Cooling only","B. Smothering — displacing oxygen","C. Chemical reaction with fuel","D. Increasing humidity"], ans:"B", exp:"CO₂ is heavier than air and smothers fire by displacing oxygen needed for combustion." },
+    { year:2016, q:"Common table salt is:", opts:["A. Sodium carbonate","B. Sodium chloride","C. Sodium hydroxide","D. Sodium sulphate"], ans:"B", exp:"NaCl = sodium chloride = common salt. Na₂CO₃ = washing soda. NaOH = caustic soda." },
+    { year:2016, q:"CaCO₃ is commonly known as:", opts:["A. Lime water","B. Limestone","C. Quicklime","D. Slaked lime"], ans:"B", exp:"CaCO₃ = limestone. CaO = quicklime. Ca(OH)₂ = slaked lime. Ca(OH)₂ solution = lime water." },
+    { year:2016, q:"Balanced equation for methane combustion: CH₄ + 2O₂ →", opts:["A. CO + 2H₂O","B. CO₂ + H₂O","C. CO₂ + 2H₂O","D. 2CO₂ + H₂O"], ans:"C", exp:"CH₄ + 2O₂ → CO₂ + 2H₂O. Check balance: C=1, H=4, O=4 each side. ✓" },
+    { year:2015, q:"Potassium gives a ___ flame in a flame test.", opts:["A. Yellow","B. Red","C. Lilac","D. Green"], ans:"C", exp:"Potassium = lilac/purple flame. Sodium = yellow. Lithium = red. Barium = green." },
+    { year:2015, q:"OIL RIG means Oxidation Is ___", opts:["A. Gain","B. Loss","C. Linked","D. Linked to Reduction in Gases"], ans:"B", exp:"OIL RIG: Oxidation Is Loss (of electrons), Reduction Is Gain (of electrons)." },
+
+    { year:2013, q:"The process by which water is purified using heat is:", opts:["A. Filtration","B. Distillation","C. Chlorination","D. Sedimentation"], ans:"B", exp:"Distillation purifies water by boiling it and condensing steam." },
+
+  ],
+
+  physics: [
+    { year:2024, q:"The SI unit of force is:", opts:["A. Joule","B. Watt","C. Newton","D. Pascal"], ans:"C", exp:"The Newton (N) is the SI unit of force. 1 Newton = 1 kg⋅m/s². Named after Sir Isaac Newton." },
+    { year:2024, q:"A body is in equilibrium when the net force acting on it is:", opts:["A. Maximum","B. Constant","C. Zero","D. Minimum"], ans:"C", exp:"For equilibrium, the net force (and net torque) must be zero. This means all forces balance out." },
+    { year:2023, q:"The speed of light in vacuum is approximately:", opts:["A. 3×10⁶ m/s","B. 3×10⁸ m/s","C. 3×10⁵ m/s","D. 3×10¹⁰ m/s"], ans:"B", exp:"The speed of light in vacuum (c) = 3×10⁸ m/s (approximately 300,000 km/s). This is the fastest speed in the universe." },
+    { year:2023, q:"Ohm's Law states that:", opts:["A. V = IR²","B. V = I/R","C. V = IR","D. V = I+R"], ans:"C", exp:"Ohm's Law: V = IR, where V is voltage (volts), I is current (amperes), and R is resistance (ohms)." },
+    { year:2022, q:"Which type of mirror is used in car rear-view mirrors?", opts:["A. Concave","B. Plane","C. Convex","D. Parabolic"], ans:"C", exp:"Convex mirrors give a wider field of view and produce upright, diminished images — ideal for car rear-view mirrors." },
+    { year:2022, q:"The unit of electrical power is:", opts:["A. Volt","B. Ampere","C. Ohm","D. Watt"], ans:"D", exp:"The Watt (W) is the SI unit of power, including electrical power. P = IV = I²R = V²/R." },
+    { year:2021, q:"Sound cannot travel through:", opts:["A. Water","B. Steel","C. Vacuum","D. Air"], ans:"C", exp:"Sound is a mechanical wave that needs a medium (matter) to travel. It cannot travel through vacuum because there are no particles to vibrate." },
+    { year:2021, q:"A transformer steps up voltage. This means the secondary coil has:", opts:["A. Fewer turns than the primary","B. More turns than the primary","C. Equal turns as the primary","D. No turns"], ans:"B", exp:"In a step-up transformer, Vs/Vp = Ns/Np. For voltage to increase (step up), the secondary coil must have more turns." },
+    { year:2020, q:"The phenomenon of light bending when it passes from one medium to another is called:", opts:["A. Reflection","B. Diffraction","C. Refraction","D. Dispersion"], ans:"C", exp:"Refraction is the bending of light as it passes from one medium to another due to a change in speed. Snell's Law describes this." },
+    { year:2020, q:"Which of the following is a scalar quantity?", opts:["A. Velocity","B. Force","C. Speed","D. Displacement"], ans:"C", exp:"Speed is a scalar (has magnitude only). Velocity, force, and displacement are vectors (have both magnitude and direction)." },
+    { year:2019, q:"The half-life of a radioactive substance is the time for:", opts:["A. All atoms to decay","B. Half the atoms to decay","C. Twice the atoms to decay","D. 25% of atoms to decay"], ans:"B", exp:"Half-life is the time required for exactly half of the radioactive atoms in a sample to undergo radioactive decay." },
+    { year:2019, q:"Newton's Second Law of Motion states that:", opts:["A. Every action has an equal reaction","B. A body at rest stays at rest","C. Force equals mass times acceleration","D. Energy is conserved"], ans:"C", exp:"Newton's 2nd Law: F = ma. Force is directly proportional to the rate of change of momentum." },
+    { year:2018, q:"The energy stored in a stretched rubber band is:", opts:["A. Kinetic energy","B. Chemical energy","C. Elastic potential energy","D. Nuclear energy"], ans:"C", exp:"Elastic potential energy is stored in objects when they are deformed elastically — stretched, compressed, or bent." },
+    { year:2018, q:"Which colour has the highest frequency in the visible spectrum?", opts:["A. Red","B. Green","C. Yellow","D. Violet"], ans:"D", exp:"In the visible spectrum: ROYGBIV. Violet has the highest frequency (and shortest wavelength). Red has the lowest frequency." },
+    { year:2017, q:"The principle that states energy cannot be created or destroyed is the:", opts:["A. Newton's First Law","B. Law of Conservation of Energy","C. Ohm's Law","D. Archimedes' Principle"], ans:"B", exp:"The Law of Conservation of Energy states that energy cannot be created or destroyed, only transformed from one form to another." },
+    { year:2017, q:"A body is thrown horizontally. The path it follows is a:", opts:["A. Straight line","B. Circle","C. Parabola","D. Ellipse"], ans:"C", exp:"Projectile motion follows a parabolic path due to the combination of constant horizontal velocity and constant vertical acceleration (gravity)." },
+    { year:2016, q:"The pressure at the bottom of a liquid depends on:", opts:["A. Surface area of the container","B. Volume of liquid","C. Depth and density of the liquid","D. Shape of the container"], ans:"C", exp:"Liquid pressure P = ρgh, where ρ = density, g = gravitational acceleration, h = depth. It depends on depth and density only." },
+    { year:2016, q:"An object has a mass of 5kg. Its weight on earth (g=10m/s²) is:", opts:["A. 5N","B. 2N","C. 50N","D. 0.5N"], ans:"C", exp:"Weight = mass × g = 5 × 10 = 50N. Mass is a scalar; weight is a force (vector)." },
+    { year:2015, q:"Electromagnetic waves travel at the speed of light. Which of the following is NOT an electromagnetic wave?", opts:["A. X-rays","B. Radio waves","C. Sound waves","D. Gamma rays"], ans:"C", exp:"Sound waves are mechanical waves — they require a medium. X-rays, radio waves, and gamma rays are all electromagnetic waves." },
+    { year:2015, q:"The turning effect of a force about a pivot is called:", opts:["A. Pressure","B. Moment","C. Impulse","D. Work"], ans:"B", exp:"Moment (or torque) = Force × perpendicular distance from pivot. It measures the turning effect of a force." },,
+    { year:2024, q:"Newton's Third Law:", opts:["A. F=ma","B. Objects stay at rest unless acted on","C. Every action has equal and opposite reaction","D. Energy conserved"], ans:"C", exp:"Newton's Third Law: for every action, there is an equal and opposite reaction." },
+    { year:2024, q:"Frequency is measured in:", opts:["A. Hertz","B. Newton","C. Joule","D. Pascal"], ans:"A", exp:"Frequency in Hertz (Hz). 1 Hz = 1 cycle per second." },
+    { year:2024, q:"Kinetic energy is the energy of:", opts:["A. Position","B. Chemical bonds","C. Motion","D. Heat"], ans:"C", exp:"Kinetic energy = energy of motion. KE = ½mv²." },
+    { year:2023, q:"Wave bending around obstacles is:", opts:["A. Reflection","B. Refraction","C. Diffraction","D. Interference"], ans:"C", exp:"Diffraction: bending/spreading of waves around obstacles or through openings." },
+    { year:2023, q:"Sound travels fastest in:", opts:["A. Vacuum","B. Air","C. Water","D. Steel"], ans:"D", exp:"Sound speed: steel (~5100 m/s) > water (~1480 m/s) > air (~340 m/s). Cannot travel in vacuum." },
+    { year:2023, q:"A generator converts mechanical energy to:", opts:["A. Chemical","B. Nuclear","C. Electrical","D. Light"], ans:"C", exp:"Generator: mechanical → electrical energy via electromagnetic induction." },
+    { year:2022, q:"A plane mirror forms a ___ image.", opts:["A. Real and inverted","B. Virtual and upright","C. Real and upright","D. Virtual and inverted"], ans:"B", exp:"Plane mirror: virtual, upright, same size, laterally inverted." },
+    { year:2022, q:"The SI unit of electric charge is:", opts:["A. Ampere","B. Volt","C. Coulomb","D. Ohm"], ans:"C", exp:"Electric charge in Coulombs (C)." },
+    { year:2022, q:"Which is NOT an electromagnetic wave?", opts:["A. Infrared","B. Ultrasound","C. X-rays","D. Ultraviolet"], ans:"B", exp:"Ultrasound is mechanical, not electromagnetic." },
+    { year:2021, q:"Work = Force × ___", opts:["A. Time","B. Mass","C. Distance","D. Speed"], ans:"C", exp:"Work (J) = Force (N) × Distance (m)." },
+    { year:2021, q:"Density = Mass ÷ ___", opts:["A. Weight","B. Temperature","C. Area","D. Volume"], ans:"D", exp:"Density (ρ) = m/V. Unit: kg/m³." },
+    { year:2021, q:"Normal body temperature ≈", opts:["A. 36°C","B. 37°C","C. 38°C","D. 40°C"], ans:"B", exp:"Normal body temperature ≈ 37°C (98.6°F)." },
+    { year:2020, q:"Objects that allow ALL light through are:", opts:["A. Opaque","B. Translucent","C. Transparent","D. Reflective"], ans:"C", exp:"Transparent = all light passes. Translucent = partial. Opaque = none." },
+    { year:2020, q:"A battery stores ___ energy.", opts:["A. Kinetic","B. Chemical","C. Nuclear","D. Solar"], ans:"B", exp:"Batteries store chemical energy, converted to electrical energy when circuit is connected." },
+    { year:2020, q:"Resistance is measured in:", opts:["A. Amperes","B. Volts","C. Watts","D. Ohms"], ans:"D", exp:"Resistance in Ohms (Ω). R = V/I." },
+    { year:2019, q:"White light splitting into colours is:", opts:["A. Reflection","B. Refraction","C. Dispersion","D. Diffraction"], ans:"C", exp:"Dispersion: white light splits into ROYGBIV through a prism." },
+    { year:2019, q:"Archimedes' Principle: upthrust = weight of fluid ___", opts:["A. In the container","B. Displaced","C. Remaining","D. Above the object"], ans:"B", exp:"Upthrust equals weight of fluid displaced by the object." },
+    { year:2019, q:"Potential difference is measured in:", opts:["A. Amperes","B. Ohms","C. Volts","D. Watts"], ans:"C", exp:"Potential difference (voltage) in Volts (V). V = IR." },
+    { year:2018, q:"Resistance of conductors ___ with temperature.", opts:["A. Increases","B. Decreases","C. Stays constant","D. Becomes zero"], ans:"A", exp:"Metallic conductors: resistance increases with temperature — more electron-atom collisions." },
+    { year:2018, q:"Time for one complete wave cycle is:", opts:["A. Frequency","B. Amplitude","C. Period","D. Wavelength"], ans:"C", exp:"Period (T): time for one oscillation. f = 1/T." },
+    { year:2018, q:"Long-sightedness is corrected by a ___ lens.", opts:["A. Concave","B. Convex","C. Cylindrical","D. Plane"], ans:"B", exp:"Convex (converging) lens corrects hypermetropia. Concave corrects myopia." },
+    { year:2017, q:"Gravitational force: F = Gm₁m₂ / ___", opts:["A. r","B. r²","C. m₁+m₂","D. r³"], ans:"B", exp:"Newton's Law of Gravitation: F = Gm₁m₂/r²." },
+    { year:2017, q:"Heat transfer through vacuum only occurs by:", opts:["A. Conduction","B. Convection","C. Radiation","D. Evaporation"], ans:"C", exp:"Radiation: heat as EM waves — works in vacuum. How Sun warms Earth." },
+    { year:2017, q:"Car travels 120km in 2 hours — speed =", opts:["A. 40 km/h","B. 60 km/h","C. 80 km/h","D. 240 km/h"], ans:"B", exp:"Speed = 120 ÷ 2 = 60 km/h." },
+    { year:2016, q:"In parallel circuits, ___ is same across branches.", opts:["A. Current","B. Resistance","C. Voltage","D. Power"], ans:"C", exp:"Parallel circuit: voltage same across all branches. Current divides." },
+    { year:2016, q:"Photon energy increases with:", opts:["A. Wavelength","B. Frequency","C. Amplitude","D. Period"], ans:"B", exp:"E = hf. Photon energy proportional to frequency." },
+    { year:2016, q:"An echo is caused by ___ of sound.", opts:["A. Refraction","B. Reflection","C. Diffraction","D. Absorption"], ans:"B", exp:"Echo = reflection of sound off a hard surface." },
+    { year:2015, q:"Two 4Ω resistors in series = ___Ω", opts:["A. 2","B. 4","C. 8","D. 16"], ans:"C", exp:"Series: R = R₁ + R₂ = 4 + 4 = 8Ω." },
+    { year:2015, q:"Red light has the ___ wavelength in visible spectrum.", opts:["A. Shortest","B. Medium","C. Longest","D. Same as all"], ans:"C", exp:"Red: longest wavelength (~700nm), lowest frequency. Violet: shortest (~400nm)." },
+
+    { year:2013, q:"The SI unit of temperature is:", opts:["A. Celsius","B. Fahrenheit","C. Kelvin","D. Rankine"], ans:"C", exp:"The SI unit of temperature is the Kelvin (K). 0K = absolute zero = -273.15°C." },
+
+  ],
+
+  economics: [
+    { year:2024, q:"The law of demand states that, all things being equal:", opts:["A. As price rises, demand rises","B. As price falls, demand falls","C. As price rises, demand falls","D. Price and demand are unrelated"], ans:"C", exp:"The Law of Demand: there is an inverse relationship between price and quantity demanded. As price increases, quantity demanded decreases." },
+    { year:2024, q:"Which of the following is NOT a factor of production?", opts:["A. Land","B. Labour","C. Money","D. Capital"], ans:"C", exp:"The four factors of production are: Land, Labour, Capital, and Entrepreneur. Money is not a factor of production — it is a medium of exchange." },
+    { year:2023, q:"GDP stands for:", opts:["A. Gross Domestic Product","B. General Development Plan","C. Gross Development Plan","D. General Domestic Product"], ans:"A", exp:"GDP (Gross Domestic Product) measures the total monetary value of all goods and services produced within a country in a given period." },
+    { year:2023, q:"Inflation means:", opts:["A. A fall in the general price level","B. A rise in the general price level","C. A constant price level","D. A rise in employment"], ans:"B", exp:"Inflation is a sustained increase in the general price level of goods and services, reducing the purchasing power of money." },
+    { year:2022, q:"A monopoly is a market structure with:", opts:["A. Many sellers of similar products","B. A few large sellers","C. A single seller","D. Two sellers"], ans:"C", exp:"A monopoly has a single seller who dominates the market with no close substitutes, giving them significant price control." },
+    { year:2022, q:"The concept of 'opportunity cost' refers to:", opts:["A. The money paid for a product","B. The next best alternative forgone","C. The total cost of production","D. The profit from a sale"], ans:"B", exp:"Opportunity cost is the value of the next best alternative that must be given up when making a choice. It reflects the trade-off in every decision." },
+    { year:2021, q:"When supply exceeds demand, there is a market:", opts:["A. Shortage","B. Equilibrium","C. Surplus","D. Deficit"], ans:"C", exp:"When supply > demand, a surplus exists. This typically leads to a fall in price until the market reaches equilibrium." },
+    { year:2021, q:"The Central Bank of Nigeria (CBN) is responsible for:", opts:["A. Collecting taxes","B. Building roads","C. Controlling monetary policy","D. Paying civil servants"], ans:"C", exp:"The CBN controls Nigeria's monetary policy — managing money supply, interest rates, and the banking system to ensure economic stability." },
+    { year:2020, q:"Which of the following is an example of a public good?", opts:["A. A private school","B. A supermarket","C. Street lighting","D. A hotel"], ans:"C", exp:"Public goods are non-excludable and non-rival — street lighting benefits everyone and using it doesn't reduce availability. Private schools and hotels are excludable." },
+    { year:2020, q:"Division of labour means:", opts:["A. Splitting workers by gender","B. Breaking work into specialised tasks","C. Sharing profits equally","D. Employing part-time workers"], ans:"B", exp:"Division of labour involves breaking production into specialised tasks, each performed by different workers — increasing efficiency and output." },
+    { year:2019, q:"The elasticity of demand for necessities is typically:", opts:["A. Highly elastic","B. Perfectly elastic","C. Inelastic","D. Unit elastic"], ans:"C", exp:"Necessities (like food, medicine) have inelastic demand — quantity demanded changes little even when prices change significantly." },
+    { year:2019, q:"Barter system failed mainly because of:", opts:["A. Lack of goods","B. Double coincidence of wants","C. Too many goods","D. Low prices"], ans:"B", exp:"The barter system required a 'double coincidence of wants' — both parties must want exactly what the other has. This was very difficult to achieve." },
+    { year:2018, q:"A fall in the price of one commodity leading to a fall in demand for another commodity suggests the two goods are:", opts:["A. Substitutes","B. Complements","C. Inferior goods","D. Normal goods"], ans:"B", exp:"Complementary goods are used together (e.g. petrol and cars). If petrol price falls, car demand rises — they move in the same direction." },
+    { year:2018, q:"The production possibility curve (PPC) illustrates:", opts:["A. Maximum output combinations with given resources","B. Total national income","C. Population growth","D. Import and export values"], ans:"A", exp:"The PPC shows all possible combinations of two goods an economy can produce with full employment of its current resources and technology." },
+    { year:2017, q:"Which of the following is a merit good?", opts:["A. Cigarettes","B. Education","C. Alcohol","D. Gambling"], ans:"B", exp:"Merit goods (like education and healthcare) are undervalued by individuals but benefit society. Governments often subsidise them. Demerit goods include cigarettes and alcohol." },
+    { year:2017, q:"What happens to the demand curve when consumer income increases (for a normal good)?", opts:["A. It shifts left","B. It shifts right","C. It becomes steeper","D. It remains unchanged"], ans:"B", exp:"For normal goods, demand increases with income — the demand curve shifts right (outward), showing more is demanded at each price level." },
+    { year:2016, q:"The term 'laissez-faire' in economics means:", opts:["A. Government controls all production","B. Market forces determine economic activity","C. Equal distribution of income","D. Planned economy"], ans:"B", exp:"Laissez-faire (French: 'let do') is an economic policy of minimum government intervention, allowing market forces to determine outcomes." },
+    { year:2016, q:"Which type of unemployment is caused by seasonal variation in economic activity?", opts:["A. Structural","B. Frictional","C. Cyclical","D. Seasonal"], ans:"D", exp:"Seasonal unemployment occurs when workers are laid off during off-peak seasons — e.g. farmers, Christmas workers, tourist industry staff." },
+    { year:2015, q:"The primary sector of an economy involves:", opts:["A. Manufacturing","B. Services","C. Extraction of natural resources","D. Finance"], ans:"C", exp:"The primary sector involves the extraction and production of natural resources: agriculture, mining, fishing, forestry." },
+    { year:2015, q:"An increase in the money supply, assuming other factors constant, tends to:", opts:["A. Reduce inflation","B. Cause deflation","C. Cause inflation","D. Have no effect"], ans:"C", exp:"Too much money chasing too few goods causes inflation. This is the quantity theory of money: more money supply → higher prices." },,
+    { year:2024, q:"A mixed economy has:", opts:["A. Only private sector","B. Only government","C. Both private and government sectors","D. Only foreign firms"], ans:"C", exp:"Mixed economy: both private enterprise and government operate. Nigeria is mixed." },
+    { year:2024, q:"Profit = Total Revenue −", opts:["A. Fixed cost","B. Variable cost","C. Total cost","D. Turnover"], ans:"C", exp:"Profit = TR − TC. Loss if TC > TR." },
+    { year:2024, q:"In free market, prices are set by:", opts:["A. Government","B. Supply and demand","C. CBN","D. Employers"], ans:"B", exp:"Free market: prices determined by supply and demand interaction." },
+    { year:2023, q:"Value added = Output value −", opts:["A. Wages","B. Profit","C. Input costs","D. Tax"], ans:"C", exp:"Value added = output value − input costs. GDP measured by summing value added." },
+    { year:2023, q:"Supply decrease → equilibrium price:", opts:["A. Falls","B. Rises","C. Stays same","D. Becomes zero"], ans:"B", exp:"Supply ↓ → supply curve shifts left → price rises (scarcity)." },
+    { year:2023, q:"Commercial banks create money through:", opts:["A. Printing notes","B. Credit creation","C. Buying gold","D. Collecting taxes"], ans:"B", exp:"Credit creation: banks lend deposits multiple times, multiplying money supply." },
+    { year:2022, q:"VAT is a(n) ___ tax.", opts:["A. Direct","B. Indirect","C. Income","D. Corporate"], ans:"B", exp:"VAT = indirect tax, levied on goods/services, collected by businesses for government." },
+    { year:2022, q:"Budget surplus: Revenue ___ Expenditure.", opts:["A. Equals","B. Is less than","C. Exceeds","D. Doubles"], ans:"C", exp:"Budget surplus: revenue > expenditure. Deficit: expenditure > revenue." },
+    { year:2022, q:"Equilibrium price: Qd ___ Qs.", opts:["A. Exceeds","B. Is less than","C. Equals","D. Is unrelated to"], ans:"C", exp:"Equilibrium: Qd = Qs. No surplus or shortage." },
+    { year:2021, q:"Better technology shifts supply curve:", opts:["A. Left","B. Right","C. Up","D. No shift"], ans:"B", exp:"Better technology → more output per input → supply curve shifts right." },
+    { year:2021, q:"Break-even: TR ___ TC.", opts:["A. Exceeds","B. Is less than","C. Equals","D. Doubles"], ans:"C", exp:"Break-even: TR = TC. Neither profit nor loss." },
+    { year:2021, q:"Rapid uncontrolled population growth is called:", opts:["A. Decline","B. Population explosion","C. Balanced growth","D. Migration"], ans:"B", exp:"Population explosion: rapid increase, straining resources and economic development." },
+    { year:2020, q:"Diminishing marginal utility: each extra unit gives ___ satisfaction.", opts:["A. More","B. Same","C. Less","D. None"], ans:"C", exp:"Diminishing marginal utility: satisfaction from each additional unit decreases." },
+    { year:2020, q:"Fiscal policy uses ___ to influence economy.", opts:["A. Interest rates","B. Exchange rates","C. Taxation and spending","D. Money supply"], ans:"C", exp:"Fiscal policy = government tax and spending decisions." },
+    { year:2020, q:"Which is NOT a function of money?", opts:["A. Medium of exchange","B. Store of value","C. Unit of account","D. Means of production"], ans:"D", exp:"Money functions: medium of exchange, store of value, unit of account. Not 'means of production'." },
+    { year:2019, q:"Price ceiling below equilibrium causes:", opts:["A. Surplus","B. Shortage","C. No change","D. Price rise"], ans:"B", exp:"Price ceiling < equilibrium: Qd > Qs → shortage. E.g. rent control." },
+    { year:2019, q:"Workers made redundant by industry decline face ___ unemployment.", opts:["A. Cyclical","B. Frictional","C. Structural","D. Seasonal"], ans:"C", exp:"Structural unemployment: caused by fundamental change — technology, industry decline." },
+    { year:2019, q:"The Nigerian Exchange Group (NGX) provides:", opts:["A. Naira printing","B. A market for securities","C. Import control","D. Interest rate setting"], ans:"B", exp:"NGX provides a regulated marketplace for buying and selling shares and bonds." },
+    { year:2018, q:"Scarcity in economics: unlimited ___ vs limited resources.", opts:["A. Resources","B. Wants","C. Goods","D. Money"], ans:"B", exp:"Scarcity: unlimited human wants relative to limited resources — the fundamental economic problem." },
+    { year:2018, q:"Balance of trade = Export value − ___", opts:["A. Profit","B. Tax","C. Import value","D. GDP"], ans:"C", exp:"Balance of trade = Exports − Imports. Surplus: X>M. Deficit: M>X." },
+    { year:2018, q:"The CBN does NOT directly:", opts:["A. Issue currency","B. Grant loans to individuals","C. Act as lender of last resort","D. Manage reserves"], ans:"B", exp:"CBN does not directly lend to individuals — commercial banks do." },
+    { year:2017, q:"Law of Supply: higher prices →", opts:["A. Lower supply","B. Higher quantity supplied","C. Lower demand","D. No change"], ans:"B", exp:"Law of Supply: direct relationship between price and quantity supplied." },
+    { year:2017, q:"External economies of scale benefit:", opts:["A. Only one firm","B. All firms in the industry","C. Only consumers","D. Only government"], ans:"B", exp:"External economies (skilled labour, infrastructure) benefit all firms in an industry." },
+    { year:2017, q:"The Hawthorne Effect: people work harder when:", opts:["A. Tired","B. In teams","C. Being observed","D. Given pay cuts"], ans:"C", exp:"Hawthorne Effect: workers perform differently knowing they are being observed." },
+    { year:2016, q:"Budget deficit: Expenditure ___ Revenue.", opts:["A. Equals","B. Is less than","C. Exceeds","D. Doubles"], ans:"C", exp:"Deficit: expenditure > revenue. Government must borrow." },
+    { year:2016, q:"Subsistence economy produces only:", opts:["A. For export","B. Enough for own survival","C. Industrial goods","D. For import"], ans:"B", exp:"Subsistence economy: only enough for survival, no surplus for trade." },
+    { year:2016, q:"Consumer sovereignty: consumer preferences guide:", opts:["A. Government","B. What is produced","C. Producer prices","D. Nothing"], ans:"B", exp:"Consumer sovereignty: in free markets, consumer choices determine what is produced." },
+    { year:2015, q:"Microeconomics studies:", opts:["A. National income","B. International trade","C. Individual firms and consumers","D. Entire economy"], ans:"C", exp:"Micro: individual economic units. Macro: economy as a whole." },
+    { year:2015, q:"Ceteris paribus means:", opts:["A. As fast as possible","B. All other things being equal","C. Supply = demand","D. Maximum profit"], ans:"B", exp:"Ceteris paribus = 'all other things equal'. Used to isolate one variable's effect." },
+
+    { year:2013, q:"Which is a characteristic of a developing economy?", opts:["A. High income per capita","B. Low living standards and high poverty","C. Advanced technology","D. High industrialisation"], ans:"B", exp:"Developing economies: low per capita income, poverty, low industrialisation." },
+
+  ],
+
+  government: [
+    { year:2024, q:"The Nigerian constitution was promulgated in:", opts:["A. 1999","B. 1979","C. 1960","D. 1963"], ans:"A", exp:"Nigeria's current constitution, the Constitution of the Federal Republic of Nigeria, was promulgated on May 29, 1999, when civilian rule was restored." },
+    { year:2024, q:"The concept of separation of powers was propounded by:", opts:["A. John Locke","B. Karl Marx","C. Montesquieu","D. Jean-Jacques Rousseau"], ans:"C", exp:"Baron de Montesquieu (French philosopher) developed the principle of separation of powers in 'The Spirit of the Laws' (1748)." },
+    { year:2023, q:"The ECOWAS was established in:", opts:["A. 1960","B. 1975","C. 1980","D. 1985"], ans:"B", exp:"ECOWAS (Economic Community of West African States) was established on May 28, 1975, in Lagos, Nigeria, through the Treaty of Lagos." },
+    { year:2023, q:"Which arm of government interprets laws in Nigeria?", opts:["A. Executive","B. Legislature","C. Judiciary","D. Civil Service"], ans:"C", exp:"The Judiciary interprets laws. The Legislature makes laws. The Executive implements laws. This is the doctrine of separation of powers." },
+    { year:2022, q:"A federal system of government is one in which:", opts:["A. Power is concentrated at the centre","B. Power is shared between central and regional governments","C. The military rules","D. There is a single government"], ans:"B", exp:"Federalism involves a constitutional division of powers between a central (federal) government and constituent (state) governments." },
+    { year:2022, q:"Citizenship can be acquired by:", opts:["A. Birth, registration, and naturalisation","B. Education only","C. Military service only","D. Presidential appointment"], ans:"A", exp:"Citizenship is acquired through: birth (jus soli/jus sanguinis), registration (for spouses/minors), and naturalisation (after residency requirements)." },
+    { year:2021, q:"The principle that no one is above the law is known as:", opts:["A. Separation of powers","B. Rule of law","C. Federalism","D. Constitutionalism"], ans:"B", exp:"Rule of law means all persons and institutions are accountable to laws that are publicly promulgated, equally enforced, and independently adjudicated." },
+    { year:2021, q:"Which of the following is a fundamental human right in Nigeria?", opts:["A. Right to wealth","B. Right to employment","C. Right to life","D. Right to free housing"], ans:"C", exp:"Section 33 of the 1999 Constitution guarantees the right to life. Other fundamental rights include dignity, personal liberty, fair hearing, and freedom of expression." },
+    { year:2020, q:"The Nigerian Senate consists of how many senators?", opts:["A. 109","B. 120","C. 360","D. 96"], ans:"A", exp:"The Nigerian Senate has 109 senators — 3 from each of the 36 states plus 1 from the FCT (Abuja)." },
+    { year:2020, q:"The United Nations was established in:", opts:["A. 1919","B. 1939","C. 1945","D. 1950"], ans:"C", exp:"The United Nations was established on October 24, 1945, after World War II, replacing the League of Nations. UN Day is celebrated on October 24." },
+    { year:2019, q:"A referendum is a type of:", opts:["A. Election for president","B. Direct democracy","C. Parliamentary vote","D. Local government election"], ans:"B", exp:"A referendum is a form of direct democracy where citizens vote directly on a specific question or policy issue." },
+    { year:2019, q:"Checks and balances in government ensure that:", opts:["A. Taxes are collected","B. No arm of government becomes too powerful","C. The army obeys the president","D. Citizens pay their taxes"], ans:"B", exp:"Checks and balances is a system where each branch of government has the ability to limit the powers of the other branches, preventing abuse of power." },
+    { year:2018, q:"The head of government in a parliamentary system is the:", opts:["A. President","B. Prime Minister","C. King/Queen","D. Speaker"], ans:"B", exp:"In a parliamentary system, the Prime Minister is the head of government (leads the executive). The monarch/president may be a ceremonial head of state." },
+    { year:2018, q:"Apartheid was a system of racial segregation that existed in:", opts:["A. Kenya","B. Zimbabwe","C. South Africa","D. Ghana"], ans:"C", exp:"Apartheid (Afrikaans for 'separateness') was a system of institutionalised racial segregation in South Africa from 1948 to 1994." },
+    { year:2017, q:"The Nigerian House of Representatives has how many members?", opts:["A. 109","B. 240","C. 360","D. 400"], ans:"C", exp:"The Nigerian House of Representatives has 360 members, elected from constituencies across the 36 states and FCT based on population." },
+    { year:2017, q:"The African Union (AU) replaced which organisation?", opts:["A. ECOWAS","B. OAU","C. UN","D. Commonwealth"], ans:"B", exp:"The African Union (AU) replaced the Organisation of African Unity (OAU) in 2002. The AU has 55 member states." },
+    { year:2016, q:"A state of emergency in Nigeria is declared by the:", opts:["A. National Assembly alone","B. President alone","C. President with approval of National Assembly","D. Supreme Court"], ans:"C", exp:"Under Section 305 of the 1999 Constitution, the President may declare a state of emergency, but it requires a two-thirds majority approval from the National Assembly." },
+    { year:2016, q:"Sovereignty means:", opts:["A. Wealth of a nation","B. Supreme power of a state","C. Size of a country","D. Population of a country"], ans:"B", exp:"Sovereignty is the supreme, independent authority of a state to govern itself. It means no external power has authority over the state's internal affairs." },
+    { year:2015, q:"The Cold War was mainly between:", opts:["A. USA and UK","B. USA and China","C. USA and USSR","D. USSR and UK"], ans:"C", exp:"The Cold War (1947–1991) was a period of geopolitical tension between the USA (and NATO allies) and the USSR (and Warsaw Pact countries)." },
+    { year:2015, q:"Local government is important primarily because it:", opts:["A. Controls the army","B. Brings government closer to the grassroots","C. Collects federal taxes","D. Appoints judges"], ans:"B", exp:"Local government facilitates grassroots governance, delivering services to communities, and allowing local participation in governance." },,
+    { year:2024, q:"A flexible constitution is amended through:", opts:["A. Referendum only","B. Ordinary legislative process","C. Military decree","D. Never"], ans:"B", exp:"Flexible constitution: amended like ordinary laws (e.g. UK). Rigid requires special process." },
+    { year:2024, q:"INEC conducts:", opts:["A. Law-making","B. Elections","C. Constitutional interpretation","D. Tax collection"], ans:"B", exp:"INEC organises and supervises all federal and state elections in Nigeria." },
+    { year:2024, q:"A political party aims to:", opts:["A. Run a business","B. Win political power through elections","C. Control the judiciary","D. Provide aid only"], ans:"B", exp:"Political parties seek to win elections and form a government." },
+    { year:2023, q:"Totalitarianism: the state exercises ___ control.", opts:["A. Shared","B. Total — over all aspects of life","C. Minimal","D. Only economic"], ans:"B", exp:"Totalitarianism: total state control — political, economic, social, cultural." },
+    { year:2023, q:"Judicial precedent means courts follow:", opts:["A. New laws freely","B. Higher court decisions in similar cases","C. Public opinion","D. Only written law"], ans:"B", exp:"Stare decisis: courts follow binding precedents from higher courts." },
+    { year:2023, q:"France is an example of a ___ system.", opts:["A. Federal","B. Unitary","C. Confederate","D. Theocratic"], ans:"B", exp:"France is unitary — power centralised nationally. USA, Nigeria, India are federal." },
+    { year:2022, q:"Suffrage is the right to:", opts:["A. Free speech","B. Vote","C. Own property","D. Legal representation"], ans:"B", exp:"Suffrage = right to vote in elections. Universal adult suffrage = all adults can vote." },
+    { year:2022, q:"A president is removed via:", opts:["A. Referendum","B. Judicial review","C. Impeachment","D. Presidential decree"], ans:"C", exp:"Impeachment: legislative process to charge and remove a president." },
+    { year:2022, q:"Pressure groups do NOT:", opts:["A. Influence policy","B. Seek to form governments","C. Lobby politicians","D. Campaign on issues"], ans:"B", exp:"Pressure groups influence policy but don't seek to form governments — unlike political parties." },
+    { year:2021, q:"An ombudsman:", opts:["A. Commands the military","B. Investigates complaints against government","C. Makes laws","D. Collects taxes"], ans:"B", exp:"Ombudsman: independent official investigating citizen complaints against government." },
+    { year:2021, q:"Democracy requires:", opts:["A. Single party rule","B. Military oversight","C. Free and fair elections","D. Absolute monarchy"], ans:"C", exp:"Democracy requires competitive elections, rule of law, and protection of fundamental rights." },
+    { year:2021, q:"In a confederation, member states:", opts:["A. Lose sovereignty","B. Are controlled centrally","C. Retain sovereignty and cooperate voluntarily","D. Must follow all central laws"], ans:"C", exp:"Confederation: sovereign states voluntarily cooperate. Very weak central authority." },
+    { year:2020, q:"Equality before the law is part of:", opts:["A. Federalism","B. Rule of law","C. Separation of powers","D. Sovereignty"], ans:"B", exp:"Dicey's Rule of Law includes: supremacy of law, equality before law, constitution from ordinary law." },
+    { year:2020, q:"A bicameral legislature has ___ chamber(s).", opts:["A. One","B. Two","C. Three","D. Four"], ans:"B", exp:"Bicameral = two chambers. Nigeria: Senate + House of Representatives." },
+    { year:2020, q:"International law binds states that:", opts:["A. Are developing","B. Are powerful","C. Consent to it","D. Are in the UN only"], ans:"C", exp:"International law binds states through treaties they consent to and customary international law." },
+    { year:2019, q:"Nigeria's National Assembly:", opts:["A. Executes policies","B. Interprets constitution","C. Makes laws and approves budgets","D. Commands armed forces"], ans:"C", exp:"Legislature: makes laws and approves the national budget." },
+    { year:2019, q:"Nigeria's highest court is the:", opts:["A. High Court","B. Court of Appeal","C. Federal High Court","D. Supreme Court"], ans:"D", exp:"Supreme Court of Nigeria: the final court of appeal." },
+    { year:2019, q:"Colonialism: one nation ___ another.", opts:["A. Trades equally with","B. Controls politically and exploits","C. Helps develop","D. Shares sovereignty with"], ans:"B", exp:"Colonialism: political control and economic exploitation of another territory." },
+    { year:2018, q:"Nationalisation: government ___ private businesses.", opts:["A. Sells","B. Takes ownership of","C. Regulates only","D. Taxes heavily"], ans:"B", exp:"Nationalisation: transfer from private to public (government) ownership." },
+    { year:2018, q:"Nigeria's federal structure accommodates:", opts:["A. Small population","B. Religious homogeneity","C. Ethnic and regional diversity","D. Economic equality"], ans:"C", exp:"Nigerian federalism accommodates 250+ ethnic groups and regional diversity." },
+    { year:2018, q:"A military coup is an ___ seizure of government.", opts:["A. Legal","B. Illegal","C. Electoral","D. Judicial"], ans:"B", exp:"Military coup: sudden illegal seizure of power by force. Nigeria: 1966, 1975, 1983, 1985, 1993." },
+    { year:2017, q:"Oligarchy is rule by:", opts:["A. All citizens","B. A small elite group","C. One person only","D. Religious leaders"], ans:"B", exp:"Oligarchy: rule by a small privileged elite — wealth, family, or military." },
+    { year:2017, q:"IMF and World Bank are called ___ institutions.", opts:["A. ECOWAS","B. Bretton Woods","C. NATO","D. AU"], ans:"B", exp:"Bretton Woods institutions (1944): IMF and World Bank — managing global finance post-WWII." },
+    { year:2017, q:"For a bill to become law, it needs presidential:", opts:["A. Review","B. Approval only","C. Assent (signature)","D. Veto"], ans:"C", exp:"After passing both chambers, a bill requires the President's assent (signature) to become law." },
+    { year:2016, q:"Popular sovereignty: political authority rests with:", opts:["A. The king","B. The military","C. The people","D. Judges"], ans:"C", exp:"Popular sovereignty: government's legitimacy comes from the consent of the people." },
+    { year:2016, q:"The UK is a:", opts:["A. Republic","B. Federal state","C. Constitutional monarchy","D. Theocracy"], ans:"C", exp:"UK: constitutional monarchy — ceremonial monarch, elected PM leads government." },
+    { year:2016, q:"Gerrymandering manipulates:", opts:["A. Voter registration","B. Constituency boundaries","C. Election dates","D. Vote counts"], ans:"B", exp:"Gerrymandering: manipulating electoral boundaries to favour a political party." },
+    { year:2015, q:"Autocracy is rule by:", opts:["A. The majority","B. A small group","C. One person with absolute power","D. Judges"], ans:"C", exp:"Autocracy: one person with unrestricted authority — e.g. dictatorship, absolute monarchy." },
+    { year:2015, q:"Collective cabinet responsibility means ministers:", opts:["A. Disagree publicly","B. Act independently","C. Publicly support all government decisions","D. Only advise"], ans:"C", exp:"Collective responsibility: cabinet members publicly support decisions. Dissenters must resign." },
+
+    { year:2013, q:"Making laws is a function of the:", opts:["A. Executive","B. Judiciary","C. Legislature","D. Military"], ans:"C", exp:"The legislature makes laws. The executive implements. The judiciary interprets." },
+
+  ],
+
+  literature: [
+    { year:2024, q:"A soliloquy is when a character:", opts:["A. Talks to another character","B. Speaks to the audience in a play","C. Speaks their thoughts aloud when alone","D. Sings on stage"], ans:"C", exp:"A soliloquy is a dramatic device where a character speaks their thoughts aloud, usually when alone on stage. Hamlet's 'To be or not to be' is a famous example." },
+    { year:2024, q:"The theme of a literary work is:", opts:["A. The setting of the story","B. The central idea or message","C. The list of characters","D. The title of the work"], ans:"B", exp:"The theme is the central idea, insight, or universal message that the author conveys through the narrative. Most works have multiple themes." },
+    { year:2023, q:"A villain is a character who:", opts:["A. Helps the hero","B. Is the main character","C. Opposes the protagonist","D. Narrates the story"], ans:"C", exp:"A villain (or antagonist) is a character who opposes the protagonist. They create conflict and obstacles. Examples: Shylock in The Merchant of Venice." },
+    { year:2023, q:"Free verse poetry is poetry that:", opts:["A. Has regular rhyme and metre","B. Has no rhyme or regular metre","C. Has only rhyme","D. Has only metre"], ans:"B", exp:"Free verse (vers libre) poetry has no regular metre, rhyme scheme, or fixed line length. It relies on natural rhythms of speech." },
+    { year:2022, q:"Dramatic irony occurs when:", opts:["A. A character says something funny","B. The audience knows something a character does not","C. Two characters disagree","D. The plot ends unexpectedly"], ans:"B", exp:"Dramatic irony is when the audience has knowledge that one or more characters lack — creating tension, humour, or pathos." },
+    { year:2022, q:"An epic is a:", opts:["A. Short lyric poem","B. Long narrative poem about heroic deeds","C. Type of drama","D. Prose narrative"], ans:"B", exp:"An epic is a long narrative poem that deals with the deeds and adventures of heroic characters. Examples: Homer's Iliad and Odyssey." },
+    { year:2021, q:"The turning point of a drama when the hero's fortunes change is called:", opts:["A. Exposition","B. Denouement","C. Climax","D. Falling action"], ans:"C", exp:"The climax is the highest point of tension in a drama — the turning point where the protagonist's fortunes change for better or worse." },
+    { year:2021, q:"A protagonist is:", opts:["A. The narrator of a story","B. The main character","C. The villain","D. A minor character"], ans:"B", exp:"The protagonist is the main character of a story — the one who drives the action and faces the central conflict." },
+    { year:2020, q:"Prose is distinguished from poetry by:", opts:["A. Its use of rhyme","B. Its use of stanzas","C. Its written form without regular metre","D. Its use of imagery"], ans:"C", exp:"Prose is ordinary written language without regular metre or line breaks. Novels, short stories, and essays are examples of prose." },
+    { year:2020, q:"The West African writer known for 'Things Fall Apart' is:", opts:["A. Wole Soyinka","B. Chinua Achebe","C. Ngugi wa Thiong'o","D. Ben Okri"], ans:"B", exp:"Things Fall Apart (1958) was written by Chinua Achebe — a foundational African novel depicting Igbo society and its encounter with colonialism." },
+    { year:2019, q:"A metaphor makes a comparison:", opts:["A. Using 'like' or 'as'","B. Directly without 'like' or 'as'","C. Using numbers","D. Using personification"], ans:"B", exp:"A metaphor is a direct comparison that states one thing IS another. E.g. 'Life is a journey'. A simile uses 'like' or 'as': 'Life is like a journey'." },
+    { year:2019, q:"Satire in literature is used to:", opts:["A. Express deep love","B. Describe nature","C. Criticise society through humour","D. Tell a story"], ans:"C", exp:"Satire uses humour, irony, and exaggeration to criticise and expose human vices, follies, and social/political issues." },
+    { year:2018, q:"A ballad is typically a:", opts:["A. Long epic poem","B. Narrative song or poem, often about folk heroes","C. Dramatic monologue","D. Sonnet form"], ans:"B", exp:"A ballad is a narrative poem or song that tells a story, often about folk heroes, love, or tragedy. It typically has simple language and a refrain." },
+    { year:2018, q:"The term 'denouement' refers to:", opts:["A. The beginning of a story","B. The highest tension point","C. The resolution of the plot","D. The introduction of characters"], ans:"C", exp:"Denouement (French: 'unknotting') is the final resolution of the plot after the climax — where loose ends are tied up and outcomes revealed." },
+    { year:2017, q:"Which of these is a comedy by William Shakespeare?", opts:["A. Hamlet","B. Macbeth","C. A Midsummer Night's Dream","D. Othello"], ans:"C", exp:"A Midsummer Night's Dream is a Shakespearean comedy featuring love, magic, and mistaken identity. Hamlet, Macbeth, and Othello are tragedies." },
+    { year:2017, q:"A haiku is a Japanese poem with:", opts:["A. 14 lines","B. 3 lines with 5-7-5 syllables","C. No fixed form","D. 8 lines"], ans:"B", exp:"A haiku has three lines: 5 syllables in line 1, 7 in line 2, 5 in line 3 = 17 syllables total. It typically focuses on nature and a moment in time." },
+    { year:2016, q:"The narrative point of view where the narrator is outside the story and knows everything is called:", opts:["A. First person","B. Second person","C. Third person limited","D. Omniscient narrator"], ans:"D", exp:"An omniscient narrator is an all-knowing, third-person narrator who knows the thoughts and feelings of all characters." },
+    { year:2016, q:"Alliteration is the repetition of:", opts:["A. End rhymes","B. Vowel sounds","C. Initial consonant sounds","D. Syllable patterns"], ans:"C", exp:"Alliteration is the repetition of the same consonant sound at the beginning of words in close succession: 'Peter Piper picked...'" },
+    { year:2015, q:"The term 'tragic flaw' or 'hamartia' refers to:", opts:["A. A happy ending","B. A character's fatal weakness leading to downfall","C. A type of poem","D. The villain of a story"], ans:"B", exp:"Hamartia (from Aristotle) is the protagonist's fatal flaw that leads to their downfall in a tragedy. E.g. Macbeth's ambition, Hamlet's indecision." },
+    { year:2015, q:"A sonnet is a poem of exactly:", opts:["A. 8 lines","B. 12 lines","C. 14 lines","D. 16 lines"], ans:"C", exp:"A sonnet has exactly 14 lines. The Shakespearean sonnet has 3 quatrains + 1 couplet (ABAB CDCD EFEF GG). The Petrarchan has an octave + sestet." },,
+    { year:2024, q:"A first-person narrator uses:", opts:["A. He/She","B. They","C. I","D. We only"], ans:"C", exp:"First-person narrator: uses 'I' — a participant in the story." },
+    { year:2024, q:"A story within a story is a:", opts:["A. Subplot","B. Flashback","C. Frame narrative","D. Foreshadowing"], ans:"C", exp:"Frame narrative: outer story contains inner stories. Example: Conrad's 'Heart of Darkness'." },
+    { year:2024, q:"Repetition of vowel sounds in nearby words is:", opts:["A. Alliteration","B. Consonance","C. Assonance","D. Rhyme"], ans:"C", exp:"Assonance: vowel sound repetition. 'The rain in Spain stays mainly in the plain' — /eɪ/ repeated." },
+    { year:2023, q:"A mournful poem about someone's death is an:", opts:["A. Ode","B. Elegy","C. Sonnet","D. Epic"], ans:"B", exp:"Elegy: mournful poem lamenting the dead." },
+    { year:2023, q:"Time, place and environment in a story is the:", opts:["A. Theme","B. Plot","C. Setting","D. Tone"], ans:"C", exp:"Setting: time, place, and social environment. Establishes mood and context." },
+    { year:2023, q:"An aside is heard by ___ but not other characters.", opts:["A. The director","B. Nobody","C. The audience","D. The narrator only"], ans:"C", exp:"Aside: a brief remark for the audience, not heard by other characters on stage." },
+    { year:2022, q:"'The pen is mightier than the sword' is a:", opts:["A. Simile","B. Metaphor","C. Hyperbole","D. Personification"], ans:"B", exp:"Metaphor: direct comparison without 'like/as'. Pen = written power; sword = force." },
+    { year:2022, q:"Comedy of manners satirises:", opts:["A. Poverty","B. War","C. Social class behaviour","D. Nature"], ans:"C", exp:"Comedy of manners: ridicules upper-class conventions and values. Associated with Oscar Wilde." },
+    { year:2022, q:"The introductory part establishing characters and situation is:", opts:["A. Climax","B. Resolution","C. Exposition","D. Falling action"], ans:"C", exp:"Exposition: introduces characters, setting, and conflict at the beginning." },
+    { year:2021, q:"Deliberately representing something as less important is:", opts:["A. Hyperbole","B. Understatement","C. Metaphor","D. Irony"], ans:"B", exp:"Understatement: deliberate under-representation. 'Just a scratch' for a serious injury." },
+    { year:2021, q:"A story with a literal and deeper symbolic meaning is:", opts:["A. Parable","B. Allegory","C. Myth","D. Legend"], ans:"B", exp:"Allegory: surface story + deeper symbolic meaning. Example: Orwell's 'Animal Farm'." },
+    { year:2021, q:"Poetic justice: virtuous characters are ___, wicked are ___.", opts:["A. Punished; rewarded","B. Rewarded; punished","C. Equal; equal","D. Ignored; praised"], ans:"B", exp:"Poetic justice: good rewarded, evil punished in a fitting manner." },
+    { year:2020, q:"Wole Soyinka won the Nobel Prize for:", opts:["A. Physics","B. Peace","C. Literature","D. Medicine"], ans:"C", exp:"Soyinka won Nobel Prize for Literature (1986) — first African to receive it." },
+    { year:2020, q:"The moral lesson at the end of a fable is the:", opts:["A. Theme","B. Motif","C. Moral","D. Climax"], ans:"C", exp:"Fables end with an explicitly stated moral lesson." },
+    { year:2020, q:"A character's struggle with inner doubts is ___ conflict.", opts:["A. External","B. Social","C. Internal","D. Physical"], ans:"C", exp:"Internal conflict: character vs. self — moral dilemmas, doubts, desires." },
+    { year:2019, q:"A narrative poem often sung about folk heroes is a:", opts:["A. Sonnet","B. Ballad","C. Ode","D. Elegy"], ans:"B", exp:"Ballad: narrative poem/song about love, tragedy, folk heroes. Traditionally sung." },
+    { year:2019, q:"'Hiss', 'buzz', 'splash' are examples of:", opts:["A. Alliteration","B. Assonance","C. Onomatopoeia","D. Rhyme"], ans:"C", exp:"Onomatopoeia: words that sound like what they describe." },
+    { year:2019, q:"A foil character ___ with the protagonist to highlight their qualities.", opts:["A. Agrees","B. Fights","C. Contrasts","D. Narrates"], ans:"C", exp:"Foil: contrasting character that highlights qualities in the protagonist." },
+    { year:2018, q:"The audience knowing the murderer but the detective not is:", opts:["A. Verbal irony","B. Situational irony","C. Dramatic irony","D. Sarcasm"], ans:"C", exp:"Dramatic irony: audience has knowledge a character lacks." },
+    { year:2018, q:"The sequence of events in a story is the:", opts:["A. Setting","B. Theme","C. Plot","D. Tone"], ans:"C", exp:"Plot: exposition, rising action, climax, falling action, resolution." },
+    { year:2018, q:"An ode praises or celebrates:", opts:["A. Death","B. A person, place, or thing","C. An adventure only","D. A battle"], ans:"B", exp:"Ode: lyric poem of praise or celebration. Keats: 'Ode to a Nightingale'." },
+    { year:2017, q:"Tension and uncertainty about what happens next is:", opts:["A. Resolution","B. Theme","C. Suspense","D. Exposition"], ans:"C", exp:"Suspense: tension about what happens next. Created by foreshadowing and cliffhangers." },
+    { year:2017, q:"'Form' in literary criticism refers to:", opts:["A. Subject matter","B. Structural and aesthetic elements","C. The moral","D. Author's nationality"], ans:"B", exp:"Form: structure, genre, metre, rhyme scheme — the 'how' of a literary work." },
+    { year:2017, q:"Consonance is repetition of ___ sounds.", opts:["A. Initial consonant","B. Vowel","C. Consonant — within/at end of words","D. Syllable"], ans:"C", exp:"Consonance: consonant sound repetition within and at ends of words. 'Pitter patter'." },
+    { year:2016, q:"A round character is:", opts:["A. One-dimensional","B. Complex and multi-dimensional","C. Minor only","D. Always good"], ans:"B", exp:"Round character (E.M. Forster): complex, multi-dimensional, capable of surprise." },
+    { year:2016, q:"Hubris in Greek tragedy is:", opts:["A. A happy ending","B. Excessive pride leading to downfall","C. Wisdom","D. The chorus"], ans:"B", exp:"Hubris: excessive pride leading to nemesis (downfall). Common tragic flaw." },
+    { year:2016, q:"Written conversation between characters is:", opts:["A. Soliloquy","B. Narration","C. Dialogue","D. Monologue"], ans:"C", exp:"Dialogue: conversation between two or more characters in a literary work." },
+    { year:2015, q:"A flash-forward in literature is called:", opts:["A. Analepsis","B. Prolepsis","C. In medias res","D. Foreshadowing"], ans:"B", exp:"Prolepsis: narrative flash-forward to future events. Analepsis = flashback." },
+    { year:2015, q:"African oral literature is transmitted:", opts:["A. In writing","B. Orally across generations","C. Only in theatres","D. By colonial writers"], ans:"B", exp:"African oral literature: folktales, proverbs, praise songs passed down verbally." },
+    { year:2015, q:"'Stream of consciousness' shows a character's:", opts:["A. River adventure","B. Continuous flow of thoughts","C. Type of poem","D. Environmental views"], ans:"B", exp:"Stream of consciousness: narrative technique capturing natural thought flow. Associated with Joyce and Woolf." }
+
+  ],
+  crs: [
+    { year:2024, q:"What does CRS stand for in WAEC?", opts:["A. Civic Religious Studies","B. Christian Religious Studies","C. Cultural Religious Studies","D. Civil Rights Studies"], ans:"B", exp:"CRS stands for Christian Religious Studies." }
+  ],
+  agric: [
+    { year:2024, q:"Which branch of Agricultural Science focuses on crop production?", opts:["A. Animal husbandry","B. Crop science","C. Soil mechanics","D. Agricultural law"], ans:"B", exp:"Crop science studies the cultivation and improvement of crops." }
+  ],
+  financialAccounting: [
+    { year:2024, q:"Which document shows assets, liabilities and equity at a point in time?", opts:["A. Income statement","B. Balance sheet","C. Cash flow statement","D. Statement of changes in equity"], ans:"B", exp:"A balance sheet reports assets, liabilities, and equity at a specific date." }
+  ],
+  yoruba: [
+    { year:2024, q:"Which Yoruba proverb means 'unity is strength'?", opts:["A. Tá wahala bá kan ará, a fi wa sílẹ̀","B. Ìtẹ́niṣọ̀kan ní ń mú adùn","C. Ọwọ́ kan kì í gba ọgbọn","D. Bí a kò bá ṣi ẹnu, a ò mọ oyin"], ans:"B", exp:"The proverb means that togetherness brings goodness and strength." }
+  ],
+  commerce: [
+    { year:2024, q:"Which activity is part of commerce?", opts:["A. Farming crops","B. Writing poems","C. Buying and selling goods","D. Solving math problems"], ans:"C", exp:"Commerce involves trade — buying and selling goods or services." }
+  ],
+  history: [
+    { year:2024, q:"Which West African empire included the city of Kano?", opts:["A. Oyo Empire","B. Mali Empire","C. Kanem-Bornu Empire","D. Sokoto Caliphate"], ans:"C", exp:"The Kanem-Bornu Empire ruled Kano and surrounding regions." }
+  ],
+  computer: [
+    { year:2024, q:"What does CPU stand for?", opts:["A. Central Processing Unit","B. Computer Personal Unit","C. Central Program Utility","D. Control Processing Unit"], ans:"A", exp:"CPU stands for Central Processing Unit, the main processor of a computer." }
+  ],
+};
+
+
+/* =====================================================
+   QUIZ ENGINE
+===================================================== */
+const YEARS = [2024,2023,2022,2021,2020,2019,2018,2017,2016,2015];
+let currentSubject = 'english';
+let currentYear = 'all';
+let score = 0;
+let total = 0;
+
+function buildYearGrid() {
+  const grid = document.getElementById('yearGrid');
+  grid.innerHTML = `<button class="year-btn active" data-year="all" onclick="setYear('all',this)">All</button>`;
+  YEARS.forEach(y => {
+    grid.innerHTML += `<button class="year-btn" data-year="${y}" onclick="setYear(${y},this)">${y}</button>`;
+  });
+}
+
+function setSubject(sub, el) {
+  currentSubject = sub;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('qTitle').textContent = el.textContent;
+  renderQuestions();
+}
+
+function setYear(yr, el) {
+  currentYear = yr;
+  document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderQuestions();
+}
+
+function renderQuestions() {
+  const data = WAEC_DATA[currentSubject] || [];
+  const filtered = currentYear === 'all' ? data : data.filter(q => q.year === currentYear);
+  const container = document.getElementById('questionsContainer');
+  const countEl = document.getElementById('qCount');
+
+  if (!filtered.length) {
+    container.innerHTML = `<div class="no-results"><div class="icon">🔍</div><p>No questions found for this filter. Try selecting "All" years.</p></div>`;
+    countEl.textContent = '0 questions';
+    return;
+  }
+
+  countEl.textContent = `${filtered.length} question${filtered.length > 1 ? 's' : ''}`;
+  container.innerHTML = filtered.map((q, i) => `
+    <div class="question-card" id="qcard-${i}">
+      <div class="q-meta">
+        <span class="q-num">Q${i+1}</span>
+        <span class="q-year">WAEC ${q.year}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((opt, oi) => {
+          const letter = ['A','B','C','D'][oi];
+          return `<button class="option-btn" onclick="checkAnswer(this,'${letter}','${q.ans}',${i},'${q.exp.replace(/'/g,"\\'")}')">
+            <span class="opt-letter">${letter}</span>
+            ${opt.substring(3)}
+          </button>`;
+        }).join('')}
+      </div>
+      <div class="explanation" id="exp-${i}"></div>
+    </div>
+  `).join('');
+}
+
+function checkAnswer(btn, selected, correct, idx, exp) {
+  const card = document.getElementById(`qcard-${idx}`);
+  const buttons = card.querySelectorAll('.option-btn');
+  buttons.forEach(b => b.disabled = true);
+
+  if (selected === correct) {
+    btn.classList.add('correct');
+    score++;
+    total++;
+    window.showToast && showToast('✅ Correct!');
+  } else {
+    btn.classList.add('wrong');
+    total++;
+    // Highlight correct
+    buttons.forEach(b => {
+      const letter = b.querySelector('.opt-letter').textContent.trim();
+      if (letter === correct) b.classList.add('correct');
+    });
+    window.showToast && showToast('❌ Incorrect — see explanation below.');
+  }
+
+  const expDiv = document.getElementById(`exp-${idx}`);
+  expDiv.innerHTML = `<strong>✏️ Explanation:</strong> ${exp}`;
+  expDiv.classList.add('show');
+
+  document.getElementById('scoreNum').textContent = `${score}/${total}`;
+}
+
+function resetScore() {
+  score = 0; total = 0;
+  document.getElementById('scoreNum').textContent = '0/0';
+  window.showToast && showToast('🔄 Score reset!');
+}
+
+// DOM ready — scripts at bottom of body
+(function() {
+  buildYearGrid();
+  renderQuestions();
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      setSubject(this.getAttribute('data-subject'), this);
+    });
+  });
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/supabase-service.js"></script>
+<script src="/js/supabase.js"></script>
+<script src="/js/cbt-engine.js"></script>
+<script src="/js/shared-layout.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/exam-redirect.js">
+
+
+/* ── Save result to dashboard history ── */
+function saveToHistory(examName, total, correct, wrong, skipped, pct, subjectMap, timerUsed) {
+  try {
+    const HISTORY_KEY = 'exambuddy_history';
+    const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+    const mins = Math.floor(timerUsed / 60);
+    const secs = timerUsed % 60;
+    history.push({
+      exam     : examName,
+      date     : new Date().toISOString(),
+      total    : total,
+      correct  : correct,
+      wrong    : wrong,
+      skipped  : skipped,
+      pct      : pct,
+      timeTaken: `${mins}m ${secs < 10 ? '0'+secs : secs}s`,
+      subjects : subjectMap
+    });
+    // Keep last 200 results max
+    if (history.length > 200) history.splice(0, history.length - 200);
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  } catch(e) {}
+}
+
+/* ================================================================
+   WAEC CBT ENGINE — ExamBuddy Nigeria
+   Full JAMB-style Computer Based Test simulation
+   ✔ localStorage persistence  ✔ countdown timer  ✔ question palette
+   ✔ mark for review  ✔ navigation  ✔ auto-submit  ✔ results
+   
+   IMPORTANT: No existing class names modified. No existing CSS changed.
+================================================================ */
+
+/* ──────────────────────────────────────────
+   EXAM STATE
+────────────────────────────────────────── */
+const CBT = {
+  // Configuration
+  DURATION_SECS : 45 * 60,        // 45 minutes
+  LS_KEY        : 'exambuddy_waec_cbt_state',
+
+  // Runtime state
+  questions  : [],   // flat array of {subjectKey, subjectName, year, q, opts, ans, exp}
+  answers    : {},   // { qIndex: 'A'|'B'|'C'|'D' }
+  reviewed   : {},   // { qIndex: true }
+  current    : 0,
+  timerSecs  : 2 * 60 * 60,
+  timerInt   : null,
+  submitted  : false,
+
+  // Subject display names
+  SUBJECT_NAMES: {
+    english    : 'Use of English',
+    mathematics: 'Mathematics',
+    biology    : 'Biology',
+    chemistry  : 'Chemistry',
+    physics    : 'Physics',
+    economics  : 'Economics',
+    government : 'Government',
+    literature : 'Literature',
+    crs              : 'CRS',
+    agric            : 'Agricultural Science',
+    financialAccounting: 'Financial Accounting',
+    yoruba           : 'Yoruba',
+    commerce         : 'Commerce',
+    history          : 'History',
+    computer         : 'Computer',
+  }
+};
+
+/* ──────────────────────────────────────────
+   LAUNCH CBT
+   Called when user clicks "Start CBT Exam"
+────────────────────────────────────────── */
+function launchCBT() {
+  // Build question pool: 5 questions per subject (all 8 subjects = 40 questions)
+  // Respects the currently active subject filter
+  const pool = [];
+  const subjects = Object.keys(WAEC_DATA);
+
+  subjects.forEach(subKey => {
+    const qs = WAEC_DATA[subKey] || [];
+    if (!qs.length) return;
+    // Shuffle and take up to 5 per subject
+    const shuffled = [...qs].sort(() => Math.random() - .5);
+    shuffled.slice(0, 5).forEach(q => {
+      pool.push({ subjectKey: subKey, subjectName: CBT.SUBJECT_NAMES[subKey] || subKey, ...q });
+    });
+  });
+
+  if (!pool.length) {
+    alert('No questions available. Please check the question data.');
+    return;
+  }
+
+  // Shuffle the full pool
+  pool.sort(() => Math.random() - .5);
+
+  CBT.questions  = pool;
+  CBT.answers    = {};
+  CBT.reviewed   = {};
+  CBT.current    = 0;
+  CBT.timerSecs  = CBT.DURATION_SECS;
+  CBT.submitted  = false;
+
+  // Try to restore saved state
+  restoreCBTState();
+
+  // Enter exam mode
+  document.body.classList.add('cbt-active');
+  document.body.classList.remove('cbt-result');
+
+  // Update total stat
+  document.getElementById('cbtStatTot').textContent = CBT.questions.length;
+  document.getElementById('cbtModalTot').textContent = CBT.questions.length;
+
+  // Build palette
+  buildPalette();
+
+  // Render first question
+  renderCBTQuestion();
+
+  // Start timer
+  startTimer();
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ──────────────────────────────────────────
+   QUESTION RENDERING
+────────────────────────────────────────── */
+function renderCBTQuestion() {
+  const idx = CBT.current;
+  const q   = CBT.questions[idx];
+  const tot = CBT.questions.length;
+
+  // Update header
+  document.getElementById('cbtHeaderSubject').textContent =
+    `${q.subjectName} · Q${idx + 1} of ${tot}`;
+  document.getElementById('cbtQInfo').textContent =
+    `Question ${idx + 1} of ${tot}`;
+
+  // Update nav buttons
+  document.getElementById('cbtPrevBtn').disabled = idx === 0;
+  document.getElementById('cbtNextBtn').disabled = idx === tot - 1;
+
+  // Mark-for-review button state
+  const markBtn = document.getElementById('cbtMarkBtn');
+  if (CBT.reviewed[idx]) {
+    markBtn.classList.add('marked');
+    markBtn.textContent = '🚩 Marked for Review';
+  } else {
+    markBtn.classList.remove('marked');
+    markBtn.textContent = '🚩 Mark for Review';
+  }
+
+  // Render question card
+  const saved = CBT.answers[idx];
+  const optLetters = ['A','B','C','D'];
+
+  document.getElementById('cbtQuestionArea').innerHTML = `
+    <div class="cbt-question-card">
+      <div class="cbt-q-meta">
+        <span class="cbt-q-num">Q${idx + 1}</span>
+        <span class="cbt-q-num" style="color:#7C3AED;background:rgba(124,58,237,.1);">${q.subjectName}</span>
+        <span class="cbt-q-year">JAMB ${q.year}</span>
+      </div>
+      <div class="cbt-q-text">${q.q}</div>
+      <div class="cbt-options">
+        ${q.opts.map((opt, oi) => {
+          const letter = optLetters[oi];
+          const isSelected = saved === letter;
+          return `<button
+            class="cbt-opt${isSelected ? ' selected' : ''}"
+            data-letter="${letter}"
+            onclick="cbtSelectAnswer(${idx},'${letter}',this)"
+          >
+            <span class="opt-letter">${letter}</span>
+            ${opt.substring(3)}
+          </button>`;
+        }).join('')}
+      </div>
+    </div>
+  `;
+
+  // Highlight palette
+  updatePalette();
+  updateStats();
+}
+
+/* ──────────────────────────────────────────
+   ANSWER SELECTION
+────────────────────────────────────────── */
+function cbtSelectAnswer(idx, letter, btn) {
+  if (CBT.submitted) return;
+
+  // Deselect all in this question
+  document.querySelectorAll('.cbt-opt').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.cbt-opt .opt-letter').forEach(s => {
+    s.style.background = '';
+    s.style.color = '';
+  });
+
+  // Select clicked
+  btn.classList.add('selected');
+
+  // Save answer
+  CBT.answers[idx] = letter;
+
+  // Persist to localStorage
+  saveCBTState();
+
+  // Update palette immediately
+  updatePalette();
+  updateStats();
+}
+
+/* ──────────────────────────────────────────
+   NAVIGATION
+────────────────────────────────────────── */
+function cbtNavigate(dir) {
+  const next = CBT.current + dir;
+  if (next < 0 || next >= CBT.questions.length) return;
+  CBT.current = next;
+  renderCBTQuestion();
+  document.getElementById('cbtQPanel').scrollTop = 0;
+}
+
+function cbtJump() {
+  const val = parseInt(document.getElementById('cbtJumpInput').value, 10);
+  if (isNaN(val) || val < 1 || val > CBT.questions.length) return;
+  CBT.current = val - 1;
+  renderCBTQuestion();
+  document.getElementById('cbtJumpInput').value = '';
+  document.getElementById('cbtQPanel').scrollTop = 0;
+}
+
+/* ──────────────────────────────────────────
+   MARK FOR REVIEW
+────────────────────────────────────────── */
+function cbtToggleReview() {
+  const idx = CBT.current;
+  CBT.reviewed[idx] = !CBT.reviewed[idx];
+  saveCBTState();
+  renderCBTQuestion();
+}
+
+/* ──────────────────────────────────────────
+   QUESTION PALETTE
+────────────────────────────────────────── */
+function buildPalette() {
+  const palette = document.getElementById('cbtPalette');
+  palette.innerHTML = CBT.questions.map((_, i) => `
+    <button class="cbt-pnum" id="pnum-${i}" onclick="CBT.current=${i};renderCBTQuestion();">
+      ${i + 1}
+    </button>
+  `).join('');
+}
+
+function updatePalette() {
+  const tot = CBT.questions.length;
+  for (let i = 0; i < tot; i++) {
+    const el = document.getElementById(`pnum-${i}`);
+    if (!el) continue;
+    el.className = 'cbt-pnum';
+    if (CBT.reviewed[i])   el.classList.add('reviewed');
+    else if (CBT.answers[i]) el.classList.add('answered');
+    if (i === CBT.current) el.classList.add('current');
+  }
+}
+
+function updateStats() {
+  const answered = Object.keys(CBT.answers).length;
+  const reviewed = Object.keys(CBT.reviewed).filter(k => CBT.reviewed[k]).length;
+  const tot = CBT.questions.length;
+  document.getElementById('cbtStatAns').textContent = answered;
+  document.getElementById('cbtStatUns').textContent = tot - answered;
+  document.getElementById('cbtStatRev').textContent = reviewed;
+  document.getElementById('cbtModalAnsCount').textContent = answered;
+}
+
+/* ──────────────────────────────────────────
+   COUNTDOWN TIMER
+────────────────────────────────────────── */
+function startTimer() {
+  clearInterval(CBT.timerInt);
+  renderTimer();
+  CBT.timerInt = setInterval(() => {
+    CBT.timerSecs--;
+    saveCBTState();
+    renderTimer();
+    if (CBT.timerSecs <= 0) {
+      clearInterval(CBT.timerInt);
+      autoSubmit();
+    }
+  }, 1000);
+}
+
+function renderTimer() {
+  const s = Math.max(0, CBT.timerSecs);
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
+  const str = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+  const el = document.getElementById('cbtTimer');
+  el.textContent = str;
+  el.className = 'cbt-timer';
+  if (s <= 300)      el.classList.add('danger');    // last 5 mins
+  else if (s <= 900) el.classList.add('warning');   // last 15 mins
+}
+
+function autoSubmit() {
+  // Show time-out modal instead of confirm modal
+  document.getElementById('cbtModalTitle').textContent = '⏰ Time is Up!';
+  document.getElementById('cbtModalMsg').innerHTML = 'Your 45-minute exam time has ended. Your answers have been saved and will now be submitted automatically.';
+  document.getElementById('cbtModalConfirm').textContent = 'See Results';
+  document.getElementById('cbtModal').classList.add('open');
+}
+
+/* ──────────────────────────────────────────
+   SUBMIT FLOW
+────────────────────────────────────────── */
+function confirmSubmit() {
+  updateStats();
+  document.getElementById('cbtModalTitle').textContent = 'Submit Exam?';
+  const answered = Object.keys(CBT.answers).length;
+  const tot      = CBT.questions.length;
+  document.getElementById('cbtModalMsg').innerHTML =
+    `You have answered <strong>${answered}</strong> of <strong>${tot}</strong> questions. ` +
+    `Unanswered questions will be marked as wrong. Are you sure you want to submit?`;
+  document.getElementById('cbtModalConfirm').textContent = 'Submit Now';
+  document.getElementById('cbtModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('cbtModal').classList.remove('open');
+}
+
+function finalSubmit() {
+  closeModal();
+  clearInterval(CBT.timerInt);
+  CBT.submitted = true;
+  clearCBTState();
+  showResults();
+}
+
+/* ──────────────────────────────────────────
+   RESULTS
+────────────────────────────────────────── */
+function showResults() {
+  document.body.classList.remove('cbt-active');
+  document.body.classList.add('cbt-result');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const qs      = CBT.questions;
+  const answers = CBT.answers;
+  let correct   = 0;
+  let wrong     = 0;
+  let skipped   = 0;
+
+  // Per-subject tracking
+  const subjectMap = {};
+  qs.forEach((q, i) => {
+    if (!subjectMap[q.subjectKey]) {
+      subjectMap[q.subjectKey] = { name: q.subjectName, total: 0, correct: 0 };
+    }
+    subjectMap[q.subjectKey].total++;
+    const given = answers[i];
+    if (!given) { skipped++; }
+    else if (given === q.ans) { correct++; subjectMap[q.subjectKey].correct++; }
+    else { wrong++; }
+  });
+
+  const total  = qs.length;
+  const pct    = Math.round((correct / total) * 100);
+  const score  = correct * 2; // JAMB marks: 2 per correct (max 100 for 50 qs, scaled here)
+  // Save to dashboard history (Supabase + localStorage)
+  const timeUsed = CBT.DURATION_SECS - CBT.timerSecs;
+  const _mins = Math.floor(timeUsed / 60), _secs = timeUsed % 60;
+  const _resultObj = {
+    pct: pct, correct, wrong, skipped, total,
+    timeTaken: `${_mins}m ${_secs < 10 ? '0'+_secs : _secs}s`,
+    subjects: subjectMap
+  };
+  if (typeof ebSaveResult === 'function') {
+    ebSaveResult('WAEC', _resultObj);
+  } else {
+    // fallback: save directly to localStorage
+    try {
+      const _h = JSON.parse(localStorage.getItem('exambuddy_history') || '[]');
+      _h.push({ exam:'WAEC', date: new Date().toISOString(), ..._resultObj });
+      localStorage.setItem('exambuddy_history', JSON.stringify(_h));
+    } catch(e) {}
+  }
+
+
+  // Score ring colour
+  const ring = document.getElementById('resultRing');
+  ring.style.borderColor = pct >= 70 ? '#059669' : pct >= 50 ? '#F59E0B' : '#EF4444';
+  document.getElementById('resultPct').textContent = `${pct}%`;
+
+  // Headline
+  let headline, subline;
+  if (pct >= 70)      { headline = '🎉 Excellent Performance!'; subline = 'Outstanding! You are well prepared for WAEC.'; }
+  else if (pct >= 50) { headline = '👍 Good Effort!'; subline = 'You passed! Keep studying to improve your score further.'; }
+  else                { headline = '📚 Keep Practising!'; subline = 'Don\'t give up — review the explanations and try again!'; }
+  document.getElementById('resultHeadline').textContent = headline;
+  document.getElementById('resultSubline').textContent  = subline;
+
+  // Stats boxes
+  document.getElementById('resultStats').innerHTML = `
+    <div class="cbt-rs-box rsb-blue"><div class="rsb-val">${total}</div><div class="rsb-lbl">Total Questions</div></div>
+    <div class="cbt-rs-box rsb-green"><div class="rsb-val">${correct}</div><div class="rsb-lbl">Correct Answers</div></div>
+    <div class="cbt-rs-box rsb-red"><div class="rsb-val">${wrong}</div><div class="rsb-lbl">Wrong Answers</div></div>
+    <div class="cbt-rs-box rsb-gold"><div class="rsb-val">${skipped}</div><div class="rsb-lbl">Unanswered</div></div>
+    <div class="cbt-rs-box rsb-blue"><div class="rsb-val">${pct}%</div><div class="rsb-lbl">Percentage</div></div>
+    <div class="cbt-rs-box rsb-green"><div class="rsb-val">${score}</div><div class="rsb-lbl">JAMB Score (scaled)</div></div>
+  `;
+
+  // Per-subject breakdown
+  const breakdownRows = Object.values(subjectMap).map(sub => {
+    const subPct = sub.total > 0 ? Math.round((sub.correct / sub.total) * 100) : 0;
+    return `
+      <div class="sub-result-row">
+        <span class="srr-name">${sub.name}</span>
+        <div class="srr-bar-wrap"><div class="srr-bar" style="width:${subPct}%;background:${subPct>=70?'#059669':subPct>=50?'#F59E0B':'#EF4444'};"></div></div>
+        <span class="srr-score">${sub.correct}/${sub.total}</span>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('resultBreakdown').innerHTML = `
+    <h3>Subject Breakdown</h3>
+    ${breakdownRows}
+  `;
+
+  // Review all answers
+  const reviewItems = qs.map((q, i) => {
+    const given   = answers[i];
+    const isRight = given === q.ans;
+    const isSkip  = !given;
+    const statusHTML = isSkip
+      ? `<span class="ri-status-skip">Skipped</span>`
+      : isRight
+        ? `<span class="ri-status-correct">✓ Correct</span>`
+        : `<span class="ri-status-wrong">✗ Wrong</span>`;
+
+    const optLetters = ['A','B','C','D'];
+    const optsHTML = q.opts.map((opt, oi) => {
+      const letter = optLetters[oi];
+      let cls = '';
+      if (letter === q.ans)  cls = 'correct';
+      if (letter === given && given !== q.ans) cls = 'wrong';
+      return `<div class="cbt-opt ${cls}" style="margin-bottom:6px;cursor:default;">
+        <span class="opt-letter">${letter}</span>${opt.substring(3)}
+      </div>`;
+    }).join('');
+
+    return `
+      <div class="cbt-review-item">
+        <div class="ri-head">
+          <span class="ri-qnum">Q${i+1}</span>
+          <span class="ri-qnum" style="color:#7C3AED;background:rgba(124,58,237,.1);">${q.subjectName}</span>
+          ${statusHTML}
+        </div>
+        <div class="ri-qtext">${q.q}</div>
+        <div class="cbt-options" style="pointer-events:none;">${optsHTML}</div>
+        <div class="ri-exp"><strong>✏️ Explanation:</strong> ${q.exp}</div>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('cbtReviewList').innerHTML = reviewItems;
+
+  // Update session score in original sidebar
+  document.getElementById('scoreNum').textContent = `${correct}/${total}`;
+}
+
+/* ──────────────────────────────────────────
+   RETAKE / NEW EXAM
+────────────────────────────────────────── */
+function cbtRetake() {
+  document.body.classList.remove('cbt-result');
+  // Re-launch with same questions but reset answers
+  CBT.answers  = {};
+  CBT.reviewed = {};
+  CBT.current  = 0;
+  CBT.timerSecs = CBT.DURATION_SECS;
+  CBT.submitted = false;
+  document.body.classList.add('cbt-active');
+  buildPalette();
+  updateStats();
+  renderCBTQuestion();
+  startTimer();
+  window.scrollTo({ top: 0 });
+}
+
+function cbtNewExam() {
+  document.body.classList.remove('cbt-result');
+  window.scrollTo({ top: 0 });
+  // Just show the normal page again
+}
+
+/* ──────────────────────────────────────────
+   LOCALSTORAGE PERSISTENCE
+────────────────────────────────────────── */
+function saveCBTState() {
+  try {
+    localStorage.setItem(CBT.LS_KEY, JSON.stringify({
+      questions : CBT.questions,
+      answers   : CBT.answers,
+      reviewed  : CBT.reviewed,
+      current   : CBT.current,
+      timerSecs : CBT.timerSecs,
+    }));
+  } catch(e) { /* storage full or blocked */ }
+}
+
+function restoreCBTState() {
+  try {
+    const raw = localStorage.getItem(CBT.LS_KEY);
+    if (!raw) return;
+    const state = JSON.parse(raw);
+    // Only restore if it looks like the same exam session (same number of questions)
+    if (state.questions && state.questions.length === CBT.questions.length) {
+      // Check fingerprint: first question text must match
+      if (state.questions[0] && state.questions[0].q === CBT.questions[0].q) {
+        CBT.questions  = state.questions;
+        CBT.answers    = state.answers  || {};
+        CBT.reviewed   = state.reviewed || {};
+        CBT.current    = state.current  || 0;
+        CBT.timerSecs  = state.timerSecs || CBT.DURATION_SECS;
+        return;
+      }
+    }
+    // Stale save — discard
+    localStorage.removeItem(CBT.LS_KEY);
+  } catch(e) {
+    localStorage.removeItem(CBT.LS_KEY);
+  }
+}
+
+function clearCBTState() {
+  try { localStorage.removeItem(CBT.LS_KEY); } catch(e) {}
+}
+
+/* ──────────────────────────────────────────
+   LEGACY PRACTICE MODE (non-CBT)
+   Preserved from original code
+────────────────────────────────────────── */
+const YEARS = [2024,2023,2022,2021,2020,2019,2018,2017,2016,2015];
+let currentSubject = 'english';
+let currentYear    = 'all';
+let score          = 0;
+let total          = 0;
+
+function buildYearGrid() {
+  const grid = document.getElementById('yearGrid');
+  grid.innerHTML = `<button class="year-btn active" data-year="all" onclick="setYear('all',this)">All</button>`;
+  YEARS.forEach(y => {
+    grid.innerHTML += `<button class="year-btn" data-year="${y}" onclick="setYear(${y},this)">${y}</button>`;
+  });
+}
+
+function setSubject(sub, el) {
+  currentSubject = sub;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('qTitle').textContent = el.textContent;
+  renderQuestions();
+}
+
+function setYear(yr, el) {
+  currentYear = yr;
+  document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderQuestions();
+}
+
+function renderQuestions() {
+  const data     = WAEC_DATA[currentSubject] || [];
+  const filtered = currentYear === 'all' ? data : data.filter(q => q.year === currentYear);
+  const container = document.getElementById('questionsContainer');
+  const countEl   = document.getElementById('qCount');
+
+  if (!filtered.length) {
+    container.innerHTML = `<div style="text-align:center;padding:60px 20px;color:var(--text-muted)"><div style="font-size:2.5rem;margin-bottom:12px">🔍</div><p>No questions for this filter.</p></div>`;
+    countEl.textContent = '0 questions';
+    return;
+  }
+
+  countEl.textContent = `${filtered.length} question${filtered.length > 1 ? 's' : ''}`;
+  container.innerHTML = filtered.map((q, i) => `
+    <div class="question-card" id="qcard-${i}">
+      <div class="q-meta">
+        <span class="q-num">Q${i+1}</span>
+        <span class="q-year">JAMB ${q.year}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((opt,oi) => {
+          const letter = ['A','B','C','D'][oi];
+          return `<button class="option-btn" onclick="checkAnswer(this,'${letter}','${q.ans}',${i},'${q.exp.replace(/'/g,"\\'")}')">
+            <span class="opt-letter">${letter}</span>
+            ${opt.substring(3)}
+          </button>`;
+        }).join('')}
+      </div>
+      <div class="explanation" id="exp-${i}"></div>
+    </div>
+  `).join('');
+}
+
+function checkAnswer(btn, selected, correct, idx, exp) {
+  const card = document.getElementById(`qcard-${idx}`);
+  const buttons = card.querySelectorAll('.option-btn');
+  buttons.forEach(b => b.disabled = true);
+  if (selected === correct) {
+    btn.classList.add('correct'); score++; total++;
+    window.showToast && showToast('✅ Correct!');
+  } else {
+    btn.classList.add('wrong'); total++;
+    buttons.forEach(b => { if (b.querySelector('.opt-letter').textContent.trim() === correct) b.classList.add('correct'); });
+    window.showToast && showToast('❌ Incorrect — see explanation.');
+  }
+  document.getElementById(`exp-${idx}`).innerHTML = `<strong>✏️ Explanation:</strong> ${exp}`;
+  document.getElementById(`exp-${idx}`).classList.add('show');
+  document.getElementById('scoreNum').textContent = `${score}/${total}`;
+}
+
+function resetScore() {
+  score = 0; total = 0;
+  document.getElementById('scoreNum').textContent = '0/0';
+  window.showToast && showToast('🔄 Score reset!');
+}
+
+/* ──────────────────────────────────────────
+   INIT
+────────────────────────────────────────── */
+(function init() {
+  buildYearGrid();
+  renderQuestions();
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      setSubject(this.getAttribute('data-subject'), this);
+    });
+  });
+
+  // Enter key for jump input
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && document.activeElement === document.getElementById('cbtJumpInput')) {
+      cbtJump();
+    }
+    // Arrow keys for navigation when CBT is active
+    if (document.body.classList.contains('cbt-active') && !CBT.submitted) {
+      const active = document.activeElement;
+      const isInput = active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA');
+      if (!isInput) {
+        if (e.key === 'ArrowRight' && !document.getElementById('cbtNextBtn').disabled) {
+          cbtNavigate(1);
+        } else if (e.key === 'ArrowLeft' && !document.getElementById('cbtPrevBtn').disabled) {
+          cbtNavigate(-1);
+        }
+      }
+    }
+    // Escape to close modal
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Check for in-progress exam on page load
+  try {
+    const raw = localStorage.getItem(CBT.LS_KEY);
+    if (raw) {
+      const state = JSON.parse(raw);
+      if (state.questions && state.questions.length > 0 && state.timerSecs > 0) {
+        const resume = confirm(
+          `You have an exam in progress (${Math.floor(state.timerSecs/60)} minutes remaining). Resume it?`
+        );
+        if (resume) {
+          CBT.questions  = state.questions;
+          CBT.answers    = state.answers  || {};
+          CBT.reviewed   = state.reviewed || {};
+          CBT.current    = state.current  || 0;
+          CBT.timerSecs  = state.timerSecs;
+          CBT.submitted  = false;
+          document.getElementById('cbtStatTot').textContent    = CBT.questions.length;
+          document.getElementById('cbtModalTot').textContent   = CBT.questions.length;
+          document.body.classList.add('cbt-active');
+          buildPalette();
+          renderCBTQuestion();
+          startTimer();
+        } else {
+          localStorage.removeItem(CBT.LS_KEY);
+        }
+      }
+    }
+  } catch(e) { /* ignore */ }
+})();
+
+</script>
+</body>
+</html>
