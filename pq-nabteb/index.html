@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
@@ -50,8 +50,35 @@
     .ob:disabled{cursor:default}
     .exp{margin-top:14px;padding:13px 17px;background:rgba(5,150,105,.07);border-left:4px solid #059669;border-radius:0 10px 10px 0;font-size:.86rem;color:#475569;display:none}
     .exp.show{display:block}
-    @media(max-width:900px){.quiz-shell{grid-template-columns:1fr}.quiz-sidebar{position:static}.yg{grid-template-columns:repeat(4,1fr)}}
-    @media(max-width:480px){.yg{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:900px){
+      .quiz-shell{grid-template-columns:1fr}
+      .quiz-sidebar{position:static}
+      .yg{grid-template-columns:repeat(4,1fr)}
+      .sb-sec{padding:14px 16px}
+      .fb{padding:8px 12px;font-size:.84rem}
+    }
+    @media(max-width:600px){
+      .qcard{padding:18px 14px}
+      .ob{padding:10px 12px;font-size:.85rem;gap:10px}
+      .ol{width:24px;height:24px;font-size:.74rem;flex-shrink:0}
+      .qt{font-size:.92rem}
+      .sc{padding:14px}
+      .sn{font-size:1.8rem}
+      .qh h2{font-size:1.15rem}
+    }
+    @media(max-width:480px){
+      .yg{grid-template-columns:repeat(3,1fr)}
+      .qcard{padding:14px 12px}
+      .ob{font-size:.82rem;padding:9px 10px}
+      .opts{gap:8px}
+      .qm{gap:6px}
+    }
+    @media(max-width:360px){
+      .yg{grid-template-columns:repeat(3,1fr)}
+      .fb{font-size:.8rem;padding:7px 10px}
+      .ob{font-size:.78rem;padding:8px 9px}
+      .ol{width:22px;height:22px;font-size:.7rem}
+    }
   </style>
 </head>
 <body>
