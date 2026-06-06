@@ -3,8 +3,12 @@
 User-agent: *
 Allow: /
 
-# Block internal assets if needed
-Disallow: /assets/
+# Block non-public paths
+Disallow: /dashboard/
+Disallow: /reset-password/
+Disallow: /supabase/
+Disallow: /*.py$
+Disallow: /*.sql$
 
 # Sitemap
-Sitemap: https://www.exambuddy.com.ng/sitemap.xml
+Sitemap: https://exambuddy.ng/sitemap.xml

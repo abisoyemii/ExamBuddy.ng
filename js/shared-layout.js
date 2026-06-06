@@ -65,7 +65,9 @@
     <a href="/nysc/">🏕️ NYSC</a>
     <a href="/neco/">📋 NECO</a>
     <a href="/ielts/">🌍 IELTS</a>
+    <a href="/sat/">🧠 SAT</a>
     <a href="/cutoff-marks/">📊 Cut-off Marks 2026</a>
+    <a href="/past-questions/">📚 Past Questions</a>
     <a href="/blog/">✍️ Blog</a>
     <a href="/exam-portals/">🌐 Portals</a>
     <a href="/about/">ℹ️ About</a>
@@ -127,8 +129,9 @@
           <ul>
             <li><a href="/study-resources/">Free Downloads</a></li>
             <li><a href="/past-questions/">Past Questions</a></li>
-            <li><a href="/cutoff-marks/">Cut-off Marks</a></li>
-            <li><a href="/study-resources/">Study Timetables</a></li>
+            <li><a href="/pq-waec/">WAEC Past Questions</a></li>
+            <li><a href="/pq-jamb/">JAMB Past Questions</a></li>
+            <li><a href="/cutoff-marks/">Cut-off Marks 2026</a></li>
             <li><a href="/blog/">Blog &amp; Articles</a></li>
           </ul>
         </div>

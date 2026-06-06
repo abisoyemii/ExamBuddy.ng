@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#064E3B">
+  <title>UI Post-UTME Past Questions 2015–2024 | ExamBuddy Nigeria</title>
+  <meta name="description" content="Practice University of Ibadan (UI) Post-UTME past questions online. English, Mathematics, Biology, Chemistry, Physics, Economics. Instant answers and explanations. Free.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="ExamBuddy Nigeria">
+  <link rel="canonical" href="https://exambuddy.ng/pq-ui/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ExamBuddy Nigeria">
+  <meta property="og:url" content="https://exambuddy.ng/pq-ui/">
+  <meta property="og:title" content="UI Post-UTME Past Questions 2015–2024 | ExamBuddy Nigeria">
+  <meta property="og:description" content="Practice University of Ibadan Post-UTME past questions free online. Instant answers and explanations.">
+  <meta property="og:image" content="https://exambuddy.ng/images/og-cover.png">
+  <meta property="og:locale" content="en_NG">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UI Post-UTME Past Questions | ExamBuddy Nigeria">
+  <meta name="twitter:description" content="Practice University of Ibadan Post-UTME past questions free online.">
+  <meta name="twitter:image" content="https://exambuddy.ng/images/og-cover.png">
+  <link rel="icon" href="/images/favicon image.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <style>
+    .uni-hero{background:linear-gradient(135deg,#064E3B,#059669 60%,#10B981);padding:56px 0 40px}
+    .uni-hero h1{color:#fff;font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:10px}
+    .uni-hero p{color:rgba(255,255,255,.8);max-width:560px;font-size:1rem}
+    .quiz-shell{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start}
+    .quiz-sidebar{position:sticky;top:88px;background:#fff;border:1px solid #E2E8F0;border-radius:18px;overflow:hidden}
+    .sidebar-section{padding:18px;border-bottom:1px solid #E2E8F0}
+    .sidebar-section:last-child{border-bottom:none}
+    .sidebar-section h4{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#94A3B8;margin-bottom:10px}
+    .filter-btn{display:block;width:100%;text-align:left;padding:8px 12px;border-radius:8px;font-size:.87rem;font-weight:600;color:#475569;cursor:pointer;transition:all .18s;border:none;background:none;font-family:inherit}
+    .filter-btn:hover{background:#F1F5F9;color:#064E3B}
+    .filter-btn.active{background:#059669;color:#fff}
+    .score-box{background:linear-gradient(135deg,#064E3B,#065F46);border-radius:12px;padding:18px;text-align:center;color:#fff}
+    .score-box .s-num{font-size:2rem;font-weight:800;color:#34D399}
+    .score-box .s-lbl{font-size:.75rem;color:rgba(255,255,255,.65);margin-top:2px}
+    .question-card{background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:24px;margin-bottom:20px;transition:box-shadow .2s}
+    .question-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08)}
+    .q-meta{display:flex;gap:8px;margin-bottom:14px}
+    .q-num{font-size:.73rem;font-weight:800;color:#94A3B8;background:#F1F5F9;padding:3px 9px;border-radius:5px}
+    .q-year{font-size:.73rem;font-weight:700;color:#059669;background:rgba(5,150,105,.1);padding:3px 9px;border-radius:5px}
+    .q-text{font-size:.97rem;color:#0A2463;font-weight:500;line-height:1.65;margin-bottom:18px}
+    .options{display:flex;flex-direction:column;gap:9px}
+    .option-btn{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:11px;border:2px solid #E2E8F0;background:#fff;cursor:pointer;font-size:.91rem;color:#1E293B;font-family:inherit;text-align:left;transition:all .18s;font-weight:500;width:100%}
+    .option-btn:hover:not(:disabled){border-color:#059669;background:rgba(5,150,105,.04)}
+    .option-btn .opt-letter{width:26px;height:26px;border-radius:50%;background:#F1F5F9;color:#064E3B;font-weight:800;font-size:.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .option-btn.correct{border-color:#059669;background:rgba(5,150,105,.07)}
+    .option-btn.correct .opt-letter{background:#059669;color:#fff}
+    .option-btn.wrong{border-color:#EF4444;background:rgba(239,68,68,.07)}
+    .option-btn.wrong .opt-letter{background:#EF4444;color:#fff}
+    .option-btn:disabled{cursor:default}
+    .explanation{margin-top:14px;padding:12px 16px;background:rgba(5,150,105,.07);border-left:4px solid #059669;border-radius:0 9px 9px 0;font-size:.86rem;color:#475569;display:none}
+    .explanation.show{display:block}
+    .q-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:10px}
+    .q-header h2{font-size:1.3rem;color:#064E3B}
+    .q-count{font-size:.83rem;color:#64748B;background:#F1F5F9;padding:5px 12px;border-radius:999px}
+    @media(max-width:860px){.quiz-shell{grid-template-columns:1fr}.quiz-sidebar{position:static}}
+  </style>
+</head>
+<body>
+<div id="nav-root"></div>
+
+<div class="breadcrumb">
+  <div class="container breadcrumb__inner">
+    <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+    <a href="/past-questions/">Past Questions</a><span class="breadcrumb__sep">›</span>
+    <span>UI Post-UTME</span>
+  </div>
+</div>
+
+<section class="uni-hero">
+  <div class="container">
+    <span class="label label--white">🌿 University of Ibadan</span>
+    <h1>UI Post-UTME Past Questions</h1>
+    <p>Practice authentic University of Ibadan screening questions. Click any answer for instant feedback with detailed explanation.</p>
+    <div class="badge-row" style="margin-top:16px;">
+      <span class="badge">📚 6 Subjects</span>
+      <span class="badge">✅ 2015–2024</span>
+      <span class="badge">💡 Instant Answers</span>
+      <span class="badge">🆓 Free</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="quiz-shell">
+      <div class="quiz-sidebar">
+        <div class="sidebar-section">
+          <h4>Subject</h4>
+          <button class="filter-btn active" data-subject="english">English Language</button>
+          <button class="filter-btn" data-subject="mathematics">Mathematics</button>
+          <button class="filter-btn" data-subject="biology">Biology</button>
+          <button class="filter-btn" data-subject="chemistry">Chemistry</button>
+          <button class="filter-btn" data-subject="physics">Physics</button>
+          <button class="filter-btn" data-subject="economics">Economics</button>
+        </div>
+        <div class="sidebar-section">
+          <div class="score-box">
+            <div class="s-num" id="scoreNum">0/0</div>
+            <div class="s-lbl">Your Score</div>
+          </div>
+          <button class="btn btn--outline btn--sm btn--full" style="margin-top:10px;" onclick="resetScore()">Reset Score</button>
+        </div>
+        <div class="sidebar-section">
+          <p style="font-size:.8rem;color:#64748B;line-height:1.6;">
+            UI is one of Nigeria's most competitive universities. General cut-off: <strong>200</strong>. Medicine: <strong>280+</strong>. Law: <strong>240+</strong>.
+          </p>
+          <a href="/ui-cutoff/" class="btn btn--outline btn--sm btn--full" style="margin-top:10px;">View UI Cut-offs →</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="q-header">
+          <h2 id="qTitle">English Language</h2>
+          <span class="q-count" id="qCount">Loading...</span>
+        </div>
+        <div id="questionsContainer"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="text-center mb-48">
+      <h2 class="section-title">About UI Post-UTME Screening</h2>
+    </div>
+    <div class="cards-grid cards-grid--2">
+      <div class="exam-card">
+        <div class="exam-card__icon">📋</div>
+        <h3>Screening Format</h3>
+        <p>UI conducts an online Post-UTME screening test. It covers your JAMB subjects. The exam is Computer Based, 50–60 questions, 30–45 minutes. Questions test understanding, not memory.</p>
+      </div>
+      <div class="exam-card">
+        <div class="exam-card__icon">📊</div>
+        <h3>Admission Aggregate</h3>
+        <p>UI combines your JAMB score and Post-UTME score into an aggregate. O'Level grades (WAEC/NECO) also contribute. All three components count towards final ranking.</p>
+      </div>
+      <div class="exam-card">
+        <div class="exam-card__icon">🎯</div>
+        <h3>What UI Tests</h3>
+        <p>UI Post-UTME questions are known to be more analytical and reasoning-based than JAMB. Expect inference questions, data interpretation, and application of concepts — not just recall.</p>
+      </div>
+      <div class="exam-card">
+        <div class="exam-card__icon">🔗</div>
+        <h3>Official Portal</h3>
+        <p>Register for Post-UTME screening and check admission status on the official UI portal.</p>
+        <a href="https://www.ui.edu.ng" target="_blank" rel="noopener" class="btn btn--outline btn--sm" style="margin-top:12px;">Visit UI Portal →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container cta-strip__inner">
+    <h2>Explore More University Past Questions</h2>
+    <p>Practice for all top Nigerian universities on ExamBuddy — free, no login required.</p>
+    <div class="cta-strip__btns">
+      <a href="/pq-unilag/" class="btn btn--primary btn--lg">UNILAG Questions</a>
+      <a href="/pq-oau/" class="btn btn--outline-white btn--lg">OAU Questions</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script>
+const UI_DATA = {
+  english: [
+    {year:2024,q:"Choose the word most opposite in meaning to BENEVOLENT.",opts:["A. Generous","B. Kind","C. Malevolent","D. Humble"],ans:"C",exp:"BENEVOLENT means well-meaning and kind. Its antonym is MALEVOLENT — having or showing a desire to do harm."},
+    {year:2024,q:"Select the grammatically correct sentence.",opts:["A. Neither the boys nor the girl are here.","B. Neither the boys nor the girl is here.","C. Neither the boys nor the girl were here.","D. Neither the boys nor the girl have arrived."],ans:"B",exp:"With 'neither...nor', the verb agrees with the subject nearest to it. 'Girl' (singular) is nearest, so 'is' is correct."},
+    {year:2024,q:"Identify the figure of speech: 'Her voice was music to my ears.'",opts:["A. Simile","B. Hyperbole","C. Metaphor","D. Personification"],ans:"C",exp:"A metaphor makes a direct comparison: 'voice WAS music'. No 'like' or 'as' (which would make it a simile)."},
+    {year:2024,q:"The word EPHEMERAL means:",opts:["A. Eternal","B. Lasting only a short time","C. Very large","D. Frightening"],ans:"B",exp:"EPHEMERAL means lasting for a very short time. From Greek 'ephemeros' (lasting a day). Example: 'ephemeral pleasures.'"},
+    {year:2024,q:"Choose the sentence in the subjunctive mood.",opts:["A. She is going home.","B. If I was rich, I would travel.","C. If I were you, I would apologise.","D. She has gone home."],ans:"C",exp:"The subjunctive mood uses 'were' for all persons in hypothetical/contrary-to-fact conditions. 'If I were you' is correct subjunctive."},
+    {year:2023,q:"The grammatical term for 'swimming' in 'Swimming is healthy' is:",opts:["A. Present participle","B. Gerund","C. Infinitive","D. Verbal adjective"],ans:"B",exp:"A gerund is a verb ending in '-ing' functioning as a noun. 'Swimming' is the subject of the sentence — a gerund."},
+    {year:2023,q:"'To smell a rat' means:",opts:["A. To have a bad sense of smell","B. To detect something suspicious","C. To be in a dirty place","D. To work hard"],ans:"B",exp:"The idiom 'to smell a rat' means to suspect that something is wrong or that someone is being dishonest."},
+    {year:2023,q:"Which sentence uses the apostrophe correctly for plural possession?",opts:["A. The teacher's books (one teacher)","B. The teachers' books (many teachers)","C. The teachers books","D. Both A and B"],ans:"D",exp:"A is correct for one teacher's books. B is correct for multiple teachers' books. Both use apostrophes correctly."},
+    {year:2023,q:"The word LACONIC means:",opts:["A. Very talkative","B. Brief and concise in speech","C. Loud and boisterous","D. Melancholy"],ans:"B",exp:"LACONIC means using very few words — brief and concise. From the Spartans (Laconians) who were famous for brief speech."},
+    {year:2022,q:"In 'The old man walked slowly down the hill', the adverb is:",opts:["A. old","B. man","C. slowly","D. down"],ans:"C",exp:"'Slowly' modifies the verb 'walked' — telling HOW he walked. 'Down' is a preposition. 'Old' is an adjective."},
+    {year:2022,q:"Choose the correct spelling.",opts:["A. Recieve","B. Receive","C. Recive","D. Recieeve"],ans:"B",exp:"RECEIVE follows the rule 'i before e except after c'. After 'c', it is 'ei': reCEIve. Commonly misspelled."},
+    {year:2022,q:"Which of these is a complex sentence?",opts:["A. She sings and dances.","B. She sang a beautiful song.","C. She sang because she felt happy.","D. She sang; he danced."],ans:"C",exp:"A complex sentence has one independent clause + one dependent clause. 'Because she felt happy' is the dependent clause."},
+    {year:2021,q:"The word OBSEQUIOUS means:",opts:["A. Proud and arrogant","B. Excessively eager to serve or please","C. Slow and lazy","D. Wise and thoughtful"],ans:"B",exp:"OBSEQUIOUS means overly eager to serve, obey, or please — excessively fawning or servile. Similar to sycophantic."},
+    {year:2021,q:"Identify the passive construction.",opts:["A. The farmer grew the crops.","B. The crops were grown by the farmer.","C. The farmer is growing crops.","D. Growing crops is the farmer's job."],ans:"B",exp:"Passive: subject (crops) receives the action. 'Were grown by the farmer' — the crops (subject) are acted upon."},
+    {year:2020,q:"Choose the word nearest in meaning to GREGARIOUS.",opts:["A. Shy","B. Hostile","C. Sociable","D. Intelligent"],ans:"C",exp:"GREGARIOUS means fond of company and social interaction — sociable, outgoing. Antonym: introverted, solitary."},
+    {year:2020,q:"The literary device 'The kettle screamed on the stove' uses:",opts:["A. Simile","B. Hyperbole","C. Personification","D. Alliteration"],ans:"C",exp:"Personification gives human characteristics to non-human objects. Kettles cannot 'scream' — that is a human action."},
+    {year:2019,q:"Select the sentence with correct subject-verb agreement.",opts:["A. The news are disturbing.","B. The news is disturbing.","C. The news were disturbing.","D. The news have been disturbing."],ans:"B",exp:"'News' is an uncountable noun and always takes a singular verb: 'The news IS disturbing.'"},
+    {year:2019,q:"The word EQUIVOCAL means:",opts:["A. Clear and definite","B. Open to more than one interpretation","C. Balanced","D. Equal"],ans:"B",exp:"EQUIVOCAL means ambiguous — open to more than one interpretation, often deliberately unclear."},
+    {year:2018,q:"Choose the correctly formed comparative adjective.",opts:["A. He is more taller than me.","B. She is more intelligent than he.","C. This is the most unique thing.","D. He is more smarter."],ans:"B",exp:"'More intelligent' is the correct comparative. Never use 'more' with words already containing '-er' (more taller is wrong). 'Unique' cannot be compared."},
+    {year:2018,q:"In the sentence 'What he said surprised everyone', the underlined clause is a:",opts:["A. Adverbial clause","B. Relative clause","C. Noun clause","D. Adjectival clause"],ans:"C",exp:"'What he said' functions as the subject of the sentence — it acts as a noun, making it a noun clause."}
+  ],
+  mathematics: [
+    {year:2024,q:"Solve: 5x − 3 = 2x + 9",opts:["A. x=3","B. x=4","C. x=5","D. x=6"],ans:"B",exp:"5x − 2x = 9 + 3 → 3x = 12 → x = 4."},
+    {year:2024,q:"Find the area of a triangle with base 10cm and height 6cm.",opts:["A. 30cm²","B. 60cm²","C. 20cm²","D. 15cm²"],ans:"A",exp:"Area = ½ × base × height = ½ × 10 × 6 = 30cm²."},
+    {year:2024,q:"If log₂ x = 5, find x.",opts:["A. 10","B. 16","C. 32","D. 25"],ans:"C",exp:"log₂ x = 5 means 2⁵ = x. 2⁵ = 32. So x = 32."},
+    {year:2024,q:"The median of 3, 7, 5, 1, 9, 2, 6 is:",opts:["A. 5","B. 6","C. 4","D. 7"],ans:"A",exp:"Arrange in order: 1,2,3,5,6,7,9. Middle value (4th of 7) = 5."},
+    {year:2024,q:"What is 35% of 200?",opts:["A. 60","B. 65","C. 70","D. 75"],ans:"C",exp:"35% × 200 = 0.35 × 200 = 70."},
+    {year:2023,q:"Expand: (2x + 3)(x − 4)",opts:["A. 2x²−5x−12","B. 2x²+5x−12","C. 2x²−8x−12","D. 2x²−5x+12"],ans:"A",exp:"(2x+3)(x−4) = 2x²−8x+3x−12 = 2x²−5x−12."},
+    {year:2023,q:"Find the gradient of the line passing through (1,2) and (3,8).",opts:["A. 2","B. 3","C. 4","D. 5"],ans:"B",exp:"Gradient = (y₂−y₁)/(x₂−x₁) = (8−2)/(3−1) = 6/2 = 3."},
+    {year:2023,q:"Convert 0.75 to a fraction in lowest terms.",opts:["A. 7/10","B. 3/4","C. 3/5","D. 7/9"],ans:"B",exp:"0.75 = 75/100 = 3/4 (dividing numerator and denominator by 25)."},
+    {year:2022,q:"If P(A) = 0.4 and events are independent, P(A and A) =",opts:["A. 0.8","B. 0.4","C. 0.16","D. 0.2"],ans:"C",exp:"For independent events: P(A and A) = P(A) × P(A) = 0.4 × 0.4 = 0.16."},
+    {year:2022,q:"A car depreciates from ₦500,000 to ₦350,000. Find the % depreciation.",opts:["A. 25%","B. 30%","C. 35%","D. 40%"],ans:"B",exp:"Depreciation = 500,000 − 350,000 = 150,000. % = (150,000/500,000) × 100 = 30%."},
+    {year:2022,q:"Simplify: (x²−4) ÷ (x+2)",opts:["A. x+2","B. x−2","C. x²−2","D. x+4"],ans:"B",exp:"x²−4 = (x+2)(x−2). Dividing by (x+2) gives (x−2)."},
+    {year:2021,q:"The bearing of Q from P is 130°. Find the bearing of P from Q.",opts:["A. 310°","B. 230°","C. 320°","D. 260°"],ans:"A",exp:"Back bearing = 130° + 180° = 310°."},
+    {year:2021,q:"Find the quadratic equation with roots 3 and −5.",opts:["A. x²+2x−15=0","B. x²−2x−15=0","C. x²+2x+15=0","D. x²−2x+15=0"],ans:"A",exp:"Sum of roots = 3+(−5) = −2. Product = 3×(−5) = −15. Equation: x²−(sum)x+product = x²+2x−15=0."},
+    {year:2021,q:"The volume of a cylinder with radius 3cm and height 7cm (π=22/7) is:",opts:["A. 132cm³","B. 154cm³","C. 198cm³","D. 231cm³"],ans:"C",exp:"V = πr²h = (22/7) × 3² × 7 = (22/7) × 9 × 7 = 22 × 9 = 198cm³."},
+    {year:2020,q:"Solve the simultaneous equations: x+y=7, x−y=3",opts:["A. x=5, y=2","B. x=4, y=3","C. x=3, y=4","D. x=6, y=1"],ans:"A",exp:"Add both equations: 2x=10 → x=5. Substitute: 5+y=7 → y=2."},
+    {year:2020,q:"If the sum of 5 consecutive integers is 40, find the smallest.",opts:["A. 5","B. 6","C. 7","D. 8"],ans:"B",exp:"Let integers be n, n+1, n+2, n+3, n+4. Sum = 5n+10 = 40 → 5n = 30 → n = 6."},
+    {year:2019,q:"Find x if: 2^(3x) = 64",opts:["A. 1","B. 2","C. 3","D. 4"],ans:"B",exp:"64 = 2⁶. So 2^(3x) = 2⁶ → 3x = 6 → x = 2."},
+    {year:2019,q:"A bag contains 3 red, 4 blue, and 5 green balls. P(red) =",opts:["A. 1/4","B. 1/3","C. 3/12","D. Both A and C"],ans:"D",exp:"Total = 3+4+5 = 12. P(red) = 3/12 = 1/4. Both A and C are equivalent correct answers."},
+    {year:2018,q:"The LCM of 6, 8, and 12 is:",opts:["A. 12","B. 24","C. 48","D. 96"],ans:"B",exp:"6=2×3, 8=2³, 12=2²×3. LCM = 2³×3 = 24."},
+    {year:2018,q:"Evaluate: 4³ ÷ 4¹ × 4⁰",opts:["A. 4","B. 16","C. 64","D. 1"],ans:"B",exp:"4³ = 64. 4¹ = 4. 4⁰ = 1. So: 64 ÷ 4 × 1 = 16 × 1 = 16."}
+  ],
+  biology: [
+    {year:2024,q:"The functional unit of the kidney is the:",opts:["A. Neuron","B. Nephron","C. Alveolus","D. Hepatocyte"],ans:"B",exp:"The nephron is the functional unit of the kidney. Each kidney contains about 1 million nephrons that filter blood and produce urine."},
+    {year:2024,q:"Which hormone lowers blood sugar levels?",opts:["A. Glucagon","B. Adrenaline","C. Insulin","D. Thyroxine"],ans:"C",exp:"Insulin (produced by beta cells of the pancreas) lowers blood glucose by stimulating cells to absorb glucose."},
+    {year:2024,q:"The process by which cells engulf bacteria is called:",opts:["A. Pinocytosis","B. Osmosis","C. Phagocytosis","D. Exocytosis"],ans:"C",exp:"Phagocytosis ('cell eating') is when white blood cells engulf and destroy pathogens by surrounding and digesting them."},
+    {year:2023,q:"Meiosis results in:",opts:["A. 2 diploid cells","B. 4 haploid cells","C. 2 haploid cells","D. 4 diploid cells"],ans:"B",exp:"Meiosis (cell division for gametes) produces 4 haploid (n) cells from 1 diploid (2n) cell — each with half the chromosome number."},
+    {year:2023,q:"The part of the brain controlling involuntary actions like heartbeat is:",opts:["A. Cerebrum","B. Cerebellum","C. Medulla oblongata","D. Hypothalamus"],ans:"C",exp:"The medulla oblongata controls vital involuntary functions: heartbeat, breathing, blood pressure, and swallowing."},
+    {year:2023,q:"Which of the following is NOT a product of photosynthesis?",opts:["A. Glucose","B. Oxygen","C. Water vapour","D. Carbon dioxide"],ans:"D",exp:"Photosynthesis: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂. CO₂ is a reactant (used up), not a product."},
+    {year:2022,q:"Haemoglobin transports oxygen in:",opts:["A. Plasma","B. Platelets","C. White blood cells","D. Red blood cells"],ans:"D",exp:"Haemoglobin is found in red blood cells (erythrocytes). It binds oxygen in the lungs and releases it to body tissues."},
+    {year:2022,q:"Anaerobic respiration in yeast produces:",opts:["A. Lactic acid + CO₂","B. Ethanol + CO₂","C. Lactic acid + water","D. Glucose + water"],ans:"B",exp:"In yeast (anaerobic): glucose → ethanol + CO₂. In muscles: glucose → lactic acid. This distinction is frequently tested."},
+    {year:2022,q:"The pituitary gland is known as the 'master gland' because:",opts:["A. It is the largest gland","B. It controls all other endocrine glands","C. It produces the most hormones","D. It is located in the brain"],ans:"B",exp:"The pituitary gland secretes tropic hormones (TSH, FSH, LH, ACTH) that regulate other endocrine glands."},
+    {year:2021,q:"Which vitamin deficiency causes rickets?",opts:["A. Vitamin A","B. Vitamin B","C. Vitamin C","D. Vitamin D"],ans:"D",exp:"Vitamin D deficiency causes rickets in children (soft, deformed bones) due to inadequate calcium absorption. Treat with sunlight and dietary Vitamin D."},
+    {year:2021,q:"Fertilisation in humans normally occurs in the:",opts:["A. Ovary","B. Uterus","C. Vagina","D. Fallopian tube"],ans:"D",exp:"Fertilisation normally occurs in the fallopian tube (oviduct). The fertilised egg (zygote) then moves to the uterus for implantation."},
+    {year:2021,q:"The enzyme that breaks down starch is:",opts:["A. Pepsin","B. Lipase","C. Amylase","D. Protease"],ans:"C",exp:"Amylase breaks down starch into maltose. Salivary amylase acts in the mouth; pancreatic amylase acts in the small intestine."},
+    {year:2020,q:"Which organelle synthesises proteins?",opts:["A. Mitochondria","B. Nucleus","C. Golgi apparatus","D. Ribosome"],ans:"D",exp:"Ribosomes are the sites of protein synthesis. They translate mRNA into polypeptide chains (proteins)."},
+    {year:2020,q:"Evolution by natural selection was proposed by:",opts:["A. Gregor Mendel","B. Charles Darwin","C. Louis Pasteur","D. Robert Hooke"],ans:"B",exp:"Charles Darwin proposed natural selection in 'On the Origin of Species' (1859). Organisms best adapted to their environment survive and reproduce."},
+    {year:2019,q:"The large intestine's main function is:",opts:["A. Protein digestion","B. Fat absorption","C. Water and electrolyte absorption","D. Enzyme secretion"],ans:"C",exp:"The large intestine (colon) absorbs water and electrolytes from undigested material, forming solid faeces."},
+    {year:2019,q:"Arteries carry blood ___ from the heart.",opts:["A. Away","B. Towards","C. Both ways","D. Oxygenated only"],ans:"A",exp:"Arteries carry blood AWAY from the heart. Veins carry blood TOWARDS the heart. (Exception: pulmonary artery carries deoxygenated blood to lungs.)"},
+    {year:2018,q:"The double helix structure of DNA was discovered by:",opts:["A. Mendel and Darwin","B. Watson and Crick","C. Hooke and Leeuwenhoek","D. Pasteur and Koch"],ans:"B",exp:"James Watson and Francis Crick (1953) described the double helix structure of DNA, using X-ray crystallography data from Rosalind Franklin."},
+    {year:2018,q:"Which of the following is a characteristic of living things?",opts:["A. Rusting","B. Crystallisation","C. Reproduction","D. Combustion"],ans:"C",exp:"Reproduction is one of the 7 characteristics of living things (MRS GREN). Rusting, crystallisation, and combustion are non-living processes."},
+    {year:2018,q:"Photosynthesis rate increases when:",opts:["A. CO₂ concentration decreases","B. Light intensity increases","C. Temperature decreases below 10°C","D. Water availability decreases"],ans:"B",exp:"Increasing light intensity increases photosynthesis rate (up to a saturation point). Light provides energy for the light-dependent reactions."},
+    {year:2017,q:"The scientific name uses which two classification levels?",opts:["A. Kingdom and Phylum","B. Family and Order","C. Genus and Species","D. Class and Order"],ans:"C",exp:"Binomial nomenclature (Linnaeus): Genus + Species. Example: Homo sapiens. Always italicised; Genus capitalised, species lowercase."}
+  ],
+  chemistry: [
+    {year:2024,q:"The process of separating a mixture of miscible liquids is:",opts:["A. Filtration","B. Fractional distillation","C. Crystallisation","D. Chromatography"],ans:"B",exp:"Fractional distillation separates miscible liquids (e.g. crude oil, ethanol/water) with different boiling points using a fractionating column."},
+    {year:2024,q:"How many moles in 44g of CO₂? (C=12, O=16)",opts:["A. 0.5","B. 1","C. 2","D. 4"],ans:"B",exp:"Molar mass of CO₂ = 12 + (16×2) = 44 g/mol. Moles = 44 ÷ 44 = 1 mole."},
+    {year:2024,q:"Which group in the periodic table contains the noble gases?",opts:["A. Group 1","B. Group 7","C. Group 8","D. Group 18"],ans:"D",exp:"Noble gases are in Group 18 (also called Group 0): He, Ne, Ar, Kr, Xe, Rn. Full outer shells make them unreactive."},
+    {year:2024,q:"The reaction between an acid and a carbonate produces:",opts:["A. Salt + water","B. Salt + hydrogen","C. Salt + water + CO₂","D. Salt + CO₂"],ans:"C",exp:"Acid + Carbonate → Salt + Water + Carbon dioxide. E.g. 2HCl + CaCO₃ → CaCl₂ + H₂O + CO₂↑."},
+    {year:2023,q:"In electrolysis, oxidation occurs at the:",opts:["A. Cathode","B. Anode","C. Electrolyte","D. Cell body"],ans:"B",exp:"At the ANODE (positive electrode): oxidation (loss of electrons) occurs. At the CATHODE (negative): reduction (gain of electrons)."},
+    {year:2023,q:"The Haber process produces:",opts:["A. Sulphuric acid","B. Nitric acid","C. Ammonia","D. Hydrochloric acid"],ans:"C",exp:"The Haber process: N₂ + 3H₂ ⇌ 2NH₃. Conditions: 450°C, 200 atmospheres, iron catalyst. Used to make fertilisers."},
+    {year:2023,q:"An atom with 17 protons and 18 neutrons has mass number:",opts:["A. 17","B. 18","C. 35","D. 1"],ans:"C",exp:"Mass number = protons + neutrons = 17 + 18 = 35. This is chlorine-35 (³⁵Cl)."},
+    {year:2022,q:"Which statement about catalysts is correct?",opts:["A. They are consumed in the reaction","B. They increase activation energy","C. They lower activation energy","D. They change the products formed"],ans:"C",exp:"Catalysts lower activation energy by providing an alternative reaction pathway — speeding up reactions without being consumed."},
+    {year:2022,q:"Ethanol (C₂H₅OH) belongs to the homologous series called:",opts:["A. Alkanes","B. Alkenes","C. Alkynes","D. Alcohols"],ans:"D",exp:"Alcohols contain the −OH (hydroxyl) functional group. Methanol (CH₃OH), ethanol (C₂H₅OH), propanol (C₃H₇OH)."},
+    {year:2022,q:"Which method separates a solid dissolved in a liquid?",opts:["A. Filtration","B. Distillation","C. Magnetic separation","D. Chromatography"],ans:"B",exp:"Distillation separates a dissolved solid from a liquid by boiling the liquid and condensing the vapour, leaving the solid behind."},
+    {year:2021,q:"Water boils at 100°C. What is this in Kelvin?",opts:["A. 273K","B. 373K","C. 100K","D. 173K"],ans:"B",exp:"K = °C + 273. So 100°C + 273 = 373K."},
+    {year:2021,q:"Brass is an alloy of:",opts:["A. Iron and carbon","B. Copper and tin","C. Copper and zinc","D. Iron and nickel"],ans:"C",exp:"Brass = copper + zinc. Bronze = copper + tin. Steel = iron + carbon. Solder = lead + tin."},
+    {year:2021,q:"The Contact process is used to manufacture:",opts:["A. Ammonia","B. Sulphuric acid","C. Nitric acid","D. Hydrochloric acid"],ans:"B",exp:"The Contact process produces sulphuric acid (H₂SO₄). Stage 1: burn sulphur. Stage 2: SO₂+O₂→SO₃. Stage 3: SO₃+H₂O→H₂SO₄."},
+    {year:2020,q:"An acid has pH 2. It is:",opts:["A. Weakly acidic","B. Neutral","C. Strongly acidic","D. Basic"],ans:"C",exp:"pH 2 is strongly acidic. pH scale: 0–6 = acidic, 7 = neutral, 8–14 = alkaline. pH 2 is a very low (strongly acidic) value."},
+    {year:2020,q:"Chlorine gas turns moist litmus paper:",opts:["A. Red then bleaches it","B. Blue","C. Purple","D. Yellow"],ans:"A",exp:"Chlorine first turns moist litmus red (acidic) then bleaches (decolourises) it due to formation of hypochlorous acid (bleaching agent)."},
+    {year:2019,q:"The formula for iron(III) oxide is:",opts:["A. FeO","B. Fe₂O₃","C. Fe₃O₄","D. FeO₂"],ans:"B",exp:"Iron(III) oxide = Fe₂O₃. Iron(II) oxide = FeO. Fe₃O₄ is the mixed oxide (rust/magnetite)."},
+    {year:2019,q:"Which gas is produced when zinc reacts with dilute H₂SO₄?",opts:["A. SO₂","B. O₂","C. H₂","D. CO₂"],ans:"C",exp:"Zn + H₂SO₄ → ZnSO₄ + H₂↑. Metal + Acid → Salt + Hydrogen gas."},
+    {year:2018,q:"The process by which iron is extracted from its ore is:",opts:["A. Electrolysis","B. The Blast furnace","C. The Haber process","D. Fractional distillation"],ans:"B",exp:"Iron is extracted from iron ore (haematite, Fe₂O₃) in a blast furnace using coke (carbon) as a reducing agent."},
+    {year:2018,q:"Saponification is the reaction of fat/oil with:",opts:["A. An acid","B. Water","C. A strong alkali (NaOH)","D. Salt"],ans:"C",exp:"Saponification: fat/oil + NaOH → soap (sodium salt of fatty acid) + glycerol. This is how soap is made."},
+    {year:2017,q:"A solution that resists changes in pH when small amounts of acid or base are added is called a:",opts:["A. Neutral solution","B. Buffer solution","C. Salt solution","D. Standard solution"],ans:"B",exp:"A buffer solution resists pH changes. Blood is a natural buffer (pH ≈ 7.4), maintained by carbonic acid/bicarbonate."}
+  ],
+  physics: [
+    {year:2024,q:"Work done = Force × distance × cos θ. If θ = 90°, work done is:",opts:["A. Maximum","B. Minimum","C. Zero","D. Equal to Fd"],ans:"C",exp:"cos 90° = 0. So W = F × d × 0 = 0. When force is perpendicular to displacement, no work is done."},
+    {year:2024,q:"Which law states: For every action, there is an equal and opposite reaction?",opts:["A. Newton's First Law","B. Newton's Second Law","C. Newton's Third Law","D. Hooke's Law"],ans:"C",exp:"Newton's Third Law: action-reaction pairs are equal in magnitude, opposite in direction, and act on different bodies."},
+    {year:2024,q:"The SI unit of electric charge is:",opts:["A. Ampere","B. Volt","C. Coulomb","D. Ohm"],ans:"C",exp:"The Coulomb (C) is the SI unit of electric charge. 1 Coulomb = charge of 6.24 × 10¹⁸ electrons."},
+    {year:2024,q:"Archimedes' Principle states that the upthrust on a body equals:",opts:["A. The weight of the body","B. The weight of fluid displaced","C. The mass of the body","D. The volume of the body"],ans:"B",exp:"Archimedes' Principle: upthrust (buoyant force) = weight of fluid displaced by the object."},
+    {year:2023,q:"Which type of wave requires no medium to travel?",opts:["A. Sound waves","B. Water waves","C. Electromagnetic waves","D. Seismic waves"],ans:"C",exp:"Electromagnetic waves (light, X-rays, radio) are transverse waves that can travel through a vacuum — no medium needed."},
+    {year:2023,q:"The image formed by a plane mirror is:",opts:["A. Real and inverted","B. Real and upright","C. Virtual and upright","D. Virtual and inverted"],ans:"C",exp:"Plane mirror: virtual (cannot be projected), upright, same size, laterally inverted. Located the same distance behind the mirror."},
+    {year:2023,q:"Power = Work ÷",opts:["A. Force","B. Mass","C. Time","D. Distance"],ans:"C",exp:"Power P = W/t = Work done ÷ Time taken. SI unit: Watt (W). 1 Watt = 1 Joule/second."},
+    {year:2022,q:"A body thrown horizontally follows a ___ path.",opts:["A. Straight line","B. Circular","C. Parabolic","D. Elliptical"],ans:"C",exp:"Projectile motion: constant horizontal velocity + downward acceleration (gravity) = parabolic trajectory."},
+    {year:2022,q:"Heat transfer in vacuum occurs only by:",opts:["A. Conduction","B. Convection","C. Radiation","D. All three"],ans:"C",exp:"Radiation: heat transferred as electromagnetic waves — works in vacuum. How the sun heats the Earth across space."},
+    {year:2022,q:"The frequency of a wave is 50Hz. Its period is:",opts:["A. 50s","B. 0.5s","C. 0.02s","D. 2s"],ans:"C",exp:"Period T = 1/f = 1/50 = 0.02 seconds."},
+    {year:2021,q:"Density of a material = mass ÷",opts:["A. Area","B. Weight","C. Volume","D. Temperature"],ans:"C",exp:"Density ρ = m/V. Units: kg/m³ or g/cm³. Density of water = 1000 kg/m³ = 1 g/cm³."},
+    {year:2021,q:"Which type of spectrum is produced when white light passes through a prism?",opts:["A. Emission spectrum","B. Continuous spectrum","C. Absorption spectrum","D. Line spectrum"],ans:"B",exp:"A prism disperses white light into a continuous spectrum (ROYGBIV) — all wavelengths visible with no gaps."},
+    {year:2021,q:"In a step-down transformer, the output voltage is ___ input voltage.",opts:["A. Equal to","B. Greater than","C. Less than","D. Twice the"],ans:"C",exp:"Step-down transformer: Vₛ < Vₚ. Nₛ < Nₚ. Used in phone chargers, household appliances to reduce mains voltage."},
+    {year:2020,q:"The half-life of a radioactive element is 10 days. After 30 days, what fraction remains?",opts:["A. 1/2","B. 1/4","C. 1/8","D. 1/16"],ans:"C",exp:"After 1 half-life (10 days): 1/2. After 2 (20 days): 1/4. After 3 (30 days): 1/8."},
+    {year:2020,q:"A car accelerates from rest to 20m/s in 5s. Its acceleration is:",opts:["A. 2m/s²","B. 4m/s²","C. 100m/s²","D. 25m/s²"],ans:"B",exp:"a = (v−u)/t = (20−0)/5 = 4m/s²."},
+    {year:2019,q:"Pressure at depth h in a liquid: P =",opts:["A. mgh","B. ρgh","C. Fh","D. ρgA"],ans:"B",exp:"Liquid pressure P = ρgh, where ρ = density, g = gravitational acceleration (10m/s²), h = depth."},
+    {year:2019,q:"The quality/timbre of sound is determined by:",opts:["A. Frequency","B. Amplitude","C. Speed","D. Waveform/overtones"],ans:"D",exp:"Timbre (quality of sound) is determined by the waveform — the combination of fundamental frequency and overtones (harmonics)."},
+    {year:2018,q:"A concave lens always forms a ___ image.",opts:["A. Real and inverted","B. Virtual and enlarged","C. Virtual, upright and diminished","D. Real and upright"],ans:"C",exp:"A concave (diverging) lens always forms a virtual, upright, and diminished image — regardless of object position."},
+    {year:2018,q:"Gravitational force between two bodies is inversely proportional to the square of:",opts:["A. Their masses","B. Their distance apart","C. The gravitational constant","D. Their velocities"],ans:"B",exp:"Newton's Law of Gravitation: F = Gm₁m₂/r². Force is inversely proportional to r² (square of distance between centres)."},
+    {year:2017,q:"The SI unit of luminous intensity is the:",opts:["A. Lux","B. Candela","C. Lumen","D. Watt"],ans:"B",exp:"The Candela (cd) is the SI unit of luminous intensity. Lumen = luminous flux. Lux = illuminance (lumens per m²)."}
+  ],
+  economics: [
+    {year:2024,q:"Ceteris paribus means:",opts:["A. As fast as possible","B. Other things being equal","C. Supply equals demand","D. Maximum efficiency"],ans:"B",exp:"Ceteris paribus is Latin for 'all other things being equal' — used in economics to isolate the effect of one variable."},
+    {year:2024,q:"A demand curve typically slopes:",opts:["A. Upward to the right","B. Horizontal","C. Downward to the right","D. Vertical"],ans:"C",exp:"Demand curves slope downward to the right — showing the inverse relationship between price and quantity demanded (Law of Demand)."},
+    {year:2024,q:"In a perfectly competitive market:",opts:["A. Firms are price makers","B. Firms are price takers","C. There is one seller","D. Products are differentiated"],ans:"B",exp:"Perfect competition: many sellers, identical products, free entry/exit. No individual firm can influence price — all are price takers."},
+    {year:2024,q:"The multiplier effect means:",opts:["A. Money depreciates","B. An initial injection creates a larger total increase in income","C. Taxes reduce income","D. Interest rates fall"],ans:"B",exp:"The multiplier: an initial increase in spending leads to a larger increase in national income, due to successive rounds of spending."},
+    {year:2023,q:"Which is an example of a public good?",opts:["A. A private university","B. National defence","C. A restaurant","D. A hospital"],ans:"B",exp:"National defence is non-excludable (all benefit) and non-rival (one person's benefit doesn't reduce another's). A classic public good."},
+    {year:2023,q:"The production possibility frontier (PPF) shows:",opts:["A. Maximum output combinations with available resources","B. National income","C. Import/export balance","D. Unemployment levels"],ans:"A",exp:"The PPF shows all possible combinations of two goods an economy can produce with full employment of its current resources and technology."},
+    {year:2023,q:"Structural unemployment results from:",opts:["A. Economic recession","B. Seasonal changes","C. Fundamental changes in industry/technology","D. Workers changing jobs"],ans:"C",exp:"Structural unemployment: caused by technological change or industry decline making certain skills obsolete. Long-term and harder to solve."},
+    {year:2022,q:"A supply curve typically slopes:",opts:["A. Downward","B. Horizontal","C. Upward","D. Vertical"],ans:"C",exp:"Supply curves slope upward to the right — showing the direct relationship between price and quantity supplied (Law of Supply)."},
+    {year:2022,q:"Nationalisation means:",opts:["A. Selling public assets to private firms","B. Government takeover of private businesses","C. Lowering taxes","D. Increasing exports"],ans:"B",exp:"Nationalisation: transfer of ownership from private sector to government. Privatisation is the reverse."},
+    {year:2022,q:"Consumer price index (CPI) measures:",opts:["A. GDP growth","B. Changes in the general price level","C. Interest rates","D. Unemployment"],ans:"B",exp:"CPI measures changes in the price of a basket of typical consumer goods and services — the main measure of inflation."},
+    {year:2021,q:"An oligopoly is a market dominated by:",opts:["A. One firm","B. Two firms","C. A few large firms","D. Many small firms"],ans:"C",exp:"Oligopoly: a few large firms dominate the market. Examples: Nigeria's telecommunications (MTN, Airtel, Glo), banking sector."},
+    {year:2021,q:"Exchange rate appreciation means the currency:",opts:["A. Buys less foreign currency","B. Buys more foreign currency","C. Stays the same","D. Is devalued"],ans:"B",exp:"Currency appreciation: the naira buys more dollars (stronger). Makes imports cheaper and exports more expensive."},
+    {year:2021,q:"Which is NOT an instrument of monetary policy?",opts:["A. Interest rates","B. Reserve requirements","C. Government spending","D. Open market operations"],ans:"C",exp:"Government spending is a FISCAL policy tool. Monetary policy tools (CBN): interest rates, reserve requirements, open market operations."},
+    {year:2020,q:"Elastic demand means:",opts:["A. Quantity demanded changes little with price","B. Quantity demanded changes a lot with price","C. Demand is zero","D. Supply changes more than demand"],ans:"B",exp:"Elastic demand: PED > 1. A small price change causes a proportionally larger change in quantity demanded. Luxury goods tend to be elastic."},
+    {year:2020,q:"Foreign direct investment (FDI) is:",opts:["A. Short-term portfolio investment","B. Long-term investment in a foreign country's productive assets","C. Borrowing from the IMF","D. Remittances from abroad"],ans:"B",exp:"FDI: investment in productive assets (factories, businesses) in a foreign country — long-term, creates jobs and technology transfer."},
+    {year:2019,q:"Balance of payments surplus means:",opts:["A. Imports > Exports","B. Exports > Imports","C. Equal trade","D. No foreign exchange"],ans:"B",exp:"Balance of payments surplus: a country earns more from exports (and other receipts) than it spends on imports. Foreign reserves increase."},
+    {year:2019,q:"Fiscal policy involves the use of:",opts:["A. Interest rates","B. Exchange rates","C. Government taxation and spending","D. Money supply"],ans:"C",exp:"Fiscal policy: government decisions on taxation and public spending to influence the economy. Monetary policy uses interest rates."},
+    {year:2018,q:"The Law of Supply states that, all things being equal, higher prices lead to:",opts:["A. Lower quantity supplied","B. Higher quantity supplied","C. No change in supply","D. Lower demand"],ans:"B",exp:"Law of Supply: direct relationship between price and quantity supplied. Higher price = more profitable = more supplied."},
+    {year:2018,q:"Price elasticity of demand (PED) for necessities is:",opts:["A. Greater than 1","B. Less than 1 (inelastic)","C. Equal to 1","D. Infinity"],ans:"B",exp:"Necessities (food, water, medicine) have PED < 1 (inelastic). Quantity demanded changes proportionally less than price."},
+    {year:2017,q:"Mixed economy combines:",opts:["A. Agriculture and industry","B. Export and import","C. Private sector and government sector","D. Banking and manufacturing"],ans:"C",exp:"A mixed economy has both private enterprise (market) and government intervention. Nigeria, UK, USA are all mixed economies."}
+  ]
+};
+
+let currentSubject = 'english';
+let score = 0, total = 0;
+
+function renderQuestions() {
+  const data = UI_DATA[currentSubject] || [];
+  const container = document.getElementById('questionsContainer');
+  document.getElementById('qCount').textContent = data.length + ' questions';
+  container.innerHTML = data.map((q, i) => `
+    <div class="question-card" id="qc-${i}">
+      <div class="q-meta">
+        <span class="q-num">Q${i+1}</span>
+        <span class="q-year">UI ${q.year}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((opt, oi) => {
+          const letter = ['A','B','C','D'][oi];
+          return `<button class="option-btn" onclick="checkAnswer(this,'${letter}','${q.ans}',${i},'${q.exp.replace(/'/g,"\\'")}')">
+            <span class="opt-letter">${letter}</span>${opt.replace(/^[A-D]\.\s*/,'')}
+          </button>`;
+        }).join('')}
+      </div>
+      <div class="explanation" id="exp-${i}"></div>
+    </div>
+  `).join('');
+}
+
+function checkAnswer(btn, selected, correct, idx, exp) {
+  const card = document.getElementById(`qc-${idx}`);
+  card.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+  if (selected === correct) {
+    btn.classList.add('correct'); score++; total++;
+    window.showToast && showToast('✅ Correct!');
+  } else {
+    btn.classList.add('wrong'); total++;
+    card.querySelectorAll('.option-btn').forEach(b => {
+      if (b.querySelector('.opt-letter').textContent.trim() === correct) b.classList.add('correct');
+    });
+    window.showToast && showToast('❌ Incorrect — see explanation.');
+  }
+  const expDiv = document.getElementById(`exp-${idx}`);
+  expDiv.innerHTML = '<strong>✏️ Explanation:</strong> ' + exp;
+  expDiv.classList.add('show');
+  document.getElementById('scoreNum').textContent = score + '/' + total;
+}
+
+function resetScore() {
+  score = 0; total = 0;
+  document.getElementById('scoreNum').textContent = '0/0';
+  window.showToast && showToast('🔄 Score reset!');
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    currentSubject = this.getAttribute('data-subject');
+    document.getElementById('qTitle').textContent = this.textContent;
+    renderQuestions();
+  });
+});
+
+renderQuestions();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/supabase.js"></script>
+<script src="/js/shared-layout.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1D4ED8">
+  <title>UNN Post-UTME Past Questions 2015–2024 | ExamBuddy Nigeria</title>
+  <meta name="description" content="Practice University of Nigeria Nsukka (UNN) Post-UTME past questions online. English, Mathematics, Biology, Chemistry, Physics, Economics. Free with instant answers.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="ExamBuddy Nigeria">
+  <link rel="canonical" href="https://exambuddy.ng/pq-unn/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ExamBuddy Nigeria">
+  <meta property="og:url" content="https://exambuddy.ng/pq-unn/">
+  <meta property="og:title" content="UNN Post-UTME Past Questions 2015–2024 | ExamBuddy Nigeria">
+  <meta property="og:description" content="Practice University of Nigeria Nsukka Post-UTME past questions free. Instant answers and explanations.">
+  <meta property="og:image" content="https://exambuddy.ng/images/og-cover.png">
+  <meta property="og:locale" content="en_NG">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UNN Post-UTME Past Questions | ExamBuddy Nigeria">
+  <meta name="twitter:description" content="Practice UNN Post-UTME past questions free online. Instant answers.">
+  <meta name="twitter:image" content="https://exambuddy.ng/images/og-cover.png">
+  <link rel="icon" href="/images/favicon image.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <style>
+    .uni-hero{background:linear-gradient(135deg,#1E3A5F,#1D4ED8 60%,#3B82F6);padding:56px 0 40px}
+    .uni-hero h1{color:#fff;font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:10px}
+    .uni-hero p{color:rgba(255,255,255,.85);max-width:560px;font-size:1rem}
+    .quiz-shell{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start}
+    .quiz-sidebar{position:sticky;top:88px;background:#fff;border:1px solid #E2E8F0;border-radius:18px;overflow:hidden}
+    .sidebar-section{padding:18px;border-bottom:1px solid #E2E8F0}
+    .sidebar-section:last-child{border-bottom:none}
+    .sidebar-section h4{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#94A3B8;margin-bottom:10px}
+    .filter-btn{display:block;width:100%;text-align:left;padding:8px 12px;border-radius:8px;font-size:.87rem;font-weight:600;color:#475569;cursor:pointer;transition:all .18s;border:none;background:none;font-family:inherit}
+    .filter-btn:hover{background:#EFF6FF;color:#1D4ED8}
+    .filter-btn.active{background:#1D4ED8;color:#fff}
+    .score-box{background:linear-gradient(135deg,#1E3A5F,#1D4ED8);border-radius:12px;padding:18px;text-align:center;color:#fff}
+    .score-box .s-num{font-size:2rem;font-weight:800;color:#93C5FD}
+    .score-box .s-lbl{font-size:.75rem;color:rgba(255,255,255,.65);margin-top:2px}
+    .question-card{background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:24px;margin-bottom:20px;transition:box-shadow .2s}
+    .question-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08)}
+    .q-meta{display:flex;gap:8px;margin-bottom:14px}
+    .q-num{font-size:.73rem;font-weight:800;color:#94A3B8;background:#F1F5F9;padding:3px 9px;border-radius:5px}
+    .q-year{font-size:.73rem;font-weight:700;color:#1D4ED8;background:rgba(29,78,216,.1);padding:3px 9px;border-radius:5px}
+    .q-text{font-size:.97rem;color:#0A2463;font-weight:500;line-height:1.65;margin-bottom:18px}
+    .options{display:flex;flex-direction:column;gap:9px}
+    .option-btn{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:11px;border:2px solid #E2E8F0;background:#fff;cursor:pointer;font-size:.91rem;color:#1E293B;font-family:inherit;text-align:left;transition:all .18s;font-weight:500;width:100%}
+    .option-btn:hover:not(:disabled){border-color:#1D4ED8;background:rgba(29,78,216,.04)}
+    .option-btn .opt-letter{width:26px;height:26px;border-radius:50%;background:#F1F5F9;color:#1E3A5F;font-weight:800;font-size:.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .option-btn.correct{border-color:#059669;background:rgba(5,150,105,.07)}
+    .option-btn.correct .opt-letter{background:#059669;color:#fff}
+    .option-btn.wrong{border-color:#EF4444;background:rgba(239,68,68,.07)}
+    .option-btn.wrong .opt-letter{background:#EF4444;color:#fff}
+    .option-btn:disabled{cursor:default}
+    .explanation{margin-top:14px;padding:12px 16px;background:rgba(5,150,105,.07);border-left:4px solid #059669;border-radius:0 9px 9px 0;font-size:.86rem;color:#475569;display:none}
+    .explanation.show{display:block}
+    .q-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:10px}
+    .q-header h2{font-size:1.3rem;color:#1E3A5F}
+    .q-count{font-size:.83rem;color:#64748B;background:#F1F5F9;padding:5px 12px;border-radius:999px}
+    @media(max-width:860px){.quiz-shell{grid-template-columns:1fr}.quiz-sidebar{position:static}}
+  </style>
+</head>
+<body>
+<div id="nav-root"></div>
+
+<div class="breadcrumb">
+  <div class="container breadcrumb__inner">
+    <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+    <a href="/past-questions/">Past Questions</a><span class="breadcrumb__sep">›</span>
+    <span>UNN Post-UTME</span>
+  </div>
+</div>
+
+<section class="uni-hero">
+  <div class="container">
+    <span class="label label--white">🦁 University of Nigeria, Nsukka</span>
+    <h1>UNN Post-UTME Past Questions</h1>
+    <p>Practice authentic UNN screening questions. Click any answer for instant feedback and a detailed explanation.</p>
+    <div class="badge-row" style="margin-top:16px;">
+      <span class="badge">📚 6 Subjects</span>
+      <span class="badge">✅ 2015–2024</span>
+      <span class="badge">💡 Instant Answers</span>
+      <span class="badge">🆓 Free</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="quiz-shell">
+      <div class="quiz-sidebar">
+        <div class="sidebar-section">
+          <h4>Subject</h4>
+          <button class="filter-btn active" data-subject="english">English Language</button>
+          <button class="filter-btn" data-subject="mathematics">Mathematics</button>
+          <button class="filter-btn" data-subject="biology">Biology</button>
+          <button class="filter-btn" data-subject="chemistry">Chemistry</button>
+          <button class="filter-btn" data-subject="physics">Physics</button>
+          <button class="filter-btn" data-subject="economics">Economics</button>
+        </div>
+        <div class="sidebar-section">
+          <div class="score-box">
+            <div class="s-num" id="scoreNum">0/0</div>
+            <div class="s-lbl">Your Score</div>
+          </div>
+          <button class="btn btn--outline btn--sm btn--full" style="margin-top:10px;" onclick="resetScore()">Reset Score</button>
+        </div>
+        <div class="sidebar-section">
+          <p style="font-size:.8rem;color:#64748B;line-height:1.6;">UNN cut-offs: General <strong>180</strong>. Medicine: <strong>260+</strong>. Law: <strong>230+</strong>. Engineering: <strong>220+</strong>.</p>
+          <a href="/cutoff-marks/" class="btn btn--outline btn--sm btn--full" style="margin-top:10px;">View All Cut-offs →</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="q-header">
+          <h2 id="qTitle">English Language</h2>
+          <span class="q-count" id="qCount">Loading...</span>
+        </div>
+        <div id="questionsContainer"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="text-center mb-48"><h2 class="section-title">About UNN Post-UTME</h2></div>
+    <div class="cards-grid cards-grid--2">
+      <div class="exam-card">
+        <div class="exam-card__icon">📋</div>
+        <h3>Screening Format</h3>
+        <p>UNN conducts a Computer Based Test. 50 questions from your JAMB subjects, 30–45 minutes. Questions are objective and test conceptual understanding across all subjects.</p>
+      </div>
+      <div class="exam-card">
+        <div class="exam-card__icon">📊</div>
+        <h3>Aggregate Score</h3>
+        <p>UNN weighs JAMB score, Post-UTME score, and O'Level results. All three components contribute to your admission ranking. Aim for 180+ JAMB and 60%+ in Post-UTME.</p>
+      </div>
+      <div class="exam-card">
+        <div class="exam-card__icon">🎯</div>
+        <h3>Preparation Strategy</h3>
+        <p>UNN questions are well-structured. Practise your 4 JAMB subjects deeply. Past questions patterns show a focus on applied knowledge and multi-step problems.</p>
+      </div>
+      <div class="exam-card">
+        <div class="exam-card__icon">🔗</div>
+        <h3>Official Portal</h3>
+        <p>Check registration dates, print exam slips and view admission status on the UNN portal.</p>
+        <a href="https://www.unn.edu.ng" target="_blank" rel="noopener" class="btn btn--outline btn--sm" style="margin-top:12px;">Visit UNN Portal →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container cta-strip__inner">
+    <h2>Explore More University Past Questions</h2>
+    <div class="cta-strip__btns">
+      <a href="/pq-abu/" class="btn btn--primary btn--lg">ABU Questions</a>
+      <a href="/pq-unilag/" class="btn btn--outline-white btn--lg">UNILAG Questions</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script>
+const UNN_DATA = {
+  english:[
+    {year:2024,q:"Choose the word nearest in meaning to AMELIORATE.",opts:["A. Worsen","B. Improve","C. Ignore","D. Destroy"],ans:"B",exp:"AMELIORATE means to make something bad better or more tolerable — to improve. Antonym: aggravate, worsen."},
+    {year:2024,q:"Select the option with correct subject-verb agreement: 'Each of the boys ___ a book.'",opts:["A. have","B. has","C. are having","D. were having"],ans:"B",exp:"'Each' is singular and always takes a singular verb. 'Each of the boys HAS a book.' This is a common exam trap."},
+    {year:2024,q:"'To throw caution to the wind' means:",opts:["A. To be very careful","B. To act recklessly","C. To study hard","D. To be generous"],ans:"B",exp:"This idiom means to stop being careful or cautious and act recklessly or impulsively."},
+    {year:2024,q:"The figure of speech in 'Peter Piper picked a peck of pickled peppers' is:",opts:["A. Assonance","B. Alliteration","C. Rhyme","D. Onomatopoeia"],ans:"B",exp:"Alliteration is the repetition of the same initial consonant sound. All major words start with 'P'."},
+    {year:2023,q:"TACITURN means:",opts:["A. Very talkative","B. Reserved and saying little","C. Very intelligent","D. Easily angered"],ans:"B",exp:"TACITURN means reserved, uncommunicative, saying very little. Antonym: loquacious, garrulous, verbose."},
+    {year:2023,q:"Identify the correct passive voice: 'The manager approved the proposal.'",opts:["A. The proposal was approved by the manager.","B. The proposal is approved by the manager.","C. The proposal approved the manager.","D. The manager was approved the proposal."],ans:"A",exp:"Past passive: was/were + past participle. 'The proposal WAS APPROVED by the manager' is correct past passive."},
+    {year:2023,q:"'He kicked the bucket' means:",opts:["A. He broke a bucket","B. He died","C. He was angry","D. He worked hard"],ans:"B",exp:"'Kick the bucket' is an idiom meaning to die. It is a euphemistic expression used humorously."},
+    {year:2022,q:"Choose the sentence that correctly uses a semicolon.",opts:["A. She studies hard; but fails.","B. She studies hard; she always passes.","C. She studies; and passes.","D. She studies hard; although she is tired."],ans:"B",exp:"Semicolons join two related INDEPENDENT clauses. Both 'She studies hard' and 'she always passes' are complete independent clauses."},
+    {year:2022,q:"The word GREGARIOUS means:",opts:["A. Shy and withdrawn","B. Fond of company, sociable","C. Aggressive","D. Hardworking"],ans:"B",exp:"GREGARIOUS means liking the company of others — sociable, outgoing. From Latin 'grex' (flock/herd)."},
+    {year:2022,q:"Which sentence contains a gerund?",opts:["A. She is running fast.","B. Running is good for health.","C. The running water is clean.","D. He ran quickly."],ans:"B",exp:"In B, 'Running' is a gerund — a verb acting as the SUBJECT of the sentence (a noun). In A, it is a present participle."},
+    {year:2021,q:"DIDACTIC means:",opts:["A. Intended to entertain","B. Intended to teach or instruct","C. Very confusing","D. Very emotional"],ans:"B",exp:"DIDACTIC means designed to teach, especially morally. Didactic literature aims to instruct as well as entertain."},
+    {year:2021,q:"The rhetorical device in 'To be or not to be, that is the question' is:",opts:["A. Alliteration","B. Hyperbole","C. Antithesis","D. Personification"],ans:"C",exp:"Antithesis places contrasting ideas side by side: 'to be' vs 'not to be'. Creates emphasis through direct contrast."},
+    {year:2021,q:"Choose the correct form: 'She ___ here since morning.'",opts:["A. is","B. was","C. has been","D. had been"],ans:"C",exp:"'Since morning' signals present perfect continuous. 'Has been' shows an action that started in the past and continues to now."},
+    {year:2020,q:"SARDONIC most nearly means:",opts:["A. Friendly","B. Grimly mocking or cynical","C. Honest","D. Generous"],ans:"B",exp:"SARDONIC means grimly mocking, cynical, or scornfully humorous. Example: 'a sardonic smile'."},
+    {year:2020,q:"Which word is incorrectly used: 'The affect of the medicine was immediate.'",opts:["A. affect should be effect","B. immediate is wrong","C. was should be were","D. medicine should be drug"],ans:"A",exp:"'Effect' (noun) = result/outcome. 'Affect' (verb) = to influence. 'The EFFECT of the medicine was immediate' is correct."},
+    {year:2019,q:"Identify the noun clause: 'What she said surprised everyone.'",opts:["A. What she said","B. Surprised everyone","C. She said","D. Everyone"],ans:"A",exp:"'What she said' functions as the SUBJECT of the sentence — acting as a noun. Noun clauses can be subjects, objects, or complements."},
+    {year:2019,q:"OBDURATE means:",opts:["A. Flexible and open to change","B. Stubbornly refusing to change","C. Very generous","D. Easily influenced"],ans:"B",exp:"OBDURATE means stubbornly refusing to change one's opinion or course of action. Synonyms: intransigent, unyielding, intractable."},
+    {year:2018,q:"Choose the correctly punctuated sentence.",opts:["A. \"Stop\" she said \"or I will call the police.\"","B. \"Stop,\" she said, \"or I will call the police.\"","C. \"Stop\" she said, \"or I will call the police\"","D. Stop, she said or I will call the police."],ans:"B",exp:"Interrupted direct speech: comma after first quote, comma before resuming. Both parts enclosed in quotation marks. B is correct."},
+    {year:2018,q:"The word EPHEMERAL is most similar to:",opts:["A. Permanent","B. Ancient","C. Fleeting","D. Enormous"],ans:"C",exp:"EPHEMERAL means lasting a very short time — fleeting, transient. Antonyms: permanent, eternal, enduring."},
+    {year:2017,q:"Which sentence uses 'fewer' correctly?",opts:["A. There is fewer water in the tank.","B. I have fewer money than before.","C. She made fewer mistakes this time.","D. He has fewer information."],ans:"C",exp:"'Fewer' is for countable nouns (mistakes, students). 'Less' is for uncountable nouns (water, money, information)."}
+  ],
+  mathematics:[
+    {year:2024,q:"Find the next term: 1, 4, 9, 16, 25, ___",opts:["A. 30","B. 34","C. 36","D. 49"],ans:"C",exp:"The sequence is perfect squares: 1²=1, 2²=4, 3²=9, 4²=16, 5²=25, 6²=36."},
+    {year:2024,q:"Simplify: (2x²y)(3xy³)",opts:["A. 5x³y⁴","B. 6x³y⁴","C. 6x²y⁴","D. 5x²y³"],ans:"B",exp:"Multiply coefficients: 2×3=6. Add indices: x²×x=x³, y×y³=y⁴. Answer: 6x³y⁴."},
+    {year:2024,q:"If 20% of x = 50, find x.",opts:["A. 200","B. 250","C. 300","D. 400"],ans:"B",exp:"0.20 × x = 50 → x = 50 ÷ 0.20 = 250."},
+    {year:2024,q:"The angle in a semicircle equals:",opts:["A. 45°","B. 60°","C. 90°","D. 180°"],ans:"C",exp:"Thales' Theorem: any angle inscribed in a semicircle (subtended by the diameter) is exactly 90°."},
+    {year:2023,q:"Solve: 2x + 3y = 12 and x = 3. Find y.",opts:["A. 1","B. 2","C. 3","D. 4"],ans:"B",exp:"Substitute x=3: 2(3)+3y=12 → 6+3y=12 → 3y=6 → y=2."},
+    {year:2023,q:"Find the area of a trapezium with parallel sides 6cm and 10cm and height 4cm.",opts:["A. 24cm²","B. 32cm²","C. 40cm²","D. 48cm²"],ans:"B",exp:"Area = ½(a+b)×h = ½(6+10)×4 = ½×16×4 = 32cm²."},
+    {year:2023,q:"Express 45 minutes as a fraction of 3 hours.",opts:["A. 1/3","B. 1/4","C. 3/4","D. 1/2"],ans:"B",exp:"3 hours = 180 minutes. 45/180 = 1/4."},
+    {year:2022,q:"What is the range of: 3, 8, 5, 12, 1, 9?",opts:["A. 9","B. 10","C. 11","D. 12"],ans:"C",exp:"Range = Maximum − Minimum = 12 − 1 = 11."},
+    {year:2022,q:"Factorise: 2x² + 5x + 3",opts:["A. (2x+1)(x+3)","B. (2x+3)(x+1)","C. (x+1)(2x+3)","D. Both B and C"],ans:"D",exp:"(2x+3)(x+1): 2x²+2x+3x+3=2x²+5x+3 ✓. B and C are the same expression written differently."},
+    {year:2022,q:"If sin θ = 3/5, find cos θ.",opts:["A. 3/4","B. 4/5","C. 4/3","D. 5/3"],ans:"B",exp:"Using Pythagoras: opposite=3, hypotenuse=5, adjacent=√(25−9)=4. cos θ = adjacent/hypotenuse = 4/5."},
+    {year:2021,q:"Evaluate: 4! + 3! − 2!",opts:["A. 26","B. 28","C. 30","D. 32"],ans:"B",exp:"4!=24, 3!=6, 2!=2. 24+6−2=28."},
+    {year:2021,q:"The sum of the first 10 natural numbers is:",opts:["A. 45","B. 50","C. 55","D. 60"],ans:"C",exp:"Sum = n(n+1)/2 = 10(11)/2 = 55."},
+    {year:2021,q:"If 3^x = 27^2, find x.",opts:["A. 2","B. 3","C. 6","D. 9"],ans:"C",exp:"27²=(3³)²=3⁶. So 3^x=3⁶ → x=6."},
+    {year:2020,q:"Two angles of a triangle are 65° and 45°. Find the third.",opts:["A. 60°","B. 70°","C. 80°","D. 90°"],ans:"B",exp:"Sum of angles = 180°. Third angle = 180°−65°−45° = 70°."},
+    {year:2020,q:"The gradient of a horizontal line is:",opts:["A. 1","B. −1","C. Undefined","D. 0"],ans:"D",exp:"A horizontal line has zero gradient (slope = 0). A vertical line has undefined gradient."},
+    {year:2019,q:"Simplify: √75 + √48 − √27",opts:["A. 6√3","B. 5√3","C. 4√3","D. 7√3"],ans:"A",exp:"√75=5√3, √48=4√3, √27=3√3. Total: 5√3+4√3−3√3 = 6√3."},
+    {year:2019,q:"A man earns ₦2,400/month. He spends 60% and saves the rest. Monthly savings =",opts:["A. ₦720","B. ₦960","C. ₦1,440","D. ₦1,200"],ans:"B",exp:"Saves 40%. 0.40 × 2,400 = ₦960."},
+    {year:2018,q:"Find x: log₃(x) = 4",opts:["A. 12","B. 64","C. 81","D. 27"],ans:"C",exp:"log₃(x)=4 means 3⁴=x. 3⁴=81."},
+    {year:2018,q:"The volume of a sphere with radius 3cm (π=22/7) is:",opts:["A. 88cm³","B. 113cm³","C. 176/3 cm³","D. 113.1cm³"],ans:"B",exp:"V=4/3πr³=4/3×(22/7)×27=4×22×27/21=2376/21≈113.1cm³≈113cm³."},
+    {year:2017,q:"Two dice are thrown. P(both show 6) =",opts:["A. 1/6","B. 1/12","C. 1/36","D. 1/18"],ans:"C",exp:"P(6 on die 1)=1/6. P(6 on die 2)=1/6. P(both)=1/6×1/6=1/36."}
+  ],
+  biology:[
+    {year:2024,q:"The process of cell division that produces gametes is:",opts:["A. Mitosis","B. Binary fission","C. Meiosis","D. Budding"],ans:"C",exp:"Meiosis produces haploid gametes (sex cells). Mitosis produces identical diploid daughter cells for growth and repair."},
+    {year:2024,q:"Haemoglobin contains which metal ion?",opts:["A. Copper","B. Zinc","C. Iron","D. Magnesium"],ans:"C",exp:"Haemoglobin contains iron (Fe²⁺) in its haem group. Iron binds oxygen. Iron deficiency causes anaemia."},
+    {year:2024,q:"Which vitamin prevents scurvy?",opts:["A. Vitamin A","B. Vitamin B","C. Vitamin C","D. Vitamin D"],ans:"C",exp:"Vitamin C (ascorbic acid) deficiency causes scurvy — bleeding gums, poor wound healing. Found in citrus fruits."},
+    {year:2023,q:"The powerhouse of the cell is the:",opts:["A. Nucleus","B. Ribosome","C. Mitochondria","D. Chloroplast"],ans:"C",exp:"Mitochondria produces ATP through cellular respiration. Called the 'powerhouse of the cell'."},
+    {year:2023,q:"Which part of the ear maintains balance?",opts:["A. Cochlea","B. Eardrum","C. Semicircular canals","D. Ossicles"],ans:"C",exp:"The semicircular canals (part of the inner ear) detect rotational movement and help maintain balance."},
+    {year:2023,q:"Fungi reproduce by:",opts:["A. Seeds","B. Spores","C. Eggs","D. Binary fission"],ans:"B",exp:"Fungi reproduce asexually by spores. They may also reproduce sexually. Unlike plants, they do not use seeds."},
+    {year:2022,q:"The raw materials for photosynthesis are:",opts:["A. Oxygen and glucose","B. Water and oxygen","C. Carbon dioxide and water","D. Glucose and CO₂"],ans:"C",exp:"Photosynthesis: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂. Reactants (inputs): CO₂ and water."},
+    {year:2022,q:"Blood pressure is measured in:",opts:["A. Joules","B. Pascals","C. mmHg (millimetres of mercury)","D. Watts"],ans:"C",exp:"Blood pressure is measured in mmHg. Normal adult BP ≈ 120/80 mmHg (systolic/diastolic)."},
+    {year:2022,q:"Which is a monocot plant?",opts:["A. Mango","B. Maize","C. Cassava","D. Tomato"],ans:"B",exp:"Maize (corn) is a monocot — one seed leaf, parallel leaf veins, fibrous roots. Dicots (like mango, cassava) have two seed leaves."},
+    {year:2021,q:"The site of protein synthesis is the:",opts:["A. Nucleus","B. Mitochondria","C. Ribosome","D. Golgi apparatus"],ans:"C",exp:"Ribosomes are the cellular machinery for protein synthesis (translation). They can be free in cytoplasm or attached to rough ER."},
+    {year:2021,q:"Pasteurisation is used to:",opts:["A. Freeze food","B. Kill harmful microorganisms in food","C. Add nutrients to food","D. Ferment food"],ans:"B",exp:"Pasteurisation (Louis Pasteur): heating food (especially milk) to a specific temperature to kill harmful bacteria without affecting flavour significantly."},
+    {year:2021,q:"The enzyme pepsin digests proteins in the:",opts:["A. Mouth","B. Small intestine","C. Stomach","D. Large intestine"],ans:"C",exp:"Pepsin is secreted by the stomach lining. It works at acid pH (pH 1.5–3.5) and breaks proteins into peptides."},
+    {year:2020,q:"Phototropism in plants is a response to:",opts:["A. Gravity","B. Water","C. Light","D. Touch"],ans:"C",exp:"Phototropism: growth response to light. Stems grow TOWARDS light (positive phototropism). Roots grow AWAY from light (negative)."},
+    {year:2020,q:"Which is NOT a function of the skeleton?",opts:["A. Support","B. Protection","C. Digestion","D. Blood cell production"],ans:"C",exp:"Skeletal functions: support, protection (organs), movement (with muscles), blood cell production (bone marrow), mineral storage. NOT digestion."},
+    {year:2019,q:"The study of insects is called:",opts:["A. Entomology","B. Ornithology","C. Ichthyology","D. Herpetology"],ans:"A",exp:"Entomology = study of insects. Ornithology = birds. Ichthyology = fish. Herpetology = reptiles and amphibians."},
+    {year:2019,q:"Antibiotics are effective against:",opts:["A. Viruses","B. Fungi","C. Bacteria","D. Protozoa"],ans:"C",exp:"Antibiotics kill or inhibit bacteria. They are NOT effective against viruses (use antivirals) or fungi (use antifungals)."},
+    {year:2018,q:"The process of water loss from plant leaves is:",opts:["A. Respiration","B. Photosynthesis","C. Transpiration","D. Translocation"],ans:"C",exp:"Transpiration: loss of water vapour through stomata. Drives water uptake from roots (transpiration stream)."},
+    {year:2018,q:"In humans, the sex of offspring is determined by:",opts:["A. The mother","B. The father","C. Both parents equally","D. Environmental temperature"],ans:"B",exp:"Sex is determined by the father's sperm. Sperm carries either X (→ girl, XX) or Y (→ boy, XY) chromosome. All eggs carry X."},
+    {year:2017,q:"The pigment responsible for skin colour in humans is:",opts:["A. Chlorophyll","B. Haemoglobin","C. Melanin","D. Carotene"],ans:"C",exp:"Melanin is produced by melanocytes in the skin. More melanin = darker skin. Also protects against UV radiation."},
+    {year:2017,q:"Which of the following is an example of symbiosis?",opts:["A. Lichen (alga + fungus)","B. Bacteria causing disease","C. A snake eating a frog","D. Vultures feeding on carcasses"],ans:"A",exp:"Lichen is a mutualistic symbiosis: alga photosynthesises (provides food), fungus provides structure/moisture. Both benefit."}
+  ],
+  chemistry:[
+    {year:2024,q:"The periodic table was arranged by:",opts:["A. Atomic mass only","B. Increasing atomic number","C. Alphabetical order","D. Reactivity"],ans:"B",exp:"The modern periodic table (based on Moseley's work) arranges elements by increasing atomic number (number of protons)."},
+    {year:2024,q:"Alkenes undergo what type of reactions?",opts:["A. Substitution","B. Addition","C. Elimination","D. Decomposition"],ans:"B",exp:"Alkenes contain a C=C double bond. They undergo addition reactions — other atoms add across the double bond."},
+    {year:2024,q:"The formula for sulphuric acid is:",opts:["A. HCl","B. H₂SO₃","C. H₂SO₄","D. H₂S"],ans:"C",exp:"Sulphuric acid = H₂SO₄. HCl = hydrochloric acid. H₂SO₃ = sulphurous acid. H₂S = hydrogen sulphide (gas)."},
+    {year:2023,q:"Which gas has the smell of rotten eggs?",opts:["A. CO₂","B. SO₂","C. H₂S","D. NH₃"],ans:"C",exp:"Hydrogen sulphide (H₂S) has a characteristic rotten egg smell. It is toxic even in small concentrations."},
+    {year:2023,q:"The empirical formula of glucose (C₆H₁₂O₆) is:",opts:["A. C₆H₁₂O₆","B. CH₂O","C. C₂H₄O₂","D. CH₄O"],ans:"B",exp:"Empirical formula = simplest whole number ratio. C:H:O = 6:12:6 = 1:2:1 → CH₂O."},
+    {year:2023,q:"A solution with pH 3 is how many times more acidic than pH 5?",opts:["A. 2 times","B. 10 times","C. 100 times","D. 1000 times"],ans:"C",exp:"The pH scale is logarithmic. Each unit difference = 10× change. pH 3 vs pH 5 = 2 units = 10² = 100 times more acidic."},
+    {year:2022,q:"Which of the following is a reducing agent in the thermite reaction?",opts:["A. Iron oxide","B. Aluminium","C. Iron","D. Oxygen"],ans:"B",exp:"Thermite: 2Al + Fe₂O₃ → Al₂O₃ + 2Fe. Aluminium is oxidised (loses electrons) → it is the reducing agent."},
+    {year:2022,q:"The noble gases are chemically inert because they have:",opts:["A. High atomic mass","B. Full outer electron shells","C. Many electrons","D. Low boiling points"],ans:"B",exp:"Noble gases have completely filled outer shells (He=2, others=8). No tendency to gain or lose electrons → unreactive."},
+    {year:2022,q:"Galvanisation involves coating iron with:",opts:["A. Tin","B. Copper","C. Zinc","D. Aluminium"],ans:"C",exp:"Galvanisation: coating iron/steel with zinc to prevent rusting. Zinc acts as a sacrificial anode (corrodes first, protecting iron)."},
+    {year:2021,q:"Which of the following is a polymer?",opts:["A. Glucose","B. Ethanol","C. Nylon","D. NaCl"],ans:"C",exp:"Nylon is a synthetic polymer (polyamide). Polymers are large molecules made of repeating monomer units."},
+    {year:2021,q:"Titration is used to find:",opts:["A. The pH of a solution","B. The concentration of an unknown solution","C. The boiling point of a liquid","D. The density of a solid"],ans:"B",exp:"Acid-base titration: adding a solution of known concentration (standard solution) to an unknown to determine the unknown's concentration at the equivalence point."},
+    {year:2021,q:"A salt bridge in an electrochemical cell maintains:",opts:["A. Current flow","B. Electrical charge balance (electrical neutrality)","C. Temperature","D. Pressure"],ans:"B",exp:"The salt bridge allows ion flow between half-cells to maintain electrical neutrality, preventing charge build-up that would stop the reaction."},
+    {year:2020,q:"Identify the type of reaction: 2H₂ + O₂ → 2H₂O",opts:["A. Decomposition","B. Displacement","C. Combination/Synthesis","D. Precipitation"],ans:"C",exp:"Combination (synthesis): two or more substances combine to form a single product. 2H₂ + O₂ → 2H₂O."},
+    {year:2020,q:"In the reaction Cu + 2AgNO₃ → Cu(NO₃)₂ + 2Ag, copper is:",opts:["A. Reduced","B. Oxidised","C. Both reduced and oxidised","D. Neither"],ans:"B",exp:"Cu → Cu²⁺: copper loses 2 electrons → oxidised. Silver ions gain electrons → reduced. Cu is the reducing agent."},
+    {year:2019,q:"Charles' Law states: at constant pressure, volume is ___ proportional to temperature.",opts:["A. Inversely","B. Directly","C. Not","D. Exponentially"],ans:"B",exp:"Charles' Law: V/T = constant (at constant pressure). Volume is directly proportional to absolute temperature (in Kelvin)."},
+    {year:2019,q:"Which is NOT a property of acids?",opts:["A. Turns litmus red","B. Has pH less than 7","C. Neutralises bases","D. Feels slippery"],ans:"D",exp:"Feeling slippery is a property of bases/alkalis (e.g. NaOH). Acids: turn litmus red, pH<7, neutralise bases, react with metals."},
+    {year:2018,q:"The process of producing electricity from chemical reactions is:",opts:["A. Electrolysis","B. Galvanic/electrochemical cell action","C. Nuclear fission","D. Combustion"],ans:"B",exp:"A galvanic (voltaic/electrochemical) cell converts chemical energy to electrical energy via spontaneous redox reactions."},
+    {year:2018,q:"Ethene (C₂H₄) reacts with Br₂ to form:",opts:["A. C₂H₄Br₂","B. C₂H₅Br","C. C₂H₄ + 2Br","D. 2CHBr₂"],ans:"A",exp:"Addition reaction: C₂H₄ + Br₂ → C₂H₄Br₂ (1,2-dibromoethane). The bromine adds across the C=C double bond, decolourising bromine water."},
+    {year:2017,q:"The first element in the periodic table is:",opts:["A. Helium","B. Lithium","C. Hydrogen","D. Carbon"],ans:"C",exp:"Hydrogen (H) is element 1 — atomic number 1, the lightest element. Helium is element 2."},
+    {year:2017,q:"Delocalised electrons in metals are responsible for:",opts:["A. Brittleness","B. High melting point only","C. Electrical conductivity and malleability","D. Reactivity with water"],ans:"C",exp:"In metals, 'sea of delocalised electrons' enables: electrical conductivity (electrons move freely) and malleability (layers slide, electrons re-bond)."}
+  ],
+  physics:[
+    {year:2024,q:"The unit of frequency is:",opts:["A. Seconds","B. Hertz","C. Newtons","D. Joules"],ans:"B",exp:"Frequency is measured in Hertz (Hz). 1 Hz = 1 cycle per second. Named after Heinrich Hertz."},
+    {year:2024,q:"A ball is dropped from 20m height (g=10m/s²). Its velocity just before hitting the ground is:",opts:["A. 10 m/s","B. 15 m/s","C. 20 m/s","D. 25 m/s"],ans:"C",exp:"v²=u²+2as=0+2(10)(20)=400 → v=√400=20 m/s."},
+    {year:2024,q:"Ohm's Law: if voltage doubles and resistance stays constant, current:",opts:["A. Halves","B. Stays the same","C. Doubles","D. Quadruples"],ans:"C",exp:"V=IR → I=V/R. If V doubles and R is constant, I doubles. Direct proportionality between V and I."},
+    {year:2023,q:"Which type of radiation has the greatest penetrating power?",opts:["A. Alpha","B. Beta","C. Gamma","D. X-rays"],ans:"C",exp:"Gamma rays have the greatest penetrating power — can penetrate several cm of lead or metres of concrete. Alpha has least penetrating power."},
+    {year:2023,q:"The lens formula is: 1/f = 1/v +",opts:["A. 1/m","B. 1/u","C. 1/r","D. v/u"],ans:"B",exp:"Lens formula: 1/f = 1/v + 1/u, where f=focal length, v=image distance, u=object distance."},
+    {year:2023,q:"The SI unit of magnetic flux density is:",opts:["A. Weber","B. Tesla","C. Ampere","D. Henry"],ans:"B",exp:"Magnetic flux density (B) is measured in Tesla (T). Magnetic flux is in Weber (Wb). B = Φ/A."},
+    {year:2022,q:"A wave has speed 340 m/s and frequency 170 Hz. Its wavelength is:",opts:["A. 0.5 m","B. 2 m","C. 57,800 m","D. 170 m"],ans:"B",exp:"v=fλ → λ=v/f=340/170=2 m."},
+    {year:2022,q:"Boyle's Law states: at constant temperature, pressure is ___ proportional to volume.",opts:["A. Directly","B. Inversely","C. Not","D. Exponentially"],ans:"B",exp:"Boyle's Law: PV=constant. At constant temperature, pressure and volume are INVERSELY proportional. P₁V₁=P₂V₂."},
+    {year:2022,q:"The force between two charges is given by:",opts:["A. F = ma","B. F = qvB","C. F = kq₁q₂/r²","D. F = ρgh"],ans:"C",exp:"Coulomb's Law: F = kq₁q₂/r². Force between charges is proportional to the product of charges and inversely proportional to distance squared."},
+    {year:2021,q:"The device that measures potential difference is a:",opts:["A. Ammeter","B. Galvanometer","C. Voltmeter","D. Thermometer"],ans:"C",exp:"A voltmeter measures potential difference (voltage). It is connected in PARALLEL. An ammeter measures current and is connected in series."},
+    {year:2021,q:"Critical angle is the angle of incidence when the angle of refraction is:",opts:["A. 0°","B. 45°","C. 90°","D. 180°"],ans:"C",exp:"Critical angle: when angle of refraction = 90° (light travels along the boundary). Beyond critical angle → total internal reflection."},
+    {year:2021,q:"An object 4cm tall is placed 20cm from a convex lens of focal length 10cm. The image distance is:",opts:["A. 10cm","B. 20cm","C. 30cm","D. 40cm"],ans:"B",exp:"1/f=1/v+1/u → 1/10=1/v+1/(-20) → 1/v=1/10−1/20=2/20−1/20=1/20 → v=20cm."},
+    {year:2020,q:"The efficiency of a machine (%) = (useful output / total input) ×",opts:["A. 10","B. 50","C. 100","D. 1000"],ans:"C",exp:"Efficiency (%) = (useful output energy/total input energy) × 100. A perfect machine = 100% efficient (no friction)."},
+    {year:2020,q:"Newton's Law of Gravitation: F is inversely proportional to:",opts:["A. Mass","B. r (distance)","C. r² (distance squared)","D. Velocity"],ans:"C",exp:"F = Gm₁m₂/r². Force is inversely proportional to the SQUARE of the distance between the centres of the two bodies."},
+    {year:2019,q:"A transformer has 500 turns primary and 2500 turns secondary. If Vp=240V, Vs=",opts:["A. 48V","B. 240V","C. 1200V","D. 2500V"],ans:"C",exp:"Vs/Vp=Ns/Np → Vs=240×(2500/500)=240×5=1200V. Step-up transformer."},
+    {year:2019,q:"The latent heat of vaporisation is heat required to:",opts:["A. Raise temperature by 1°C","B. Convert solid to liquid","C. Convert liquid to gas at constant temperature","D. Lower the temperature"],ans:"C",exp:"Latent heat of vaporisation: heat needed to convert 1kg of liquid to gas at constant temperature. No temperature change occurs during the phase change."},
+    {year:2018,q:"Light travels fastest in:",opts:["A. Water","B. Glass","C. Vacuum","D. Air"],ans:"C",exp:"Light travels fastest in vacuum (3×10⁸ m/s). It slows down in all other media: air (slightly), water (75%), glass (67% of c)."},
+    {year:2018,q:"Which instrument measures atmospheric pressure?",opts:["A. Manometer","B. Barometer","C. Thermometer","D. Hygrometer"],ans:"B",exp:"A barometer measures atmospheric pressure. A manometer measures gas/liquid pressure. Standard atmosphere ≈ 101.3 kPa = 760 mmHg."},
+    {year:2017,q:"The SI unit of inductance is the:",opts:["A. Farad","B. Ohm","C. Henry","D. Weber"],ans:"C",exp:"Inductance is measured in Henrys (H). Capacitance = Farad. Resistance = Ohm. Magnetic flux = Weber."},
+    {year:2017,q:"At absolute zero (0 K), the kinetic energy of gas molecules is:",opts:["A. Maximum","B. Average","C. Minimum (zero)","D. Constant"],ans:"C",exp:"At absolute zero (0 K = −273.15°C), molecular motion theoretically stops completely — minimum possible kinetic energy."}
+  ],
+  economics:[
+    {year:2024,q:"Demand for a good falls when consumer income rises. This good is a:",opts:["A. Normal good","B. Inferior good","C. Public good","D. Luxury good"],ans:"B",exp:"Inferior goods: demand falls as income rises (people switch to better alternatives). Example: public transport (replaced by private cars)."},
+    {year:2024,q:"The quantity theory of money: MV = PQ means:",opts:["A. Money supply × Velocity = Price level × Output","B. Monetary value = Production quantity","C. Money = Velocity + Price","D. Market value × Price = Quantity"],ans:"A",exp:"MV = PQ: Money supply (M) × Velocity of circulation (V) = Price level (P) × Real output (Q). Implies: more money → inflation."},
+    {year:2024,q:"Which of the following is a contractionary fiscal policy?",opts:["A. Reducing taxes","B. Increasing government spending","C. Increasing taxes and cutting spending","D. Lowering interest rates"],ans:"C",exp:"Contractionary fiscal policy reduces AD: raise taxes (reduces disposable income) + cut spending. Used to reduce inflation."},
+    {year:2023,q:"The velocity of money refers to:",opts:["A. How fast prices rise","B. How many times a unit of currency is spent in a period","C. The speed of inflation","D. GDP growth rate"],ans:"B",exp:"Velocity of money: the average number of times a unit of currency is used to purchase goods/services in a period. MV=PQ."},
+    {year:2023,q:"Comparative advantage means a country should produce goods:",opts:["A. That it produces fastest","B. At lower opportunity cost than others","C. That others cannot produce","D. In largest quantity"],ans:"B",exp:"Comparative advantage (Ricardo): produce goods where you have lower opportunity cost — even if another country is absolutely better at everything."},
+    {year:2023,q:"Oligopoly firms often practice:",opts:["A. Perfect competition","B. Price discrimination only","C. Price leadership and collusion","D. Full information sharing"],ans:"C",exp:"Oligopolies (few dominant firms): commonly practice price leadership (follow dominant firm) or collusion (cartels) to control prices."},
+    {year:2022,q:"The market demand curve is derived by:",opts:["A. Multiplying individual demand curves","B. Horizontal summation of individual demand curves","C. Adding price levels","D. Averaging prices"],ans:"B",exp:"Market demand = horizontal summation (adding quantities demanded at each price level) of all individual demand curves."},
+    {year:2022,q:"Which is an example of inelastic supply?",opts:["A. Factory-manufactured goods","B. Agricultural produce (short-term)","C. Electronic devices","D. Clothing"],ans:"B",exp:"Agricultural produce has inelastic supply in the short run — cannot quickly increase crop output when prices rise (takes a growing season)."},
+    {year:2022,q:"The balance of payments current account records:",opts:["A. Long-term capital flows","B. Trade in goods, services, income, and transfers","C. Stock market transactions","D. FDI only"],ans:"B",exp:"Current account: trade in goods (visible), services (invisible), income (dividends, wages), and current transfers (remittances, aid)."},
+    {year:2021,q:"Which institution oversees the Nigerian stock exchange?",opts:["A. CBN","B. FIRS","C. SEC (Securities and Exchange Commission)","D. EFCC"],ans:"C",exp:"The SEC (Securities and Exchange Commission) regulates the Nigerian capital market and the Nigerian Exchange Group (NGX)."},
+    {year:2021,q:"When MPC = 0.75, the multiplier is:",opts:["A. 0.75","B. 1.33","C. 3","D. 4"],ans:"D",exp:"Multiplier = 1/(1−MPC) = 1/(1−0.75) = 1/0.25 = 4."},
+    {year:2021,q:"Deforestation is an example of:",opts:["A. A positive externality","B. A negative externality","C. Market equilibrium","D. Consumer surplus"],ans:"B",exp:"Deforestation creates negative externalities — costs imposed on third parties (reduced rainfall, soil erosion, biodiversity loss) not paid by those responsible."},
+    {year:2020,q:"A nation's trade deficit means:",opts:["A. Exports > Imports","B. Imports > Exports","C. Budget revenue > spending","D. GDP falling"],ans:"B",exp:"Trade deficit: imports exceed exports. Country pays out more than it earns from trade. Nigeria often has this due to oil and manufactured imports."},
+    {year:2020,q:"The term 'moral hazard' refers to:",opts:["A. Corrupt politicians","B. Risky behaviour encouraged by insurance/protection","C. High inflation","D. Market failure"],ans:"B",exp:"Moral hazard: when people take more risks because they are protected from consequences (e.g. insured person drives recklessly)."},
+    {year:2019,q:"Which of the following best defines 'scarcity' in economics?",opts:["A. Having no money","B. Resources being insufficient relative to unlimited wants","C. Prices being too high","D. Low production"],ans:"B",exp:"Scarcity: the fundamental economic problem — unlimited human wants but limited resources. Every society must answer: WHAT, HOW, and FOR WHOM to produce."},
+    {year:2019,q:"Price elasticity of supply (PES) > 1 means supply is:",opts:["A. Inelastic","B. Perfectly inelastic","C. Elastic","D. Unit elastic"],ans:"C",exp:"PES > 1: supply is elastic — quantity supplied changes proportionally MORE than the price change. Possible when producers can easily increase output."},
+    {year:2018,q:"Which of these is a transfer payment?",opts:["A. Wages","B. Government salaries","C. Unemployment benefits","D. Business profits"],ans:"C",exp:"Transfer payments: one-way government payments not in exchange for goods/services. Unemployment benefits, pensions, student loans are examples."},
+    {year:2018,q:"The Lorenz curve is used to show:",opts:["A. Economic growth","B. Income inequality distribution","C. Supply and demand","D. Price changes"],ans:"B",exp:"The Lorenz curve plots the cumulative share of income against the cumulative share of population. Gini coefficient is derived from it."},
+    {year:2017,q:"Which market structure has the most sellers?",opts:["A. Monopoly","B. Oligopoly","C. Monopolistic competition","D. Perfect competition"],ans:"D",exp:"Perfect competition: very many small sellers with identical products. Monopoly = 1. Oligopoly = few. Monopolistic = many but differentiated products."},
+    {year:2017,q:"'Infant industry argument' justifies:",opts:["A. Free trade","B. Devaluation","C. Tariffs to protect new industries","D. Privatisation"],ans:"C",exp:"Infant industry argument: new domestic industries need tariff protection to develop until they can compete internationally. Used to justify protectionism."}
+  ]
+};
+
+let currentSubject='english',score=0,total=0;
+
+function renderQuestions(){
+  const data=UNN_DATA[currentSubject]||[];
+  document.getElementById('qCount').textContent=data.length+' questions';
+  document.getElementById('questionsContainer').innerHTML=data.map((q,i)=>`
+    <div class="question-card" id="qc-${i}">
+      <div class="q-meta"><span class="q-num">Q${i+1}</span><span class="q-year">UNN ${q.year}</span></div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${q.opts.map((opt,oi)=>{
+        const letter=['A','B','C','D'][oi];
+        return `<button class="option-btn" onclick="checkAnswer(this,'${letter}','${q.ans}',${i},'${q.exp.replace(/'/g,"\\'")}')"><span class="opt-letter">${letter}</span>${opt.replace(/^[A-D]\.\s*/,'')}</button>`;
+      }).join('')}</div>
+      <div class="explanation" id="exp-${i}"></div>
+    </div>`).join('');
+}
+
+function checkAnswer(btn,selected,correct,idx,exp){
+  const card=document.getElementById(`qc-${idx}`);
+  card.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
+  if(selected===correct){btn.classList.add('correct');score++;total++;window.showToast&&showToast('✅ Correct!');}
+  else{btn.classList.add('wrong');total++;card.querySelectorAll('.option-btn').forEach(b=>{if(b.querySelector('.opt-letter').textContent.trim()===correct)b.classList.add('correct');});window.showToast&&showToast('❌ Incorrect.');}
+  document.getElementById(`exp-${idx}`).innerHTML='<strong>✏️ Explanation:</strong> '+exp;
+  document.getElementById(`exp-${idx}`).classList.add('show');
+  document.getElementById('scoreNum').textContent=score+'/'+total;
+}
+
+function resetScore(){score=0;total=0;document.getElementById('scoreNum').textContent='0/0';window.showToast&&showToast('🔄 Score reset!');}
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    currentSubject=this.getAttribute('data-subject');
+    document.getElementById('qTitle').textContent=this.textContent;
+    renderQuestions();
+  });
+});
+renderQuestions();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/supabase.js"></script>
+<script src="/js/shared-layout.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

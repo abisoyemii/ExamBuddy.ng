@@ -1,0 +1,28 @@
+PASSED: 21/21
+  OK  /
+  OK  /about/
+  OK  /waec/
+  OK  /jamb/
+  OK  /neco/
+  OK  /nysc/
+  OK  /ielts/
+  OK  /sat/
+  OK  /blog/
+  OK  /cutoff-marks/
+  OK  /past-questions/
+  OK  /study-resources/
+  OK  /contact/
+  OK  /privacy/
+  OK  /disclaimer/
+  OK  /exam-portals/
+  OK  /pq-waec/
+  OK  /pq-jamb/
+  OK  /pq-neco/
+  OK  /pq-nabteb/
+  OK  /login/
+
+FAILED: 0/21
+
+SITEMAP: 37 URLs | dupes=[] | wrong_domain=False
+ROBOTS: sitemap_ok=True
+404 PAGE: exists
