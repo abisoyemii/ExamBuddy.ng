@@ -23,13 +23,13 @@
     .sidebar-section { padding: 20px; border-bottom: 1px solid #E2E8F0; }
     .sidebar-section:last-child { border-bottom: none; }
     .sidebar-section h4 { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #94A3B8; margin-bottom: 12px; }
-    .filter-btn { display: block; width: 100%; text-align: left; padding: 9px 14px; border-radius: 8px; font-size: .88rem; font-weight: 600; color: #475569; cursor: pointer; transition: all .18s; border: none; background: none; font-family: inherit; }
-    .filter-btn:hover { background: #F1F5F9; color: #0A2463; }
-    .filter-btn.active { background: #0A2463; color: #fff; }
+    .filter-btn, .fb { display: block; width: 100%; text-align: left; padding: 9px 14px; border-radius: 8px; font-size: .88rem; font-weight: 600; color: #475569; cursor: pointer; transition: all .18s; border: none; background: none; font-family: inherit; }
+    .filter-btn:hover, .fb:hover { background: #F1F5F9; color: #0A2463; }
+    .filter-btn.active, .fb.active { background: #0A2463; color: #fff; }
     .year-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 6px; }
-    .year-btn { padding: 7px; border-radius: 8px; font-size: .82rem; font-weight: 700; color: #475569; cursor: pointer; transition: all .18s; border: 1px solid #E2E8F0; background: #fff; text-align: center; }
-    .year-btn:hover { border-color: #0A2463; color: #0A2463; }
-    .year-btn.active { background: #059669; border-color: #059669; color: #fff; }
+    .year-btn, .yb { padding: 7px; border-radius: 8px; font-size: .82rem; font-weight: 700; color: #475569; cursor: pointer; transition: all .18s; border: 1px solid #E2E8F0; background: #fff; text-align: center; }
+    .year-btn:hover, .yb:hover { border-color: #0A2463; color: #0A2463; }
+    .year-btn.active, .yb.active { background: #059669; border-color: #059669; color: #fff; }
     .score-box { background: linear-gradient(135deg,#0A2463,#1A3A6B); border-radius: 14px; padding: 20px; text-align: center; color: #fff; }
     .score-box .s-num { font-size: 2.2rem; font-weight: 800; color: #10B981; }
     .score-box .s-lbl { font-size: .78rem; color: rgba(255,255,255,.65); margin-top: 2px; }
@@ -805,7 +805,7 @@ const NECO_DATA = {
     { year:2020, q:"Solve: 4x² - 36 = 0", opts:["A. x = ±2","B. x = ±3","C. x = ±4","D. x = ±6"], ans:"B", exp:"4x² = 36 → x² = 9 → x = ±3." },
     { year:2020, q:"A triangle has a base of 10cm and height of 8cm. Find its area.", opts:["A. 40cm²","B. 80cm²","C. 20cm²","D. 60cm²"], ans:"A", exp:"Area of triangle = ½ × base × height = ½ × 10 × 8 = 40cm²." },
     { year:2020, q:"Express 0.000385 in standard form.", opts:["A. 3.85 × 10⁻⁴","B. 38.5 × 10⁻⁵","C. 3.85 × 10⁻³","D. 0.385 × 10⁻³"], ans:"A", exp:"Move decimal 4 places right: 3.85 × 10⁻⁴. Standard form requires one digit before the decimal point." },
-    { year:2020, q:"If P = {1,2,3,4,5} and Q = {3,4,5,6,7},
+    { year:2020, q:"If P = {1,2,3,4,5} and Q = {3,4,5,6,7}, find P ∩ Q.", opts:["A. {3,4,5}","B. {1,2,6,7}","C. {1,2,3,4,5}","D. {3,4,5,6,7}"], ans:"A", exp:"The intersection contains the elements common to both sets: 3, 4, and 5." },
     { year:2020, q:"The bearing of B from A is 060°. What is the bearing of A from B?", opts:["A. 120°","B. 240°","C. 300°","D. 180°"], ans:"B", exp:"The back bearing = 060° + 180° = 240°." },
     { year:2019, q:"Evaluate: ³√216", opts:["A. 4","B. 6","C. 8","D. 12"], ans:"B", exp:"³√216 = 6 because 6³ = 6×6×6 = 216." },
     { year:2019, q:"The angles of a triangle are in the ratio 1:2:3. Find the largest angle.", opts:["A. 30°","B. 60°","C. 90°","D. 120°"], ans:"C", exp:"Ratio sum = 1+2+3 = 6. Total angles = 180°. Largest = (3/6)×180° = 90°." },
@@ -1160,17 +1160,44 @@ const NECO_DATA = {
   ],
 };
 
+const SUBJECT_ALIASES = {
+  'English Language': 'english',
+  'Mathematics': 'mathematics',
+  'Biology': 'biology',
+  'Chemistry': 'chemistry',
+  'Physics': 'physics',
+  'Economics': 'economics',
+  'Government': 'government',
+  'Agricultural Science': 'agric',
+  'Agric Science': 'agric',
+  'English': 'english'
+};
+
+async function loadNecoQuestionData() {
+  try {
+    const response = await fetch('/necoQuestions.json');
+    if (!response.ok) throw new Error('Unable to load NECO question data');
+    const payload = await response.json();
+    Object.entries(payload).forEach(([subjectName, items]) => {
+      if (!Array.isArray(items)) return;
+      const key = SUBJECT_ALIASES[subjectName] || subjectName.toLowerCase().replace(/[^a-z0-9]+/g, '');
+      if (!key) return;
+      NECO_DATA[key] = [...(NECO_DATA[key] || []), ...items.map(q => ({ ...q, year: Number(q.year) }))];
+    });
+    if (typeof renderQuestions === 'function') renderQuestions();
+  } catch (err) {
+    console.warn('NECO JSON fallback active:', err);
+  }
+}
 
 const YEARS=[2024,2023,2022,2021,2020,2019,2018,2017,2016,2015];
 let currentSubject='english',currentYear='all',score=0,total=0;
-function buildYearGrid(){const g=document.getElementById('yearGrid');g.innerHTML=`<button class="yb active" onclick="setYear('all',this)">All</button>`;YEARS.forEach(y=>{g.innerHTML+=`<button class="yb" onclick="setYear(${y},this)">${y}</button>`});}
+function buildYearGrid(){const g=document.getElementById('yearGrid');g.innerHTML=`<button type="button" class="yb active" data-year="all" onclick="setYear('all',this)">All</button>`;YEARS.forEach(y=>{g.innerHTML+=`<button type="button" class="yb" data-year="${y}" onclick="setYear(${y},this)">${y}</button>`});}
 function setSubject(s,el){currentSubject=s;document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));el.classList.add('active');document.getElementById('qTitle').textContent=el.textContent;renderQuestions();}
 function setYear(y,el){currentYear=y;document.querySelectorAll('.yb').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderQuestions();}
-function renderQuestions(){const data=NECO_DATA[currentSubject]||[];const filtered=currentYear==='all'?data:data.filter(q=>q.year===currentYear);const c=document.getElementById('questionsContainer');const ct=document.getElementById('qCount');if(!filtered.length){c.innerHTML=`<div style="text-align:center;padding:60px 20px;color:var(--text-muted)"><div style="font-size:2.5rem;margin-bottom:12px">🔍</div><p>No questions for this filter.</p></div>`;ct.textContent='0 questions';return;}ct.textContent=`${filtered.length} question${filtered.length>1?'s':''}`;c.innerHTML=filtered.map((q,i)=>`<div class="qcard" id="qc${i}"><div class="qm"><span class="qn">Q${i+1}</span><span class="qyr">NECO ${q.year}</span></div><div class="qt">${q.q}</div><div class="opts">${q.opts.map((o,oi)=>{const l=['A','B','C','D'][oi];return`<button class="ob" onclick="ca(this,'${l}','${q.ans}',${i},'${q.exp.replace(/'/g,"\\'")}')"><span class="ol">${l}</span>${o.substring(3)}</button>`}).join('')}</div><div class="exp" id="ex${i}"></div></div>`).join('');}
-function ca(btn,sel,cor,idx,exp){const card=document.getElementById(`qc${idx}`);const btns=card.querySelectorAll('.ob');btns.forEach(b=>b.disabled=true);if(sel===cor){btn.classList.add('correct');score++;total++;window.showToast&&showToast('✅ Correct!');}else{btn.classList.add('wrong');total++;btns.forEach(b=>{if(b.querySelector('.ol').textContent.trim()===cor)b.classList.add('correct');});window.showToast&&showToast('❌ Incorrect.');}document.getElementById(`ex${idx}`).innerHTML=`<strong>✏️ Explanation:</strong> ${exp}`;document.getElementById(`ex${idx}`).classList.add('show');document.getElementById('scoreNum').textContent=`${score}/${total}`;}
+function renderQuestions(){const data=NECO_DATA[currentSubject]||[];const filtered=currentYear==='all'?data:data.filter(q=>q.year===currentYear);const c=document.getElementById('questionsContainer');const ct=document.getElementById('qCount');if(!filtered.length){c.innerHTML=`<div style="text-align:center;padding:60px 20px;color:var(--text-muted)"><div style="font-size:2.5rem;margin-bottom:12px">🔍</div><p>No questions for this filter.</p></div>`;ct.textContent='0 questions';return;}ct.textContent=`${filtered.length} question${filtered.length>1?'s':''}`;c.innerHTML=filtered.map((q,i)=>`<div class="question-card" id="qcard-${i}"><div class="q-meta"><span class="q-num">Q${i+1}</span><span class="q-year">NECO ${q.year}</span></div><div class="q-text">${q.q}</div><div class="options">${q.opts.map((o,oi)=>{const l=['A','B','C','D'][oi];return`<button class="option-btn" onclick="checkAnswer(this,'${l}','${q.ans}',${i},'${q.exp.replace(/'/g,"\\'")}')"><span class="opt-letter">${l}</span>${o.substring(3)}</button>`}).join('')}</div><div class="explanation" id="exp-${i}"></div></div>`).join('');}
+function checkAnswer(btn,sel,cor,idx,exp){const card=document.getElementById(`qcard-${idx}`);const btns=card.querySelectorAll('.option-btn');btns.forEach(b=>b.disabled=true);if(sel===cor){btn.classList.add('correct');score++;total++;window.showToast&&showToast('✅ Correct!');}else{btn.classList.add('wrong');total++;btns.forEach(b=>{if(b.querySelector('.opt-letter').textContent.trim()===cor)b.classList.add('correct');});window.showToast&&showToast('❌ Incorrect — see explanation.');}document.getElementById(`exp-${idx}`).innerHTML=`<strong>✏️ Explanation:</strong> ${exp}`;document.getElementById(`exp-${idx}`).classList.add('show');document.getElementById('scoreNum').textContent=`${score}/${total}`;}
 function resetScore(){score=0;total=0;document.getElementById('scoreNum').textContent='0/0';window.showToast&&showToast('🔄 Score reset!');}
-buildYearGrid();renderQuestions();document.querySelectorAll('.fb').forEach(btn=>{btn.addEventListener('click',function(){setSubject(this.getAttribute('data-subject'),this);});});
-
 
 /* ── Save result to dashboard history ── */
 function saveToHistory(examName, total, correct, wrong, skipped, pct, subjectMap, timerUsed) {
@@ -1331,7 +1358,7 @@ function renderCBTQuestion() {
       <div class="cbt-q-meta">
         <span class="cbt-q-num">Q${idx + 1}</span>
         <span class="cbt-q-num" style="color:#7C3AED;background:rgba(124,58,237,.1);">${q.subjectName}</span>
-        <span class="cbt-q-year">JAMB ${q.year}</span>
+        <span class="cbt-q-year">NECO ${q.year}</span>
       </div>
       <div class="cbt-q-text">${q.q}</div>
       <div class="cbt-options">
@@ -1582,7 +1609,7 @@ function showResults() {
     <div class="cbt-rs-box rsb-red"><div class="rsb-val">${wrong}</div><div class="rsb-lbl">Wrong Answers</div></div>
     <div class="cbt-rs-box rsb-gold"><div class="rsb-val">${skipped}</div><div class="rsb-lbl">Unanswered</div></div>
     <div class="cbt-rs-box rsb-blue"><div class="rsb-val">${pct}%</div><div class="rsb-lbl">Percentage</div></div>
-    <div class="cbt-rs-box rsb-green"><div class="rsb-val">${score}</div><div class="rsb-lbl">JAMB Score (scaled)</div></div>
+    <div class="cbt-rs-box rsb-green"><div class="rsb-val">${score}</div><div class="rsb-lbl">NECO Score</div></div>
   `;
 
   // Per-subject breakdown
@@ -1711,106 +1738,18 @@ function clearCBTState() {
 }
 
 /* ──────────────────────────────────────────
-   LEGACY PRACTICE MODE (non-CBT)
-   Preserved from original code
-────────────────────────────────────────── */
-const YEARS = [2024,2023,2022,2021,2020,2019,2018,2017,2016,2015];
-let currentSubject = 'english';
-let currentYear    = 'all';
-let score          = 0;
-let total          = 0;
-
-function buildYearGrid() {
-  const grid = document.getElementById('yearGrid');
-  grid.innerHTML = `<button class="year-btn active" data-year="all" onclick="setYear('all',this)">All</button>`;
-  YEARS.forEach(y => {
-    grid.innerHTML += `<button class="year-btn" data-year="${y}" onclick="setYear(${y},this)">${y}</button>`;
-  });
-}
-
-function setSubject(sub, el) {
-  currentSubject = sub;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('qTitle').textContent = el.textContent;
-  renderQuestions();
-}
-
-function setYear(yr, el) {
-  currentYear = yr;
-  document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-  renderQuestions();
-}
-
-function renderQuestions() {
-  const data     = NECO_DATA[currentSubject] || [];
-  const filtered = currentYear === 'all' ? data : data.filter(q => q.year === currentYear);
-  const container = document.getElementById('questionsContainer');
-  const countEl   = document.getElementById('qCount');
-
-  if (!filtered.length) {
-    container.innerHTML = `<div style="text-align:center;padding:60px 20px;color:var(--text-muted)"><div style="font-size:2.5rem;margin-bottom:12px">🔍</div><p>No questions for this filter.</p></div>`;
-    countEl.textContent = '0 questions';
-    return;
-  }
-
-  countEl.textContent = `${filtered.length} question${filtered.length > 1 ? 's' : ''}`;
-  container.innerHTML = filtered.map((q, i) => `
-    <div class="question-card" id="qcard-${i}">
-      <div class="q-meta">
-        <span class="q-num">Q${i+1}</span>
-        <span class="q-year">JAMB ${q.year}</span>
-      </div>
-      <div class="q-text">${q.q}</div>
-      <div class="options">
-        ${q.opts.map((opt,oi) => {
-          const letter = ['A','B','C','D'][oi];
-          return `<button class="option-btn" onclick="checkAnswer(this,'${letter}','${q.ans}',${i},'${q.exp.replace(/'/g,"\\'")}')">
-            <span class="opt-letter">${letter}</span>
-            ${opt.substring(3)}
-          </button>`;
-        }).join('')}
-      </div>
-      <div class="explanation" id="exp-${i}"></div>
-    </div>
-  `).join('');
-}
-
-function checkAnswer(btn, selected, correct, idx, exp) {
-  const card = document.getElementById(`qcard-${idx}`);
-  const buttons = card.querySelectorAll('.option-btn');
-  buttons.forEach(b => b.disabled = true);
-  if (selected === correct) {
-    btn.classList.add('correct'); score++; total++;
-    window.showToast && showToast('✅ Correct!');
-  } else {
-    btn.classList.add('wrong'); total++;
-    buttons.forEach(b => { if (b.querySelector('.opt-letter').textContent.trim() === correct) b.classList.add('correct'); });
-    window.showToast && showToast('❌ Incorrect — see explanation.');
-  }
-  document.getElementById(`exp-${idx}`).innerHTML = `<strong>✏️ Explanation:</strong> ${exp}`;
-  document.getElementById(`exp-${idx}`).classList.add('show');
-  document.getElementById('scoreNum').textContent = `${score}/${total}`;
-}
-
-function resetScore() {
-  score = 0; total = 0;
-  document.getElementById('scoreNum').textContent = '0/0';
-  window.showToast && showToast('🔄 Score reset!');
-}
-
-/* ──────────────────────────────────────────
    INIT
 ────────────────────────────────────────── */
 (function init() {
   buildYearGrid();
   renderQuestions();
-  document.querySelectorAll('.filter-btn').forEach(btn => {
+  document.querySelectorAll('.fb').forEach(btn => {
     btn.addEventListener('click', function() {
       setSubject(this.getAttribute('data-subject'), this);
     });
   });
+
+  loadNecoQuestionData();
 
   // Enter key for jump input
   document.addEventListener('keydown', function(e) {
